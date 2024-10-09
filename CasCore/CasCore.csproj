@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DouglasDwyer.JitIlVerification" Version="1.0.0" />
-    <PackageReference Include="Mono.Cecil" Version="0.11.5" />
+    <PackageReference Include="DouglasDwyer.JitIlVerification" Version="0.1.0" />
+    <PackageReference Include="Mono.Cecil" Version="0.11.6" />
   </ItemGroup>
-
 </Project>

@@ -27,18 +27,19 @@ internal struct MethodBodyRewriter
         _copyPosition = 0;
         _newPosition = 0;
 
-        Advance();
+        Advance(false);
     }
 
-    public void Advance()
+    public void Advance(bool addOriginal)
     {
-        CopyInstructionsToAdvance();
+        ProcessInstructionsToAdvance(addOriginal);
         SetNextInstruction();
         _newPosition = _newInstructions.Count;
     }
 
     public void Insert(Instruction instruction)
     {
+        instruction.Offset = int.MaxValue;
         _newInstructions.Add(instruction);
     }
 
@@ -68,10 +69,21 @@ internal struct MethodBodyRewriter
 
     private Instruction? GetNewBranchTarget(Instruction? instruction)
     {
-        return instruction is not null ? _offsetMap[instruction.Offset] : null;
+        if (instruction is null)
+        {
+            return null;
+        }
+        else if (instruction.Offset == int.MaxValue)
+        {
+            return instruction;
+        }
+        else
+        {
+            return _offsetMap[instruction.Offset];
+        }
     }
 
-    private void CopyInstructionsToAdvance()
+    private void ProcessInstructionsToAdvance(bool addOriginal)
     {
         var branchTargetInstruction = _newPosition == _newInstructions.Count ? Method.Body.Instructions[_copyPosition] : _newInstructions[_newPosition];
 
@@ -80,7 +92,12 @@ internal struct MethodBodyRewriter
             var oldInstruction = Method.Body.Instructions[_copyPosition];
             SimplifyMacro(oldInstruction);
             _offsetMap[oldInstruction.Offset] = branchTargetInstruction;
-            _newInstructions.Add(oldInstruction);
+            
+            if (addOriginal)
+            {
+                _newInstructions.Add(oldInstruction);
+            }
+            
             _copyPosition += 1;
         }
     }

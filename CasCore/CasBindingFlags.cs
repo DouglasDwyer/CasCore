@@ -7,11 +7,8 @@ public enum CasBindingFlags
     DeclaredOnly = 2,
     Instance = 4,
     Static = 8,
-    Public = 16,
-    NonPublic = 32,
     Field = 64,
     Constructor = 128,
     Method = 256,
-    Member = Field | Constructor | Method | Static | Instance,
-    All = Public | NonPublic | Member
+    All = Field | Constructor | Method | Static | Instance
 }
