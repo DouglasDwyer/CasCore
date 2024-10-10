@@ -1,5 +1,6 @@
 ﻿using Mono.Cecil;
 using Mono.Cecil.Cil;
+using System.Diagnostics;
 
 namespace DouglasDwyer.CasCore;
 
@@ -44,7 +45,22 @@ internal struct GuardWriter
     public FieldReference GetAccessibilityConstant(MethodReference method)
     {
         var result = AddGuardField(method);
+
+        if (method.ContainsGenericParameter || method.DeclaringType.ContainsGenericParameter)
+        {
+            if (method.FullName.Contains("ConcurrentDictionary"))
+            {
+                Debugger.Break();
+            }
+            method = method.GetElementMethod();
+
+            _il.Append(_il.Create(OpCodes.Ldc_I4_0));
+            _il.Append(_il.Create(OpCodes.Stsfld, result));
+            return result;
+        }
+
         _il.Append(_il.Create(OpCodes.Ldtoken, method));
+        _il.Append(_il.Create(OpCodes.Ldtoken, method.DeclaringType));
         _il.Append(_il.Create(OpCodes.Call, _references.CanCallAlways));
         _il.Append(_il.Create(OpCodes.Stsfld, result));
         return result;

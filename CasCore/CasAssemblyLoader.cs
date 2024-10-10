@@ -2,6 +2,7 @@
 using DouglasDwyer.JitIlVerification;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
+using Mono.Cecil.Rocks;
 using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Reflection;
@@ -43,10 +44,10 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return CanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle));
     }
 
-    public static bool CanCallAlways(RuntimeMethodHandle handle)
+    public static bool CanCallAlways(RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
         var assembly = Assembly.GetCallingAssembly();
-        var method = MethodBase.GetMethodFromHandle(handle)!;
+        var method = MethodBase.GetMethodFromHandle(handle, type)!;
         if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
         {
             var virtualMethod = method.IsVirtual;
@@ -59,15 +60,15 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     [StackTraceHidden]
-    public static void AssertCanAccess(RuntimeFieldHandle handle)
+    public static void AssertCanAccess(RuntimeFieldHandle handle, RuntimeTypeHandle type)
     {
-        AssertCanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle));
+        AssertCanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle, type));
     }
 
     [StackTraceHidden]
-    public static void AssertCanCall(object? obj, RuntimeMethodHandle handle)
+    public static void AssertCanCall(object? obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
-        AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle)!);
+        AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
     [StackTraceHidden]
@@ -130,7 +131,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     private static bool SameLoadContext(Assembly assembly, MemberInfo member)
     {
-        return AssemblyLoadContext.GetLoadContext(assembly) == AssemblyLoadContext.GetLoadContext(member.DeclaringType!.Assembly);
+        return AssemblyLoadContext.GetLoadContext(assembly) == AssemblyLoadContext.GetLoadContext(member.Module.Assembly);
     }
 
     private void PatchMethod(MethodDefinition method, int id, ImportedReferences references)
@@ -206,6 +207,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         var branchTarget = Instruction.Create(OpCodes.Nop);
         rewriter.Insert(Instruction.Create(OpCodes.Brtrue, branchTarget));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, target));
+        rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, target.DeclaringType));
         rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanAccess));
         rewriter.Insert(branchTarget);
         rewriter.Advance(true);
@@ -253,6 +255,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
 
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, rewriter.Method.Module.ImportReference(target)));
+        rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, rewriter.Method.Module.ImportReference(target.DeclaringType)));
         rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanCall));
         rewriter.Insert(Instruction.Create(OpCodes.Dup));
 
@@ -286,7 +289,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
         if (instruction.OpCode.Code == Code.Callvirt && target.HasThis)
         {
-            PatchVirtualMethod(ref rewriter, ref guardWriter, target, references);
+            //PatchVirtualMethod(ref rewriter, ref guardWriter, target, references);
         }
         else
         {
@@ -313,6 +316,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
         rewriter.Insert(Instruction.Create(OpCodes.Dup));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, rewriter.Method.Module.ImportReference(target)));
+        rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, rewriter.Method.Module.ImportReference(target.DeclaringType)));
         rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanCall));
 
         foreach (var local in locals)
@@ -331,6 +335,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Insert(Instruction.Create(OpCodes.Brtrue, branchTarget));
         rewriter.Insert(Instruction.Create(OpCodes.Ldnull));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, target));
+        rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, target.DeclaringType));
         rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanCall));
         rewriter.Insert(branchTarget);
     }
@@ -339,10 +344,18 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     {
         return target.Parameters.Select(x => {
             var parameterType = x.ParameterType;
-            if (parameterType.IsGenericParameter)
+            if (parameterType is GenericParameter generic)
             {
-                var genericMethod = (GenericInstanceMethod)target;
-                parameterType = genericMethod.GenericArguments[genericMethod.ElementMethod.GenericParameters.IndexOf((GenericParameter)parameterType)];
+                if (generic.Owner is MethodReference)
+                {
+                    var genericMethod = (GenericInstanceMethod)target;
+                    parameterType = genericMethod.GenericArguments[generic.Position];
+                }
+                else
+                {
+                    var genericType = (GenericInstanceType)target.DeclaringType;
+                    parameterType = genericType.GenericArguments[generic.Position];
+                }
             }
 
             return new VariableDefinition(method.Module.ImportReference(parameterType));
@@ -445,11 +458,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     {
         if (assemblyName is null)
         {
-            return $"Assembly does not have permission to access {member}.";
+            return $"Assembly does not have permission to access {member} of {member.DeclaringType}.";
         }
         else
         {
-            return $"Assembly {assemblyName} does not have permission to access {member}.";
+            return $"Assembly {assemblyName} does not have permission to access {member} of {member.DeclaringType}.";
         }
     }
 

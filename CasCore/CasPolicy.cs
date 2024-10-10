@@ -1,18 +1,26 @@
-﻿using System.Reflection;
-using System.Runtime.Loader;
+﻿using System.Collections.Immutable;
+using System.Reflection;
 
 namespace DouglasDwyer.CasCore;
 
 public sealed class CasPolicy
 {
+    private readonly ImmutableHashSet<MemberId> _accessibleMembers;
+
+    internal CasPolicy(ImmutableHashSet<MemberId> members)
+    {
+        _accessibleMembers = members;
+    }
+
     internal bool CanAccess(FieldInfo field)
     {
-        return true;
+        var memberId = new MemberId(field);
+        return _accessibleMembers.Contains(memberId);
     }
 
     internal bool CanAccess(MethodBase method)
     {
-        Console.WriteLine($"Check {method} ==> {method.DeclaringType.Name}");
-        return !method.DeclaringType.Name.Contains("Banned") && !method.Name.Contains("Banned") && !method.Name.Contains("MessageBox");
+        var memberId = new MemberId(method);
+        return _accessibleMembers.Contains(memberId);
     }
 }

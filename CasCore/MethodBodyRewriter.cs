@@ -19,7 +19,6 @@ internal struct MethodBodyRewriter
     public MethodBodyRewriter(MethodDefinition method)
     {
         Method = method;
-        Method.Body.SimplifyMacros();
         _newInstructions = new List<Instruction>(2 * Method.Body.Instructions.Count);
         _offsetMap = new Instruction?[Method.Body.CodeSize];
 
@@ -59,12 +58,10 @@ internal struct MethodBodyRewriter
 
         foreach (var handler in Method.Body.ExceptionHandlers)
         {
-            handler.HandlerStart = GetNewBranchTarget(handler.FilterStart);
+            handler.FilterStart = GetNewBranchTarget(handler.FilterStart);
             handler.HandlerStart = GetNewBranchTarget(handler.HandlerStart);
-            handler.HandlerStart = GetNewBranchTarget(handler.TryStart);
+            handler.TryStart = GetNewBranchTarget(handler.TryStart);
         }
-
-        Method.Body.OptimizeMacros();
     }
 
     private Instruction? GetNewBranchTarget(Instruction? instruction)
@@ -126,18 +123,6 @@ internal struct MethodBodyRewriter
     {
         switch (instruction.OpCode.Code)
         {
-            case Code.Ldarg_0:
-                ExpandMacro(instruction, OpCodes.Ldarg, Method.Parameters[0]);
-                break;
-            case Code.Ldarg_1:
-                ExpandMacro(instruction, OpCodes.Ldarg, Method.Parameters[1]);
-                break;
-            case Code.Ldarg_2:
-                ExpandMacro(instruction, OpCodes.Ldarg, Method.Parameters[2]);
-                break;
-            case Code.Ldarg_3:
-                ExpandMacro(instruction, OpCodes.Ldarg, Method.Parameters[3]);
-                break;
             case Code.Ldloc_0:
                 ExpandMacro(instruction, OpCodes.Ldloc, Method.Body.Variables[0]);
                 break;
@@ -179,39 +164,6 @@ internal struct MethodBodyRewriter
                 break;
             case Code.Stloc_S:
                 instruction.OpCode = OpCodes.Stloc;
-                break;
-            case Code.Ldc_I4_M1:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, -1);
-                break;
-            case Code.Ldc_I4_0:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, 0);
-                break;
-            case Code.Ldc_I4_1:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, 1);
-                break;
-            case Code.Ldc_I4_2:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, 2);
-                break;
-            case Code.Ldc_I4_3:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, 3);
-                break;
-            case Code.Ldc_I4_4:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, 4);
-                break;
-            case Code.Ldc_I4_5:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, 5);
-                break;
-            case Code.Ldc_I4_6:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, 6);
-                break;
-            case Code.Ldc_I4_7:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, 7);
-                break;
-            case Code.Ldc_I4_8:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, 8);
-                break;
-            case Code.Ldc_I4_S:
-                ExpandMacro(instruction, OpCodes.Ldc_I4, (int)(sbyte)instruction.Operand);
                 break;
             case Code.Br_S:
                 instruction.OpCode = OpCodes.Br;
