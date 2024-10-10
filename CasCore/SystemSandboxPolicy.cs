@@ -2588,6 +2588,7 @@ public static class SystemSandboxPolicy
             .Allow(new TypeBinding(typeof(System.Collections.Generic.KeyValuePair), CasBindingFlags.Public | CasBindingFlags.Member))
             .Allow(new TypeBinding(typeof(System.Collections.Generic.KeyValuePair<,>), CasBindingFlags.Public | CasBindingFlags.Member))
             .Allow(new TypeBinding(typeof(System.Collections.Generic.List<>), CasBindingFlags.Public | CasBindingFlags.Member))
+            .Allow(new TypeBinding(typeof(System.Collections.Generic.List<>.Enumerator), CasBindingFlags.Public | CasBindingFlags.Member))
             .Allow(new TypeBinding(typeof(System.Collections.Generic.Queue<>), CasBindingFlags.Public | CasBindingFlags.Member))
             .Allow(new TypeBinding(typeof(System.Collections.Generic.ReferenceEqualityComparer), CasBindingFlags.Public | CasBindingFlags.Member));
     }

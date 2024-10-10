@@ -429,7 +429,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     private static MethodBase GetTargetMethod(object? obj, MethodBase method)
     {
-        if (method is MethodInfo info && method.IsVirtual)
+        if (obj is not null && method is MethodInfo info && method.IsVirtual)
         {
             var objType = obj!.GetType();
             MethodInfo? targetMethod = null;
