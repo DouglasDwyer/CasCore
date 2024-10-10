@@ -1,8 +1,8 @@
 ﻿using DouglasDwyer.CasCore;
 using System.Collections.Immutable;
-using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Security;
 
 namespace CasCore;
@@ -13,6 +13,14 @@ public static class MethodShims
         typeof(MethodShims).GetMethods(BindingFlags.Public | BindingFlags.Static).Cast<MethodBase>().ToImmutableDictionary(GetOriginal, x => x);
 
     internal static IImmutableSet<RuntimeMethodHandle> ShimHandles { get; } = ShimMap.Select(x => x.Key.MethodHandle).ToImmutableHashSet();
+
+    [StaticShim(typeof(RuntimeHelpers))]
+    public static void InitializeArray(Array array, RuntimeFieldHandle fldHandle)
+    {
+        var field = FieldInfo.GetFieldFromHandle(fldHandle);
+        CasAssemblyLoader.AssertCanAccess(Assembly.GetCallingAssembly(), field);
+        RuntimeHelpers.InitializeArray(array, fldHandle);
+    }
 
     public static object? GetValue(FieldInfo target, object? obj)
     {
@@ -104,10 +112,26 @@ public static class MethodShims
 
     private static MethodBase GetOriginal(MethodBase method)
     {
+        var bindingFlags = BindingFlags.Public | BindingFlags.NonPublic;
         var parameters = method.GetParameters();
-        var targetType = parameters[0].ParameterType;
-        var bindingParams = parameters.Skip(1).Select(x => x.ParameterType).ToArray();
-        var result = targetType.GetMethod(method.Name, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, bindingParams);
+        Type targetType;
+        Type[] bindingParams;
+
+        var staticShimAttr = method.GetCustomAttribute<StaticShimAttribute>();
+        if (staticShimAttr is null)
+        {
+            targetType = parameters[0].ParameterType;
+            bindingParams = parameters.Skip(1).Select(x => x.ParameterType).ToArray();
+            bindingFlags |= BindingFlags.Instance;
+        }
+        else
+        {
+            targetType = staticShimAttr.Target;
+            bindingParams = parameters.Select(x => x.ParameterType).ToArray();
+            bindingFlags |= BindingFlags.Static;
+        }
+
+        var result = targetType.GetMethod(method.Name, bindingFlags, bindingParams);
 
         if (result is null)
         {
