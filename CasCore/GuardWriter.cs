@@ -1,6 +1,8 @@
 ﻿using Mono.Cecil;
 using Mono.Cecil.Cil;
+using Mono.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 
 namespace DouglasDwyer.CasCore;
 
@@ -46,17 +48,14 @@ internal struct GuardWriter
     {
         var result = AddGuardField(method);
 
-        if (method.ContainsGenericParameter || method.DeclaringType.ContainsGenericParameter)
+        if (method.ContainsGenericParameter)
         {
-            if (method.FullName.Contains("ConcurrentDictionary"))
-            {
-                Debugger.Break();
-            }
             method = method.GetElementMethod();
 
-            _il.Append(_il.Create(OpCodes.Ldc_I4_0));
-            _il.Append(_il.Create(OpCodes.Stsfld, result));
-            return result;
+            if (method.DeclaringType is GenericInstanceType git)
+            {
+                method = new OverriddenDeclaringTypeMethod(method, git.ElementType);
+            }
         }
 
         _il.Append(_il.Create(OpCodes.Ldtoken, method));
@@ -73,5 +72,54 @@ internal struct GuardWriter
         _type.Fields.Add(field);
         _fieldCount += 1;
         return field;
+    }
+
+    private sealed class OverriddenDeclaringTypeMethod : MethodReference
+    {
+        private MethodReference _method;
+        private TypeReference _overrideDeclaringType;
+
+        public override bool HasThis => _method.HasThis;
+
+        public override bool ExplicitThis => _method.ExplicitThis;
+
+        public override MethodCallingConvention CallingConvention => _method.CallingConvention;
+
+        public override bool HasParameters => _method.HasParameters;
+
+        public override Collection<ParameterDefinition> Parameters => _method.Parameters;
+
+        public override bool HasGenericParameters => _method.HasGenericParameters;
+
+        public override Collection<GenericParameter> GenericParameters => _method.GenericParameters;
+
+        public override bool IsGenericInstance => _method.IsGenericInstance;
+
+        public override bool ContainsGenericParameter => _method.ContainsGenericParameter;
+
+        public override string FullName => _method.FullName;
+
+        public override string Name => _method.Name;
+
+        public override bool IsDefinition => _method.IsDefinition;
+
+        public override MethodReturnType MethodReturnType => _method.MethodReturnType;
+
+        public override TypeReference DeclaringType => _overrideDeclaringType;
+
+        public override ModuleDefinition Module => _method.Module;
+
+        public OverriddenDeclaringTypeMethod(MethodReference method, TypeReference declaringType)
+            : base(method.Name, method.ReturnType)
+        {
+            _overrideDeclaringType = declaringType;
+            _method = method;
+            MetadataToken = method.MetadataToken;
+        }
+
+        public sealed override MethodReference GetElementMethod()
+        {
+            return _method.GetElementMethod();
+        }
     }
 }

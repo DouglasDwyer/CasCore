@@ -289,7 +289,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
         if (instruction.OpCode.Code == Code.Callvirt && target.HasThis)
         {
-            //PatchVirtualMethod(ref rewriter, ref guardWriter, target, references);
+            PatchVirtualMethod(ref rewriter, ref guardWriter, target, references);
         }
         else
         {
