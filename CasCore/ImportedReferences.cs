@@ -11,6 +11,7 @@ internal class ImportedReferences
     public required IImmutableDictionary<MethodDefinition, MethodReference> ShimmedMethods;
     public required MethodReference AssertCanAccess;
     public required MethodReference AssertCanCall;
+    public required MethodReference AssertCanCallConstrained;
     public required TypeReference BoolType;
     public required MethodReference CanAccess;
     public required MethodReference CanCallAlways;

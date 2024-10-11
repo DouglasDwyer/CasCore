@@ -9,7 +9,6 @@ using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Runtime.Loader;
 using System.Security;
 
@@ -24,6 +23,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     private static FieldInfo GenericInstanceTypeArguments { get; } = typeof(GenericInstanceType).GetField("arguments", BindingFlags.NonPublic | BindingFlags.Instance)!;
 
     private CasPolicy _policy;
+
     public CasAssemblyLoader(CasPolicy policy) : base() {
         _policy = policy;
     }
@@ -73,6 +73,12 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     [StackTraceHidden]
     public static void AssertCanCall(object? obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
+    {
+        AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
+    }
+
+    [StackTraceHidden]
+    public unsafe static void AssertCanCallConstrained<T>(ref T obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
         AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
     }
@@ -309,12 +315,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     {
         rewriter.Method.Body.InitLocals = true;
 
-        var removeConstrained = rewriter.Instruction!.Previous is not null && rewriter.Instruction.Previous.OpCode.Code == Code.Constrained;
-        if (removeConstrained)
-        {
-            Console.WriteLine($"Couldnt handle constrained func {target} in {rewriter.Method}");
-            return;
-        }
+        var isConstrained = rewriter.Instruction!.Previous is not null && rewriter.Instruction.Previous.OpCode.Code == Code.Constrained;
 
         var accessConstant = guardWriter.GetAccessibilityConstant(target);
         rewriter.Insert(Instruction.Create(OpCodes.Ldsfld, accessConstant));
@@ -331,7 +332,17 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Insert(Instruction.Create(OpCodes.Dup));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, rewriter.Method.Module.ImportReference(target)));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, rewriter.Method.Module.ImportReference(target.DeclaringType)));
-        rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanCall));
+
+        if (isConstrained)
+        {
+            var genericAssert = new GenericInstanceMethod(references.AssertCanCallConstrained);
+            genericAssert.GenericArguments.Add((TypeReference)rewriter.Instruction.Previous!.Operand);
+            rewriter.Insert(Instruction.Create(OpCodes.Call, genericAssert));
+        }
+        else
+        {
+            rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanCall));
+        }
 
         foreach (var local in locals)
         {
@@ -439,6 +450,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             ShimmedMethods = ImportShims(module),
             AssertCanAccess = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(AssertCanAccess))),
             AssertCanCall = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(AssertCanCall))),
+            AssertCanCallConstrained = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(AssertCanCallConstrained))),
             BoolType = module.ImportReference(typeof(bool)),
             CanAccess = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CanAccess))),
             CanCallAlways = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CanCallAlways))),
@@ -470,7 +482,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             var paramTypes = info.GetParameters().Select(x => x.ParameterType);
             if (15 < parameters.Length || paramTypes.Any(x => x.IsByRef || x.IsPointer))
             {
-                return GetTargetMethodManually(obj, info);
+                return GetTargetMethodForType(obj.GetType(), info);
             }
             else
             {
@@ -483,9 +495,8 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
-    private static MethodBase GetTargetMethodManually(object obj, MethodInfo info)
+    private static MethodBase GetTargetMethodForType(Type objType, MethodInfo info)
     {
-        var objType = obj.GetType();
         MethodInfo? targetMethod = null;
         if (info.DeclaringType!.IsInterface)
         {
