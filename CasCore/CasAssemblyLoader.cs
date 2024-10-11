@@ -4,9 +4,12 @@ using Mono.Cecil;
 using Mono.Cecil.Cil;
 using Mono.Cecil.Rocks;
 using System.Collections.Immutable;
+using System.Data;
 using System.Diagnostics;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Runtime.Loader;
 using System.Security;
 
@@ -16,8 +19,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 {
     private static readonly ConditionalWeakTable<Assembly, CasPolicy> _assemblyPolicies = new ConditionalWeakTable<Assembly, CasPolicy>();
 
-    private CasPolicy _policy;
+    private static Func<object, object> MemberwiseCloneFunc { get; } = (Func<object, object>)Delegate.CreateDelegate(
+        typeof(Func<object, object>), typeof(object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance)!);
+    private static FieldInfo GenericInstanceTypeArguments { get; } = typeof(GenericInstanceType).GetField("arguments", BindingFlags.NonPublic | BindingFlags.Instance)!;
 
+    private CasPolicy _policy;
     public CasAssemblyLoader(CasPolicy policy) : base() {
         _policy = policy;
     }
@@ -143,7 +149,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
             while (rewriter.Instruction is not null)
             {
-                PatchInstruction(ref rewriter, ref guardWriter, rewriter.Instruction, references);
+                PatchInstruction(ref rewriter, ref guardWriter, references);
             }
 
             rewriter.Finish();
@@ -151,23 +157,23 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
-    private void PatchInstruction(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, Instruction instruction, ImportedReferences references)
+    private void PatchInstruction(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
-        if (IsMethodOpCode(instruction.OpCode))
+        if (IsMethodOpCode(rewriter.Instruction!.OpCode))
         {
-            PatchMethodCall(ref rewriter, ref guardWriter, instruction, references);
+            PatchMethodCall(ref rewriter, ref guardWriter, references);
         }
-        else if (IsFieldOpCode(instruction.OpCode))
+        else if (IsFieldOpCode(rewriter.Instruction.OpCode))
         {
-            PatchFieldAccess(ref rewriter, ref guardWriter, instruction, references);
+            PatchFieldAccess(ref rewriter, ref guardWriter, references);
         }
-        else if (instruction.OpCode.Code == Code.Ldftn)
+        else if (rewriter.Instruction.OpCode.Code == Code.Ldftn)
         {
-            PatchStaticDelegateCreation(ref rewriter, ref guardWriter, instruction, references);
+            PatchStaticDelegateCreation(ref rewriter, ref guardWriter, references);
         }
-        else if (instruction.OpCode.Code == Code.Ldvirtftn)
+        else if (rewriter.Instruction.OpCode.Code == Code.Ldvirtftn)
         {
-            PatchVirtualDelegateCreation(ref rewriter, ref guardWriter, instruction, references);
+            PatchVirtualDelegateCreation(ref rewriter, ref guardWriter, references);
         }
         else
         {
@@ -185,9 +191,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return code.Code == Code.Call || code.Code == Code.Callvirt || code.Code == Code.Newobj;
     }
 
-    private void PatchFieldAccess(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, Instruction instruction, ImportedReferences references)
+    private void PatchFieldAccess(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
-        var target = (FieldReference)instruction.Operand;
+        var target = (FieldReference)rewriter.Instruction!.Operand;
         try
         {
             var resolved = target.Resolve();
@@ -213,9 +219,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Advance(true);
     }
 
-    private void PatchStaticDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, Instruction instruction, ImportedReferences references)
+    private void PatchStaticDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
-        var target = (MethodReference)instruction.Operand;
+        var target = (MethodReference)rewriter.Instruction!.Operand;
         try
         {
             var resolved = target.Resolve();
@@ -236,9 +242,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Advance(true);
     }
 
-    private void PatchVirtualDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, Instruction instruction, ImportedReferences references)
+    private void PatchVirtualDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
-        var target = (MethodReference)instruction.Operand;
+        var target = (MethodReference)rewriter.Instruction!.Operand;
         try
         {
             var resolved = target.Resolve();
@@ -263,9 +269,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Advance(true);
     }
 
-    private void PatchMethodCall(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, Instruction instruction, ImportedReferences references)
+    private void PatchMethodCall(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
-        var target = (MethodReference)instruction.Operand;
+        var target = (MethodReference)rewriter.Instruction!.Operand;
         try
         {
             var resolved = target.Resolve();
@@ -287,7 +293,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             // If method could not be resolved, then it resides in another assembly, so a check must be inserted
         }
 
-        if (instruction.OpCode.Code == Code.Callvirt && target.HasThis)
+        if (rewriter.Instruction.OpCode.Code == Code.Callvirt && target.HasThis)
         {
             PatchVirtualMethod(ref rewriter, ref guardWriter, target, references);
         }
@@ -302,6 +308,14 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     private void PatchVirtualMethod(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, MethodReference target, ImportedReferences references)
     {
         rewriter.Method.Body.InitLocals = true;
+
+        var removeConstrained = rewriter.Instruction!.Previous is not null && rewriter.Instruction.Previous.OpCode.Code == Code.Constrained;
+        if (removeConstrained)
+        {
+            Console.WriteLine($"Couldnt handle constrained func {target} in {rewriter.Method}");
+            return;
+        }
+
         var accessConstant = guardWriter.GetAccessibilityConstant(target);
         rewriter.Insert(Instruction.Create(OpCodes.Ldsfld, accessConstant));
         var branchTarget = Instruction.Create(OpCodes.Nop);
@@ -342,24 +356,45 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     private List<VariableDefinition> CreateLocalDefinitions(MethodDefinition method, MethodReference target)
     {
-        return target.Parameters.Select(x => {
-            var parameterType = x.ParameterType;
-            if (parameterType is GenericParameter generic)
-            {
-                if (generic.Owner is MethodReference)
+        return target.Parameters.Select(x => new VariableDefinition(method.Module.ImportReference(ResolveGenericParameter(x.ParameterType, target)))).ToList();
+    }
+
+    private static TypeReference ResolveGenericParameter(TypeReference type, MethodReference target)
+    {
+        if (!type.ContainsGenericParameter)
+        {
+            return type;
+        }
+
+        switch(type)
+        {
+            case GenericParameter genericParam:
+                if (genericParam.Owner is MethodReference)
                 {
                     var genericMethod = (GenericInstanceMethod)target;
-                    parameterType = genericMethod.GenericArguments[generic.Position];
+                    return genericMethod.GenericArguments[genericParam.Position];
                 }
                 else
                 {
                     var genericType = (GenericInstanceType)target.DeclaringType;
-                    parameterType = genericType.GenericArguments[generic.Position];
+                    return genericType.GenericArguments[genericParam.Position];
                 }
-            }
-
-            return new VariableDefinition(method.Module.ImportReference(parameterType));
-        }).ToList();
+            case ArrayType array:
+                return ResolveGenericParameter(array.ElementType, target).MakeArrayType();
+            case GenericInstanceType inst:
+                var newInst = (GenericInstanceType)MemberwiseCloneFunc(inst);
+                var newArguments = new Mono.Collections.Generic.Collection<TypeReference>(inst.GenericArguments.Count);
+                foreach (var arg in inst.GenericArguments)
+                {
+                    newArguments.Add(ResolveGenericParameter(arg, target));
+                }
+                GenericInstanceTypeArguments.SetValue(newInst, newArguments);
+                return newInst;
+            case ByReferenceType byReference:
+                return ResolveGenericParameter(byReference.ElementType, target).MakeByReferenceType();
+            default:
+                throw new NotSupportedException($"Unable to resolve generic parameter {type} for {target}");
+        }
     }
 
     /// <summary>
@@ -431,27 +466,56 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     {
         if (obj is not null && method is MethodInfo info && method.IsVirtual)
         {
-            var objType = obj!.GetType();
-            MethodInfo? targetMethod = null;
-            if (info.DeclaringType!.IsInterface)
+            var parameters = info.GetParameters();
+            var paramTypes = info.GetParameters().Select(x => x.ParameterType);
+            if (15 < parameters.Length || paramTypes.Any(x => x.IsByRef || x.IsPointer))
             {
-                var map = objType.GetInterfaceMap(info.DeclaringType);
-                var index = Array.IndexOf(map.InterfaceMethods, info);
-                targetMethod = map.TargetMethods[index];
+                return GetTargetMethodManually(obj, info);
             }
             else
             {
-                targetMethod = objType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                    .FirstOrDefault(x => x.GetBaseDefinition() == info.GetBaseDefinition());
+                return GetTargetMethodViaDelegate(obj, info, paramTypes);
             }
-
-            ArgumentNullException.ThrowIfNull(targetMethod);
-            return targetMethod;
         }
         else
         {
             return method;
         }
+    }
+
+    private static MethodBase GetTargetMethodManually(object obj, MethodInfo info)
+    {
+        var objType = obj.GetType();
+        MethodInfo? targetMethod = null;
+        if (info.DeclaringType!.IsInterface)
+        {
+            var map = objType.GetInterfaceMap(info.DeclaringType);
+            var index = Array.IndexOf(map.InterfaceMethods, info);
+            targetMethod = map.TargetMethods[index];
+        }
+        else
+        {
+            targetMethod = objType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                .FirstOrDefault(x => x.GetBaseDefinition() == info.GetBaseDefinition());
+        }
+
+        ArgumentNullException.ThrowIfNull(targetMethod);
+        return targetMethod;
+    }
+
+    private static MethodBase GetTargetMethodViaDelegate(object obj, MethodInfo info, IEnumerable<Type> parameters)
+    {
+        Type delegateType;
+        if (info.ReturnType.Equals(typeof(void)))
+        {
+            delegateType = Expression.GetActionType(parameters.ToArray());
+        }
+        else
+        {
+            delegateType = Expression.GetFuncType(parameters.Append(info.ReturnType).ToArray());
+        }
+
+        return Delegate.CreateDelegate(delegateType, obj, info).Method;
     }
 
     private static string FormatSecurityException(string? assemblyName, MemberInfo member)
