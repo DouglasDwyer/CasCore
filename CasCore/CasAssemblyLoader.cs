@@ -45,9 +45,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return result;
     }
 
-    public static bool CanAccess(RuntimeFieldHandle handle)
+    public static bool CanAccess(RuntimeFieldHandle handle, RuntimeTypeHandle type)
     {
-        return CanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle));
+        return CanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle, type));
     }
 
     public static bool CanCallAlways(RuntimeMethodHandle handle, RuntimeTypeHandle type)
@@ -78,7 +78,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     [StackTraceHidden]
-    public unsafe static void AssertCanCallConstrained<T>(ref T obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
+    public static void AssertCanCallConstrained<T>(ref T obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
         AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
     }

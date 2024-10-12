@@ -38,7 +38,17 @@ internal struct GuardWriter
     public FieldReference GetAccessibilityConstant(FieldReference field)
     {
         var result = AddGuardField(field);
+
+        if (field.ContainsGenericParameter)
+        {
+            if (field.DeclaringType is GenericInstanceType git)
+            {
+                field = new FieldReference(field.Name, field.FieldType, git.ElementType);
+            }
+        }
+
         _il.Append(_il.Create(OpCodes.Ldtoken, field));
+        _il.Append(_il.Create(OpCodes.Ldtoken, field.DeclaringType));
         _il.Append(_il.Create(OpCodes.Call, _references.CanAccess));
         _il.Append(_il.Create(OpCodes.Stsfld, result));
         return result;
