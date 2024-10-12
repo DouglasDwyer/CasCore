@@ -456,15 +456,14 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     {
         if (obj is not null && method is MethodInfo info && method.IsVirtual)
         {
-            var parameters = info.GetParameters();
-            var paramTypes = info.GetParameters().Select(x => x.ParameterType);
-            if (15 < parameters.Length || paramTypes.Any(x => x.IsByRef || x.IsPointer))
+            var objType = obj.GetType();
+            if (objType.IsSZArray)
             {
-                return GetTargetMethodForType(obj.GetType(), info);
+                return GetTargetMethodViaDelegate(obj, info, info.GetParameters().Select(x => x.ParameterType));
             }
             else
             {
-                return GetTargetMethodViaDelegate(obj, info, paramTypes);
+                return GetTargetMethodForType(objType, info);
             }
         }
         else
@@ -473,6 +472,13 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    /// <summary>
+    /// Obtains the late-bound function that will be invoked when calling a virtual
+    /// method on the given object.
+    /// </summary>
+    /// <param name="objType">The type of object on which the method is being invoked.</param>
+    /// <param name="info">The virtual method to call.</param>
+    /// <returns>The actual method that will be invoked.</returns>
     private static MethodBase GetTargetMethodForType(Type objType, MethodInfo info)
     {
         MethodInfo? targetMethod = null;
@@ -492,6 +498,14 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return targetMethod;
     }
 
+    /// <summary>
+    /// Obtains a target method handle by creating a delegate which will automatically perform method resolution.
+    /// This method may only be called if there are less than 15 parameters, none of which may be by-refs.
+    /// </summary>
+    /// <param name="obj">The target object to call.</param>
+    /// <param name="info">The method that will be called on the object.</param>
+    /// <param name="parameters">The parameter types of the given method.</param>
+    /// <returns>The method that will actually be called on the object.</returns>
     private static MethodBase GetTargetMethodViaDelegate(object obj, MethodInfo info, IEnumerable<Type> parameters)
     {
         Type delegateType;
@@ -507,6 +521,12 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return Delegate.CreateDelegate(delegateType, obj, info).Method;
     }
 
+    /// <summary>
+    /// Creates a string describing a member access security violation.
+    /// </summary>
+    /// <param name="assemblyName">The assembly that attempted to access a member.</param>
+    /// <param name="member">The member which the assembly is not allowed to access.</param>
+    /// <returns>The string describing the error.</returns>
     private static string FormatSecurityException(string? assemblyName, MemberInfo member)
     {
         if (assemblyName is null)
