@@ -109,6 +109,8 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     protected override void InstrumentAssembly(AssemblyDefinition assembly)
     {
+        base.InstrumentAssembly(assembly);
+
         var methods = GetAllMethods(assembly).ToArray();
         for (var i = 0; i < methods.Length; i++)
         {
@@ -116,7 +118,6 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             PatchMethod(method.Method, i, method.References);
         }
 
-        base.InstrumentAssembly(assembly);
         assembly.Write("otherimpl.dll");
     }
 
@@ -148,10 +149,14 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     private void PatchMethod(MethodDefinition method, int id, ImportedReferences references)
     {
-        if (method.HasBody)
+        if (method.HasBody && HasJitVerificationGuard(method))
         {
             var rewriter = new MethodBodyRewriter(method);
             var guardWriter = new GuardWriter(method, id, references);
+
+            // Advance past JIT guard
+            rewriter.Advance(true);
+            rewriter.Advance(true);
 
             while (rewriter.Instruction is not null)
             {
@@ -472,6 +477,13 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     private static string FormatSecurityException(Assembly assembly, MemberInfo member)
     {
         return FormatSecurityException(assembly.GetName().Name, member);
+    }
+
+    private static bool HasJitVerificationGuard(MethodDefinition method)
+    {
+        return 2 <= method.Body.Instructions.Count
+            && method.Body.Instructions[0].OpCode.Code == Code.Ldsfld
+            && method.Body.Instructions[1].OpCode.Code == Code.Pop;
     }
 
     private static MethodBase GetTargetMethod(object? obj, MethodBase method)
