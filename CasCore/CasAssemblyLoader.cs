@@ -57,7 +57,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
         {
             var virtualMethod = method.IsVirtual;
-            return !virtualMethod && (SameLoadContext(assembly, method) || policy.CanAccess(method));
+            return SameLoadContext(assembly, method) || (!virtualMethod && policy.CanAccess(method));
         }
         else
         {
@@ -117,8 +117,6 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             var method = methods[i];
             PatchMethod(method.Method, i, method.References);
         }
-
-        assembly.Write("otherimpl.dll");
     }
 
     private static bool CanAccess(Assembly assembly, FieldInfo field)
@@ -205,18 +203,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     private void PatchFieldAccess(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (FieldReference)rewriter.Instruction!.Operand;
-        try
+
+        if (rewriter.Method.DeclaringType.Scope == target.DeclaringType.Scope)
         {
-            var resolved = target.Resolve();
-            if (resolved.Module.Assembly == rewriter.Method.Module.Assembly)
-            {
-                rewriter.Advance(true);
-                return;
-            }
-        }
-        catch
-        {
-            // If field could not be resolved, then it resides in another assembly, so a check must be inserted
+            rewriter.Advance(true);
+            return;
         }
 
         var accessConstant = guardWriter.GetAccessibilityConstant(target);
@@ -233,19 +224,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     private void PatchStaticDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (MethodReference)rewriter.Instruction!.Operand;
-        try
+        if (rewriter.Method.DeclaringType.Scope == target.DeclaringType.Scope)
         {
-            var resolved = target.Resolve();
-            if (resolved.Module.Assembly == rewriter.Method.Module.Assembly)
-            {
-                rewriter.Advance(true);
-                rewriter.Advance(true);
-                return;
-            }
-        }
-        catch
-        {
-            // If method could not be resolved, then it resides in another assembly, so a check must be inserted
+            rewriter.Advance(true);
+            rewriter.Advance(true);
+            return;
         }
 
         PatchStaticMethod(ref rewriter, ref guardWriter, target, references);
@@ -256,19 +239,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     private void PatchVirtualDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (MethodReference)rewriter.Instruction!.Operand;
-        try
+        if (rewriter.Method.DeclaringType.Scope == target.DeclaringType.Scope)
         {
-            var resolved = target.Resolve();
-            if (resolved.Module.Assembly == rewriter.Method.Module.Assembly)
-            {
-                rewriter.Advance(true);
-                rewriter.Advance(true);
-                return;
-            }
-        }
-        catch
-        {
-            // If method could not be resolved, then it resides in another assembly, so a check must be inserted
+            rewriter.Advance(true);
+            rewriter.Advance(true);
+            return;
         }
 
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, rewriter.Method.Module.ImportReference(target)));
@@ -283,25 +258,16 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     private void PatchMethodCall(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (MethodReference)rewriter.Instruction!.Operand;
-        try
+        if (rewriter.Method.DeclaringType.Scope == target.DeclaringType.Scope)
         {
-            var resolved = target.Resolve();
-
-            if (references.ShimmedMethods.TryGetValue(resolved, out MethodReference? value))
-            {
-                rewriter.Insert(Instruction.Create(OpCodes.Call, value));
-                rewriter.Advance(false);
-                return;
-            }
-            else if (resolved.Module.Assembly == rewriter.Method.Module.Assembly)
-            {
-                rewriter.Advance(true);
-                return;
-            }
+            rewriter.Advance(true);
+            return;
         }
-        catch
+        else if (references.ShimmedMethods.TryGetValue(target.FullName, out MethodReference? value))
         {
-            // If method could not be resolved, then it resides in another assembly, so a check must be inserted
+            rewriter.Insert(Instruction.Create(OpCodes.Call, value));
+            rewriter.Advance(false);
+            return;
         }
 
         if (rewriter.Instruction.OpCode.Code == Code.Callvirt && target.HasThis)
@@ -464,9 +430,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         };
     }
 
-    private static IImmutableDictionary<MethodDefinition, MethodReference> ImportShims(ModuleDefinition module)
+    private static IImmutableDictionary<string, MethodReference> ImportShims(ModuleDefinition module)
     {
-        return MethodShims.ShimMap.ToImmutableDictionary(x => module.ImportReference(x.Key).Resolve(), x => module.ImportReference(x.Value));
+        return MethodShims.ShimMap.ToImmutableDictionary(x => module.ImportReference(x.Key).FullName, x => module.ImportReference(x.Value));
     }
 
     private static string FormatSecurityException(AssemblyDefinition assembly, MemberInfo member)
