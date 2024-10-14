@@ -1,5 +1,6 @@
 ﻿
 using System.Collections;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace DouglasDwyer.CasCore;
@@ -131,7 +132,7 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
                 .Where(x => x.Name == name)
                 .Where(x => MethodAccessible(x, accessibility));
 
-        if (methods.Count() == 0)
+        if (methods.Count() != 1)
         {
             throw new ArgumentException($"Could not find method {name} to add to binding for {_type}.");
         }
@@ -152,7 +153,7 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     {
         try
         {
-            var method = _type.GetMethod(name, AllMemberFlags);
+            var method = _type.GetMethod(name, AllMemberFlags, parameters);
             if (method is not null && MethodAccessible(method, accessibility))
             {
                 _selectedMembers.Add(method);
@@ -166,7 +167,7 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
                 .Where(x => x.GetParameters().Select(y => GenericBaseIfContainsGeneric(y.ParameterType)).SequenceEqual(parameters))
                 .Where(x => MethodAccessible(x, accessibility));
 
-        if (methods.Count() == 0)
+        if (methods.Count() != 1)
         {
             throw new ArgumentException($"Could not find method {name} to add to binding for {_type}.");
         }
@@ -203,7 +204,7 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
         _selectedMembers.UnionWith(type.GetConstructors(AllMemberFlags).Where(x => MethodAccessible(x, accessibility)));
         _selectedMembers.UnionWith(type.GetMethods(AllMemberFlags).Where(x => MethodAccessible(x, accessibility)));
         
-        foreach (var nested in type.GetNestedTypes())
+        foreach (var nested in type.GetNestedTypes(AllMemberFlags))
         {
             AddMembersForType(nested, AccessibilityForNestedType(nested, accessibility));
         }
