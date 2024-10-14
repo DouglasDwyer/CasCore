@@ -121,12 +121,14 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     private static bool CanAccess(Assembly assembly, FieldInfo field)
     {
-        if (!SameLoadContext(assembly, field) && _assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
+        if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
         {
-            return policy.CanAccess(field);
+            return SameLoadContext(assembly, field) || policy.CanAccess(field);
         }
-
-        return true;
+        else
+        {
+            throw new InvalidOperationException($"No policy set for assembly {assembly}.");
+        }
     }
 
     private static bool CanCall(Assembly assembly, object? obj, ref MethodBase method)
@@ -136,8 +138,10 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             method = GetTargetMethod(obj, method);
             return SameLoadContext(assembly, method) || policy.CanAccess(method);
         }
-
-        return true;
+        else
+        {
+            throw new InvalidOperationException($"No policy set for assembly {assembly}.");
+        }
     }
 
     private static bool SameLoadContext(Assembly assembly, MemberInfo member)
@@ -263,11 +267,24 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             rewriter.Advance(true);
             return;
         }
-        else if (references.ShimmedMethods.TryGetValue(target.FullName, out MethodReference? value))
+        else
         {
-            rewriter.Insert(Instruction.Create(OpCodes.Call, value));
-            rewriter.Advance(false);
-            return;
+            var shimMethodName = target is GenericInstanceMethod gim ? gim.ElementMethod.FullName.Replace("!!0", "T") : target.FullName;
+            if (references.ShimmedMethods.TryGetValue(shimMethodName, out MethodReference? value))
+            {
+                if (target is GenericInstanceMethod)
+                {
+                    var newValue = new GenericInstanceMethod(value);
+                    foreach (var arg in ((GenericInstanceMethod)target).GenericArguments)
+                    {
+                        newValue.GenericArguments.Add(arg);
+                    }
+                    value = newValue;
+                }
+                rewriter.Insert(Instruction.Create(OpCodes.Call, value));
+                rewriter.Advance(false);
+                return;
+            }
         }
 
         if (rewriter.Instruction.OpCode.Code == Code.Callvirt && target.HasThis)

@@ -1,9 +1,13 @@
 ﻿using DouglasDwyer.CasCore;
 using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.Remoting;
 using System.Security;
+using System.Runtime.Loader;
 
 namespace CasCore;
 
@@ -13,6 +17,121 @@ public static class MethodShims
         typeof(MethodShims).GetMethods(BindingFlags.Public | BindingFlags.Static).Cast<MethodBase>().ToImmutableDictionary(GetOriginal, x => x);
 
     internal static IImmutableSet<RuntimeMethodHandle> ShimHandles { get; } = ShimMap.Select(x => x.Key.MethodHandle).ToImmutableHashSet();
+
+    private const BindingFlags ConstructorDefault = BindingFlags.Instance | BindingFlags.Public | BindingFlags.CreateInstance;
+
+    [DebuggerHidden]
+    [DebuggerStepThrough]
+    [StaticShim(typeof(Activator))]
+    public static object? CreateInstance(Type type, BindingFlags bindingAttr, Binder? binder, object?[]? args, CultureInfo? culture) =>
+        CreateInstance(Assembly.GetCallingAssembly(), type, bindingAttr, binder, args, culture, null);
+
+    [DebuggerHidden]
+    [DebuggerStepThrough]
+    [StaticShim(typeof(Activator))]
+    public static object? CreateInstance(Type type, params object?[]? args) =>
+        CreateInstance(Assembly.GetCallingAssembly(), type, ConstructorDefault, null, args, null, null);
+
+    [DebuggerHidden]
+    [DebuggerStepThrough]
+    [StaticShim(typeof(Activator))]
+    public static object? CreateInstance(Type type, object?[]? args, object?[]? activationAttributes) =>
+        CreateInstance(Assembly.GetCallingAssembly(), type, ConstructorDefault, null, args, null, activationAttributes);
+
+    [DebuggerHidden]
+    [DebuggerStepThrough]
+    [StaticShim(typeof(Activator))]
+    public static object? CreateInstance(Type type) =>
+        CreateInstance(Assembly.GetCallingAssembly(), type, nonPublic: false);
+
+    [StaticShim(typeof(Activator))]
+    public static object? CreateInstance(Type type, BindingFlags bindingAttr, Binder? binder, object?[]? args, CultureInfo? culture, object?[]? activationAttributes)
+        => CreateInstance(Assembly.GetCallingAssembly(), type, bindingAttr, binder, args, culture, null);
+
+    [StaticShim(typeof(Activator))]
+    public static object? CreateInstance(Type type, bool nonPublic)
+        => CreateInstance(Assembly.GetCallingAssembly(), type, nonPublic);
+
+    [StaticShim(typeof(Activator))]
+    public static T CreateInstance<T>()
+    {
+        var constructor = typeof(T).GetConstructor([]);
+
+        if (constructor is null)
+        {
+            throw new MissingMethodException($"Cannot find default constructor for {typeof(T)}.");
+        }
+
+        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), null, constructor);
+        return Activator.CreateInstance<T>();
+    }
+
+    private static object? CreateInstance(Assembly assembly, Type type, BindingFlags bindingAttr, Binder? binder, object?[]? args, CultureInfo? culture, object?[]? activationAttributes)
+    {
+        ArgumentNullException.ThrowIfNull(type);
+        var constructors = type.GetConstructors(bindingAttr)
+            .Where(x => ArgumentsBindable(x, args));
+
+        foreach (var constructor in constructors)
+        {
+            CasAssemblyLoader.AssertCanCall(assembly, null, constructor);
+        }
+
+        return Activator.CreateInstance(type, bindingAttr, binder, args, culture, null);
+    }
+
+    private static object? CreateInstance(Assembly assembly, Type type, bool nonPublic)
+    {
+        ArgumentNullException.ThrowIfNull(type);
+        var constructor = type.GetConstructor([]);
+
+        if (constructor is null)
+        {
+            throw new MissingMethodException($"Cannot find default constructor for {type}.");
+        }
+
+        CasAssemblyLoader.AssertCanCall(assembly, null, constructor);
+        return Activator.CreateInstance(type, nonPublic);
+    }
+
+    private static bool ArgumentsBindable(MethodBase method, object?[]? args)
+    {
+        var parameters = method.GetParameters();
+        if (args is null)
+        {
+            return parameters.Length == 0;
+        }
+        else if (parameters.Length != args.Length)
+        {
+            return false;
+        }
+        else
+        {
+            for (var i = 0; i < parameters.Length; i++)
+            {
+                var arg = args[i];
+                var param = parameters[i].ParameterType;
+                if (arg is null)
+                {
+                    if (param.IsValueType)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    var underlyingType = param.IsByRef ? param.GetElementType()! : param;
+
+                    if (!arg.GetType().IsAssignableTo(underlyingType))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+    }
 
     [StaticShim(typeof(RuntimeHelpers))]
     public static void InitializeArray(Array array, RuntimeFieldHandle fldHandle)
