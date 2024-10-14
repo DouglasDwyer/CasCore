@@ -225,10 +225,11 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     /// <returns>The accessibility that should be used.</returns>
     private static Accessibility AccessibilityForNestedType(Type type, Accessibility parentAccessibility)
     {
-        var privateType = !(type.IsNestedPublic || type.IsNestedFamily);
-        if (type.IsClass)
+        var privateButNotAccessible = !(type.IsNestedPublic || type.IsNestedFamily || type.IsNestedFamORAssem)
+            && parentAccessibility != Accessibility.Private;
+        if (type.IsClass || type.GetInterfaces().Any())
         {
-            if (privateType && parentAccessibility != Accessibility.Private)
+            if (privateButNotAccessible)
             {
                 return (Accessibility)Math.Min((int)parentAccessibility, (int)Accessibility.Public);
             }
@@ -237,7 +238,7 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
                 return parentAccessibility;
             }
         }
-        else if (privateType)
+        else if (privateButNotAccessible)
         {
             return Accessibility.None;
         }

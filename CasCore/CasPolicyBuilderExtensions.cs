@@ -381,12 +381,6 @@ public static class CasPolicyBuilderExtensions
             .Allow(new AssemblyBinding(Assembly.Load("System.Diagnostics.DiagnosticSource"), Accessibility.Protected));
     }
 
-    public static CasPolicyBuilder WithSandboxedSystemDiagnosticsStackTrace(this CasPolicyBuilder builder)
-    {
-        return builder
-            .Allow(new AssemblyBinding(Assembly.Load("System.Diagnostics.StackTrace"), Accessibility.Protected));
-    }
-
     public static CasPolicyBuilder WithSandboxedSystemLinq(this CasPolicyBuilder builder)
     {
         return builder
@@ -1464,7 +1458,6 @@ public static class CasPolicyBuilderExtensions
             .Allow(new TypeBinding(typeof(System.Threading.ContextCallback), Accessibility.Protected))
             .Allow(new TypeBinding(typeof(System.Threading.ExecutionContext), Accessibility.Protected))
             .Allow(new TypeBinding(typeof(System.Threading.AsyncFlowControl), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Threading.IOCompletionCallback), Accessibility.Protected))
             .Allow(new TypeBinding(typeof(System.Threading.LazyInitializer), Accessibility.Protected))
             .Allow(new TypeBinding(typeof(System.Threading.LazyThreadSafetyMode), Accessibility.Protected))
             .Allow(new TypeBinding(typeof(System.Threading.LockRecursionException), Accessibility.Protected))
@@ -3748,7 +3741,6 @@ public static class CasPolicyBuilderExtensions
             .WithSandboxedSystemComponentModelTypeConverter()
             .WithSandboxedSystemConsole()
             .WithSandboxedSystemDiagnosticsDiagnosticSource()
-            .WithSandboxedSystemDiagnosticsStackTrace()
             .WithSandboxedSystemLinq()
             .WithSandboxedSystemLinqParallel()
             .WithSandboxedSystemLinqQueryable()

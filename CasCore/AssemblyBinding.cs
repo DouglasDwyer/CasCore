@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace DouglasDwyer.CasCore;
@@ -27,7 +28,7 @@ public sealed class AssemblyBinding : IEnumerable<MemberInfo>
             foreach (var type in assembly.DefinedTypes
                 .Where(x => !x.IsNested))
             {
-                members.UnionWith(new TypeBinding(type, accessibility));
+                members.UnionWith(new TypeBinding(type, AccessibilityForType(type, accessibility)));
             }
         }
 
@@ -46,19 +47,33 @@ public sealed class AssemblyBinding : IEnumerable<MemberInfo>
         return GetEnumerator();
     }
 
-    private static Accessibility GetAccessibilityForType(Type type, Accessibility globalAccessibility)
+    /// <summary>
+    /// Determines the accessibility level that should be used for members of an assembly.
+    /// </summary>
+    /// <param name="type">The target type.</param>
+    /// <param name="parentAccessibility">The requested accessibility level for the assembly.</param>
+    /// <returns>The accessibility that should be used.</returns>
+    private static Accessibility AccessibilityForType(Type type, Accessibility parentAccessibility)
     {
-        if (type.IsPublic)
+        var privateButNotAccessible = !type.IsPublic && parentAccessibility != Accessibility.Private;
+        if (type.IsClass || type.GetInterfaces().Any())
         {
-            return globalAccessibility;
+            if (privateButNotAccessible)
+            {
+                return (Accessibility)Math.Min((int)parentAccessibility, (int)Accessibility.Public);
+            }
+            else
+            {
+                return parentAccessibility;
+            }
         }
-        else if (globalAccessibility < Accessibility.Private)
+        else if (privateButNotAccessible)
         {
-            return Accessibility.Public;
+            return Accessibility.None;
         }
         else
         {
-            return Accessibility.Private;
+            return parentAccessibility;
         }
     }
 }
