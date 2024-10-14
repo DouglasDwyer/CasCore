@@ -24,16 +24,8 @@ public sealed class AssemblyBinding : IEnumerable<MemberInfo>
 
         if (Accessibility.None < accessibility)
         {
-            var targetTypes = assembly.DefinedTypes
-                .Where(x => !x.IsNested);
-
-            if (accessibility < Accessibility.Private)
-            {
-                targetTypes = targetTypes
-                    .Where(x => x.IsPublic);
-            }
-
-            foreach (var type in targetTypes)
+            foreach (var type in assembly.DefinedTypes
+                .Where(x => !x.IsNested))
             {
                 members.UnionWith(new TypeBinding(type, accessibility));
             }
@@ -52,5 +44,21 @@ public sealed class AssemblyBinding : IEnumerable<MemberInfo>
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
+    }
+
+    private static Accessibility GetAccessibilityForType(Type type, Accessibility globalAccessibility)
+    {
+        if (type.IsPublic)
+        {
+            return globalAccessibility;
+        }
+        else if (globalAccessibility < Accessibility.Private)
+        {
+            return Accessibility.Public;
+        }
+        else
+        {
+            return Accessibility.Private;
+        }
     }
 }

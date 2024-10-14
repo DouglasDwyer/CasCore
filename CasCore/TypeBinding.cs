@@ -1,6 +1,7 @@
 ﻿
 using System.Collections;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace DouglasDwyer.CasCore;
@@ -26,6 +27,11 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     private readonly Type _type;
 
     /// <summary>
+    /// The interface methods of this type.
+    /// </summary>
+    private readonly HashSet<MethodBase> _interfaceMethods;
+
+    /// <summary>
     /// Creates a new binding for members of the given type. This recursively includes members of nested classes
     /// that are visible under the given accessibility.
     /// </summary>
@@ -34,7 +40,30 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     public TypeBinding(Type type, Accessibility accessibility)
     {
         _type = type;
-        AddMembersForType(_type, accessibility);
+        
+        _interfaceMethods = new HashSet<MethodBase>();
+        if (!type.IsInterface)
+        {
+            foreach (var interfaceImpl in _type.GetInterfaces())
+            {
+                var map = _type.GetInterfaceMap(interfaceImpl);
+                _interfaceMethods.UnionWith(map.TargetMethods);
+            }
+        }
+
+        if (accessibility == Accessibility.None)
+        {
+            return;
+        }
+
+        _selectedMembers.UnionWith(type.GetFields(AllMemberFlags).Where(x => FieldAccessible(x, accessibility)));
+        _selectedMembers.UnionWith(type.GetConstructors(AllMemberFlags).Where(x => MethodAccessible(x, accessibility)));
+        _selectedMembers.UnionWith(type.GetMethods(AllMemberFlags).Where(x => MethodAccessible(x, accessibility)));
+
+        foreach (var nested in type.GetNestedTypes(AllMemberFlags))
+        {
+            _selectedMembers.UnionWith(new TypeBinding(nested, AccessibilityForNestedType(nested, accessibility)));
+        }
     }
 
     /// <summary>
@@ -189,28 +218,6 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     }
 
     /// <summary>
-    /// Adds all accessible members for the provided type, including members of nested types.
-    /// </summary>
-    /// <param name="type">The type to include.</param>
-    /// <param name="accessibility">The accessibility level of members to include.</param>
-    private void AddMembersForType(Type type, Accessibility accessibility)
-    {
-        if (accessibility == Accessibility.None)
-        {
-            return;
-        }
-
-        _selectedMembers.UnionWith(type.GetFields(AllMemberFlags).Where(x => FieldAccessible(x, accessibility)));
-        _selectedMembers.UnionWith(type.GetConstructors(AllMemberFlags).Where(x => MethodAccessible(x, accessibility)));
-        _selectedMembers.UnionWith(type.GetMethods(AllMemberFlags).Where(x => MethodAccessible(x, accessibility)));
-        
-        foreach (var nested in type.GetNestedTypes(AllMemberFlags))
-        {
-            AddMembersForType(nested, AccessibilityForNestedType(nested, accessibility));
-        }
-    }
-
-    /// <summary>
     /// Determines the accessibility level that should be used for members of a nested type.
     /// </summary>
     /// <param name="type">The target nested type.</param>
@@ -235,7 +242,7 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     /// <param name="field">The member in question.</param>
     /// <param name="accessibility">The target accessibility.</param>
     /// <returns>Whether the member should be accessible.</returns>
-    private static bool FieldAccessible(FieldInfo field, Accessibility accessibility)
+    private bool FieldAccessible(FieldInfo field, Accessibility accessibility)
     {
         return (field.IsPublic && Accessibility.Public <= accessibility)
             || ((field.IsFamily || field.IsFamilyOrAssembly) && Accessibility.Protected <= accessibility)
@@ -248,9 +255,9 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     /// <param name="field">The member in question.</param>
     /// <param name="accessibility">The target accessibility.</param>
     /// <returns>Whether the member should be accessible.</returns>
-    private static bool MethodAccessible(MethodBase method, Accessibility accessibility)
+    private bool MethodAccessible(MethodBase method, Accessibility accessibility)
     {
-        return (method.IsPublic && Accessibility.Public <= accessibility)
+        return ((method.IsPublic || _interfaceMethods.Contains(method)) && Accessibility.Public <= accessibility)
             || ((method.IsFamily || method.IsFamilyOrAssembly) && Accessibility.Protected <= accessibility)
             || Accessibility.Private <= accessibility;
     }
