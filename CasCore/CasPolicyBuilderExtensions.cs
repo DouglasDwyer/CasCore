@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
+using System.Security;
 
 namespace DouglasDwyer.CasCore;
 
@@ -3564,14 +3565,19 @@ public static class CasPolicyBuilderExtensions
     public static CasPolicyBuilder WithSandboxedRuntime(this CasPolicyBuilder builder)
     {
         return builder
+            .Allow(new TypeBinding(typeof(SecurityException), Accessibility.Protected))
             .Allow(new TypeBinding(Type.GetType("System.RuntimeType")!, Accessibility.Public)
                 .Where(x => x.Name != "InvokeMember"))
             .Allow(new TypeBinding(Type.GetType("System.Reflection.RuntimeFieldInfo")!, Accessibility.Public)
+                .Where(x => x.Name != "GetValue" && x.Name != "SetValue" && x.Name != "GetValueDirect" && x.Name != "SetValueDirect"))
+            .Allow(new TypeBinding(Type.GetType("System.Reflection.RtFieldInfo")!, Accessibility.Public)
                 .Where(x => x.Name != "GetValue" && x.Name != "SetValue" && x.Name != "GetValueDirect" && x.Name != "SetValueDirect"))
             .Allow(new TypeBinding(Type.GetType("System.Reflection.RuntimeConstructorInfo")!, Accessibility.Public)
                 .Where(x => x.Name != "Invoke"))
             .Allow(new TypeBinding(Type.GetType("System.Reflection.RuntimeMethodInfo")!, Accessibility.Public)
                 .Where(x => x.Name != "Invoke"))
+            .Allow(new TypeBinding(Type.GetType("System.Reflection.RuntimePropertyInfo")!, Accessibility.Public)
+                .Where(x => x.Name != "GetValue" && x.Name != "SetValue"))
             .Allow(new TypeBinding(Type.GetType("System.Reflection.RuntimeParameterInfo")!, Accessibility.Public))
             .Allow(new TypeBinding(Type.GetType("System.SZArrayHelper")!, Accessibility.Private)
                 .Where(x => x is not ConstructorInfo))
