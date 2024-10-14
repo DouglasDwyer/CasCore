@@ -226,9 +226,20 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     private static Accessibility AccessibilityForNestedType(Type type, Accessibility parentAccessibility)
     {
         var privateType = !(type.IsNestedPublic || type.IsNestedFamily);
-        if (privateType && parentAccessibility != Accessibility.Private)
+        if (type.IsClass)
         {
-            return (Accessibility)Math.Min((int)parentAccessibility, (int)Accessibility.Public);
+            if (privateType && parentAccessibility != Accessibility.Private)
+            {
+                return (Accessibility)Math.Min((int)parentAccessibility, (int)Accessibility.Public);
+            }
+            else
+            {
+                return parentAccessibility;
+            }
+        }
+        else if (privateType)
+        {
+            return Accessibility.None;
         }
         else
         {
