@@ -1,13 +1,11 @@
 ﻿using DouglasDwyer.CasCore;
 using System.Collections.Immutable;
-using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.Remoting;
 using System.Security;
-using System.Runtime.Loader;
 
 namespace CasCore;
 
@@ -19,6 +17,51 @@ public static class MethodShims
     internal static IImmutableSet<RuntimeMethodHandle> ShimHandles { get; } = ShimMap.Select(x => x.Key.MethodHandle).ToImmutableHashSet();
 
     private const BindingFlags ConstructorDefault = BindingFlags.Instance | BindingFlags.Public | BindingFlags.CreateInstance;
+
+    /** System.Delegate shims **/
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate? CreateDelegate(Type type, object target, string method, bool ignoreCase, bool throwOnBindFailure) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, target, method, ignoreCase, throwOnBindFailure));
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate CreateDelegate(Type type, Type target, string method, bool ignoreCase) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, target, method, ignoreCase));
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate CreateDelegate(Type type, object target, string method, bool ignoreCase) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, target, method, ignoreCase));
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate? CreateDelegate(Type type, Type target, string method, bool ignoreCase, bool throwOnBindFailure) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, target, method, ignoreCase, throwOnBindFailure));
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate? CreateDelegate(Type type, object? firstArgument, MethodInfo method, bool throwOnBindFailure) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, firstArgument, method, throwOnBindFailure));
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate? CreateDelegate(Type type, MethodInfo method, bool throwOnBindFailure) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, method, throwOnBindFailure));
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate CreateDelegate(Type type, object? firstArgument, MethodInfo method) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, firstArgument, method));
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate CreateDelegate(Type type, MethodInfo method) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, method));
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate CreateDelegate(Type type, object target, string method) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, target, method));
+
+    [StaticShim(typeof(Delegate))]
+    public static Delegate CreateDelegate(Type type, Type target, string method) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), Delegate.CreateDelegate(type, target, method));
+
+    [return: NotNullIfNotNull(nameof(uncheckedDelegate))]
+    private static T? CheckAndReturnDelegate<T>(Assembly assembly, T? uncheckedDelegate) where T : Delegate
+    {
+        if (uncheckedDelegate is not null)
+        {
+            CasAssemblyLoader.AssertCanCall(assembly, uncheckedDelegate.Target, uncheckedDelegate.Method);
+        }
+
+        return uncheckedDelegate;
+    }
+
+    /** System.Activator shims **/
 
     [DebuggerHidden]
     [DebuggerStepThrough]
@@ -133,6 +176,8 @@ public static class MethodShims
         }
     }
 
+    /** System.Runtime.CompilerServices.RuntimeHelpers shims **/
+
     [StaticShim(typeof(RuntimeHelpers))]
     public static void InitializeArray(Array array, RuntimeFieldHandle fldHandle)
     {
@@ -140,6 +185,8 @@ public static class MethodShims
         CasAssemblyLoader.AssertCanAccess(Assembly.GetCallingAssembly(), field);
         RuntimeHelpers.InitializeArray(array, fldHandle);
     }
+
+    /** System.Reflection shims **/
 
     public static object? GetValue(FieldInfo target, object? obj)
     {
@@ -228,6 +275,14 @@ public static class MethodShims
 
         return target.Invoke(obj, invokeAttr, binder, parameters, culture);
     }
+
+    public static Delegate CreateDelegate(MethodInfo target, Type delegateType) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate(delegateType));
+    
+    public static Delegate CreateDelegate(MethodInfo target, Type delegateType, object? targetObj) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate(delegateType, targetObj));
+    
+    public static T CreateDelegate<T>(MethodInfo target) where T : Delegate => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate<T>());
+
+    public static T CreateDelegate<T>(MethodInfo target, object? targetObj) where T : Delegate => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate<T>(targetObj));
 
     private static MethodBase GetOriginal(MethodBase method)
     {

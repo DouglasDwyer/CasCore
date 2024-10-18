@@ -52,17 +52,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     public static bool CanCallAlways(RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
-        var assembly = Assembly.GetCallingAssembly();
-        var method = MethodBase.GetMethodFromHandle(handle, type)!;
-        if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
-        {
-            var virtualMethod = method.IsVirtual;
-            return SameLoadContext(assembly, method) || (!virtualMethod && policy.CanAccess(method));
-        }
-        else
-        {
-            return true;
-        }
+        return CanCallAlways(Assembly.GetCallingAssembly(), MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
     [StackTraceHidden]
@@ -116,6 +106,19 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         {
             var method = methods[i];
             PatchMethod(method.Method, i, method.References);
+        }
+    }
+
+    private static bool CanCallAlways(Assembly assembly, MethodBase method)
+    {
+        if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
+        {
+            var virtualMethod = method.IsVirtual;
+            return SameLoadContext(assembly, method) || (!virtualMethod && policy.CanAccess(method));
+        }
+        else
+        {
+            return true;
         }
     }
 
@@ -471,6 +474,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     private static MethodBase GetTargetMethod(object? obj, MethodBase method)
     {
+        if (method.IsConstructedGenericMethod)
+        {
+            method = ((MethodInfo)method).GetGenericMethodDefinition();
+        }
+
         if (obj is not null && method is MethodInfo info && method.IsVirtual)
         {
             var objType = obj.GetType();
