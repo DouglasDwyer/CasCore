@@ -20,6 +20,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
     private static Func<object, object> MemberwiseCloneFunc { get; } = (Func<object, object>)Delegate.CreateDelegate(
         typeof(Func<object, object>), typeof(object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance)!);
+    
     private static FieldInfo GenericInstanceTypeArguments { get; } = typeof(GenericInstanceType).GetField("arguments", BindingFlags.NonPublic | BindingFlags.Instance)!;
 
     private CasPolicy _policy;
@@ -97,19 +98,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
-    protected override void InstrumentAssembly(AssemblyDefinition assembly)
-    {
-        base.InstrumentAssembly(assembly);
-
-        var methods = GetAllMethods(assembly).ToArray();
-        for (var i = 0; i < methods.Length; i++)
-        {
-            var method = methods[i];
-            PatchMethod(method.Method, i, method.References);
-        }
-    }
-
-    private static bool CanCallAlways(Assembly assembly, MethodBase method)
+    internal static bool CanCallAlways(Assembly assembly, MethodBase method)
     {
         if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
         {
@@ -119,6 +108,18 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         else
         {
             return true;
+        }
+    }
+
+    protected override void InstrumentAssembly(AssemblyDefinition assembly)
+    {
+        base.InstrumentAssembly(assembly);
+
+        var methods = GetAllMethods(assembly).ToArray();
+        for (var i = 0; i < methods.Length; i++)
+        {
+            var method = methods[i];
+            PatchMethod(method.Method, i, method.References);
         }
     }
 
@@ -138,7 +139,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     {
         if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
         {
-            method = GetTargetMethod(obj, method);
+            method = LateBindingResolver.GetTargetMethod(obj, method);
             return SameLoadContext(assembly, method) || policy.CanAccess(method);
         }
         else
@@ -470,80 +471,6 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return 2 <= method.Body.Instructions.Count
             && method.Body.Instructions[0].OpCode.Code == Code.Ldsfld
             && method.Body.Instructions[1].OpCode.Code == Code.Pop;
-    }
-
-    private static MethodBase GetTargetMethod(object? obj, MethodBase method)
-    {
-        if (method.IsConstructedGenericMethod)
-        {
-            method = ((MethodInfo)method).GetGenericMethodDefinition();
-        }
-
-        if (obj is not null && method is MethodInfo info && method.IsVirtual)
-        {
-            var objType = obj.GetType();
-            if (objType.IsSZArray)
-            {
-                return GetTargetMethodViaDelegate(obj, info, info.GetParameters().Select(x => x.ParameterType));
-            }
-            else
-            {
-                return GetTargetMethodForType(objType, info);
-            }
-        }
-        else
-        {
-            return method;
-        }
-    }
-
-    /// <summary>
-    /// Obtains the late-bound function that will be invoked when calling a virtual
-    /// method on the given object.
-    /// </summary>
-    /// <param name="objType">The type of object on which the method is being invoked.</param>
-    /// <param name="info">The virtual method to call.</param>
-    /// <returns>The actual method that will be invoked.</returns>
-    private static MethodBase GetTargetMethodForType(Type objType, MethodInfo info)
-    {
-        MethodInfo? targetMethod = null;
-        if (info.DeclaringType!.IsInterface)
-        {
-            var map = objType.GetInterfaceMap(info.DeclaringType);
-            var index = Array.IndexOf(map.InterfaceMethods, info);
-            targetMethod = map.TargetMethods[index];
-        }
-        else
-        {
-            targetMethod = objType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                .FirstOrDefault(x => x.GetBaseDefinition() == info.GetBaseDefinition());
-        }
-
-        ArgumentNullException.ThrowIfNull(targetMethod);
-        return targetMethod;
-    }
-
-    /// <summary>
-    /// Obtains a target method handle by creating a delegate which will automatically perform method resolution.
-    /// This method may only be called if there are less than 15 parameters, none of which may be by-refs.
-    /// </summary>
-    /// <param name="obj">The target object to call.</param>
-    /// <param name="info">The method that will be called on the object.</param>
-    /// <param name="parameters">The parameter types of the given method.</param>
-    /// <returns>The method that will actually be called on the object.</returns>
-    private static MethodBase GetTargetMethodViaDelegate(object obj, MethodInfo info, IEnumerable<Type> parameters)
-    {
-        Type delegateType;
-        if (info.ReturnType.Equals(typeof(void)))
-        {
-            delegateType = Expression.GetActionType(parameters.ToArray());
-        }
-        else
-        {
-            delegateType = Expression.GetFuncType(parameters.Append(info.ReturnType).ToArray());
-        }
-
-        return Delegate.CreateDelegate(delegateType, obj, info).Method;
     }
 
     /// <summary>
