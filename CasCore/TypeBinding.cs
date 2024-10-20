@@ -55,6 +55,7 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
         }
 
         var bindingFlags = BindingFlagsForInitialSearch(accessibility);
+        _selectedMembers.UnionWith(_interfaceMethods);
         _selectedMembers.UnionWith(type.GetFields(bindingFlags).Where(x => FieldAccessible(x, accessibility)));
         _selectedMembers.UnionWith(type.GetConstructors(bindingFlags).Where(x => MethodAccessible(x, accessibility)));
         _selectedMembers.UnionWith(type.GetMethods(bindingFlags).Where(x => MethodAccessible(x, accessibility)));
