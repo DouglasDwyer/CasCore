@@ -1,7 +1,5 @@
 ﻿
 using System.Collections;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace DouglasDwyer.CasCore;
@@ -39,9 +37,14 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     /// <param name="accessibility">The accessibility level of members.</param>
     public TypeBinding(Type type, Accessibility accessibility)
     {
-        _type = type;
-        
+        _type = type;        
         _interfaceMethods = new HashSet<MethodBase>();
+
+        if (accessibility == Accessibility.None)
+        {
+            return;
+        }
+
         if (!type.IsInterface)
         {
             foreach (var interfaceImpl in _type.GetInterfaces())
@@ -51,14 +54,10 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
             }
         }
 
-        if (accessibility == Accessibility.None)
-        {
-            return;
-        }
-
-        _selectedMembers.UnionWith(type.GetFields(AllMemberFlags).Where(x => FieldAccessible(x, accessibility)));
-        _selectedMembers.UnionWith(type.GetConstructors(AllMemberFlags).Where(x => MethodAccessible(x, accessibility)));
-        _selectedMembers.UnionWith(type.GetMethods(AllMemberFlags).Where(x => MethodAccessible(x, accessibility)));
+        var bindingFlags = BindingFlagsForInitialSearch(accessibility);
+        _selectedMembers.UnionWith(type.GetFields(bindingFlags).Where(x => FieldAccessible(x, accessibility)));
+        _selectedMembers.UnionWith(type.GetConstructors(bindingFlags).Where(x => MethodAccessible(x, accessibility)));
+        _selectedMembers.UnionWith(type.GetMethods(bindingFlags).Where(x => MethodAccessible(x, accessibility)));
 
         foreach (var nested in type.GetNestedTypes(AllMemberFlags))
         {
@@ -274,7 +273,7 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
             || Accessibility.Private <= accessibility;
     }
 
-    private Type GenericBaseIfContainsGeneric(Type type)
+    private static Type GenericBaseIfContainsGeneric(Type type)
     {
         if (type.ContainsGenericParameters)
         {
@@ -286,5 +285,21 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
         }
 
         return type;
+    }
+
+    private static BindingFlags BindingFlagsForInitialSearch(Accessibility accessibility)
+    {
+        if (accessibility == Accessibility.None)
+        {
+            return new BindingFlags();
+        }
+        else if (accessibility == Accessibility.Public)
+        {
+            return AllMemberFlags & ~BindingFlags.NonPublic;
+        }
+        else
+        {
+            return AllMemberFlags;
+        }
     }
 }
