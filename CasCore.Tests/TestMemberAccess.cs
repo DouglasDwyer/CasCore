@@ -42,4 +42,38 @@ public static class TestMemberAccess
         var instance = new SharedClass();
         var x = instance.AllowedField;
     }
+
+    [TestException(typeof(SecurityException))]
+    public static void TestAccessDeniedVirtualMethod()
+    {
+        CallVirtualMethod(new SharedClass());
+    }
+
+    [TestSuccessful]
+    public static void TestAccessAllowedVirtualMethod()
+    {
+        CallVirtualMethod(new SharedClass.SharedNested());
+    }
+
+    [TestSuccessful]
+    public static void TestAccessAllowedInterfaceMethod()
+    {
+        CallInterfaceMethod(new SharedClass(), 29);
+    }
+
+    [TestException(typeof(SecurityException))]
+    public static void TestAccessDeniedInterfaceMethod()
+    {
+        CallInterfaceMethod(new SharedClass.SharedNested(), 29);
+    }
+
+    private static void CallVirtualMethod(SharedClass shared)
+    {
+        shared.VirtualMethod();
+    }
+
+    private static void CallInterfaceMethod<T>(ISharedInterface shared, T value)
+    {
+        shared.InterfaceMethod(value);
+    }
 }

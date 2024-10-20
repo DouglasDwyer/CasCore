@@ -18,7 +18,7 @@ public class TestRunner
                 try
                 {
                     method.Invoke(null, []);
-                    throw new Exception("Method completed without exception.");
+                    throw new TargetInvocationException(new Exception("Method completed without exception."));
                 }
                 catch (TargetInvocationException e)
                 {

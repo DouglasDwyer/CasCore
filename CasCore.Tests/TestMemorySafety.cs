@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Reflection;
+using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Security;
 
 namespace DouglasDwyer.CasCore.Tests;
@@ -61,5 +63,11 @@ public static class TestMemorySafety
     {
         var x = 29;
         Unsafe.Add(ref x, 29) = 30;
+    }
+
+    [TestException(typeof(SecurityException))]
+    public static void TestEmit()
+    {
+        AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(), AssemblyBuilderAccess.RunAndCollect);
     }
 }

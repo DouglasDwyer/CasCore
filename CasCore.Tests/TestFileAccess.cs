@@ -1,4 +1,5 @@
-﻿using System.Security;
+﻿using System.IO.Compression;
+using System.Security;
 using System.Text;
 
 namespace DouglasDwyer.CasCore.Tests;
@@ -90,5 +91,12 @@ public static class TestFileAccess
     public static void TestEnvironmentProcessPath()
     {
         var x = Environment.ProcessPath;
+    }
+
+
+    [TestException(typeof(SecurityException))]
+    public static void TestZipFileCreateFromDirectory()
+    {
+        ZipFile.CreateFromDirectory("hello", "test.zip");
     }
 }

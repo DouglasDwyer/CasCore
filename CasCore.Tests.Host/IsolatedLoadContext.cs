@@ -42,7 +42,11 @@ class IsolatedLoadContext : CasAssemblyLoader
             .Allow(new TypeBinding(typeof(SharedClass), Accessibility.None)
                 .WithConstructor([], Accessibility.Public)
                 .WithField("AllowedStaticField", Accessibility.Public)
-                .WithField("AllowedField", Accessibility.Public))
+                .WithField("AllowedField", Accessibility.Public)
+                .WithMethod("InterfaceMethod", Accessibility.Public))
+            .Allow(new TypeBinding(typeof(SharedClass.SharedNested), Accessibility.None)
+                .WithConstructor([], Accessibility.Public)
+                .WithMethod("VirtualMethod", Accessibility.Public))
             .Build();
 
         return new IsolatedLoadContext([
