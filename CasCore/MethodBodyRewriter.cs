@@ -1,13 +1,13 @@
-﻿using Mono.Cecil;
+﻿using DouglasDwyer.CasCore;
+using Mono.Cecil;
 using Mono.Cecil.Cil;
-using Mono.Cecil.Rocks;
 
 namespace CasCore;
 
-internal struct MethodBodyRewriter
+internal class MethodBodyRewriter
 {
     public Instruction? Instruction { get; private set; }
-    public MethodDefinition Method { get; }
+    public MethodDefinition Method { get; private set; }
 
     private List<Instruction> _newInstructions;
     private Instruction?[] _offsetMap;
@@ -16,11 +16,23 @@ internal struct MethodBodyRewriter
     private int _copyPosition;
     private int _newPosition;
 
-    public MethodBodyRewriter(MethodDefinition method)
+    public MethodBodyRewriter(ImportedReferences references)
+    {
+        Method = new MethodDefinition("", new MethodAttributes(), references.VoidType);
+        _newInstructions = new List<Instruction>();
+        _offsetMap = Array.Empty<Instruction?>();
+    }
+
+    public void Start(MethodDefinition method)
     {
         Method = method;
-        _newInstructions = new List<Instruction>(2 * Method.Body.Instructions.Count);
-        _offsetMap = new Instruction?[Method.Body.CodeSize];
+        _newInstructions.Clear();
+        _newInstructions.EnsureCapacity(2 * Method.Body.Instructions.Count);
+        
+        if (_offsetMap.Length < Method.Body.CodeSize)
+        {
+            _offsetMap = new Instruction?[Method.Body.CodeSize];
+        }
 
         _advancePosition = 0;
         _copyPosition = 0;

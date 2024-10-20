@@ -155,11 +155,22 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     {
         base.InstrumentAssembly(assembly);
 
-        var methods = GetAllMethods(assembly).ToArray();
-        for (var i = 0; i < methods.Length; i++)
+        var id = 0;
+        foreach (var module in assembly.Modules)
         {
-            var method = methods[i];
-            PatchMethod(method.Method, i, method.References);
+            var references = ImportReferences(module);
+            var rewriter = new MethodBodyRewriter(references);
+
+            foreach (var type in GetAllTypes(module).Where(x => 0 < x.Methods.Count).ToArray())
+            {
+                var guardWriter = new GuardWriter(type, id, references);
+                foreach (var method in type.Methods.Where(x => x.HasBody))
+                {
+                    PatchMethod(method, id, rewriter, guardWriter, references);
+                    id++;
+                }
+                guardWriter.Finish();
+            }
         }
     }
 
@@ -193,12 +204,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return AssemblyLoadContext.GetLoadContext(assembly) == AssemblyLoadContext.GetLoadContext(member.Module.Assembly);
     }
 
-    private void PatchMethod(MethodDefinition method, int id, ImportedReferences references)
+    private void PatchMethod(MethodDefinition method, int id, MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         if (method.HasBody && HasJitVerificationGuard(method))
         {
-            var rewriter = new MethodBodyRewriter(method);
-            var guardWriter = new GuardWriter(method, id, references);
+            rewriter.Start(method);
 
             // Advance past JIT guard
             rewriter.Advance(true);
@@ -206,28 +216,27 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
             while (rewriter.Instruction is not null)
             {
-                PatchInstruction(ref rewriter, ref guardWriter, references);
+                PatchInstruction(rewriter, guardWriter, references);
             }
 
             rewriter.Finish();
-            guardWriter.Finish();
         }
     }
 
-    private void PatchInstruction(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
+    private void PatchInstruction(MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         if (IsMethodOpCode(rewriter.Instruction!.OpCode))
         {
-            PatchMethodCall(ref rewriter, ref guardWriter, references);
+            PatchMethodCall(rewriter, guardWriter, references);
         }
         else if (IsFieldOpCode(rewriter.Instruction.OpCode))
         {
-            PatchFieldAccess(ref rewriter, ref guardWriter, references);
+            PatchFieldAccess(rewriter, guardWriter, references);
         }
         else if (rewriter.Instruction.OpCode.Code == Code.Ldftn
             || rewriter.Instruction.OpCode.Code == Code.Ldvirtftn)
         {
-            PatchDelegateCreation(ref rewriter, ref guardWriter, references);
+            PatchDelegateCreation(rewriter, guardWriter, references);
         }
         else
         {
@@ -245,7 +254,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return code.Code == Code.Call || code.Code == Code.Callvirt || code.Code == Code.Newobj;
     }
 
-    private void PatchFieldAccess(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
+    private void PatchFieldAccess(MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (FieldReference)rewriter.Instruction!.Operand;
 
@@ -266,7 +275,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Advance(true);
     }
 
-    private void PatchDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
+    private void PatchDelegateCreation(MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (MethodReference)rewriter.Instruction!.Operand;
         if (rewriter.Method.DeclaringType.Scope == target.DeclaringType.Scope)
@@ -293,7 +302,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Advance(false);
     }
 
-    private void PatchMethodCall(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
+    private void PatchMethodCall(MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (MethodReference)rewriter.Instruction!.Operand;
         if (rewriter.Method.DeclaringType.Scope == target.DeclaringType.Scope)
@@ -336,17 +345,17 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
         if (rewriter.Instruction.OpCode.Code == Code.Callvirt && target.HasThis)
         {
-            PatchVirtualMethod(ref rewriter, ref guardWriter, target, references);
+            PatchVirtualMethod(rewriter, ref guardWriter, target, references);
         }
         else
         {
-            PatchStaticMethod(ref rewriter, ref guardWriter, target, references);
+            PatchStaticMethod(rewriter, ref guardWriter, target, references);
         }
 
         rewriter.Advance(true);
     }
 
-    private void PatchVirtualMethod(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, MethodReference target, ImportedReferences references)
+    private void PatchVirtualMethod(MethodBodyRewriter rewriter, ref GuardWriter guardWriter, MethodReference target, ImportedReferences references)
     {
         rewriter.Method.Body.InitLocals = true;
 
@@ -387,7 +396,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Insert(branchTarget);
     }
 
-    private void PatchStaticMethod(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, MethodReference target, ImportedReferences references)
+    private void PatchStaticMethod(MethodBodyRewriter rewriter, ref GuardWriter guardWriter, MethodReference target, ImportedReferences references)
     {
         var accessConstant = guardWriter.GetAccessibilityConstant(target);
         rewriter.Insert(Instruction.Create(OpCodes.Ldsfld, accessConstant));
@@ -443,23 +452,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
-    /// <summary>
-    /// Gets a list of all methods in the assembly, along with imported type references
-    /// for their respective modules.
-    /// </summary>
-    /// <param name="assembly">The assembly definition over which to iterate.</param>
-    /// <returns>An enumerable containing methods and imported references.</returns>
-    private static IEnumerable<MethodToUpdate> GetAllMethods(AssemblyDefinition assembly)
+    private static IEnumerable<TypeDefinition> GetAllTypes(ModuleDefinition module)
     {
-        return assembly.Modules
-            .Select(x => (x, ImportReferences(x)))
-            .SelectMany(x => x.x.Types.Select(y => (y, x.Item2)))
-            .SelectMany(x => GetAllMethods(x.y).Select(y => new MethodToUpdate
-            {
-                Method = y,
-                References = x.Item2
-            }))
-            .Where(x => x.Method.HasBody);
+        return module.Types.SelectMany(GetAllTypes);
     }
 
     /// <summary>
@@ -467,10 +462,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     /// </summary>
     /// <param name="type">The type over which to iterate.</param>
     /// <returns>All methods contained in the type.</returns>
-    private static IEnumerable<MethodDefinition> GetAllMethods(TypeDefinition type)
+    private static IEnumerable<TypeDefinition> GetAllTypes(TypeDefinition type)
     {
-        return type.Methods
-            .Concat(type.NestedTypes.SelectMany(GetAllMethods));
+        return type.NestedTypes.SelectMany(GetAllTypes).Append(type);
     }
 
     /// <summary>

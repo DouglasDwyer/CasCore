@@ -6,21 +6,26 @@ using System.Text;
 
 namespace DouglasDwyer.CasCore;
 
-internal struct GuardWriter
+internal class GuardWriter
 {
+    public TypeDefinition DeclaringType { get; }
+
     private readonly MethodDefinition _staticConstructor;
     private readonly ILProcessor _il;
     private readonly TypeDefinition _type;
     private readonly ImportedReferences _references;
+
+    private readonly Dictionary<FieldReference, FieldReference> _fieldGuards;
+    private readonly Dictionary<MethodReference, FieldReference> _methodGuards;
     private int _fieldCount;
 
-    public GuardWriter(MethodDefinition method, int id, ImportedReferences references)
+    public GuardWriter(TypeDefinition type, int id, ImportedReferences references)
     {
-        _type = new TypeDefinition("CasCore.Guard", $"{method.Name}_{id}",
+        DeclaringType = type;
+        _type = new TypeDefinition("CasCore.Guard", $"{DeclaringType.Name}_{id}",
             TypeAttributes.Public | TypeAttributes.Class | TypeAttributes.AutoLayout
             | TypeAttributes.Abstract | TypeAttributes.Sealed, references.ObjectType);
 
-        method.Module.Types.Add(_type);
         _staticConstructor = new MethodDefinition(".cctor", MethodAttributes.Public | MethodAttributes.HideBySig
             | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName | MethodAttributes.Static, references.VoidType);
         _type.Methods.Add(_staticConstructor);
@@ -28,17 +33,21 @@ internal struct GuardWriter
         _il = _staticConstructor.Body.GetILProcessor();
         _fieldCount = 0;
         _references = references;
+        _fieldGuards = new Dictionary<FieldReference, FieldReference>();
+        _methodGuards = new Dictionary<MethodReference, FieldReference>();
     }
 
     public void Finish()
     {
-        _il.Append(_il.Create(OpCodes.Ret));
+        if (0 < _fieldCount)
+        {
+            _il.Append(_il.Create(OpCodes.Ret));
+            DeclaringType.Module.Types.Add(_type);
+        }
     }
 
     public FieldReference GetAccessibilityConstant(FieldReference field)
     {
-        var result = AddGuardField(field);
-
         if (field.ContainsGenericParameter)
         {
             if (field.DeclaringType is GenericInstanceType git)
@@ -47,6 +56,13 @@ internal struct GuardWriter
             }
         }
 
+        if (_fieldGuards.TryGetValue(field, out FieldReference? existing))
+        {
+            return existing;
+        }
+
+        var result = AddGuardField(field);
+        _fieldGuards.Add(field, result);
         _il.Append(_il.Create(OpCodes.Ldtoken, field));
         _il.Append(_il.Create(OpCodes.Ldtoken, field.DeclaringType));
         _il.Append(_il.Create(OpCodes.Call, _references.CanAccess));
@@ -56,8 +72,6 @@ internal struct GuardWriter
 
     public FieldReference GetAccessibilityConstant(MethodReference method)
     {
-        var result = AddGuardField(method);
-
         if (method.ContainsGenericParameter)
         {
             method = method.GetElementMethod();
@@ -68,6 +82,13 @@ internal struct GuardWriter
             }
         }
 
+        if (_methodGuards.TryGetValue(method, out FieldReference? existing))
+        {
+            return existing;
+        }
+
+        var result = AddGuardField(method);
+        _methodGuards.Add(method, result);
         _il.Append(_il.Create(OpCodes.Ldtoken, method));
         _il.Append(_il.Create(OpCodes.Ldtoken, method.DeclaringType));
         _il.Append(_il.Create(OpCodes.Call, _references.CanCallAlways));
