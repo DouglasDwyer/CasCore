@@ -8,7 +8,7 @@ namespace DouglasDwyer.CasCore;
 /// </summary>
 internal class ImportedReferences
 {
-    public required IImmutableDictionary<string, MethodReference> ShimmedMethods;
+    public required IImmutableDictionary<SignatureHash, MethodReference> ShimmedMethods;
     public required MethodReference AssertCanAccess;
     public required MethodReference AssertCanCall;
     public required MethodReference AssertCanCallConstrained;

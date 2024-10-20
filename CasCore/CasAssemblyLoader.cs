@@ -292,18 +292,31 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
         else
         {
-            var shimMethodName = target is GenericInstanceMethod gim ? gim.ElementMethod.FullName.Replace("!!0", "T") : target.FullName;
-            if (references.ShimmedMethods.TryGetValue(shimMethodName, out MethodReference? value))
+            if (references.ShimmedMethods.TryGetValue(new SignatureHash(target), out MethodReference? value))
             {
-                if (target is GenericInstanceMethod)
+                if (target.DeclaringType is GenericInstanceType
+                    || target is GenericInstanceMethod)
                 {
                     var newValue = new GenericInstanceMethod(value);
-                    foreach (var arg in ((GenericInstanceMethod)target).GenericArguments)
+                    if (target.DeclaringType is GenericInstanceType git)
                     {
-                        newValue.GenericArguments.Add(arg);
+                        foreach (var arg in git.GenericArguments)
+                        {
+                            newValue.GenericArguments.Add(arg);
+                        }
                     }
+
+                    if (target is GenericInstanceMethod gim)
+                    {
+                        foreach (var arg in gim.GenericArguments)
+                        {
+                            newValue.GenericArguments.Add(arg);
+                        }
+                    }
+
                     value = newValue;
                 }
+
                 rewriter.Insert(Instruction.Create(OpCodes.Call, value));
                 rewriter.Advance(false);
                 return;
@@ -471,9 +484,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         };
     }
 
-    private static IImmutableDictionary<string, MethodReference> ImportShims(ModuleDefinition module)
+    private static IImmutableDictionary<SignatureHash, MethodReference> ImportShims(ModuleDefinition module)
     {
-        return MethodShims.ShimMap.ToImmutableDictionary(x => module.ImportReference(x.Key).FullName, x => module.ImportReference(x.Value));
+        return MethodShims.ShimMap.ToImmutableDictionary(x => x.Key, x => module.ImportReference(x.Value));
     }
 
     private static string FormatSecurityException(AssemblyDefinition assembly, MemberInfo member)

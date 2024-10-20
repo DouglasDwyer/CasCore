@@ -29,7 +29,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
         }
         else
         {
-            return base.VisitBinary(node);
+            return VisitBinary(node);
         }
     }
 
@@ -40,7 +40,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
 
     protected override ElementInit VisitElementInit(ElementInit node)
     {
-        return Expression.ElementInit(GuardMethodInfo.Create(_assembly, node.AddMethod), base.Visit(node.Arguments));
+        return Expression.ElementInit(GuardMethodInfo.Create(_assembly, node.AddMethod), Visit(node.Arguments));
     }
 
     protected override Expression VisitIndex(IndexExpression node)
@@ -75,7 +75,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
     {
         if (node.Object is null)
         {
-            return Expression.Call(base.Visit(node.Object), GuardMethodInfo.Create(_assembly, node.Method), Visit(node.Arguments));
+            return Expression.Call(Visit(node.Object), GuardMethodInfo.Create(_assembly, node.Method), Visit(node.Arguments));
         }
         else
         {
@@ -89,21 +89,21 @@ internal class GuardExpressionVisitor : ExpressionVisitor
         {
             throw new SecurityException("Compiling System.Linq.Expressions.NewExpression with null constructor not supported in CAS contexts.");
         }
-        else if (node.Members is not null && 0 < node.Members.Count)
+        else if (node.Members is null)
         {
-            throw new SecurityException("Compiling System.Linq.Expressions.NewExpression with Members property not supported in CAS contexts.");
+            return Expression.New(GuardConstructorInfo.Create(_assembly, node.Constructor), Visit(node.Arguments));
         }
         else
         {
-            return Expression.New(GuardConstructorInfo.Create(_assembly, node.Constructor), base.Visit(node.Arguments));
+            return Expression.New(GuardConstructorInfo.Create(_assembly, node.Constructor), Visit(node.Arguments), node.Members.Select(CreateGuardMemberInfo));
         }
     }
 
     protected override Expression VisitSwitch(SwitchExpression node)
     {
         return Expression.Switch(
-            base.Visit(node.SwitchValue),
-            base.Visit(node.DefaultBody),
+            Visit(node.SwitchValue),
+            Visit(node.DefaultBody),
             node.Comparison is null ? null : GuardMethodInfo.Create(_assembly, node.Comparison),
             Visit(node.Cases, VisitSwitchCase));
     }
@@ -112,11 +112,11 @@ internal class GuardExpressionVisitor : ExpressionVisitor
     {
         if (node.Method is null)
         {
-            return Expression.MakeUnary(node.NodeType, base.Visit(node.Operand), node.Type, null);
+            return Expression.MakeUnary(node.NodeType, Visit(node.Operand), node.Type, null);
         }
         else
         {
-            return Expression.MakeUnary(node.NodeType, base.Visit(node.Operand), node.Type, GuardMethodInfo.Create(_assembly, node.Method));
+            return Expression.MakeUnary(node.NodeType, Visit(node.Operand), node.Type, GuardMethodInfo.Create(_assembly, node.Method));
         }
     }
 

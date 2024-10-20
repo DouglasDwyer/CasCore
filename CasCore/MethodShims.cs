@@ -13,19 +13,33 @@ namespace CasCore;
 
 public static class MethodShims
 {
-    internal static IImmutableDictionary<MethodBase, MethodBase> ShimMap { get; } =
+    private static IImmutableDictionary<MethodBase, MethodBase> ReplacementShims { get; } =
         typeof(MethodShims).GetMethods(BindingFlags.Public | BindingFlags.Static).Cast<MethodBase>().ToImmutableDictionary(GetOriginal, x => x);
 
-    internal static IImmutableSet<RuntimeMethodHandle> ShimHandles { get; } = ShimMap.Select(x => x.Key.MethodHandle).ToImmutableHashSet();
+    internal static IImmutableDictionary<SignatureHash, MethodBase> ShimMap { get; } =
+        ReplacementShims.ToImmutableDictionary(x => new SignatureHash(x.Key), x => x.Value);
+
+    internal static IImmutableSet<RuntimeMethodHandle> ShimHandles { get; } = ReplacementShims.Select(x => x.Key.MethodHandle).ToImmutableHashSet();
 
     private const BindingFlags ConstructorDefault = BindingFlags.Instance | BindingFlags.Public | BindingFlags.CreateInstance;
 
     /** System.Linq.Expressions.Expression<T> shims **/
 
-    /*public static T Compile<T>(Expression<T> target)
+    public static T Compile<T>(Expression<T> target)
+        => CompileExpression(Assembly.GetCallingAssembly(), target);
+
+    public static T Compile<T>(Expression<T> target, bool preferInterpretation)
+        => CompileExpression(Assembly.GetCallingAssembly(), target);
+
+    public static T Compile<T>(Expression<T> target, DebugInfoGenerator generator)
+        => CompileExpression(Assembly.GetCallingAssembly(), target);
+
+    private static T CompileExpression<T>(Assembly assembly, Expression<T> target)
     {
-        throw new NotImplementedException("gey");
-    }*/
+        return new GuardExpressionVisitor(assembly)
+            .VisitAndConvert(target, "Compile")
+            .Compile(true);
+    }
 
     /** System.Linq.Expressions.LambdaExpression shims **/
 
@@ -327,7 +341,7 @@ public static class MethodShims
             baseDeclaration = target.GetGenericMethodDefinition();
         }
 
-        if (ShimMap.TryGetValue(baseDeclaration, out MethodBase? shim))
+        if (ReplacementShims.TryGetValue(baseDeclaration, out MethodBase? shim))
         {
             if (target.IsConstructedGenericMethod)
             {
