@@ -3,20 +3,14 @@ using System.Reflection;
 
 namespace DouglasDwyer.CasCore;
 
-internal class GuardMethodInfo : MethodInfo
+internal class GuardConstructorInfo : ConstructorInfo
 {
     private readonly Assembly _assembly;
-    private readonly MethodInfo _inner;
-
-    public override ICustomAttributeProvider ReturnTypeCustomAttributes => _inner.ReturnTypeCustomAttributes;
+    private readonly ConstructorInfo _inner;
 
     public override MethodAttributes Attributes => _inner.Attributes;
 
     public override RuntimeMethodHandle MethodHandle => throw new NotSupportedException();
-
-    public override ParameterInfo ReturnParameter => _inner.ReturnParameter;
-
-    public override Type ReturnType => _inner.ReturnType;
 
     public override Type? DeclaringType => _inner.DeclaringType;
 
@@ -24,13 +18,13 @@ internal class GuardMethodInfo : MethodInfo
 
     public override Type? ReflectedType => _inner.ReflectedType;
 
-    private GuardMethodInfo(Assembly assembly, MethodInfo inner)
+    private GuardConstructorInfo(Assembly assembly, ConstructorInfo inner)
     {
         _assembly = assembly;
         _inner = inner;
     }
 
-    public static MethodInfo Create(Assembly assembly, MethodInfo inner)
+    public static ConstructorInfo Create(Assembly assembly, ConstructorInfo inner)
     {
         if (CasAssemblyLoader.CanCallAlways(assembly, inner))
         {
@@ -38,13 +32,8 @@ internal class GuardMethodInfo : MethodInfo
         }
         else
         {
-            return new GuardMethodInfo(assembly, inner);
+            return new GuardConstructorInfo(assembly, inner);
         }
-    }
-
-    public override MethodInfo GetBaseDefinition()
-    {
-        throw new NotSupportedException();
     }
 
     public override object[] GetCustomAttributes(bool inherit)
@@ -76,5 +65,11 @@ internal class GuardMethodInfo : MethodInfo
     public override bool IsDefined(Type attributeType, bool inherit)
     {
         return _inner.IsDefined(attributeType, inherit);
+    }
+
+    public override object Invoke(BindingFlags invokeAttr, Binder? binder, object?[]? parameters, CultureInfo? culture)
+    {
+        CasAssemblyLoader.AssertCanCall(_assembly, null, _inner);
+        return _inner.Invoke(invokeAttr, binder, parameters, culture);
     }
 }

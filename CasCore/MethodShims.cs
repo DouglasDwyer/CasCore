@@ -1,8 +1,10 @@
 ﻿using DouglasDwyer.CasCore;
+
 using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security;
@@ -17,6 +19,28 @@ public static class MethodShims
     internal static IImmutableSet<RuntimeMethodHandle> ShimHandles { get; } = ShimMap.Select(x => x.Key.MethodHandle).ToImmutableHashSet();
 
     private const BindingFlags ConstructorDefault = BindingFlags.Instance | BindingFlags.Public | BindingFlags.CreateInstance;
+
+    /** System.Linq.Expressions.Expression<T> shims **/
+
+    /*public static T Compile<T>(Expression<T> target)
+    {
+        throw new NotImplementedException("gey");
+    }*/
+
+    /** System.Linq.Expressions.LambdaExpression shims **/
+
+    public static Delegate Compile(LambdaExpression target)
+        => CompileLambda(Assembly.GetCallingAssembly(), target);
+
+    public static Delegate Compile(LambdaExpression target, bool preferInterpretation)
+        => CompileLambda(Assembly.GetCallingAssembly(), target);
+
+    private static Delegate CompileLambda(Assembly assembly, LambdaExpression target)
+    {
+        return new GuardExpressionVisitor(assembly)
+            .VisitAndConvert(target, "Compile")
+            .Compile(true);
+    }
 
     /** System.Delegate shims **/
 

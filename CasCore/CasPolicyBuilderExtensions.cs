@@ -3684,6 +3684,55 @@ public static class CasPolicyBuilderExtensions
             .Allow(new AssemblyBinding(Assembly.Load("System.Threading.Tasks.Parallel"), Accessibility.Protected));
     }
 
+    public static CasPolicyBuilder WithSandboxedSystemLinqExpressions(this CasPolicyBuilder builder)
+    {
+        return builder
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.BinaryExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.Expression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.BlockExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.CatchBlock), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.ConditionalExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.ConstantExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.DebugInfoExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.DefaultExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.ElementInit), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.ExpressionType), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.ExpressionVisitor), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.GotoExpressionKind), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.GotoExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.IndexExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.InvocationExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.LabelExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.LabelTarget), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.LambdaExpression), Accessibility.Protected)
+                .Where(x => x.Name != "Compile"))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.Expression<>), Accessibility.Protected)
+                .Where(x => x.Name != "Compile"))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.ListInitExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.LoopExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.MemberAssignment), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.MemberBindingType), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.MemberBinding), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.MemberExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.MemberInitExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.MemberListBinding), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.MemberMemberBinding), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.MethodCallExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.NewArrayExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.NewExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.ParameterExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.RuntimeVariablesExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.SwitchCase), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.SwitchExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.SymbolDocumentInfo), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.TryExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.TypeBinaryExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.UnaryExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.DynamicExpressionVisitor), Accessibility.Protected))
+            .Allow(new TypeBinding(typeof(System.Linq.Expressions.DynamicExpression), Accessibility.Protected))
+            .Allow(new TypeBinding(Type.GetType("System.Linq.Expressions.PropertyExpression, System.Linq.Expressions")!, Accessibility.Public));
+    }
+
     public static CasPolicyBuilder WithSandboxedRuntime(this CasPolicyBuilder builder)
     {
         return builder
@@ -3734,6 +3783,7 @@ public static class CasPolicyBuilderExtensions
             .WithSandboxedSystemThreading()
             .WithSandboxedSystemThreadingTasksDataflow()
             .WithSandboxedSystemThreadingTasksParallel()
+            .WithSandboxedSystemLinqExpressions()
             .WithSandboxedRuntime();
     }
 }
