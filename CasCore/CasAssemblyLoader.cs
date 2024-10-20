@@ -6,7 +6,6 @@ using Mono.Cecil.Rocks;
 using System.Collections.Immutable;
 using System.Data;
 using System.Diagnostics;
-using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
