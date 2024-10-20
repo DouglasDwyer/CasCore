@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasCore", "CasCore\CasCore.csproj", "{DA1FD0E2-FAAA-48BE-BE49-8BC448F7B324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasCore", "CasCore\CasCore.csproj", "{DA1FD0E2-FAAA-48BE-BE49-8BC448F7B324}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasCore.Tests", "CasCore.Tests\CasCore.Tests.csproj", "{EF0C11DD-DBF9-48B9-B917-F4FE6BC33357}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasCore.Tests.Host", "CasCore.Tests.Host\CasCore.Tests.Host.csproj", "{031374DC-A0D0-4315-8DDC-0227375A3460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasCore.Tests.Shared", "CasCore.Tests.Shared\CasCore.Tests.Shared.csproj", "{24080F12-8276-4459-9AA6-7BF704D19307}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{DA1FD0E2-FAAA-48BE-BE49-8BC448F7B324}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA1FD0E2-FAAA-48BE-BE49-8BC448F7B324}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA1FD0E2-FAAA-48BE-BE49-8BC448F7B324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0C11DD-DBF9-48B9-B917-F4FE6BC33357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0C11DD-DBF9-48B9-B917-F4FE6BC33357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0C11DD-DBF9-48B9-B917-F4FE6BC33357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0C11DD-DBF9-48B9-B917-F4FE6BC33357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031374DC-A0D0-4315-8DDC-0227375A3460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031374DC-A0D0-4315-8DDC-0227375A3460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031374DC-A0D0-4315-8DDC-0227375A3460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031374DC-A0D0-4315-8DDC-0227375A3460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24080F12-8276-4459-9AA6-7BF704D19307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24080F12-8276-4459-9AA6-7BF704D19307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24080F12-8276-4459-9AA6-7BF704D19307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24080F12-8276-4459-9AA6-7BF704D19307}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

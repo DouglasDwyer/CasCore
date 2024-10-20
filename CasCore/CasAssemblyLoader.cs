@@ -140,6 +140,17 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    protected override Assembly? Load(AssemblyName assemblyName)
+    {
+        Assembly executingAssembly = Assembly.GetExecutingAssembly();
+        if (AssemblyName.ReferenceMatchesDefinition(assemblyName, executingAssembly.GetName()))
+        {
+            return executingAssembly;
+        }
+
+        return base.Load(assemblyName);
+    }
+
     protected override void InstrumentAssembly(AssemblyDefinition assembly)
     {
         base.InstrumentAssembly(assembly);
