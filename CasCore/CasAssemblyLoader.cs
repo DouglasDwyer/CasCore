@@ -75,6 +75,36 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     [StackTraceHidden]
+    public static T CreateCheckedDelegate<T>(object? target, RuntimeMethodHandle method, RuntimeTypeHandle type)
+        where T : Delegate
+    {
+        var originalMethod = (MethodInfo)MethodBase.GetMethodFromHandle(method, type)!;
+        var targetMethod = originalMethod;
+
+        if (MethodShims.TryGetShim(targetMethod, out MethodInfo? shim))
+        {
+            targetMethod = shim;
+        }
+
+        Delegate result;
+        if (originalMethod.IsStatic)
+        {
+            result = Delegate.CreateDelegate(typeof(T), targetMethod);
+        }
+        else
+        {
+            result = Delegate.CreateDelegate(typeof(T), target, targetMethod);
+        }
+
+        if (originalMethod == targetMethod)
+        {
+            AssertCanCall(Assembly.GetCallingAssembly(), result.Target, result.Method);
+        }
+
+        return (T)result;
+    }
+
+    [StackTraceHidden]
     internal static void ThrowAccessException(Assembly assembly, MemberInfo info)
     {
         throw new SecurityException(FormatSecurityException(assembly, info));
@@ -184,13 +214,10 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         {
             PatchFieldAccess(ref rewriter, ref guardWriter, references);
         }
-        else if (rewriter.Instruction.OpCode.Code == Code.Ldftn)
+        else if (rewriter.Instruction.OpCode.Code == Code.Ldftn
+            || rewriter.Instruction.OpCode.Code == Code.Ldvirtftn)
         {
-            PatchStaticDelegateCreation(ref rewriter, ref guardWriter, references);
-        }
-        else if (rewriter.Instruction.OpCode.Code == Code.Ldvirtftn)
-        {
-            PatchVirtualDelegateCreation(ref rewriter, ref guardWriter, references);
+            PatchDelegateCreation(ref rewriter, ref guardWriter, references);
         }
         else
         {
@@ -229,7 +256,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Advance(true);
     }
 
-    private void PatchStaticDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
+    private void PatchDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (MethodReference)rewriter.Instruction!.Operand;
         if (rewriter.Method.DeclaringType.Scope == target.DeclaringType.Scope)
@@ -239,28 +266,21 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             return;
         }
 
-        PatchStaticMethod(ref rewriter, ref guardWriter, target, references);
-        rewriter.Advance(true);
-        rewriter.Advance(true);
-    }
+        var targetDelegate = ((MethodReference)rewriter.Instruction.Next.Operand).DeclaringType;
+        var createChecked = new GenericInstanceMethod(references.CreateCheckedDelegate);
+        createChecked.GenericArguments.Add(targetDelegate);
 
-    private void PatchVirtualDelegateCreation(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
-    {
-        var target = (MethodReference)rewriter.Instruction!.Operand;
-        if (rewriter.Method.DeclaringType.Scope == target.DeclaringType.Scope)
+        if (rewriter.Instruction.OpCode.Code == Code.Ldvirtftn)
         {
-            rewriter.Advance(true);
-            rewriter.Advance(true);
-            return;
+            rewriter.Insert(Instruction.Create(OpCodes.Pop));
         }
 
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, rewriter.Method.Module.ImportReference(target)));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, rewriter.Method.Module.ImportReference(target.DeclaringType)));
-        rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanCall));
-        rewriter.Insert(Instruction.Create(OpCodes.Dup));
+        rewriter.Insert(Instruction.Create(OpCodes.Call, createChecked));
 
-        rewriter.Advance(true);
-        rewriter.Advance(true);
+        rewriter.Advance(false);
+        rewriter.Advance(false);
     }
 
     private void PatchMethodCall(ref MethodBodyRewriter rewriter, ref GuardWriter guardWriter, ImportedReferences references)
@@ -443,6 +463,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             AssertCanAccess = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(AssertCanAccess))),
             AssertCanCall = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(AssertCanCall))),
             AssertCanCallConstrained = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(AssertCanCallConstrained))),
+            CreateCheckedDelegate = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CreateCheckedDelegate))),
             BoolType = module.ImportReference(typeof(bool)),
             CanAccess = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CanAccess))),
             CanCallAlways = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CanCallAlways))),

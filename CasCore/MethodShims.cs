@@ -98,26 +98,33 @@ public static class MethodShims
     [StaticShim(typeof(Activator))]
     public static T CreateInstance<T>()
     {
-        var constructor = typeof(T).GetConstructor([]);
-
-        if (constructor is null)
+        if (!typeof(T).IsPrimitive)
         {
-            throw new MissingMethodException($"Cannot find default constructor for {typeof(T)}.");
+            var constructor = typeof(T).GetConstructor([]);
+
+            if (constructor is null)
+            {
+                throw new MissingMethodException($"Cannot find default constructor for {typeof(T)}.");
+            }
+
+            CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), null, constructor);
         }
 
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), null, constructor);
         return Activator.CreateInstance<T>();
     }
 
     private static object? CreateInstance(Assembly assembly, Type type, BindingFlags bindingAttr, Binder? binder, object?[]? args, CultureInfo? culture, object?[]? activationAttributes)
     {
-        ArgumentNullException.ThrowIfNull(type);
-        var constructors = type.GetConstructors(bindingAttr)
-            .Where(x => ArgumentsBindable(x, args));
-
-        foreach (var constructor in constructors)
+        if (!type.IsPrimitive)
         {
-            CasAssemblyLoader.AssertCanCall(assembly, null, constructor);
+            ArgumentNullException.ThrowIfNull(type);
+            var constructors = type.GetConstructors(bindingAttr)
+                .Where(x => ArgumentsBindable(x, args));
+
+            foreach (var constructor in constructors)
+            {
+                CasAssemblyLoader.AssertCanCall(assembly, null, constructor);
+            }
         }
 
         return Activator.CreateInstance(type, bindingAttr, binder, args, culture, null);
@@ -125,15 +132,19 @@ public static class MethodShims
 
     private static object? CreateInstance(Assembly assembly, Type type, bool nonPublic)
     {
-        ArgumentNullException.ThrowIfNull(type);
-        var constructor = type.GetConstructor([]);
-
-        if (constructor is null)
+        if (!type.IsPrimitive)
         {
-            throw new MissingMethodException($"Cannot find default constructor for {type}.");
+            ArgumentNullException.ThrowIfNull(type);
+            var constructor = type.GetConstructor([]);
+
+            if (constructor is null)
+            {
+                throw new MissingMethodException($"Cannot find default constructor for {type}.");
+            }
+
+            CasAssemblyLoader.AssertCanCall(assembly, null, constructor);
         }
 
-        CasAssemblyLoader.AssertCanCall(assembly, null, constructor);
         return Activator.CreateInstance(type, nonPublic);
     }
 
@@ -283,6 +294,33 @@ public static class MethodShims
     public static T CreateDelegate<T>(MethodInfo target) where T : Delegate => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate<T>());
 
     public static T CreateDelegate<T>(MethodInfo target, object? targetObj) where T : Delegate => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate<T>(targetObj));
+
+    internal static bool TryGetShim(MethodInfo target, [NotNullWhen(true)] out MethodInfo? result)
+    {
+        var baseDeclaration = target.GetBaseDefinition();
+        if (target.IsConstructedGenericMethod)
+        {
+            baseDeclaration = target.GetGenericMethodDefinition();
+        }
+
+        if (ShimMap.TryGetValue(baseDeclaration, out MethodBase? shim))
+        {
+            if (target.IsConstructedGenericMethod)
+            {
+                result = ((MethodInfo)shim).MakeGenericMethod(target.GetGenericArguments());
+            }
+            else
+            {
+                result = (MethodInfo)shim;
+            }
+            return true;
+        }
+        else
+        {
+            result = null;
+            return false;
+        }
+    }
 
     private static MethodBase GetOriginal(MethodBase method)
     {
