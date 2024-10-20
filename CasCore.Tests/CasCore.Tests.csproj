@@ -7,6 +7,12 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
+	<ItemGroup>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>../CasCore.Tests.Host/Newtonsoft.Json.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\CasCore.Tests.Shared\CasCore.Tests.Shared.csproj" />
   </ItemGroup>

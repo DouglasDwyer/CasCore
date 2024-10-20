@@ -41,7 +41,8 @@ class IsolatedLoadContext : CasAssemblyLoader
             .WithDefaultSandbox()
             .Allow(new TypeBinding(typeof(SharedClass), Accessibility.None)
                 .WithConstructor([], Accessibility.Public)
-                .WithField("AllowedStaticField", Accessibility.Public))
+                .WithField("AllowedStaticField", Accessibility.Public)
+                .WithField("AllowedField", Accessibility.Public))
             .Build();
 
         return new IsolatedLoadContext([

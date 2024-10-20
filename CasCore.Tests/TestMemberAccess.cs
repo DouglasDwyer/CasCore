@@ -28,4 +28,18 @@ public static class TestMemberAccess
     {
         var x = new SharedClass();
     }
+
+    [TestException(typeof(SecurityException))]
+    public static void TestAccessDenied()
+    {
+        var instance = new SharedClass();
+        var x = instance.DeniedField;
+    }
+
+    [TestSuccessful]
+    public static void TestAccessAllowed()
+    {
+        var instance = new SharedClass();
+        var x = instance.AllowedField;
+    }
 }
