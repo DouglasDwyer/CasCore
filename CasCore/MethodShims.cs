@@ -376,6 +376,18 @@ public static class MethodShims
         }
     }
 
+    public static object Invoke(ConstructorInfo target, object?[]? parameters)
+    {
+        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), null, target);
+        return target.Invoke(parameters);
+    }
+
+    public static object Invoke(ConstructorInfo target, BindingFlags invokeAttr, Binder? binder, object?[]? parameters, CultureInfo? culture)
+    {
+        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), null, target);
+        return target.Invoke(invokeAttr, binder, parameters, culture);
+    }
+
     public static Delegate CreateDelegate(MethodInfo target, Type delegateType) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate(delegateType));
     
     public static Delegate CreateDelegate(MethodInfo target, Type delegateType, object? targetObj) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate(delegateType, targetObj));
