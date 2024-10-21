@@ -66,7 +66,7 @@ public sealed class CasPolicyBuilder
     /// <summary>
     /// Prevents the given members from being accessed by sandboxed assemblies.
     /// </summary>
-    /// <param name="member">The members to deny.</param>
+    /// <param name="members">The members to deny.</param>
     /// <returns>This builder, with any relevant members removed if they were present.</returns>
     public CasPolicyBuilder Deny(IEnumerable<MemberInfo> members)
     {

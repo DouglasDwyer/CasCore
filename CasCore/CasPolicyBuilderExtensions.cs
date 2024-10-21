@@ -4,38 +4,71 @@ using System.Security;
 
 namespace DouglasDwyer.CasCore;
 
+/// <summary>
+/// Provides a set of methods for whitelisting C# standard library members.
+/// </summary>
 public static class CasPolicyBuilderExtensions
 {
+    /// <summary>
+    /// Adds all safe members from the <c>System.Collections.Concurrent</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemCollectionsConcurrent(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Collections.Concurrent"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Collections</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemCollections(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Collections"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Collections.Immutable</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemCollectionsImmutable(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Collections.Immutable"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Collections.NonGeneric</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemCollectionsNonGeneric(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Collections.NonGeneric"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Collections.Specialized</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemCollectionsSpecialized(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Collections.Specialized"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.ComponentModel.TypeConverter</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemComponentModelTypeConverter(this CasPolicyBuilder builder)
     {
         return builder
@@ -192,6 +225,11 @@ public static class CasPolicyBuilderExtensions
             .Allow(new TypeBinding(typeof(System.ComponentModel.Design.Serialization.ResolveNameEventArgs), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Console</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemConsole(this CasPolicyBuilder builder)
     {
         return builder
@@ -375,36 +413,66 @@ public static class CasPolicyBuilderExtensions
             .Allow(new TypeBinding(Type.GetType("System.IO.SyncTextReader, System.Console")!, Accessibility.Public));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Diagnostics.DiagnosticSource</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemDiagnosticsDiagnosticSource(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Diagnostics.DiagnosticSource"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Linq</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemLinq(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Linq"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Linq.Parallel</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemLinqParallel(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Linq.Parallel"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>.System.Linq.Queryable</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemLinqQueryable(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Linq.Queryable"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.ObjectModel</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemObjectModel(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.ObjectModel"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>CoreLib</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystem(this CasPolicyBuilder builder)
     {
         builder = builder
@@ -2641,766 +2709,22 @@ public static class CasPolicyBuilderExtensions
             .Allow(new TypeBinding(typeof(System.Collections.Generic.ReferenceEqualityComparer), Accessibility.Protected));
     }
 
-    public static CasPolicyBuilder WithSandboxedSystemReflectionMetadata(this CasPolicyBuilder builder)
-    {
-        return builder
-            .Allow(new TypeBinding(typeof(System.Reflection.MethodSemanticsAttributes), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.MethodImportAttributes), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.ManifestResourceAttributes), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.AssemblyHashAlgorithm), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.AssemblyFlags), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.ManagedPEBuilder), Accessibility.None)
-                .WithField("ManagedResourcesDataAlignment", Accessibility.Protected)
-                .WithField("MappedFieldDataAlignment", Accessibility.Protected)
-                .WithMethod("Sign", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.PEBuilder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.PEDirectoriesBuilder), Accessibility.None)
-                .WithMethod("get_AddressOfEntryPoint", Accessibility.Protected)
-                .WithMethod("set_AddressOfEntryPoint", Accessibility.Protected)
-                .WithConstructor(Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.PEHeaderBuilder), Accessibility.None)
-                .WithMethod("get_Machine", Accessibility.Protected)
-                .WithMethod("get_ImageCharacteristics", Accessibility.Protected)
-                .WithMethod("get_MajorLinkerVersion", Accessibility.Protected)
-                .WithMethod("get_MinorLinkerVersion", Accessibility.Protected)
-                .WithMethod("get_ImageBase", Accessibility.Protected)
-                .WithMethod("get_SectionAlignment", Accessibility.Protected)
-                .WithMethod("get_MajorOperatingSystemVersion", Accessibility.Protected)
-                .WithMethod("get_MinorOperatingSystemVersion", Accessibility.Protected)
-                .WithMethod("get_MajorImageVersion", Accessibility.Protected)
-                .WithMethod("get_MinorImageVersion", Accessibility.Protected)
-                .WithMethod("get_MajorSubsystemVersion", Accessibility.Protected)
-                .WithMethod("get_MinorSubsystemVersion", Accessibility.Protected)
-                .WithMethod("get_Subsystem", Accessibility.Protected)
-                .WithMethod("get_DllCharacteristics", Accessibility.Protected)
-                .WithMethod("get_SizeOfStackReserve", Accessibility.Protected)
-                .WithMethod("get_SizeOfStackCommit", Accessibility.Protected)
-                .WithMethod("get_SizeOfHeapReserve", Accessibility.Protected)
-                .WithMethod("get_SizeOfHeapCommit", Accessibility.Protected)
-                .WithMethod("CreateExecutableHeader", Accessibility.Protected)
-                .WithMethod("CreateLibraryHeader", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.SectionLocation), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.CoffHeader), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.CorFlags), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.CorHeader), Accessibility.None)
-                .WithMethod("get_MajorRuntimeVersion", Accessibility.Protected)
-                .WithMethod("get_MinorRuntimeVersion", Accessibility.Protected)
-                .WithMethod("get_Flags", Accessibility.Protected)
-                .WithMethod("get_EntryPointTokenOrRelativeVirtualAddress", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.Machine), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.Characteristics), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.PEMagic), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.Subsystem), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.DllCharacteristics), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.SectionCharacteristics), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.PEHeader), Accessibility.None)
-                .WithMethod("get_Magic", Accessibility.Protected)
-                .WithMethod("get_MajorLinkerVersion", Accessibility.Protected)
-                .WithMethod("get_MinorLinkerVersion", Accessibility.Protected)
-                .WithMethod("get_SizeOfCode", Accessibility.Protected)
-                .WithMethod("get_SizeOfInitializedData", Accessibility.Protected)
-                .WithMethod("get_AddressOfEntryPoint", Accessibility.Protected)
-                .WithMethod("get_BaseOfCode", Accessibility.Protected)
-                .WithMethod("get_BaseOfData", Accessibility.Protected)
-                .WithMethod("get_ImageBase", Accessibility.Protected)
-                .WithMethod("get_SectionAlignment", Accessibility.Protected)
-                .WithMethod("get_MajorOperatingSystemVersion", Accessibility.Protected)
-                .WithMethod("get_MinorOperatingSystemVersion", Accessibility.Protected)
-                .WithMethod("get_MajorImageVersion", Accessibility.Protected)
-                .WithMethod("get_MinorImageVersion", Accessibility.Protected)
-                .WithMethod("get_MajorSubsystemVersion", Accessibility.Protected)
-                .WithMethod("get_MinorSubsystemVersion", Accessibility.Protected)
-                .WithMethod("get_SizeOfImage", Accessibility.Protected)
-                .WithMethod("get_SizeOfHeaders", Accessibility.Protected)
-                .WithMethod("get_CheckSum", Accessibility.Protected)
-                .WithMethod("get_Subsystem", Accessibility.Protected)
-                .WithMethod("get_DllCharacteristics", Accessibility.Protected)
-                .WithMethod("get_SizeOfStackReserve", Accessibility.Protected)
-                .WithMethod("get_SizeOfStackCommit", Accessibility.Protected)
-                .WithMethod("get_SizeOfHeapReserve", Accessibility.Protected)
-                .WithMethod("get_SizeOfHeapCommit", Accessibility.Protected)
-                .WithMethod("get_NumberOfRvaAndSizes", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.PEHeaders), Accessibility.None)
-                .WithConstructor([typeof(System.IO.Stream /*peStream*/),], Accessibility.Protected)
-                .WithConstructor([typeof(System.IO.Stream /*peStream*/), typeof(System.Int32 /*size*/),], Accessibility.Protected)
-                .WithConstructor([typeof(System.IO.Stream /*peStream*/), typeof(System.Int32 /*size*/), typeof(System.Boolean /*isLoadedImage*/),], Accessibility.Protected)
-                .WithMethod("get_MetadataStartOffset", Accessibility.Protected)
-                .WithMethod("get_MetadataSize", Accessibility.Protected)
-                .WithMethod("get_CoffHeader", Accessibility.Protected)
-                .WithMethod("get_CoffHeaderStartOffset", Accessibility.Protected)
-                .WithMethod("get_IsCoffOnly", Accessibility.Protected)
-                .WithMethod("get_PEHeader", Accessibility.Protected)
-                .WithMethod("get_PEHeaderStartOffset", Accessibility.Protected)
-                .WithMethod("get_SectionHeaders", Accessibility.Protected)
-                .WithMethod("get_CorHeader", Accessibility.Protected)
-                .WithMethod("get_CorHeaderStartOffset", Accessibility.Protected)
-                .WithMethod("get_IsConsoleApplication", Accessibility.Protected)
-                .WithMethod("get_IsDll", Accessibility.Protected)
-                .WithMethod("get_IsExe", Accessibility.Protected)
-                .WithMethod("GetContainingSectionIndex", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.PEMemoryBlock), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.PEReader), Accessibility.None)
-                .WithMethod("get_IsLoadedImage", Accessibility.Protected)
-                .WithConstructor([typeof(System.IO.Stream /*peStream*/),], Accessibility.Protected)
-                .WithConstructor([typeof(System.IO.Stream /*peStream*/), typeof(System.Reflection.PortableExecutable.PEStreamOptions /*options*/),], Accessibility.Protected)
-                .WithConstructor([typeof(System.IO.Stream /*peStream*/), typeof(System.Reflection.PortableExecutable.PEStreamOptions /*options*/), typeof(System.Int32 /*size*/),], Accessibility.Protected)
-                .WithConstructor([typeof(System.Collections.Immutable.ImmutableArray<System.Byte> /*peImage*/),], Accessibility.Protected)
-                .WithMethod("Dispose", Accessibility.Protected)
-                .WithMethod("get_PEHeaders", Accessibility.Protected)
-                .WithMethod("get_IsEntireImageAvailable", Accessibility.Protected)
-                .WithMethod("GetEntireImage", Accessibility.Protected)
-                .WithMethod("get_HasMetadata", Accessibility.Protected)
-                .WithMethod("GetMetadata", Accessibility.Protected)
-                .WithMethod("GetSectionData", [typeof(System.Int32 /*relativeVirtualAddress*/),], Accessibility.Protected)
-                .WithMethod("GetSectionData", [typeof(System.String /*sectionName*/),], Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.PEStreamOptions), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.PortableExecutable.SectionHeader), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.EntityHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Blob), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.BlobWriter), Accessibility.None)
-                .WithConstructor([typeof(System.Int32 /*size*/),], Accessibility.Protected)
-                .WithConstructor([typeof(System.Byte[] /*buffer*/),], Accessibility.Protected)
-                .WithConstructor([typeof(System.Reflection.Metadata.Blob /*blob*/),], Accessibility.Protected)
-                .WithConstructor([typeof(System.Byte[] /*buffer*/), typeof(System.Int32 /*start*/), typeof(System.Int32 /*count*/),], Accessibility.Protected)
-                .WithMethod("ContentEquals", Accessibility.Protected)
-                .WithMethod("get_Offset", Accessibility.Protected)
-                .WithMethod("set_Offset", Accessibility.Protected)
-                .WithMethod("get_Length", Accessibility.Protected)
-                .WithMethod("get_RemainingBytes", Accessibility.Protected)
-                .WithMethod("get_Blob", Accessibility.Protected)
-                .WithMethod("ToArray", [], Accessibility.Protected)
-                .WithMethod("ToArray", [typeof(System.Int32 /*start*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("ToImmutableArray", [], Accessibility.Protected)
-                .WithMethod("ToImmutableArray", [typeof(System.Int32 /*start*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Byte /*value*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Reflection.Metadata.BlobBuilder /*source*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.IO.Stream /*source*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Collections.Immutable.ImmutableArray<System.Byte> /*buffer*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Collections.Immutable.ImmutableArray<System.Byte> /*buffer*/), typeof(System.Int32 /*start*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Byte[] /*buffer*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Byte[] /*buffer*/), typeof(System.Int32 /*start*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("PadTo", Accessibility.Protected)
-                .WithMethod("Align", Accessibility.Protected)
-                .WithMethod("WriteBoolean", Accessibility.Protected)
-                .WithMethod("WriteByte", Accessibility.Protected)
-                .WithMethod("WriteSByte", Accessibility.Protected)
-                .WithMethod("WriteDouble", Accessibility.Protected)
-                .WithMethod("WriteSingle", Accessibility.Protected)
-                .WithMethod("WriteInt16", Accessibility.Protected)
-                .WithMethod("WriteUInt16", Accessibility.Protected)
-                .WithMethod("WriteInt16BE", Accessibility.Protected)
-                .WithMethod("WriteUInt16BE", Accessibility.Protected)
-                .WithMethod("WriteInt32BE", Accessibility.Protected)
-                .WithMethod("WriteUInt32BE", Accessibility.Protected)
-                .WithMethod("WriteInt32", Accessibility.Protected)
-                .WithMethod("WriteUInt32", Accessibility.Protected)
-                .WithMethod("WriteInt64", Accessibility.Protected)
-                .WithMethod("WriteUInt64", Accessibility.Protected)
-                .WithMethod("WriteDecimal", Accessibility.Protected)
-                .WithMethod("WriteGuid", Accessibility.Protected)
-                .WithMethod("WriteDateTime", Accessibility.Protected)
-                .WithMethod("WriteReference", Accessibility.Protected)
-                .WithMethod("WriteUTF16", [typeof(System.Char[] /*value*/),], Accessibility.Protected)
-                .WithMethod("WriteUTF16", [typeof(System.String /*value*/),], Accessibility.Protected)
-                .WithMethod("WriteSerializedString", Accessibility.Protected)
-                .WithMethod("WriteUserString", Accessibility.Protected)
-                .WithMethod("WriteUTF8", Accessibility.Protected)
-                .WithMethod("WriteCompressedSignedInteger", Accessibility.Protected)
-                .WithMethod("WriteCompressedInteger", Accessibility.Protected)
-                .WithMethod("WriteConstant", Accessibility.Protected)
-                .WithMethod("Clear", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.BlobBuilder), Accessibility.None)
-                .WithConstructor(Accessibility.Protected)
-                .WithMethod("Clear", Accessibility.Protected)
-                .WithMethod("get_Count", Accessibility.Protected)
-                .WithMethod("GetBlobs", Accessibility.Protected)
-                .WithMethod("ContentEquals", Accessibility.Protected)
-                .WithMethod("ToArray", [], Accessibility.Protected)
-                .WithMethod("ToArray", [typeof(System.Int32 /*start*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("ToImmutableArray", [], Accessibility.Protected)
-                .WithMethod("ToImmutableArray", [typeof(System.Int32 /*start*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("WriteContentTo", [typeof(System.IO.Stream /*destination*/),], Accessibility.Protected)
-                .WithMethod("WriteContentTo", [typeof(System.Reflection.Metadata.BlobWriter /*destination*/).MakeByRefType(),], Accessibility.Protected)
-                .WithMethod("WriteContentTo", [typeof(System.Reflection.Metadata.BlobBuilder /*destination*/),], Accessibility.Protected)
-                .WithMethod("LinkPrefix", Accessibility.Protected)
-                .WithMethod("LinkSuffix", Accessibility.Protected)
-                .WithMethod("ReserveBytes", Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Byte /*value*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("TryWriteBytes", Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Collections.Immutable.ImmutableArray<System.Byte> /*buffer*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Collections.Immutable.ImmutableArray<System.Byte> /*buffer*/), typeof(System.Int32 /*start*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Byte[] /*buffer*/),], Accessibility.Protected)
-                .WithMethod("WriteBytes", [typeof(System.Byte[] /*buffer*/), typeof(System.Int32 /*start*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("PadTo", Accessibility.Protected)
-                .WithMethod("Align", Accessibility.Protected)
-                .WithMethod("WriteBoolean", Accessibility.Protected)
-                .WithMethod("WriteByte", Accessibility.Protected)
-                .WithMethod("WriteSByte", Accessibility.Protected)
-                .WithMethod("WriteDouble", Accessibility.Protected)
-                .WithMethod("WriteSingle", Accessibility.Protected)
-                .WithMethod("WriteInt16", Accessibility.Protected)
-                .WithMethod("WriteUInt16", Accessibility.Protected)
-                .WithMethod("WriteInt16BE", Accessibility.Protected)
-                .WithMethod("WriteUInt16BE", Accessibility.Protected)
-                .WithMethod("WriteInt32BE", Accessibility.Protected)
-                .WithMethod("WriteUInt32BE", Accessibility.Protected)
-                .WithMethod("WriteInt32", Accessibility.Protected)
-                .WithMethod("WriteUInt32", Accessibility.Protected)
-                .WithMethod("WriteInt64", Accessibility.Protected)
-                .WithMethod("WriteUInt64", Accessibility.Protected)
-                .WithMethod("WriteDecimal", Accessibility.Protected)
-                .WithMethod("WriteGuid", Accessibility.Protected)
-                .WithMethod("WriteDateTime", Accessibility.Protected)
-                .WithMethod("WriteReference", Accessibility.Protected)
-                .WithMethod("WriteUTF16", [typeof(System.Char[] /*value*/),], Accessibility.Protected)
-                .WithMethod("WriteUTF16", [typeof(System.String /*value*/),], Accessibility.Protected)
-                .WithMethod("WriteSerializedString", Accessibility.Protected)
-                .WithMethod("WriteUserString", Accessibility.Protected)
-                .WithMethod("WriteUTF8", Accessibility.Protected)
-                .WithMethod("WriteCompressedSignedInteger", Accessibility.Protected)
-                .WithMethod("WriteCompressedInteger", Accessibility.Protected)
-                .WithMethod("WriteConstant", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ReservedBlob<>), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomAttributeNamedArgument<>), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomAttributeTypedArgument<>), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomAttributeValue<>), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ILOpCode), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ILOpCodeExtensions), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ImageFormatLimitationException), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MetadataStreamOptions), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MetadataReaderProvider), Accessibility.None)
-                .WithMethod("FromPortablePdbImage", [typeof(System.Collections.Immutable.ImmutableArray<System.Byte> /*image*/),], Accessibility.Protected)
-                .WithMethod("FromMetadataImage", [typeof(System.Collections.Immutable.ImmutableArray<System.Byte> /*image*/),], Accessibility.Protected)
-                .WithMethod("FromPortablePdbStream", Accessibility.Protected)
-                .WithMethod("FromMetadataStream", Accessibility.Protected)
-                .WithMethod("Dispose", Accessibility.Protected)
-                .WithMethod("GetMetadataReader", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.BlobContentId), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.PrimitiveSerializationTypeCode), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.AssemblyDefinition), Accessibility.None)
-                .WithMethod("GetAssemblyName", Accessibility.Protected)
-                .WithMethod("get_HashAlgorithm", Accessibility.Protected)
-                .WithMethod("get_Version", Accessibility.Protected)
-                .WithMethod("get_Flags", Accessibility.Protected)
-                .WithMethod("get_Name", Accessibility.Protected)
-                .WithMethod("get_Culture", Accessibility.Protected)
-                .WithMethod("get_PublicKey", Accessibility.Protected)
-                .WithMethod("GetCustomAttributes", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.AssemblyReference), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ModuleDefinitionHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.AssemblyDefinitionHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.InterfaceImplementationHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodDefinitionHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodImplementationHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodSpecificationHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.TypeDefinitionHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ExportedTypeHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.TypeReferenceHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.TypeSpecificationHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MemberReferenceHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.FieldDefinitionHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.EventDefinitionHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.PropertyDefinitionHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.StandaloneSignatureHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ParameterHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.GenericParameterHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.GenericParameterConstraintHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ModuleReferenceHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.AssemblyReferenceHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomAttributeHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ConstantHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ManifestResourceHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.UserStringHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.StringHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.NamespaceDefinitionHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.BlobHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.GuidHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.BlobReader), Accessibility.None)
-                .WithMethod("get_StartPointer", Accessibility.Protected)
-                .WithMethod("get_CurrentPointer", Accessibility.Protected)
-                .WithMethod("get_Length", Accessibility.Protected)
-                .WithMethod("get_Offset", Accessibility.Protected)
-                .WithMethod("set_Offset", Accessibility.Protected)
-                .WithMethod("get_RemainingBytes", Accessibility.Protected)
-                .WithMethod("Reset", Accessibility.Protected)
-                .WithMethod("Align", Accessibility.Protected)
-                .WithMethod("ReadBoolean", Accessibility.Protected)
-                .WithMethod("ReadSByte", Accessibility.Protected)
-                .WithMethod("ReadByte", Accessibility.Protected)
-                .WithMethod("ReadChar", Accessibility.Protected)
-                .WithMethod("ReadInt16", Accessibility.Protected)
-                .WithMethod("ReadUInt16", Accessibility.Protected)
-                .WithMethod("ReadInt32", Accessibility.Protected)
-                .WithMethod("ReadUInt32", Accessibility.Protected)
-                .WithMethod("ReadInt64", Accessibility.Protected)
-                .WithMethod("ReadUInt64", Accessibility.Protected)
-                .WithMethod("ReadSingle", Accessibility.Protected)
-                .WithMethod("ReadDouble", Accessibility.Protected)
-                .WithMethod("ReadGuid", Accessibility.Protected)
-                .WithMethod("ReadDecimal", Accessibility.Protected)
-                .WithMethod("ReadDateTime", Accessibility.Protected)
-                .WithMethod("ReadSignatureHeader", Accessibility.Protected)
-                .WithMethod("IndexOf", Accessibility.Protected)
-                .WithMethod("ReadUTF8", Accessibility.Protected)
-                .WithMethod("ReadUTF16", Accessibility.Protected)
-                .WithMethod("ReadBytes", [typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("ReadBytes", [typeof(System.Int32 /*byteCount*/), typeof(System.Byte[] /*buffer*/), typeof(System.Int32 /*bufferOffset*/),], Accessibility.Protected)
-                .WithMethod("TryReadCompressedInteger", Accessibility.Protected)
-                .WithMethod("ReadCompressedInteger", Accessibility.Protected)
-                .WithMethod("TryReadCompressedSignedInteger", Accessibility.Protected)
-                .WithMethod("ReadCompressedSignedInteger", Accessibility.Protected)
-                .WithMethod("ReadSerializationTypeCode", Accessibility.Protected)
-                .WithMethod("ReadSignatureTypeCode", Accessibility.Protected)
-                .WithMethod("ReadSerializedString", Accessibility.Protected)
-                .WithMethod("ReadTypeHandle", Accessibility.Protected)
-                .WithMethod("ReadBlobHandle", Accessibility.Protected)
-                .WithMethod("ReadConstant", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Constant), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ConstantTypeCode), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomAttribute), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomAttributeNamedArgumentKind), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ArrayShape), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.SignatureTypeKind), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodSignature<>), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.PrimitiveTypeCode), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.EventDefinition), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ExceptionRegion), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ExceptionRegionKind), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ExportedType), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.FieldDefinition), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.GenericParameter), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.GenericParameterConstraint), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.GenericParameterHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.GenericParameterConstraintHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomAttributeHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodDefinitionHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.FieldDefinitionHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.PropertyDefinitionHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.EventDefinitionHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodImplementationHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ParameterHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.InterfaceImplementationHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.TypeDefinitionHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.TypeReferenceHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ExportedTypeHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MemberReferenceHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.PropertyAccessors), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.EventAccessors), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.AssemblyReferenceHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ManifestResourceHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.HandleComparer), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.HandleKind), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Handle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.InterfaceImplementation), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ManifestResource), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MemberReference), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.StandaloneSignatureKind), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MemberReferenceKind), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MetadataKind), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MetadataReader), Accessibility.None)
-                .WithMethod("get_MetadataPointer", Accessibility.Protected)
-                .WithMethod("get_MetadataLength", Accessibility.Protected)
-                .WithMethod("get_Options", Accessibility.Protected)
-                .WithMethod("get_MetadataVersion", Accessibility.Protected)
-                .WithMethod("get_DebugMetadataHeader", Accessibility.Protected)
-                .WithMethod("get_MetadataKind", Accessibility.Protected)
-                .WithMethod("get_StringComparer", Accessibility.Protected)
-                .WithMethod("get_UTF8Decoder", Accessibility.Protected)
-                .WithMethod("get_IsAssembly", Accessibility.Protected)
-                .WithMethod("get_AssemblyReferences", Accessibility.Protected)
-                .WithMethod("get_TypeDefinitions", Accessibility.Protected)
-                .WithMethod("get_TypeReferences", Accessibility.Protected)
-                .WithMethod("get_CustomAttributes", Accessibility.Protected)
-                .WithMethod("get_MemberReferences", Accessibility.Protected)
-                .WithMethod("get_ManifestResources", Accessibility.Protected)
-                .WithMethod("get_ExportedTypes", Accessibility.Protected)
-                .WithMethod("get_MethodDefinitions", Accessibility.Protected)
-                .WithMethod("get_FieldDefinitions", Accessibility.Protected)
-                .WithMethod("get_EventDefinitions", Accessibility.Protected)
-                .WithMethod("get_PropertyDefinitions", Accessibility.Protected)
-                .WithMethod("get_Documents", Accessibility.Protected)
-                .WithMethod("get_MethodDebugInformation", Accessibility.Protected)
-                .WithMethod("get_LocalScopes", Accessibility.Protected)
-                .WithMethod("get_LocalVariables", Accessibility.Protected)
-                .WithMethod("get_LocalConstants", Accessibility.Protected)
-                .WithMethod("get_ImportScopes", Accessibility.Protected)
-                .WithMethod("get_CustomDebugInformation", Accessibility.Protected)
-                .WithMethod("GetAssemblyDefinition", Accessibility.Protected)
-                .WithMethod("GetString", [typeof(System.Reflection.Metadata.StringHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetString", [typeof(System.Reflection.Metadata.NamespaceDefinitionHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetBlobBytes", Accessibility.Protected)
-                .WithMethod("GetBlobContent", Accessibility.Protected)
-                .WithMethod("GetBlobReader", [typeof(System.Reflection.Metadata.BlobHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetBlobReader", [typeof(System.Reflection.Metadata.StringHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetUserString", Accessibility.Protected)
-                .WithMethod("GetGuid", Accessibility.Protected)
-                .WithMethod("GetModuleDefinition", Accessibility.Protected)
-                .WithMethod("GetAssemblyReference", Accessibility.Protected)
-                .WithMethod("GetTypeDefinition", Accessibility.Protected)
-                .WithMethod("GetNamespaceDefinitionRoot", Accessibility.Protected)
-                .WithMethod("GetNamespaceDefinition", Accessibility.Protected)
-                .WithMethod("GetTypeReference", Accessibility.Protected)
-                .WithMethod("GetExportedType", Accessibility.Protected)
-                .WithMethod("GetCustomAttributes", Accessibility.Protected)
-                .WithMethod("GetCustomAttribute", Accessibility.Protected)
-                .WithMethod("GetConstant", Accessibility.Protected)
-                .WithMethod("GetMethodDefinition", Accessibility.Protected)
-                .WithMethod("GetFieldDefinition", Accessibility.Protected)
-                .WithMethod("GetPropertyDefinition", Accessibility.Protected)
-                .WithMethod("GetEventDefinition", Accessibility.Protected)
-                .WithMethod("GetMethodImplementation", Accessibility.Protected)
-                .WithMethod("GetMemberReference", Accessibility.Protected)
-                .WithMethod("GetMethodSpecification", Accessibility.Protected)
-                .WithMethod("GetParameter", Accessibility.Protected)
-                .WithMethod("GetGenericParameter", Accessibility.Protected)
-                .WithMethod("GetGenericParameterConstraint", Accessibility.Protected)
-                .WithMethod("GetManifestResource", Accessibility.Protected)
-                .WithMethod("GetStandaloneSignature", Accessibility.Protected)
-                .WithMethod("GetTypeSpecification", Accessibility.Protected)
-                .WithMethod("GetModuleReference", Accessibility.Protected)
-                .WithMethod("GetInterfaceImplementation", Accessibility.Protected)
-                .WithMethod("GetString", [typeof(System.Reflection.Metadata.DocumentNameBlobHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetDocument", Accessibility.Protected)
-                .WithMethod("GetMethodDebugInformation", [typeof(System.Reflection.Metadata.MethodDebugInformationHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetMethodDebugInformation", [typeof(System.Reflection.Metadata.MethodDefinitionHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetLocalScope", Accessibility.Protected)
-                .WithMethod("GetLocalVariable", Accessibility.Protected)
-                .WithMethod("GetLocalConstant", Accessibility.Protected)
-                .WithMethod("GetImportScope", Accessibility.Protected)
-                .WithMethod("GetCustomDebugInformation", [typeof(System.Reflection.Metadata.CustomDebugInformationHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetCustomDebugInformation", [typeof(System.Reflection.Metadata.EntityHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetLocalScopes", [typeof(System.Reflection.Metadata.MethodDefinitionHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetLocalScopes", [typeof(System.Reflection.Metadata.MethodDebugInformationHandle /*handle*/),], Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MetadataReaderOptions), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MetadataStringComparer), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MetadataStringDecoder), Accessibility.None)
-                .WithMethod("get_Encoding", Accessibility.Protected)
-                .WithMethod("get_DefaultUTF8", Accessibility.Protected)
-                .WithConstructor(Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodBodyBlock), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodDefinition), Accessibility.None)
-                .WithMethod("get_Name", Accessibility.Protected)
-                .WithMethod("get_Signature", Accessibility.Protected)
-                .WithMethod("DecodeSignature", Accessibility.Protected)
-                .WithMethod("get_RelativeVirtualAddress", Accessibility.Protected)
-                .WithMethod("get_Attributes", Accessibility.Protected)
-                .WithMethod("get_ImplAttributes", Accessibility.Protected)
-                .WithMethod("GetDeclaringType", Accessibility.Protected)
-                .WithMethod("GetParameters", Accessibility.Protected)
-                .WithMethod("GetGenericParameters", Accessibility.Protected)
-                .WithMethod("GetImport", Accessibility.Protected)
-                .WithMethod("GetCustomAttributes", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodImplementation), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodImport), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodSpecification), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ModuleDefinition), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ModuleReference), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.NamespaceDefinition), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Parameter), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomDebugInformation), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.DebugMetadataHeader), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Document), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.DocumentNameBlobHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.DocumentHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodDebugInformationHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalScopeHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalVariableHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalConstantHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ImportScopeCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomDebugInformationHandleCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.DocumentHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodDebugInformationHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalScopeHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalVariableHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalConstantHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ImportScopeHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.CustomDebugInformationHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ImportDefinition), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ImportDefinitionKind), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ImportDefinitionCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalConstant), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.ImportScope), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalScope), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalVariable), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.LocalVariableAttributes), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.MethodDebugInformation), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.SequencePoint), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.SequencePointCollection), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.PEReaderExtensions), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.PropertyDefinition), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.SerializationTypeCode), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.SignatureAttributes), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.SignatureCallingConvention), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.SignatureHeader), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.SignatureKind), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.SignatureTypeCode), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.StandaloneSignature), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.TypeDefinition), Accessibility.None)
-                .WithMethod("get_Attributes", Accessibility.Protected)
-                .WithMethod("get_IsNested", Accessibility.Protected)
-                .WithMethod("get_Name", Accessibility.Protected)
-                .WithMethod("get_Namespace", Accessibility.Protected)
-                .WithMethod("get_NamespaceDefinition", Accessibility.Protected)
-                .WithMethod("get_BaseType", Accessibility.Protected)
-                .WithMethod("GetLayout", Accessibility.Protected)
-                .WithMethod("GetDeclaringType", Accessibility.Protected)
-                .WithMethod("GetGenericParameters", Accessibility.Protected)
-                .WithMethod("GetMethods", Accessibility.Protected)
-                .WithMethod("GetFields", Accessibility.Protected)
-                .WithMethod("GetProperties", Accessibility.Protected)
-                .WithMethod("GetEvents", Accessibility.Protected)
-                .WithMethod("GetNestedTypes", Accessibility.Protected)
-                .WithMethod("GetMethodImplementations", Accessibility.Protected)
-                .WithMethod("GetInterfaceImplementations", Accessibility.Protected)
-                .WithMethod("GetCustomAttributes", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.TypeLayout), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.TypeReference), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.TypeSpecification), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.FunctionPointerAttributes), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.MethodBodyStreamEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.MethodBodyAttributes), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.SwitchInstructionEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.MetadataBuilder), Accessibility.None)
-                .WithMethod("SetCapacity", [typeof(System.Reflection.Metadata.Ecma335.TableIndex /*table*/), typeof(System.Int32 /*rowCount*/),], Accessibility.Protected)
-                .WithMethod("GetRowCount", Accessibility.Protected)
-                .WithMethod("GetRowCounts", Accessibility.Protected)
-                .WithMethod("AddModule", Accessibility.Protected)
-                .WithMethod("AddAssembly", Accessibility.Protected)
-                .WithMethod("AddAssemblyReference", Accessibility.Protected)
-                .WithMethod("AddTypeDefinition", Accessibility.Protected)
-                .WithMethod("AddTypeLayout", Accessibility.Protected)
-                .WithMethod("AddInterfaceImplementation", Accessibility.Protected)
-                .WithMethod("AddNestedType", Accessibility.Protected)
-                .WithMethod("AddTypeReference", Accessibility.Protected)
-                .WithMethod("AddTypeSpecification", Accessibility.Protected)
-                .WithMethod("AddStandaloneSignature", Accessibility.Protected)
-                .WithMethod("AddProperty", Accessibility.Protected)
-                .WithMethod("AddPropertyMap", Accessibility.Protected)
-                .WithMethod("AddEvent", Accessibility.Protected)
-                .WithMethod("AddEventMap", Accessibility.Protected)
-                .WithMethod("AddConstant", Accessibility.Protected)
-                .WithMethod("AddMethodSemantics", Accessibility.Protected)
-                .WithMethod("AddCustomAttribute", Accessibility.Protected)
-                .WithMethod("AddMethodSpecification", Accessibility.Protected)
-                .WithMethod("AddModuleReference", Accessibility.Protected)
-                .WithMethod("AddParameter", Accessibility.Protected)
-                .WithMethod("AddGenericParameter", Accessibility.Protected)
-                .WithMethod("AddGenericParameterConstraint", Accessibility.Protected)
-                .WithMethod("AddFieldDefinition", Accessibility.Protected)
-                .WithMethod("AddFieldLayout", Accessibility.Protected)
-                .WithMethod("AddMarshallingDescriptor", Accessibility.Protected)
-                .WithMethod("AddFieldRelativeVirtualAddress", Accessibility.Protected)
-                .WithMethod("AddMethodDefinition", Accessibility.Protected)
-                .WithMethod("AddMethodImport", Accessibility.Protected)
-                .WithMethod("AddMethodImplementation", Accessibility.Protected)
-                .WithMethod("AddMemberReference", Accessibility.Protected)
-                .WithMethod("AddManifestResource", Accessibility.Protected)
-                .WithMethod("AddExportedType", Accessibility.Protected)
-                .WithMethod("AddEncLogEntry", Accessibility.Protected)
-                .WithMethod("AddEncMapEntry", Accessibility.Protected)
-                .WithMethod("AddDocument", Accessibility.Protected)
-                .WithMethod("AddMethodDebugInformation", Accessibility.Protected)
-                .WithMethod("AddLocalScope", Accessibility.Protected)
-                .WithMethod("AddLocalVariable", Accessibility.Protected)
-                .WithMethod("AddLocalConstant", Accessibility.Protected)
-                .WithMethod("AddImportScope", Accessibility.Protected)
-                .WithMethod("AddStateMachineMethod", Accessibility.Protected)
-                .WithMethod("AddCustomDebugInformation", Accessibility.Protected)
-                .WithConstructor(Accessibility.Protected)
-                .WithMethod("SetCapacity", [typeof(System.Reflection.Metadata.Ecma335.HeapIndex /*heap*/), typeof(System.Int32 /*byteCount*/),], Accessibility.Protected)
-                .WithMethod("GetOrAddBlob", [typeof(System.Reflection.Metadata.BlobBuilder /*value*/),], Accessibility.Protected)
-                .WithMethod("GetOrAddBlob", [typeof(System.Byte[] /*value*/),], Accessibility.Protected)
-                .WithMethod("GetOrAddBlob", [typeof(System.Collections.Immutable.ImmutableArray<System.Byte> /*value*/),], Accessibility.Protected)
-                .WithMethod("GetOrAddConstantBlob", Accessibility.Protected)
-                .WithMethod("GetOrAddBlobUTF16", Accessibility.Protected)
-                .WithMethod("GetOrAddBlobUTF8", Accessibility.Protected)
-                .WithMethod("GetOrAddDocumentName", Accessibility.Protected)
-                .WithMethod("GetOrAddGuid", Accessibility.Protected)
-                .WithMethod("ReserveGuid", Accessibility.Protected)
-                .WithMethod("GetOrAddString", Accessibility.Protected)
-                .WithMethod("ReserveUserString", Accessibility.Protected)
-                .WithMethod("GetOrAddUserString", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.MetadataRootBuilder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.ControlFlowBuilder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.ExceptionRegionEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.InstructionEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.LabelHandle), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.CodedIndex), Accessibility.None)
-                .WithMethod("HasCustomAttribute", Accessibility.Protected)
-                .WithMethod("HasConstant", Accessibility.Protected)
-                .WithMethod("CustomAttributeType", Accessibility.Protected)
-                .WithMethod("HasFieldMarshal", Accessibility.Protected)
-                .WithMethod("HasSemantics", Accessibility.Protected)
-                .WithMethod("Implementation", Accessibility.Protected)
-                .WithMethod("MemberForwarded", Accessibility.Protected)
-                .WithMethod("MemberRefParent", Accessibility.Protected)
-                .WithMethod("MethodDefOrRef", Accessibility.Protected)
-                .WithMethod("ResolutionScope", Accessibility.Protected)
-                .WithMethod("TypeDefOrRef", Accessibility.Protected)
-                .WithMethod("TypeDefOrRefOrSpec", Accessibility.Protected)
-                .WithMethod("TypeOrMethodDef", Accessibility.Protected)
-                .WithMethod("HasCustomDebugInformation", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.PortablePdbBuilder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.BlobEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.MethodSignatureEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.LocalVariablesEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.LocalVariableTypeEncoder), Accessibility.None)
-                .WithMethod("get_Builder", Accessibility.Protected)
-                .WithConstructor(Accessibility.Protected)
-                .WithMethod("CustomModifiers", Accessibility.Protected)
-                .WithMethod("Type", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.ParameterTypeEncoder), Accessibility.None)
-                .WithMethod("get_Builder", Accessibility.Protected)
-                .WithConstructor(Accessibility.Protected)
-                .WithMethod("CustomModifiers", Accessibility.Protected)
-                .WithMethod("Type", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.PermissionSetEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.GenericTypeArgumentsEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.FieldTypeEncoder), Accessibility.None)
-                .WithMethod("get_Builder", Accessibility.Protected)
-                .WithConstructor(Accessibility.Protected)
-                .WithMethod("CustomModifiers", Accessibility.Protected)
-                .WithMethod("Type", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.FixedArgumentsEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.LiteralEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.ScalarEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.LiteralsEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.VectorEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.NameEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.CustomAttributeNamedArgumentsEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.NamedArgumentsEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.NamedArgumentTypeEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.CustomAttributeArrayTypeEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.CustomAttributeElementTypeEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.SignatureTypeEncoder), Accessibility.None)
-                .WithMethod("get_Builder", Accessibility.Protected)
-                .WithConstructor(Accessibility.Protected)
-                .WithMethod("Boolean", Accessibility.Protected)
-                .WithMethod("Char", Accessibility.Protected)
-                .WithMethod("SByte", Accessibility.Protected)
-                .WithMethod("Byte", Accessibility.Protected)
-                .WithMethod("Int16", Accessibility.Protected)
-                .WithMethod("UInt16", Accessibility.Protected)
-                .WithMethod("Int32", Accessibility.Protected)
-                .WithMethod("UInt32", Accessibility.Protected)
-                .WithMethod("Int64", Accessibility.Protected)
-                .WithMethod("UInt64", Accessibility.Protected)
-                .WithMethod("Single", Accessibility.Protected)
-                .WithMethod("Double", Accessibility.Protected)
-                .WithMethod("String", Accessibility.Protected)
-                .WithMethod("IntPtr", Accessibility.Protected)
-                .WithMethod("UIntPtr", Accessibility.Protected)
-                .WithMethod("Object", Accessibility.Protected)
-                .WithMethod("PrimitiveType", Accessibility.Protected)
-                .WithMethod("Array", [typeof(System.Reflection.Metadata.Ecma335.SignatureTypeEncoder /*elementType*/).MakeByRefType(), typeof(System.Reflection.Metadata.Ecma335.ArrayShapeEncoder /*arrayShape*/).MakeByRefType(),], Accessibility.Protected)
-                .WithMethod("Array", [typeof(System.Action<System.Reflection.Metadata.Ecma335.SignatureTypeEncoder> /*elementType*/), typeof(System.Action<System.Reflection.Metadata.Ecma335.ArrayShapeEncoder> /*arrayShape*/),], Accessibility.Protected)
-                .WithMethod("Type", Accessibility.Protected)
-                .WithMethod("FunctionPointer", Accessibility.Protected)
-                .WithMethod("GenericInstantiation", Accessibility.Protected)
-                .WithMethod("GenericMethodTypeParameter", Accessibility.Protected)
-                .WithMethod("GenericTypeParameter", Accessibility.Protected)
-                .WithMethod("Pointer", Accessibility.Protected)
-                .WithMethod("VoidPointer", Accessibility.Protected)
-                .WithMethod("SZArray", Accessibility.Protected)
-                .WithMethod("CustomModifiers", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.CustomModifiersEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.ArrayShapeEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.ReturnTypeEncoder), Accessibility.None)
-                .WithMethod("get_Builder", Accessibility.Protected)
-                .WithConstructor(Accessibility.Protected)
-                .WithMethod("CustomModifiers", Accessibility.Protected)
-                .WithMethod("Type", Accessibility.Protected)
-                .WithMethod("Void", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.ParametersEncoder), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.MetadataSizes), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.SignatureDecoder<,>), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.EditAndContinueLogEntry), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.EditAndContinueOperation), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.ExportedTypeExtensions), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.HeapIndex), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.MetadataReaderExtensions), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.MetadataTokens), Accessibility.None)
-                .WithField("TableCount", Accessibility.Protected)
-                .WithField("HeapCount", Accessibility.Protected)
-                .WithMethod("GetRowNumber", [typeof(System.Reflection.Metadata.MetadataReader /*reader*/), typeof(System.Reflection.Metadata.EntityHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetHeapOffset", [typeof(System.Reflection.Metadata.MetadataReader /*reader*/), typeof(System.Reflection.Metadata.Handle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetToken", [typeof(System.Reflection.Metadata.MetadataReader /*reader*/), typeof(System.Reflection.Metadata.EntityHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetToken", [typeof(System.Reflection.Metadata.MetadataReader /*reader*/), typeof(System.Reflection.Metadata.Handle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetRowNumber", [typeof(System.Reflection.Metadata.EntityHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetHeapOffset", [typeof(System.Reflection.Metadata.Handle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetHeapOffset", [typeof(System.Reflection.Metadata.BlobHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetHeapOffset", [typeof(System.Reflection.Metadata.GuidHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetHeapOffset", [typeof(System.Reflection.Metadata.UserStringHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetHeapOffset", [typeof(System.Reflection.Metadata.StringHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetToken", [typeof(System.Reflection.Metadata.Handle /*handle*/),], Accessibility.Protected)
-                .WithMethod("GetToken", [typeof(System.Reflection.Metadata.EntityHandle /*handle*/),], Accessibility.Protected)
-                .WithMethod("TryGetTableIndex", Accessibility.Protected)
-                .WithMethod("TryGetHeapIndex", Accessibility.Protected)
-                .WithMethod("Handle", [typeof(System.Int32 /*token*/),], Accessibility.Protected)
-                .WithMethod("EntityHandle", [typeof(System.Int32 /*token*/),], Accessibility.Protected)
-                .WithMethod("EntityHandle", [typeof(System.Reflection.Metadata.Ecma335.TableIndex /*tableIndex*/), typeof(System.Int32 /*rowNumber*/),], Accessibility.Protected)
-                .WithMethod("Handle", [typeof(System.Reflection.Metadata.Ecma335.TableIndex /*tableIndex*/), typeof(System.Int32 /*rowNumber*/),], Accessibility.Protected)
-                .WithMethod("MethodDefinitionHandle", Accessibility.Protected)
-                .WithMethod("MethodImplementationHandle", Accessibility.Protected)
-                .WithMethod("MethodSpecificationHandle", Accessibility.Protected)
-                .WithMethod("TypeDefinitionHandle", Accessibility.Protected)
-                .WithMethod("ExportedTypeHandle", Accessibility.Protected)
-                .WithMethod("TypeReferenceHandle", Accessibility.Protected)
-                .WithMethod("TypeSpecificationHandle", Accessibility.Protected)
-                .WithMethod("InterfaceImplementationHandle", Accessibility.Protected)
-                .WithMethod("MemberReferenceHandle", Accessibility.Protected)
-                .WithMethod("FieldDefinitionHandle", Accessibility.Protected)
-                .WithMethod("EventDefinitionHandle", Accessibility.Protected)
-                .WithMethod("PropertyDefinitionHandle", Accessibility.Protected)
-                .WithMethod("StandaloneSignatureHandle", Accessibility.Protected)
-                .WithMethod("ParameterHandle", Accessibility.Protected)
-                .WithMethod("GenericParameterHandle", Accessibility.Protected)
-                .WithMethod("GenericParameterConstraintHandle", Accessibility.Protected)
-                .WithMethod("ModuleReferenceHandle", Accessibility.Protected)
-                .WithMethod("AssemblyReferenceHandle", Accessibility.Protected)
-                .WithMethod("CustomAttributeHandle", Accessibility.Protected)
-                .WithMethod("ConstantHandle", Accessibility.Protected)
-                .WithMethod("ManifestResourceHandle", Accessibility.Protected)
-                .WithMethod("DocumentHandle", Accessibility.Protected)
-                .WithMethod("MethodDebugInformationHandle", Accessibility.Protected)
-                .WithMethod("LocalScopeHandle", Accessibility.Protected)
-                .WithMethod("LocalVariableHandle", Accessibility.Protected)
-                .WithMethod("LocalConstantHandle", Accessibility.Protected)
-                .WithMethod("ImportScopeHandle", Accessibility.Protected)
-                .WithMethod("CustomDebugInformationHandle", Accessibility.Protected)
-                .WithMethod("UserStringHandle", Accessibility.Protected)
-                .WithMethod("StringHandle", Accessibility.Protected)
-                .WithMethod("BlobHandle", Accessibility.Protected)
-                .WithMethod("GuidHandle", Accessibility.Protected)
-                .WithMethod("DocumentNameBlobHandle", Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.TableIndex), Accessibility.Protected))
-            .Allow(new TypeBinding(typeof(System.Reflection.Metadata.Ecma335.MetadataAggregator), Accessibility.Protected));
-    }
-
+    /// <summary>
+    /// Adds all safe members from the <c>System.Reflection.TypeExtensions</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemReflectionTypeExtensions(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Reflection.TypeExtensions"), Accessibility.Protected));
     }
 
-    public static CasPolicyBuilder WithSandboxedSystemResourcesWriter(this CasPolicyBuilder builder)
-    {
-        return builder
-            .Allow(new TypeBinding(typeof(System.Resources.ResourceWriter), Accessibility.None)
-                .WithMethod("get_TypeNameConverter", Accessibility.Protected)
-                .WithMethod("set_TypeNameConverter", Accessibility.Protected)
-                .WithMethod("AddResource", [typeof(System.String /*name*/), typeof(System.IO.Stream /*value*/),], Accessibility.Protected)
-                .WithMethod("AddResourceData", Accessibility.Protected)
-                .WithConstructor([typeof(System.IO.Stream /*stream*/),], Accessibility.Protected)
-                .WithMethod("AddResource", [typeof(System.String /*name*/), typeof(System.String /*value*/),], Accessibility.Protected)
-                .WithMethod("AddResource", [typeof(System.String /*name*/), typeof(System.Object /*value*/),], Accessibility.Protected)
-                .WithMethod("AddResource", [typeof(System.String /*name*/), typeof(System.IO.Stream /*value*/), typeof(System.Boolean /*closeAfterWrite*/),], Accessibility.Protected)
-                .WithMethod("AddResource", [typeof(System.String /*name*/), typeof(System.Byte[] /*value*/),], Accessibility.Protected)
-                .WithMethod("Close", Accessibility.Protected)
-                .WithMethod("Dispose", Accessibility.Protected)
-                .WithMethod("Generate", Accessibility.Protected));
-    }
-
+    /// <summary>
+    /// Adds all safe members from the <c>System.Runtime.Numerics</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemRuntimeNumerics(this CasPolicyBuilder builder)
     {
 
@@ -3408,18 +2732,22 @@ public static class CasPolicyBuilderExtensions
             .Allow(new AssemblyBinding(Assembly.Load("System.Runtime.Numerics"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Runtime.SerializationFormatters</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemRuntimeSerializationFormatters(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new TypeBinding(typeof(System.Runtime.Serialization.SerializationBinder), Accessibility.Protected));
     }
 
-    public static CasPolicyBuilder WithSandboxedSystemRuntimeSerializationPrimitives(this CasPolicyBuilder builder)
-    {
-        return builder
-            .Allow(new AssemblyBinding(Assembly.Load("System.Runtime.Serialization.Primitives"), Accessibility.Protected));
-    }
-
+    /// <summary>
+    /// Adds all safe members from the <c>System.Text.Json</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemTextJson(this CasPolicyBuilder builder)
     {
         return builder
@@ -3562,6 +2890,11 @@ public static class CasPolicyBuilderExtensions
             .Allow(new TypeBinding(typeof(System.Text.Json.Serialization.Metadata.JsonTypeInfo), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Text.RegularExpressions</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemTextRegularExpressions(this CasPolicyBuilder builder)
     {
         return builder
@@ -3660,30 +2993,55 @@ public static class CasPolicyBuilderExtensions
             .Allow(new TypeBinding(typeof(System.Text.RegularExpressions.RegexRunner), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Threading.Channels</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemThreadingChannels(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Threading.Channels"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Threading</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemThreading(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Threading"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Threading.Tasks.Dataflow</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemThreadingTasksDataflow(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Threading.Tasks.Dataflow"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Threading.Tasks.Parallel</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemThreadingTasksParallel(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new AssemblyBinding(Assembly.Load("System.Threading.Tasks.Parallel"), Accessibility.Protected));
     }
 
+    /// <summary>
+    /// Adds all safe members from the <c>System.Linq.Expressions</c> assembly.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemLinqExpressions(this CasPolicyBuilder builder)
     {
         return builder
@@ -3733,7 +3091,12 @@ public static class CasPolicyBuilderExtensions
             .Allow(new TypeBinding(Type.GetType("System.Linq.Expressions.PropertyExpression, System.Linq.Expressions")!, Accessibility.Public));
     }
 
-    public static CasPolicyBuilder WithSandboxedRuntime(this CasPolicyBuilder builder)
+    /// <summary>
+    /// Adds all safe members from the runtime reflection system, such as <c>System.RuntimeType</c>.
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
+    public static CasPolicyBuilder WithSandboxedRuntimeReflection(this CasPolicyBuilder builder)
     {
         return builder
             .Allow(new TypeBinding(typeof(SecurityException), Accessibility.Protected))
@@ -3756,6 +3119,21 @@ public static class CasPolicyBuilderExtensions
             .Allow(new TypeBinding(Type.GetType("System.SZGenericArrayEnumerator`1")!, Accessibility.Public));
     }
 
+    /// <summary>
+    /// Adds a safe subset of the C# standard library to the policy.
+    /// The aim of this method is to provide a sensible default whitelist that
+    /// ensures any loaded assemblies cannot gain access to the host system.
+    /// Specifically, the following APIs are excluded from this whitelist:
+    /// <list type="bullet">
+    /// <item><description>Cause undefined behavior</description></item>
+    /// <item><description>Access the filesystem</description></item>
+    /// <item><description>Access the network</description></item>
+    /// <item><description>Access other OS-specific resources (such as processes or pipes)</description></item>
+    /// <item><description>Allow for loading other code without verification (such as <c>System.Reflection.Emit</c>)</description></item>
+    /// </list>
+    /// </summary>
+    /// <param name="builder">The builder to which members should be added.</param>
+    /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithDefaultSandbox(this CasPolicyBuilder builder)
     {
         return builder.WithSandboxedSystemCollectionsConcurrent()
@@ -3771,12 +3149,9 @@ public static class CasPolicyBuilderExtensions
             .WithSandboxedSystemLinqQueryable()
             .WithSandboxedSystemObjectModel()
             .WithSandboxedSystem()
-            .WithSandboxedSystemReflectionMetadata()
             .WithSandboxedSystemReflectionTypeExtensions()
-            .WithSandboxedSystemResourcesWriter()
             .WithSandboxedSystemRuntimeNumerics()
             .WithSandboxedSystemRuntimeSerializationFormatters()
-            .WithSandboxedSystemRuntimeSerializationPrimitives()
             .WithSandboxedSystemTextJson()
             .WithSandboxedSystemTextRegularExpressions()
             .WithSandboxedSystemThreadingChannels()
@@ -3784,6 +3159,6 @@ public static class CasPolicyBuilderExtensions
             .WithSandboxedSystemThreadingTasksDataflow()
             .WithSandboxedSystemThreadingTasksParallel()
             .WithSandboxedSystemLinqExpressions()
-            .WithSandboxedRuntime();
+            .WithSandboxedRuntimeReflection();
     }
 }

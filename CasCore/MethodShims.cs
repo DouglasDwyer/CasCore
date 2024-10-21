@@ -1,6 +1,8 @@
-﻿using DouglasDwyer.CasCore;
+﻿#pragma warning disable CS1591
 
+using DouglasDwyer.CasCore;
 using System.Collections.Immutable;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -11,16 +13,32 @@ using System.Security;
 
 namespace CasCore;
 
+/// <summary>
+/// Holds replacements for dangerous system methods that perform runtime code access checks.
+/// </summary>
+[EditorBrowsable(EditorBrowsableState.Never)]
 public static class MethodShims
 {
+    /// <summary>
+    /// A mapping from a dangerous system method to its safe shim equivalent.
+    /// </summary>
     private static IImmutableDictionary<MethodBase, MethodBase> ReplacementShims { get; } =
         typeof(MethodShims).GetMethods(BindingFlags.Public | BindingFlags.Static).Cast<MethodBase>().ToImmutableDictionary(GetOriginal, x => x);
 
+    /// <summary>
+    /// A mapping from a dangerous system method's signature to its safe shim equivalent.
+    /// </summary>
     internal static IImmutableDictionary<SignatureHash, MethodBase> ShimMap { get; } =
         ReplacementShims.ToImmutableDictionary(x => new SignatureHash(x.Key), x => x.Value);
 
+    /// <summary>
+    /// A list of the methods that are shimmed (and therefore may not be called directly via reflection).
+    /// </summary>
     internal static IImmutableSet<RuntimeMethodHandle> ShimHandles { get; } = ReplacementShims.Select(x => x.Key.MethodHandle).ToImmutableHashSet();
 
+    /// <summary>
+    /// The default list of flags to use when finding a constructor to invoke.
+    /// </summary>
     private const BindingFlags ConstructorDefault = BindingFlags.Instance | BindingFlags.Public | BindingFlags.CreateInstance;
 
     /** System.Linq.Expressions.Expression<T> shims **/
@@ -333,6 +351,12 @@ public static class MethodShims
 
     public static T CreateDelegate<T>(MethodInfo target, object? targetObj) where T : Delegate => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate<T>(targetObj));
 
+    /// <summary>
+    /// Gets the shim associated with the provided method.
+    /// </summary>
+    /// <param name="target">The target for which to obtain a shim</param>
+    /// <param name="result">The shim that was found, or null if no shim was found.</param>
+    /// <returns>Whether any shim was found.</returns>
     internal static bool TryGetShim(MethodInfo target, [NotNullWhen(true)] out MethodInfo? result)
     {
         var baseDeclaration = target.GetBaseDefinition();
@@ -360,6 +384,12 @@ public static class MethodShims
         }
     }
 
+    /// <summary>
+    /// Finds the original method that should be associated with a shim.
+    /// </summary>
+    /// <param name="method">The shim method.</param>
+    /// <returns>The original method that should be patched by the shim.</returns>
+    /// <exception cref="InvalidOperationException">If the original method for the shim could not be determined.</exception>
     private static MethodBase GetOriginal(MethodBase method)
     {
         var bindingFlags = BindingFlags.Public | BindingFlags.NonPublic;

@@ -264,7 +264,7 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
     /// <summary>
     /// Determines whether a method should be visible under the given accessibility.
     /// </summary>
-    /// <param name="field">The member in question.</param>
+    /// <param name="method">The member in question.</param>
     /// <param name="accessibility">The target accessibility.</param>
     /// <returns>Whether the member should be accessible.</returns>
     private bool MethodAccessible(MethodBase method, Accessibility accessibility)
@@ -274,6 +274,11 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
             || Accessibility.Private <= accessibility;
     }
 
+    /// <summary>
+    /// Gets the generic base for the given type if it is a constructed generic.
+    /// </summary>
+    /// <param name="type">The type for which to get the generic base.</param>
+    /// <returns>The generic base type, or the original type if it was not generic.</returns>
     private static Type GenericBaseIfContainsGeneric(Type type)
     {
         if (type.ContainsGenericParameters)
@@ -288,6 +293,13 @@ public sealed class TypeBinding : IEnumerable<MemberInfo>
         return type;
     }
 
+    /// <summary>
+    /// Determines the binding flags to use for the initial search.
+    /// Allows for excluding some members from the search if they won't be considered
+    /// accessible anyway.
+    /// </summary>
+    /// <param name="accessibility">The accessibility level of members to include.</param>
+    /// <returns>The set of binding flags to use when searching for members.</returns>
     private static BindingFlags BindingFlagsForInitialSearch(Accessibility accessibility)
     {
         if (accessibility == Accessibility.None)

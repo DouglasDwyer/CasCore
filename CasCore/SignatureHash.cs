@@ -1,15 +1,24 @@
 ﻿using Mono.Cecil;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace DouglasDwyer.CasCore;
 
+/// <summary>
+/// Identifies a method using a stable hash of its signature.
+/// </summary>
 internal struct SignatureHash
 {
+    /// <summary>
+    /// The hash value.
+    /// </summary>
     private readonly ulong _value;
 
+    /// <summary>
+    /// Creates a new signature hash for the given method.
+    /// </summary>
+    /// <param name="method">The method.</param>
     public SignatureHash(MethodBase method)
     {
         Hash(method.DeclaringType!.Namespace, ref _value);
@@ -28,6 +37,10 @@ internal struct SignatureHash
         }
     }
 
+    /// <summary>
+    /// Creates a new signature hash for the given method.
+    /// </summary>
+    /// <param name="method">The method.</param>
     public SignatureHash(MethodReference method)
     {
         Hash(method.DeclaringType!.Namespace, ref _value);
@@ -47,6 +60,11 @@ internal struct SignatureHash
 
     }
 
+    /// <summary>
+    /// Modifies the provided hash to include data from the given string.
+    /// </summary>
+    /// <param name="value">The string to include.</param>
+    /// <param name="output">The hash reuslt.</param>
     private static void Hash(string? value, ref ulong output)
     {
         unsafe
@@ -92,22 +110,22 @@ internal struct SignatureHash
     }
 
     /// <summary>
-    /// Compares two member IDs for equality.
+    /// Compares two member hashes for equality.
     /// </summary>
-    /// <param name="lhs">The first member ID.</param>
-    /// <param name="rhs">The second member ID.</param>
-    /// <returns>Whether the IDs refer to the same member.</returns>
+    /// <param name="lhs">The first member hash.</param>
+    /// <param name="rhs">The second member hash.</param>
+    /// <returns>Whether the hashes refer to the same member.</returns>
     public static bool operator ==(SignatureHash lhs, SignatureHash rhs)
     {
         return lhs._value == rhs._value;
     }
 
     /// <summary>
-    /// Compares two member IDs for inequality.
+    /// Compares two member hashes for inequality.
     /// </summary>
-    /// <param name="lhs">The first member ID.</param>
-    /// <param name="rhs">The second member ID.</param>
-    /// <returns>Whether the IDs refer to the same member.</returns>
+    /// <param name="lhs">The first member hash.</param>
+    /// <param name="rhs">The second member hash.</param>
+    /// <returns>Whether the hashes refer to the same member.</returns>
     public static bool operator !=(SignatureHash lhs, SignatureHash rhs)
     {
         return !(lhs == rhs);

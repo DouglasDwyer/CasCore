@@ -5,25 +5,48 @@ using System.Runtime.CompilerServices;
 
 namespace DouglasDwyer.CasCore;
 
+/// <summary>
+/// A helper class for determining which method will <b>actually</b> be
+/// invoked as the result of a virtual call.
+/// </summary>
 internal unsafe static class LateBindingResolver
 {
+    /// <summary>
+    /// Gets the handle of the method that would actually be invoked
+    /// as the result of a call to an interface.
+    /// </summary>
     private static delegate*<QCallTypeHandle, QCallTypeHandle, IntPtr, IntPtr> GetInterfaceMethodImplementation { get; } = 
         (delegate*<QCallTypeHandle, QCallTypeHandle, IntPtr, IntPtr>)typeof(RuntimeTypeHandle)
             .GetMethod("GetInterfaceMethodImplementation", BindingFlags.NonPublic | BindingFlags.Static)!
             .MethodHandle
             .GetFunctionPointer();
 
+    /// <summary>
+    /// Gets the handle of the method that would actually be invoked
+    /// as the result of a call to a virtual method.
+    /// </summary>
     private static delegate*<IntPtr, Type, IntPtr> GetMethodFromCanonical { get; } =
         (delegate*<IntPtr, Type, IntPtr>)typeof(RuntimeMethodHandle)
             .GetMethod("GetMethodFromCanonical", BindingFlags.NonPublic | BindingFlags.Static)!
             .MethodHandle
             .GetFunctionPointer();
 
+    /// <summary>
+    /// Gets the method that will actually be invoked for a virtual call.
+    /// </summary>
+    /// <param name="obj">The object for the virtual call.</param>
+    /// <param name="method">The method being invoked.</param>
+    /// <returns>The actual method that would be called.</returns>
     public static MethodBase GetTargetMethod(object? obj, MethodBase method)
     {
         unsafe
         {
-            if (obj is not null && method is MethodInfo info && method.IsVirtual)
+            if (obj is null && !method.IsStatic)
+            {
+                throw new NullReferenceException();
+            }
+
+            else if (obj is not null && method is MethodInfo info && method.IsVirtual)
             {
                 var objType = obj.GetType();
                 if (objType.IsSZArray)
@@ -32,7 +55,7 @@ internal unsafe static class LateBindingResolver
                 }
                 else
                 {
-                    return GetTargetMethodViaPInvoke(obj, objType, info);
+                    return GetTargetMethodViaPInvoke(objType, info);
                 }
             }
             else
@@ -42,7 +65,14 @@ internal unsafe static class LateBindingResolver
         }
     }
 
-    private static MethodBase GetTargetMethodViaPInvoke(object obj, Type objType, MethodInfo info)
+    /// <summary>
+    /// Gets the method that will actually be invoked for the given type
+    /// by calling some internal CLR methods.
+    /// </summary>
+    /// <param name="objType">The actual type on which the method is being invoked.</param>
+    /// <param name="info">The virtual method that is being invoked.</param>
+    /// <returns>The target method that will actually be called.</returns>
+    private static MethodBase GetTargetMethodViaPInvoke(Type objType, MethodInfo info)
     {
         var typeHandle = objType.TypeHandle;
         IntPtr methodPtr;
@@ -84,10 +114,20 @@ internal unsafe static class LateBindingResolver
 
         return Delegate.CreateDelegate(delegateType, obj, info).Method;
     }
-
+    
+    /// <summary>
+    /// A helper structure for method calls used by the CLR internally.
+    /// </summary>
     private unsafe ref struct QCallTypeHandle
     {
+        /// <summary>
+        /// A pointer to the type being invoked.
+        /// </summary>
         private void* _ptr;
+
+        /// <summary>
+        /// The handle of the type being invoked.
+        /// </summary>
         private IntPtr _handle;
 
         internal QCallTypeHandle(ref Type type)

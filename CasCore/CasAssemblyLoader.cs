@@ -14,31 +14,64 @@ using System.Security;
 
 namespace DouglasDwyer.CasCore;
 
+/// <summary>
+/// Provides scoped assembly loading with the same semantics as <see cref="AssemblyLoadContext"/>.
+/// Any assemblies loaded with this context will be subject to its <see cref="CasPolicy"/>,
+/// and any attempts to access unwhitelisted external fields/methods will throw exceptions.
+/// </summary>
 public class CasAssemblyLoader : VerifiableAssemblyLoader
 {
+    /// <summary>
+    /// A mapping from assembly to its associated policy.
+    /// </summary>
     private static readonly ConditionalWeakTable<Assembly, CasPolicy> _assemblyPolicies = new ConditionalWeakTable<Assembly, CasPolicy>();
 
+    /// <summary>
+    /// A function for shallow-cloning objects.
+    /// </summary>
     private static Func<object, object> MemberwiseCloneFunc { get; } = (Func<object, object>)Delegate.CreateDelegate(
         typeof(Func<object, object>), typeof(object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance)!);
     
+    /// <summary>
+    /// Facilitates setting the list of generic instance arguments on a <see cref="GenericInstanceType"/>.
+    /// </summary>
     private static FieldInfo GenericInstanceTypeArguments { get; } = typeof(GenericInstanceType).GetField("arguments", BindingFlags.NonPublic | BindingFlags.Instance)!;
 
+    /// <summary>
+    /// The policy that will apply to any assemblies created with this loader.
+    /// </summary>
     private CasPolicy _policy;
 
+    /// <summary>
+    /// Creates a new loader with the given policy.
+    /// </summary>
+    /// <param name="policy">The policy that will apply to any assemblies created with this loader.</param>
     public CasAssemblyLoader(CasPolicy policy) : base() {
         _policy = policy;
     }
 
+    /// <summary>
+    /// Creates a new loader with the given policy.
+    /// </summary>
+    /// <param name="policy">The policy that will apply to any assemblies created with this loader.</param>
+    /// <param name="isCollectible">Whether this context should be able to unload.</param>
     public CasAssemblyLoader(CasPolicy policy, bool isCollectible) : base(isCollectible)
     {
         _policy = policy;
     }
 
+    /// <summary>
+    /// Creates a new loader with the given policy.
+    /// </summary>
+    /// <param name="policy">The policy that will apply to any assemblies created with this loader.</param>
+    /// <param name="name">The display name of the load context.</param>
+    /// <param name="isCollectible">Whether this context should be able to unload.</param>
     public CasAssemblyLoader(CasPolicy policy, string name, bool isCollectible) : base(name, isCollectible)
     {
         _policy = policy;
     }
 
+    /// <inheritdoc/>
     public override Assembly LoadFromStream(Stream assembly, Stream? assemblySymbols)
     {
         var result = base.LoadFromStream(assembly, assemblySymbols);
@@ -46,18 +79,35 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return result;
     }
 
+    /// <summary>
+    /// Determines whether the calling assembly may access the specified field.
+    /// </summary>
+    /// <param name="handle">The field handle.</param>
+    /// <param name="type">The type handle on which the field is declared.</param>
+    /// <returns>Whether the field is accessible.</returns>
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static bool CanAccess(RuntimeFieldHandle handle, RuntimeTypeHandle type)
     {
         return CanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle, type));
     }
 
+    /// <summary>
+    /// Determines whether the calling assembly may always access the specified method.
+    /// </summary>
+    /// <param name="handle">The method handle.</param>
+    /// <param name="type">The type handle on which the method is declared.</param>
+    /// <returns>Whether the method is always callable.</returns>
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static bool CanCallAlways(RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
         return CanCallAlways(Assembly.GetCallingAssembly(), MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
+    /// <summary>
+    /// Throws an exception if the calling assembly may not access the specified field.
+    /// </summary>
+    /// <param name="handle">The field handle.</param>
+    /// <param name="type">The type handle on which the field is declared.</param>
     [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
     public static void AssertCanAccess(RuntimeFieldHandle handle, RuntimeTypeHandle type)
@@ -65,6 +115,12 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         AssertCanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle, type));
     }
 
+    /// <summary>
+    /// Throws an exception if the calling assembly may not call the specified method.
+    /// </summary>
+    /// <param name="obj">The object on which the method is being invoked, if any.</param>
+    /// <param name="handle">The method handle.</param>
+    /// <param name="type">The type handle on which the method is declared.</param>
     [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
     public static void AssertCanCall(object? obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
@@ -72,6 +128,13 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
+    /// <summary>
+    /// Throws an exception if the calling assembly may not call the specified method.
+    /// </summary>
+    /// <typeparam name="T">The type on which the method is being invoked.</typeparam>
+    /// <param name="obj">The object on which the method is being invoked, if any.</param>
+    /// <param name="handle">The method handle.</param>
+    /// <param name="type">The type handle on which the method is declared.</param>
     [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
     public static void AssertCanCallConstrained<T>(ref T obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
@@ -79,6 +142,14 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
+    /// <summary>
+    /// Creates a delegate, but throws an exception when the calling assembly does not have the requisite permissions.
+    /// </summary>
+    /// <typeparam name="T">The type of delegate to create.</typeparam>
+    /// <param name="target">The object to which the delegate method should be bound.</param>
+    /// <param name="method">The method handle.</param>
+    /// <param name="type">The type handle on which the method is declared.</param>
+    /// <returns>The delegate that was created.</returns>
     [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
     public static T CreateCheckedDelegate<T>(object? target, RuntimeMethodHandle method, RuntimeTypeHandle type)
@@ -110,12 +181,25 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return (T)result;
     }
 
+    /// <summary>
+    /// Throws a security action that specifies the assembly does not have permission to access the member.
+    /// </summary>
+    /// <param name="assembly">The assembly that tried to access the member.</param>
+    /// <param name="info">The member being accessed.</param>
+    /// <exception cref="SecurityException">
+    /// Always raised by this method.
+    /// </exception>
     [StackTraceHidden]
     internal static void ThrowAccessException(Assembly assembly, MemberInfo info)
     {
         throw new SecurityException(FormatSecurityException(assembly, info));
     }
 
+    /// <summary>
+    /// Throws an exception if the given assembly may not access the specified field.
+    /// </summary>
+    /// <param name="assembly">The assembly attempting the access.</param>
+    /// <param name="field">The field being accessed.</param>
     [StackTraceHidden]
     internal static void AssertCanAccess(Assembly assembly, FieldInfo field)
     {
@@ -125,6 +209,12 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    /// <summary>
+    /// Throws an exception if the calling assembly may not call the specified method.
+    /// </summary>
+    /// <param name="assembly">The assembly attempting the access.</param>
+    /// <param name="obj">The object on which the method is being invoked, if any.</param>
+    /// <param name="method">The method being called.</param>
     [StackTraceHidden]
     internal static void AssertCanCall(Assembly assembly, object? obj, MethodBase method)
     {
@@ -134,6 +224,12 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    /// <summary>
+    /// Determines whether the given assembly may always access the specified method.
+    /// </summary>
+    /// <param name="assembly">The assembly attempting the access.</param>
+    /// <param name="method">The method in question.</param>
+    /// <returns>Whether the method is always callable.</returns>
     internal static bool CanCallAlways(Assembly assembly, MethodBase method)
     {
         if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
@@ -147,6 +243,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    /// <inheritdoc/>
     protected override Assembly? Load(AssemblyName assemblyName)
     {
         Assembly executingAssembly = Assembly.GetExecutingAssembly();
@@ -158,6 +255,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return base.Load(assemblyName);
     }
 
+    /// <inheritdoc/>
     protected override void InstrumentAssembly(AssemblyDefinition assembly)
     {
         base.InstrumentAssembly(assembly);
@@ -171,16 +269,27 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
             foreach (var type in GetAllTypes(module).Where(x => 0 < x.Methods.Count).ToArray())
             {
                 var guardWriter = new GuardWriter(type, id, references);
+                
                 foreach (var method in type.Methods.Where(x => x.HasBody))
                 {
-                    PatchMethod(method, id, rewriter, guardWriter, references);
-                    id++;
+                    PatchMethod(method, rewriter, guardWriter, references);
                 }
+
                 guardWriter.Finish();
+                id++;
             }
         }
     }
 
+    /// <summary>
+    /// Determines whether the given assembly may access the specified field.
+    /// </summary>
+    /// <param name="assembly">The assembly attempting the access.</param>
+    /// <param name="field">The field being accessed.</param>
+    /// <returns>Whether the assembly has permission to access the field.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// If no policy was associated with the given assembly.
+    /// </exception>
     private static bool CanAccess(Assembly assembly, FieldInfo field)
     {
         if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
@@ -193,6 +302,16 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    /// <summary>
+    /// Determines whether the given assembly may access the specified method.
+    /// </summary>
+    /// <param name="assembly">The assembly attempting the access.</param>
+    /// <param name="obj">The object on which the method is being invoked, if any.</param>
+    /// <param name="method">The method being accessed.</param>
+    /// <returns>Whether the assembly has permission to access the method.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// If no policy was associated with the given assembly.
+    /// </exception>
     private static bool CanCall(Assembly assembly, object? obj, ref MethodBase method)
     {
         if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
@@ -206,12 +325,25 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    /// <summary>
+    /// Determines if the provided member exists within the same <see cref="AssemblyLoadContext"/>.
+    /// </summary>
+    /// <param name="assembly">The assembly.</param>
+    /// <param name="member">The member.</param>
+    /// <returns>Whether the member and assembly share a load context.</returns>
     private static bool SameLoadContext(Assembly assembly, MemberInfo member)
     {
         return AssemblyLoadContext.GetLoadContext(assembly) == AssemblyLoadContext.GetLoadContext(member.Module.Assembly);
     }
 
-    private void PatchMethod(MethodDefinition method, int id, MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
+    /// <summary>
+    /// Rewrites the body of a method to include runtime checks for code access security.
+    /// </summary>
+    /// <param name="method">The method to instrument.</param>
+    /// <param name="rewriter">The rewriter to use for instrumenting the method.</param>
+    /// <param name="guardWriter">The object to use for generating guard access fields.</param>
+    /// <param name="references">The external references.</param>
+    private void PatchMethod(MethodDefinition method, MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         if (method.HasBody && HasJitVerificationGuard(method))
         {
@@ -230,6 +362,12 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    /// <summary>
+    /// Rewrites a single method instruction to include runtime checks for code access security.
+    /// </summary>
+    /// <param name="rewriter">The rewriter to use for instrumenting the method.</param>
+    /// <param name="guardWriter">The object to use for generating guard access fields.</param>
+    /// <param name="references">The external references.</param>
     private void PatchInstruction(MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         if (IsMethodOpCode(rewriter.Instruction!.OpCode))
@@ -251,16 +389,32 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    /// <summary>
+    /// Determines whether the provided opcode involves a field access.
+    /// </summary>
+    /// <param name="code">The opcode in question.</param>
+    /// <returns>Whether a field access needs to be patched for this operation.</returns>
     private bool IsFieldOpCode(OpCode code)
     {
         return code.OperandType == OperandType.InlineField;
     }
 
+    /// <summary>
+    /// Determines whether the provided opcode involves a method call.
+    /// </summary>
+    /// <param name="code">The opcode in question.</param>
+    /// <returns>Whether a method call needs to be patched for this operation.</returns>
     private bool IsMethodOpCode(OpCode code)
     {
         return code.Code == Code.Call || code.Code == Code.Callvirt || code.Code == Code.Newobj;
     }
 
+    /// <summary>
+    /// Inserts a runtime access check before a field access.
+    /// </summary>
+    /// <param name="rewriter">The method instrumentor.</param>
+    /// <param name="guardWriter">The object to use for generating guard access fields.</param>
+    /// <param name="references">The external references.</param>
     private void PatchFieldAccess(MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (FieldReference)rewriter.Instruction!.Operand;
@@ -282,6 +436,12 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Advance(true);
     }
 
+    /// <summary>
+    /// Replaces a delegate creation expression with a shim for runtime checking.
+    /// </summary>
+    /// <param name="rewriter">The method instrumentor.</param>
+    /// <param name="guardWriter">The object to use for generating guard access fields.</param>
+    /// <param name="references">The external references.</param>
     private void PatchDelegateCreation(MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (MethodReference)rewriter.Instruction!.Operand;
@@ -309,6 +469,12 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Advance(false);
     }
 
+    /// <summary>
+    /// Inserts a runtime access check before a method call, or replaces the method call with a shim if necessary.
+    /// </summary>
+    /// <param name="rewriter">The method instrumentor.</param>
+    /// <param name="guardWriter">The object to use for generating guard access fields.</param>
+    /// <param name="references">The external references.</param>
     private void PatchMethodCall(MethodBodyRewriter rewriter, GuardWriter guardWriter, ImportedReferences references)
     {
         var target = (MethodReference)rewriter.Instruction!.Operand;
@@ -352,17 +518,24 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
         if (rewriter.Instruction.OpCode.Code == Code.Callvirt && target.HasThis)
         {
-            PatchVirtualMethod(rewriter, ref guardWriter, target, references);
+            PatchVirtualMethod(rewriter, guardWriter, target, references);
         }
         else
         {
-            PatchStaticMethod(rewriter, ref guardWriter, target, references);
+            PatchStaticMethod(rewriter, guardWriter, target, references);
         }
 
         rewriter.Advance(true);
     }
 
-    private void PatchVirtualMethod(MethodBodyRewriter rewriter, ref GuardWriter guardWriter, MethodReference target, ImportedReferences references)
+    /// <summary>
+    /// Inserts a runtime access check before a virtual method call.
+    /// </summary>
+    /// <param name="rewriter">The method instrumentor.</param>
+    /// <param name="guardWriter">The object to use for generating guard access fields.</param>
+    /// <param name="target">The target method being called.</param>
+    /// <param name="references">The external references.</param>
+    private void PatchVirtualMethod(MethodBodyRewriter rewriter, GuardWriter guardWriter, MethodReference target, ImportedReferences references)
     {
         rewriter.Method.Body.InitLocals = true;
 
@@ -403,7 +576,14 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Insert(branchTarget);
     }
 
-    private void PatchStaticMethod(MethodBodyRewriter rewriter, ref GuardWriter guardWriter, MethodReference target, ImportedReferences references)
+    /// <summary>
+    /// Inserts a runtime access check before a static method call.
+    /// </summary>
+    /// <param name="rewriter">The method instrumentor.</param>
+    /// <param name="guardWriter">The object to use for generating guard access fields.</param>
+    /// <param name="target">The target method being called.</param>
+    /// <param name="references">The external references.</param>
+    private void PatchStaticMethod(MethodBodyRewriter rewriter, GuardWriter guardWriter, MethodReference target, ImportedReferences references)
     {
         var accessConstant = guardWriter.GetAccessibilityConstant(target);
         rewriter.Insert(Instruction.Create(OpCodes.Ldsfld, accessConstant));
@@ -416,11 +596,24 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Insert(branchTarget);
     }
 
+    /// <summary>
+    /// Creates a list of local variables - one for each parameter of the given target method.
+    /// </summary>
+    /// <param name="method">The parent method.</param>
+    /// <param name="target">The method being called.</param>
+    /// <returns>A list of local variables, with the same types as <paramref name="target"/>'s parameters.</returns>
     private List<VariableDefinition> CreateLocalDefinitions(MethodDefinition method, MethodReference target)
     {
         return target.Parameters.Select(x => new VariableDefinition(method.Module.ImportReference(ResolveGenericParameter(x.ParameterType, target)))).ToList();
     }
 
+    /// <summary>
+    /// Determines the concrete type that should be associated with a generic parameter in a method invocation.
+    /// </summary>
+    /// <param name="type">The generic-qualified type to replace with a concrete instance.</param>
+    /// <param name="target">The target method being called.</param>
+    /// <returns>The type, with any generic parameters from the target method removed.</returns>
+    /// <exception cref="NotSupportedException">If the kind of type to resolve was unrecognized.</exception>
     private static TypeReference ResolveGenericParameter(TypeReference type, MethodReference target)
     {
         if (!type.ContainsGenericParameter)
@@ -459,16 +652,21 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         }
     }
 
+    /// <summary>
+    /// Gets all types associated with the given module.
+    /// </summary>
+    /// <param name="module">The module over which to iterate.</param>
+    /// <returns>All types contained in the module, including nested types.</returns>
     private static IEnumerable<TypeDefinition> GetAllTypes(ModuleDefinition module)
     {
         return module.Types.SelectMany(GetAllTypes);
     }
 
     /// <summary>
-    /// Gets all methods associated with the given type (including methods in nested types).
+    /// Gets all types associated with the given type (including both the original type and its nested types).
     /// </summary>
     /// <param name="type">The type over which to iterate.</param>
-    /// <returns>All methods contained in the type.</returns>
+    /// <returns>All types in this type's tree.</returns>
     private static IEnumerable<TypeDefinition> GetAllTypes(TypeDefinition type)
     {
         return type.NestedTypes.SelectMany(GetAllTypes).Append(type);
@@ -496,21 +694,36 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         };
     }
 
+    /// <summary>
+    /// Imports references to all shim methods.
+    /// </summary>
+    /// <param name="module">The module on which to import the shims.</param>
+    /// <returns>A map from original method signature to shim method.</returns>
     private static IImmutableDictionary<SignatureHash, MethodReference> ImportShims(ModuleDefinition module)
     {
         return MethodShims.ShimMap.ToImmutableDictionary(x => x.Key, x => module.ImportReference(x.Value));
     }
 
-    private static string FormatSecurityException(AssemblyDefinition assembly, MemberInfo member)
-    {
-        return FormatSecurityException(assembly.Name.Name, member);
-    }
-
+    /// <summary>
+    /// Produces the text description for a security access exception.
+    /// </summary>
+    /// <param name="assembly">The assembly that attempted the illegal access.</param>
+    /// <param name="member">The member that was accessed.</param>
+    /// <returns>A string describing the problem.</returns>
     private static string FormatSecurityException(Assembly assembly, MemberInfo member)
     {
         return FormatSecurityException(assembly.GetName().Name, member);
     }
 
+    /// <summary>
+    /// Determines whether the given method was a part of the original assembly
+    /// (as opposed to being an added method for JIT IL verification).
+    /// </summary>
+    /// <param name="method">The method to check.</param>
+    /// <returns>
+    /// Whether the method has a JIT verification guard, indicating that it
+    /// is a method from the original assembly.
+    /// </returns>
     private static bool HasJitVerificationGuard(MethodDefinition method)
     {
         return 2 <= method.Body.Instructions.Count
@@ -534,21 +747,5 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         {
             return $"Assembly {assemblyName} does not have permission to access {member} of {member.DeclaringType}.";
         }
-    }
-
-    /// <summary>
-    /// Data necessary for adding a CAS hook to a method.
-    /// </summary>
-    private struct MethodToUpdate
-    {
-        /// <summary>
-        /// The method that needs CAS hooks.
-        /// </summary>
-        public required MethodDefinition Method;
-
-        /// <summary>
-        /// Member references necessary for adding a CAS hook.
-        /// </summary>
-        public required ImportedReferences References;
     }
 }
