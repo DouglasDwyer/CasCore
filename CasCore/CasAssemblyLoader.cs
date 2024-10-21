@@ -182,7 +182,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <summary>
-    /// Throws a security action that specifies the assembly does not have permission to access the member.
+    /// Throws a security exception that specifies the assembly does not have permission to access the member.
     /// </summary>
     /// <param name="assembly">The assembly that tried to access the member.</param>
     /// <param name="info">The member being accessed.</param>

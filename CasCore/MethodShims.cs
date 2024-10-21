@@ -286,7 +286,7 @@ public static class MethodShims
 
         if (target.DeclaringType!.Namespace == "DouglasDwyer.CasCore.Guard")
         {
-            throw new SecurityException("Cannot set guard fields using reflection.");
+            CasAssemblyLoader.ThrowAccessException(Assembly.GetCallingAssembly(), target);
         }
 
         target.SetValue(obj, value);
@@ -298,7 +298,7 @@ public static class MethodShims
 
         if (target.DeclaringType!.Namespace == "DouglasDwyer.CasCore.Guard")
         {
-            throw new SecurityException("Cannot set guard fields using reflection.");
+            CasAssemblyLoader.ThrowAccessException(Assembly.GetCallingAssembly(), target);
         }
 
         target.SetValue(obj, value, invokeAttr, binder, culture);
