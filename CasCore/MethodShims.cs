@@ -32,11 +32,6 @@ public static class MethodShims
         ReplacementShims.ToImmutableDictionary(x => new SignatureHash(x.Key), x => x.Value);
 
     /// <summary>
-    /// A list of the methods that are shimmed (and therefore may not be called directly via reflection).
-    /// </summary>
-    internal static IImmutableSet<RuntimeMethodHandle> ShimHandles { get; } = ReplacementShims.Select(x => x.Key.MethodHandle).ToImmutableHashSet();
-
-    /// <summary>
     /// The default list of flags to use when finding a constructor to invoke.
     /// </summary>
     private const BindingFlags ConstructorDefault = BindingFlags.Instance | BindingFlags.Public | BindingFlags.CreateInstance;
@@ -288,12 +283,24 @@ public static class MethodShims
     public static void SetValue(FieldInfo target, object? obj, object? value)
     {
         CasAssemblyLoader.AssertCanAccess(Assembly.GetCallingAssembly(), target);
+
+        if (target.DeclaringType!.Namespace == "DouglasDwyer.CasCore.Guard")
+        {
+            throw new SecurityException("Cannot set guard fields using reflection.");
+        }
+
         target.SetValue(obj, value);
     }
 
     public static void SetValue(FieldInfo target, object? obj, object? value, BindingFlags invokeAttr, Binder? binder, CultureInfo? culture)
     {
         CasAssemblyLoader.AssertCanAccess(Assembly.GetCallingAssembly(), target);
+
+        if (target.DeclaringType!.Namespace == "DouglasDwyer.CasCore.Guard")
+        {
+            throw new SecurityException("Cannot set guard fields using reflection.");
+        }
+
         target.SetValue(obj, value, invokeAttr, binder, culture);
     }
 
@@ -323,24 +330,50 @@ public static class MethodShims
 
     public static object? Invoke(MethodBase target, object? obj, object?[]? parameters)
     {
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, target);
-        if (ShimHandles.Contains(target.MethodHandle))
+        if (target is MethodInfo info && TryGetShim(info, out MethodInfo? shim))
         {
-            throw new SecurityException($"Member {target} may not be invoked via reflection from an untrusted assembly.");
+            if (info.IsStatic)
+            {
+                return shim.Invoke(null, parameters);
+            }
+            else if (obj is null)
+            {
+                throw new TargetInvocationException(new NullReferenceException());
+            }
+            else
+            {
+                return shim.Invoke(null, parameters is null ? [obj] : parameters.Prepend(obj).ToArray());
+            }
         }
-
-        return target.Invoke(obj, parameters);
+        else
+        {
+            CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, target);
+            return target.Invoke(obj, parameters);
+        }
     }
 
     public static object? Invoke(MethodBase target, object? obj, BindingFlags invokeAttr, Binder? binder, object?[]? parameters, CultureInfo? culture)
     {
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, target);
-        if (ShimHandles.Contains(target.MethodHandle))
+        if (target is MethodInfo info && TryGetShim(info, out MethodInfo? shim))
         {
-            throw new SecurityException($"Member {target} may not be invoked via reflection from an untrusted assembly.");
+            if (info.IsStatic)
+            {
+                return shim.Invoke(null, invokeAttr, binder, parameters, culture);
+            }
+            else if (obj is null)
+            {
+                throw new TargetInvocationException(new NullReferenceException());
+            }
+            else
+            {
+                return shim.Invoke(null, invokeAttr, binder, parameters is null ? [obj] : parameters.Prepend(obj).ToArray(), culture);
+            }
         }
-
-        return target.Invoke(obj, invokeAttr, binder, parameters, culture);
+        else
+        {
+            CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, target);
+            return target.Invoke(obj, invokeAttr, binder, parameters, culture);
+        }
     }
 
     public static Delegate CreateDelegate(MethodInfo target, Type delegateType) => CheckAndReturnDelegate(Assembly.GetCallingAssembly(), target.CreateDelegate(delegateType));
