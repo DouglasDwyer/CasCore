@@ -1,5 +1,4 @@
 ﻿using DouglasDwyer.CasCore.Tests.Shared;
-using System.Diagnostics;
 using System.Reflection;
 using System.Security;
 
