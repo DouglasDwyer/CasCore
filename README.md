@@ -1,6 +1,6 @@
 # CasCore
 
-[![NuGet version (DouglasDwyer.CasCore)](https://img.shields.io/nuget/v/DouglasDwyer.CasCore.svg?style=flat-square)](https://www.nuget.org/packages/DouglasDwyer.CasCore/)
+[![NuGet version (DouglasDwyer.CasCore)](https://img.shields.io/nuget/v/DouglasDwyer.CasCore.svg?style=flat-square)](https://www.nuget.org/packages/DouglasDwyer.CasCore/) [![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=flat-square)](https://douglasdwyer.github.io/CasCore/)
 
 #### Assembly-level sandboxing and Code Access Security for .NET Core
 
@@ -20,6 +20,8 @@
 `CasCore` can be obtained as a Nuget package. Either run `dotnet add package DouglasDwyer.CasCore` via the command line, or download the library from the Visual Studio package manager.
 
 ### How to use
+
+The full documentation is available [here](https://douglasdwyer.github.io/CasCore/).
 
 Sandboxing assemblies with `CasCore` involves two steps: defining a `CasPolicy`, then loading assemblies under that policy.
 
