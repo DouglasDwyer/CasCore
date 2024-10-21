@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore
+  commentId: N:DouglasDwyer.CasCore
+  id: DouglasDwyer.CasCore
+  children:
+  - DouglasDwyer.CasCore.Accessibility
+  - DouglasDwyer.CasCore.AssemblyBinding
+  - DouglasDwyer.CasCore.CasAssemblyLoader
+  - DouglasDwyer.CasCore.CasPolicy
+  - DouglasDwyer.CasCore.CasPolicyBuilder
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  - DouglasDwyer.CasCore.TypeBinding
+  langs:
+  - csharp
+  - vb
+  name: DouglasDwyer.CasCore
+  nameWithType: DouglasDwyer.CasCore
+  fullName: DouglasDwyer.CasCore
+  type: Namespace
+  assemblies:
+  - CasCore
+references:
+- uid: DouglasDwyer.CasCore.Accessibility
+  commentId: T:DouglasDwyer.CasCore.Accessibility
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.Accessibility.html
+  name: Accessibility
+  nameWithType: Accessibility
+  fullName: DouglasDwyer.CasCore.Accessibility
+- uid: DouglasDwyer.CasCore.AssemblyBinding
+  commentId: T:DouglasDwyer.CasCore.AssemblyBinding
+  href: DouglasDwyer.CasCore.AssemblyBinding.html
+  name: AssemblyBinding
+  nameWithType: AssemblyBinding
+  fullName: DouglasDwyer.CasCore.AssemblyBinding
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader
+  commentId: T:DouglasDwyer.CasCore.CasAssemblyLoader
+  href: DouglasDwyer.CasCore.CasAssemblyLoader.html
+  name: CasAssemblyLoader
+  nameWithType: CasAssemblyLoader
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader
+- uid: DouglasDwyer.CasCore.CasPolicy
+  commentId: T:DouglasDwyer.CasCore.CasPolicy
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicy.html
+  name: CasPolicy
+  nameWithType: CasPolicy
+  fullName: DouglasDwyer.CasCore.CasPolicy
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder
+  commentId: T:DouglasDwyer.CasCore.CasPolicyBuilder
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  name: CasPolicyBuilder
+  nameWithType: CasPolicyBuilder
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  commentId: T:DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html
+  name: CasPolicyBuilderExtensions
+  nameWithType: CasPolicyBuilderExtensions
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+- uid: DouglasDwyer.CasCore.TypeBinding
+  commentId: T:DouglasDwyer.CasCore.TypeBinding
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.TypeBinding.html
+  name: TypeBinding
+  nameWithType: TypeBinding
+  fullName: DouglasDwyer.CasCore.TypeBinding
+- uid: DouglasDwyer.CasCore
+  commentId: N:DouglasDwyer.CasCore
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore
+  nameWithType: DouglasDwyer.CasCore
+  fullName: DouglasDwyer.CasCore
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html

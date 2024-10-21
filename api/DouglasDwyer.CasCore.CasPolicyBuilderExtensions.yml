@@ -1,0 +1,1391 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  commentId: T:DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  id: CasPolicyBuilderExtensions
+  parent: DouglasDwyer.CasCore
+  children:
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  - DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  langs:
+  - csharp
+  - vb
+  name: CasPolicyBuilderExtensions
+  nameWithType: CasPolicyBuilderExtensions
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  type: Class
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: CasPolicyBuilderExtensions
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 9
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Provides a set of methods for whitelisting C# standard library members.
+  example: []
+  syntax:
+    content: public static class CasPolicyBuilderExtensions
+    content.vb: Public Module CasPolicyBuilderExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemCollectionsConcurrent(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemCollectionsConcurrent
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 16
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Collections.Concurrent</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemCollectionsConcurrent(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemCollectionsConcurrent(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemCollections(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollections(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemCollections
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 27
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Collections</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemCollections(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemCollections(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemCollectionsImmutable(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemCollectionsImmutable
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 38
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Collections.Immutable</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemCollectionsImmutable(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemCollectionsImmutable(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemCollectionsNonGeneric(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemCollectionsNonGeneric
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 49
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Collections.NonGeneric</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemCollectionsNonGeneric(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemCollectionsNonGeneric(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemCollectionsSpecialized(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemCollectionsSpecialized
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 60
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Collections.Specialized</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemCollectionsSpecialized(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemCollectionsSpecialized(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemComponentModelTypeConverter(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemComponentModelTypeConverter
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 71
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.ComponentModel.TypeConverter</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemComponentModelTypeConverter(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemComponentModelTypeConverter(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemConsole(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemConsole(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemConsole
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 232
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Console</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemConsole(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemConsole(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemDiagnosticsDiagnosticSource(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemDiagnosticsDiagnosticSource
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 420
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Diagnostics.DiagnosticSource</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemDiagnosticsDiagnosticSource(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemDiagnosticsDiagnosticSource(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemLinq(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinq(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemLinq
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 431
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Linq</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemLinq(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemLinq(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemLinqParallel(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemLinqParallel
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 442
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Linq.Parallel</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemLinqParallel(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemLinqParallel(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemLinqQueryable(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemLinqQueryable
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 453
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>.System.Linq.Queryable</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemLinqQueryable(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemLinqQueryable(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemObjectModel(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemObjectModel
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 464
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.ObjectModel</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemObjectModel(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemObjectModel(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystem(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystem(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystem
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 475
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>CoreLib</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystem(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystem(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemReflectionTypeExtensions(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemReflectionTypeExtensions
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 2716
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Reflection.TypeExtensions</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemReflectionTypeExtensions(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemReflectionTypeExtensions(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemRuntimeNumerics(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemRuntimeNumerics
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 2727
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Runtime.Numerics</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemRuntimeNumerics(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemRuntimeNumerics(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemRuntimeSerializationFormatters(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemRuntimeSerializationFormatters
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 2739
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Runtime.SerializationFormatters</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemRuntimeSerializationFormatters(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemRuntimeSerializationFormatters(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemTextJson(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemTextJson
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 2750
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Text.Json</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemTextJson(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemTextJson(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemTextRegularExpressions(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemTextRegularExpressions
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 2897
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Text.RegularExpressions</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemTextRegularExpressions(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemTextRegularExpressions(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemThreadingChannels(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemThreadingChannels
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 3000
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Threading.Channels</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemThreadingChannels(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemThreadingChannels(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemThreading(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreading(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemThreading
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 3011
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Threading</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemThreading(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemThreading(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemThreadingTasksDataflow(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemThreadingTasksDataflow
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 3022
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Threading.Tasks.Dataflow</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemThreadingTasksDataflow(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemThreadingTasksDataflow(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemThreadingTasksParallel(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemThreadingTasksParallel
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 3033
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Threading.Tasks.Parallel</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemThreadingTasksParallel(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemThreadingTasksParallel(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedSystemLinqExpressions(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedSystemLinqExpressions
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 3044
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the <code>System.Linq.Expressions</code> assembly.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedSystemLinqExpressions(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedSystemLinqExpressions(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithSandboxedRuntimeReflection(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithSandboxedRuntimeReflection
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 3098
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds all safe members from the runtime reflection system, such as <code>System.RuntimeType</code>.
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithSandboxedRuntimeReflection(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithSandboxedRuntimeReflection(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  id: WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  isExtensionMethod: true
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithDefaultSandbox(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithDefaultSandbox(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilderExtensions.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithDefaultSandbox
+    path: CasCore/CasPolicyBuilderExtensions.cs
+    startLine: 3136
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: >-
+    Adds a safe subset of the C# standard library to the policy.
+
+    The aim of this method is to provide a sensible default whitelist that
+
+    ensures any loaded assemblies cannot gain access to the host system.
+
+    Specifically, the following APIs are excluded from this whitelist:
+
+    <ul><li>Cause undefined behavior</li><li>Access the filesystem</li><li>Access the network</li><li>Access other OS-specific resources (such as processes or pipes)</li><li>Allow for loading other code without verification (such as <code>System.Reflection.Emit</code>)</li></ul>
+  example: []
+  syntax:
+    content: public static CasPolicyBuilder WithDefaultSandbox(this CasPolicyBuilder builder)
+    parameters:
+    - id: builder
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The builder to which members should be added.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: The modified builder.
+    content.vb: Public Shared Function WithDefaultSandbox(builder As CasPolicyBuilder) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox*
+references:
+- uid: DouglasDwyer.CasCore
+  commentId: N:DouglasDwyer.CasCore
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore
+  nameWithType: DouglasDwyer.CasCore
+  fullName: DouglasDwyer.CasCore
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsConcurrent_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsConcurrent
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder
+  commentId: T:DouglasDwyer.CasCore.CasPolicyBuilder
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  name: CasPolicyBuilder
+  nameWithType: CasPolicyBuilder
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollections_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollections
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollections
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsImmutable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsImmutable
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsNonGeneric_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsNonGeneric
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsSpecialized_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsSpecialized
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemComponentModelTypeConverter_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemComponentModelTypeConverter
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemConsole_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemConsole
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemConsole
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemDiagnosticsDiagnosticSource_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemDiagnosticsDiagnosticSource
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinq_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinq
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinq
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinqParallel
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqQueryable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinqQueryable
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemObjectModel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemObjectModel
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystem_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystem
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystem
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemReflectionTypeExtensions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemReflectionTypeExtensions
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeNumerics_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemRuntimeNumerics
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeSerializationFormatters_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemRuntimeSerializationFormatters
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextJson_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemTextJson
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemTextJson
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextRegularExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemTextRegularExpressions
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingChannels_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreadingChannels
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreading_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreading
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreading
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksDataflow_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreadingTasksDataflow
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreadingTasksParallel
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinqExpressions
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedRuntimeReflection_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedRuntimeReflection
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithDefaultSandbox_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithDefaultSandbox
+  nameWithType: CasPolicyBuilderExtensions.WithDefaultSandbox
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox

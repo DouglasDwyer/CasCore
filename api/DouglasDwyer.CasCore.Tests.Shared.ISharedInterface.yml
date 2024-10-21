@@ -1,0 +1,120 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface
+  commentId: T:DouglasDwyer.CasCore.Tests.Shared.ISharedInterface
+  id: ISharedInterface
+  parent: DouglasDwyer.CasCore.Tests.Shared
+  children:
+  - DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.InterfaceMethod``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: ISharedInterface
+  nameWithType: ISharedInterface
+  fullName: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface
+  type: Interface
+  source:
+    remote:
+      path: CasCore.Tests.Shared/ISharedInterface.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: ISharedInterface
+    path: CasCore.Tests.Shared/ISharedInterface.cs
+    startLine: 2
+  assemblies:
+  - CasCore.Tests.Shared
+  namespace: DouglasDwyer.CasCore.Tests.Shared
+  syntax:
+    content: public interface ISharedInterface
+    content.vb: Public Interface ISharedInterface
+- uid: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.InterfaceMethod``1(``0)
+  commentId: M:DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.InterfaceMethod``1(``0)
+  id: InterfaceMethod``1(``0)
+  parent: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface
+  langs:
+  - csharp
+  - vb
+  name: InterfaceMethod<T>(T)
+  nameWithType: ISharedInterface.InterfaceMethod<T>(T)
+  fullName: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.InterfaceMethod<T>(T)
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests.Shared/ISharedInterface.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: InterfaceMethod
+    path: CasCore.Tests.Shared/ISharedInterface.cs
+    startLine: 4
+  assemblies:
+  - CasCore.Tests.Shared
+  namespace: DouglasDwyer.CasCore.Tests.Shared
+  syntax:
+    content: T InterfaceMethod<T>(T input)
+    parameters:
+    - id: input
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Function InterfaceMethod(Of T)(input As T) As T
+  overload: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.InterfaceMethod*
+  nameWithType.vb: ISharedInterface.InterfaceMethod(Of T)(T)
+  fullName.vb: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.InterfaceMethod(Of T)(T)
+  name.vb: InterfaceMethod(Of T)(T)
+references:
+- uid: DouglasDwyer.CasCore.Tests.Shared
+  commentId: N:DouglasDwyer.CasCore.Tests.Shared
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore.Tests.Shared
+  nameWithType: DouglasDwyer.CasCore.Tests.Shared
+  fullName: DouglasDwyer.CasCore.Tests.Shared
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests.Shared
+    name: Shared
+    href: DouglasDwyer.CasCore.Tests.Shared.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests.Shared
+    name: Shared
+    href: DouglasDwyer.CasCore.Tests.Shared.html
+- uid: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.InterfaceMethod*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.InterfaceMethod
+  href: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.html#DouglasDwyer_CasCore_Tests_Shared_ISharedInterface_InterfaceMethod__1___0_
+  name: InterfaceMethod
+  nameWithType: ISharedInterface.InterfaceMethod
+  fullName: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.InterfaceMethod
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T

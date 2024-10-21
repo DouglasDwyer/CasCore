@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class CasPolicyBuilder | CasCore </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class CasPolicyBuilder | CasCore ">
+    
+    <meta name="description" content="Allows for specifying the list of fields and methods that a sandboxed assembly may access.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="CasCore">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder">
+
+
+
+  <h1 id="DouglasDwyer_CasCore_CasPolicyBuilder" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder" class="text-break">Class CasPolicyBuilder</h1>
+  <div class="markdown level0 summary"><p>Allows for specifying the list of fields and methods that a sandboxed assembly may access.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">CasPolicyBuilder</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DouglasDwyer.html">DouglasDwyer</a>.<a class="xref" href="DouglasDwyer.CasCore.html">CasCore</a></h6>
+  <h6><strong>Assembly</strong>: CasCore.dll</h6>
+  <h5 id="DouglasDwyer_CasCore_CasPolicyBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CasPolicyBuilder</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasPolicyBuilder__ctor.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasPolicyBuilder.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasPolicyBuilder.cs/#L19">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasPolicyBuilder__ctor_" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.#ctor*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasPolicyBuilder__ctor" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.#ctor">CasPolicyBuilder()</h4>
+  <div class="markdown level1 summary"><p>Creates a new policy builder. By default, all access to external APIs is denied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CasPolicyBuilder()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasPolicyBuilder_Allow_System_Collections_Generic_IEnumerable_System_Reflection_MemberInfo__.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Collections.Generic.IEnumerable%7BSystem.Reflection.MemberInfo%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasPolicyBuilder.cs/#L49">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasPolicyBuilder_Allow_" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Allow*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasPolicyBuilder_Allow_System_Collections_Generic_IEnumerable_System_Reflection_MemberInfo__" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})">Allow(IEnumerable&lt;MemberInfo&gt;)</h4>
+  <div class="markdown level1 summary"><p>Allows the given set of members to be accessed by sandboxed assemblies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CasPolicyBuilder Allow(IEnumerable&lt;MemberInfo&gt; members)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>&gt;</td>
+        <td><span class="parametername">members</span></td>
+        <td><p>The members to allow.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilder.html">CasPolicyBuilder</a></td>
+        <td><p>This builder, with the additional members added.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasPolicyBuilder_Allow_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasPolicyBuilder.cs/#L38">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasPolicyBuilder_Allow_" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Allow*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasPolicyBuilder_Allow_System_Reflection_MemberInfo_" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Reflection.MemberInfo)">Allow(MemberInfo)</h4>
+  <div class="markdown level1 summary"><p>Allows the given member to be accessed by sandboxed assemblies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CasPolicyBuilder Allow(MemberInfo member)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
+        <td><span class="parametername">member</span></td>
+        <td><p>The member to allow.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilder.html">CasPolicyBuilder</a></td>
+        <td><p>This builder, with the additional member added.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasPolicyBuilder_Build.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasPolicyBuilder.Build%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasPolicyBuilder.cs/#L28">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasPolicyBuilder_Build_" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Build*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasPolicyBuilder_Build" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Build">Build()</h4>
+  <div class="markdown level1 summary"><p>Bakes the list of accessible members into a <a class="xref" href="DouglasDwyer.CasCore.CasPolicy.html">CasPolicy</a> that may be used to instantiate assemblies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CasPolicy Build()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DouglasDwyer.CasCore.CasPolicy.html">CasPolicy</a></td>
+        <td><p>The policy that was generated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasPolicyBuilder_Deny_System_Collections_Generic_IEnumerable_System_Reflection_MemberInfo__.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Collections.Generic.IEnumerable%7BSystem.Reflection.MemberInfo%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasPolicyBuilder.cs/#L71">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasPolicyBuilder_Deny_" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Deny*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasPolicyBuilder_Deny_System_Collections_Generic_IEnumerable_System_Reflection_MemberInfo__" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})">Deny(IEnumerable&lt;MemberInfo&gt;)</h4>
+  <div class="markdown level1 summary"><p>Prevents the given members from being accessed by sandboxed assemblies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CasPolicyBuilder Deny(IEnumerable&lt;MemberInfo&gt; members)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>&gt;</td>
+        <td><span class="parametername">members</span></td>
+        <td><p>The members to deny.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilder.html">CasPolicyBuilder</a></td>
+        <td><p>This builder, with any relevant members removed if they were present.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasPolicyBuilder_Deny_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasPolicyBuilder.cs/#L60">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasPolicyBuilder_Deny_" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Deny*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasPolicyBuilder_Deny_System_Reflection_MemberInfo_" data-uid="DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Reflection.MemberInfo)">Deny(MemberInfo)</h4>
+  <div class="markdown level1 summary"><p>Prevents the given member from being accessed by sandboxed assemblies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CasPolicyBuilder Deny(MemberInfo member)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
+        <td><span class="parametername">member</span></td>
+        <td><p>The member to deny.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilder.html">CasPolicyBuilder</a></td>
+        <td><p>This builder, with the member removed if it was present.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithDefaultSandbox_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithDefaultSandbox(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedRuntimeReflection_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystem_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystem(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollections_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemCollections(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsConcurrent_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsImmutable_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsNonGeneric_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsSpecialized_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemComponentModelTypeConverter_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemConsole_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemConsole(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemDiagnosticsDiagnosticSource_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinq_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemLinq(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqParallel_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqQueryable_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemObjectModel_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemReflectionTypeExtensions_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeNumerics_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeSerializationFormatters_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextJson_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextRegularExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreading_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemThreading(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingChannels_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksDataflow_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(CasPolicyBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksParallel_DouglasDwyer_CasCore_CasPolicyBuilder_">CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(CasPolicyBuilder)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasPolicyBuilder.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasPolicyBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasPolicyBuilder.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

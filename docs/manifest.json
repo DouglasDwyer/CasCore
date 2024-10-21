@@ -1,0 +1,285 @@
+{
+  "source_base_path": "C:/Users/Douglas/Documents/GitHub/CasCore",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Accessibility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Accessibility.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.AssemblyBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.AssemblyBinding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.CasAssemblyLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.CasAssemblyLoader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.CasPolicy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.CasPolicy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.CasPolicyBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.CasPolicyBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.CasPolicyBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.Shared.SharedClass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.Shared.SharedClass.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.Shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.Shared.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.TestDelegateCreation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.TestDelegateCreation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.TestExceptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.TestExceptionAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.TestFileAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.TestFileAccess.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.TestMemberAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.TestMemberAccess.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.TestMemorySafety.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.TestMemorySafety.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.TestRunner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.TestRunner.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.TestSuccessfulAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.TestSuccessfulAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.Tests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.Tests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.TypeBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.TypeBinding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DouglasDwyer.CasCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DouglasDwyer.CasCore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

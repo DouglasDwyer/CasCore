@@ -1,0 +1,929 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.TypeBinding
+  commentId: T:DouglasDwyer.CasCore.TypeBinding
+  id: TypeBinding
+  parent: DouglasDwyer.CasCore
+  children:
+  - DouglasDwyer.CasCore.TypeBinding.#ctor(System.Type,DouglasDwyer.CasCore.Accessibility)
+  - DouglasDwyer.CasCore.TypeBinding.GetEnumerator
+  - DouglasDwyer.CasCore.TypeBinding.WithConstructor(DouglasDwyer.CasCore.Accessibility)
+  - DouglasDwyer.CasCore.TypeBinding.WithConstructor(System.Type[],DouglasDwyer.CasCore.Accessibility)
+  - DouglasDwyer.CasCore.TypeBinding.WithField(System.String,DouglasDwyer.CasCore.Accessibility)
+  - DouglasDwyer.CasCore.TypeBinding.WithMethod(System.String,DouglasDwyer.CasCore.Accessibility)
+  - DouglasDwyer.CasCore.TypeBinding.WithMethod(System.String,System.Type[],DouglasDwyer.CasCore.Accessibility)
+  langs:
+  - csharp
+  - vb
+  name: TypeBinding
+  nameWithType: TypeBinding
+  fullName: DouglasDwyer.CasCore.TypeBinding
+  type: Class
+  source:
+    remote:
+      path: CasCore/TypeBinding.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TypeBinding
+    path: CasCore/TypeBinding.cs
+    startLine: 9
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Facilitates selecting particular members of a type to include in a <xref href="DouglasDwyer.CasCore.CasPolicy" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public sealed class TypeBinding : IEnumerable<MemberInfo>, IEnumerable'
+    content.vb: Public NotInheritable Class TypeBinding Implements IEnumerable(Of MemberInfo), IEnumerable
+  inheritance:
+  - System.Object
+  implements:
+  - System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DouglasDwyer.CasCore.TypeBinding.#ctor(System.Type,DouglasDwyer.CasCore.Accessibility)
+  commentId: M:DouglasDwyer.CasCore.TypeBinding.#ctor(System.Type,DouglasDwyer.CasCore.Accessibility)
+  id: '#ctor(System.Type,DouglasDwyer.CasCore.Accessibility)'
+  parent: DouglasDwyer.CasCore.TypeBinding
+  langs:
+  - csharp
+  - vb
+  name: TypeBinding(Type, Accessibility)
+  nameWithType: TypeBinding.TypeBinding(Type, Accessibility)
+  fullName: DouglasDwyer.CasCore.TypeBinding.TypeBinding(System.Type, DouglasDwyer.CasCore.Accessibility)
+  type: Constructor
+  source:
+    remote:
+      path: CasCore/TypeBinding.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: .ctor
+    path: CasCore/TypeBinding.cs
+    startLine: 37
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: >-
+    Creates a new binding for members of the given type. This recursively includes members of nested classes
+
+    that are visible under the given accessibility.
+  example: []
+  syntax:
+    content: public TypeBinding(Type type, Accessibility accessibility)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The target type.
+    - id: accessibility
+      type: DouglasDwyer.CasCore.Accessibility
+      description: The accessibility level of members.
+    content.vb: Public Sub New(type As Type, accessibility As Accessibility)
+  overload: DouglasDwyer.CasCore.TypeBinding.#ctor*
+  nameWithType.vb: TypeBinding.New(Type, Accessibility)
+  fullName.vb: DouglasDwyer.CasCore.TypeBinding.New(System.Type, DouglasDwyer.CasCore.Accessibility)
+  name.vb: New(Type, Accessibility)
+- uid: DouglasDwyer.CasCore.TypeBinding.WithConstructor(DouglasDwyer.CasCore.Accessibility)
+  commentId: M:DouglasDwyer.CasCore.TypeBinding.WithConstructor(DouglasDwyer.CasCore.Accessibility)
+  id: WithConstructor(DouglasDwyer.CasCore.Accessibility)
+  parent: DouglasDwyer.CasCore.TypeBinding
+  langs:
+  - csharp
+  - vb
+  name: WithConstructor(Accessibility)
+  nameWithType: TypeBinding.WithConstructor(Accessibility)
+  fullName: DouglasDwyer.CasCore.TypeBinding.WithConstructor(DouglasDwyer.CasCore.Accessibility)
+  type: Method
+  source:
+    remote:
+      path: CasCore/TypeBinding.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithConstructor
+    path: CasCore/TypeBinding.cs
+    startLine: 74
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds the constructor of the given accessibility to this binding.
+  example: []
+  syntax:
+    content: public TypeBinding WithConstructor(Accessibility accessibility)
+    parameters:
+    - id: accessibility
+      type: DouglasDwyer.CasCore.Accessibility
+      description: The target member's accessibility.
+    return:
+      type: DouglasDwyer.CasCore.TypeBinding
+      description: This type binding, with the member added.
+    content.vb: Public Function WithConstructor(accessibility As Accessibility) As TypeBinding
+  overload: DouglasDwyer.CasCore.TypeBinding.WithConstructor*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: If no member could be found.
+- uid: DouglasDwyer.CasCore.TypeBinding.WithConstructor(System.Type[],DouglasDwyer.CasCore.Accessibility)
+  commentId: M:DouglasDwyer.CasCore.TypeBinding.WithConstructor(System.Type[],DouglasDwyer.CasCore.Accessibility)
+  id: WithConstructor(System.Type[],DouglasDwyer.CasCore.Accessibility)
+  parent: DouglasDwyer.CasCore.TypeBinding
+  langs:
+  - csharp
+  - vb
+  name: WithConstructor(Type[], Accessibility)
+  nameWithType: TypeBinding.WithConstructor(Type[], Accessibility)
+  fullName: DouglasDwyer.CasCore.TypeBinding.WithConstructor(System.Type[], DouglasDwyer.CasCore.Accessibility)
+  type: Method
+  source:
+    remote:
+      path: CasCore/TypeBinding.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithConstructor
+    path: CasCore/TypeBinding.cs
+    startLine: 94
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds the constructor with the given parameters and accessibility to this binding.
+  example: []
+  syntax:
+    content: public TypeBinding WithConstructor(Type[] parameters, Accessibility accessibility)
+    parameters:
+    - id: parameters
+      type: System.Type[]
+      description: The parameters that the constructor accepts.
+    - id: accessibility
+      type: DouglasDwyer.CasCore.Accessibility
+      description: The target member's accessibility.
+    return:
+      type: DouglasDwyer.CasCore.TypeBinding
+      description: This type binding, with the member added.
+    content.vb: Public Function WithConstructor(parameters As Type(), accessibility As Accessibility) As TypeBinding
+  overload: DouglasDwyer.CasCore.TypeBinding.WithConstructor*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: If no member could be found.
+  nameWithType.vb: TypeBinding.WithConstructor(Type(), Accessibility)
+  fullName.vb: DouglasDwyer.CasCore.TypeBinding.WithConstructor(System.Type(), DouglasDwyer.CasCore.Accessibility)
+  name.vb: WithConstructor(Type(), Accessibility)
+- uid: DouglasDwyer.CasCore.TypeBinding.WithField(System.String,DouglasDwyer.CasCore.Accessibility)
+  commentId: M:DouglasDwyer.CasCore.TypeBinding.WithField(System.String,DouglasDwyer.CasCore.Accessibility)
+  id: WithField(System.String,DouglasDwyer.CasCore.Accessibility)
+  parent: DouglasDwyer.CasCore.TypeBinding
+  langs:
+  - csharp
+  - vb
+  name: WithField(string, Accessibility)
+  nameWithType: TypeBinding.WithField(string, Accessibility)
+  fullName: DouglasDwyer.CasCore.TypeBinding.WithField(string, DouglasDwyer.CasCore.Accessibility)
+  type: Method
+  source:
+    remote:
+      path: CasCore/TypeBinding.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithField
+    path: CasCore/TypeBinding.cs
+    startLine: 128
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds the field with the given name and accessibility to this binding.
+  example: []
+  syntax:
+    content: public TypeBinding WithField(string name, Accessibility accessibility)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the member to add.
+    - id: accessibility
+      type: DouglasDwyer.CasCore.Accessibility
+      description: The target member's accessibility.
+    return:
+      type: DouglasDwyer.CasCore.TypeBinding
+      description: This type binding, with the member added.
+    content.vb: Public Function WithField(name As String, accessibility As Accessibility) As TypeBinding
+  overload: DouglasDwyer.CasCore.TypeBinding.WithField*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: If no member could be found.
+  nameWithType.vb: TypeBinding.WithField(String, Accessibility)
+  fullName.vb: DouglasDwyer.CasCore.TypeBinding.WithField(String, DouglasDwyer.CasCore.Accessibility)
+  name.vb: WithField(String, Accessibility)
+- uid: DouglasDwyer.CasCore.TypeBinding.WithMethod(System.String,DouglasDwyer.CasCore.Accessibility)
+  commentId: M:DouglasDwyer.CasCore.TypeBinding.WithMethod(System.String,DouglasDwyer.CasCore.Accessibility)
+  id: WithMethod(System.String,DouglasDwyer.CasCore.Accessibility)
+  parent: DouglasDwyer.CasCore.TypeBinding
+  langs:
+  - csharp
+  - vb
+  name: WithMethod(string, Accessibility)
+  nameWithType: TypeBinding.WithMethod(string, Accessibility)
+  fullName: DouglasDwyer.CasCore.TypeBinding.WithMethod(string, DouglasDwyer.CasCore.Accessibility)
+  type: Method
+  source:
+    remote:
+      path: CasCore/TypeBinding.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithMethod
+    path: CasCore/TypeBinding.cs
+    startLine: 146
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds the method with the given name and accessibility to this binding.
+  example: []
+  syntax:
+    content: public TypeBinding WithMethod(string name, Accessibility accessibility)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the member to add.
+    - id: accessibility
+      type: DouglasDwyer.CasCore.Accessibility
+      description: The target member's accessibility.
+    return:
+      type: DouglasDwyer.CasCore.TypeBinding
+      description: This type binding, with the member added.
+    content.vb: Public Function WithMethod(name As String, accessibility As Accessibility) As TypeBinding
+  overload: DouglasDwyer.CasCore.TypeBinding.WithMethod*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: If no member could be found.
+  nameWithType.vb: TypeBinding.WithMethod(String, Accessibility)
+  fullName.vb: DouglasDwyer.CasCore.TypeBinding.WithMethod(String, DouglasDwyer.CasCore.Accessibility)
+  name.vb: WithMethod(String, Accessibility)
+- uid: DouglasDwyer.CasCore.TypeBinding.WithMethod(System.String,System.Type[],DouglasDwyer.CasCore.Accessibility)
+  commentId: M:DouglasDwyer.CasCore.TypeBinding.WithMethod(System.String,System.Type[],DouglasDwyer.CasCore.Accessibility)
+  id: WithMethod(System.String,System.Type[],DouglasDwyer.CasCore.Accessibility)
+  parent: DouglasDwyer.CasCore.TypeBinding
+  langs:
+  - csharp
+  - vb
+  name: WithMethod(string, Type[], Accessibility)
+  nameWithType: TypeBinding.WithMethod(string, Type[], Accessibility)
+  fullName: DouglasDwyer.CasCore.TypeBinding.WithMethod(string, System.Type[], DouglasDwyer.CasCore.Accessibility)
+  type: Method
+  source:
+    remote:
+      path: CasCore/TypeBinding.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: WithMethod
+    path: CasCore/TypeBinding.cs
+    startLine: 180
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Adds the method with the given name and accessibility to this binding.
+  example: []
+  syntax:
+    content: public TypeBinding WithMethod(string name, Type[] parameters, Accessibility accessibility)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the member to add.
+    - id: parameters
+      type: System.Type[]
+      description: The parameters that the method accepts.
+    - id: accessibility
+      type: DouglasDwyer.CasCore.Accessibility
+      description: The target member's accessibility.
+    return:
+      type: DouglasDwyer.CasCore.TypeBinding
+      description: This type binding, with the member added.
+    content.vb: Public Function WithMethod(name As String, parameters As Type(), accessibility As Accessibility) As TypeBinding
+  overload: DouglasDwyer.CasCore.TypeBinding.WithMethod*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: If no member could be found.
+  nameWithType.vb: TypeBinding.WithMethod(String, Type(), Accessibility)
+  fullName.vb: DouglasDwyer.CasCore.TypeBinding.WithMethod(String, System.Type(), DouglasDwyer.CasCore.Accessibility)
+  name.vb: WithMethod(String, Type(), Accessibility)
+- uid: DouglasDwyer.CasCore.TypeBinding.GetEnumerator
+  commentId: M:DouglasDwyer.CasCore.TypeBinding.GetEnumerator
+  id: GetEnumerator
+  parent: DouglasDwyer.CasCore.TypeBinding
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: TypeBinding.GetEnumerator()
+  fullName: DouglasDwyer.CasCore.TypeBinding.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: CasCore/TypeBinding.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: GetEnumerator
+    path: CasCore/TypeBinding.cs
+    startLine: 208
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Returns an enumerator that iterates through the collection.
+  example: []
+  syntax:
+    content: public IEnumerator<MemberInfo> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{System.Reflection.MemberInfo}
+      description: An enumerator that can be used to iterate through the collection.
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of MemberInfo)
+  overload: DouglasDwyer.CasCore.TypeBinding.GetEnumerator*
+  implements:
+  - System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}.GetEnumerator
+references:
+- uid: DouglasDwyer.CasCore.CasPolicy
+  commentId: T:DouglasDwyer.CasCore.CasPolicy
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicy.html
+  name: CasPolicy
+  nameWithType: CasPolicy
+  fullName: DouglasDwyer.CasCore.CasPolicy
+- uid: DouglasDwyer.CasCore
+  commentId: N:DouglasDwyer.CasCore
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore
+  nameWithType: DouglasDwyer.CasCore
+  fullName: DouglasDwyer.CasCore
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<MemberInfo>
+  nameWithType: IEnumerable<MemberInfo>
+  fullName: System.Collections.Generic.IEnumerable<System.Reflection.MemberInfo>
+  nameWithType.vb: IEnumerable(Of MemberInfo)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Reflection.MemberInfo)
+  name.vb: IEnumerable(Of MemberInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Reflection.MemberInfo
+    name: MemberInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Reflection.MemberInfo
+    name: MemberInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: DouglasDwyer.CasCore.TypeBinding.#ctor*
+  commentId: Overload:DouglasDwyer.CasCore.TypeBinding.#ctor
+  href: DouglasDwyer.CasCore.TypeBinding.html#DouglasDwyer_CasCore_TypeBinding__ctor_System_Type_DouglasDwyer_CasCore_Accessibility_
+  name: TypeBinding
+  nameWithType: TypeBinding.TypeBinding
+  fullName: DouglasDwyer.CasCore.TypeBinding.TypeBinding
+  nameWithType.vb: TypeBinding.New
+  fullName.vb: DouglasDwyer.CasCore.TypeBinding.New
+  name.vb: New
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: DouglasDwyer.CasCore.Accessibility
+  commentId: T:DouglasDwyer.CasCore.Accessibility
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.Accessibility.html
+  name: Accessibility
+  nameWithType: Accessibility
+  fullName: DouglasDwyer.CasCore.Accessibility
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: DouglasDwyer.CasCore.TypeBinding.WithConstructor*
+  commentId: Overload:DouglasDwyer.CasCore.TypeBinding.WithConstructor
+  href: DouglasDwyer.CasCore.TypeBinding.html#DouglasDwyer_CasCore_TypeBinding_WithConstructor_DouglasDwyer_CasCore_Accessibility_
+  name: WithConstructor
+  nameWithType: TypeBinding.WithConstructor
+  fullName: DouglasDwyer.CasCore.TypeBinding.WithConstructor
+- uid: DouglasDwyer.CasCore.TypeBinding
+  commentId: T:DouglasDwyer.CasCore.TypeBinding
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.TypeBinding.html
+  name: TypeBinding
+  nameWithType: TypeBinding
+  fullName: DouglasDwyer.CasCore.TypeBinding
+- uid: System.Type[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type[]
+  nameWithType: Type[]
+  fullName: System.Type[]
+  nameWithType.vb: Type()
+  fullName.vb: System.Type()
+  name.vb: Type()
+  spec.csharp:
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: (
+  - name: )
+- uid: DouglasDwyer.CasCore.TypeBinding.WithField*
+  commentId: Overload:DouglasDwyer.CasCore.TypeBinding.WithField
+  href: DouglasDwyer.CasCore.TypeBinding.html#DouglasDwyer_CasCore_TypeBinding_WithField_System_String_DouglasDwyer_CasCore_Accessibility_
+  name: WithField
+  nameWithType: TypeBinding.WithField
+  fullName: DouglasDwyer.CasCore.TypeBinding.WithField
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DouglasDwyer.CasCore.TypeBinding.WithMethod*
+  commentId: Overload:DouglasDwyer.CasCore.TypeBinding.WithMethod
+  href: DouglasDwyer.CasCore.TypeBinding.html#DouglasDwyer_CasCore_TypeBinding_WithMethod_System_String_DouglasDwyer_CasCore_Accessibility_
+  name: WithMethod
+  nameWithType: TypeBinding.WithMethod
+  fullName: DouglasDwyer.CasCore.TypeBinding.WithMethod
+- uid: DouglasDwyer.CasCore.TypeBinding.GetEnumerator*
+  commentId: Overload:DouglasDwyer.CasCore.TypeBinding.GetEnumerator
+  href: DouglasDwyer.CasCore.TypeBinding.html#DouglasDwyer_CasCore_TypeBinding_GetEnumerator
+  name: GetEnumerator
+  nameWithType: TypeBinding.GetEnumerator
+  fullName: DouglasDwyer.CasCore.TypeBinding.GetEnumerator
+- uid: System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}.GetEnumerator
+  parent: System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}
+  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<MemberInfo>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<System.Reflection.MemberInfo>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of MemberInfo).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Reflection.MemberInfo).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator{System.Reflection.MemberInfo}
+  commentId: T:System.Collections.Generic.IEnumerator{System.Reflection.MemberInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<MemberInfo>
+  nameWithType: IEnumerator<MemberInfo>
+  fullName: System.Collections.Generic.IEnumerator<System.Reflection.MemberInfo>
+  nameWithType.vb: IEnumerator(Of MemberInfo)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of System.Reflection.MemberInfo)
+  name.vb: IEnumerator(Of MemberInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - uid: System.Reflection.MemberInfo
+    name: MemberInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Reflection.MemberInfo
+    name: MemberInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

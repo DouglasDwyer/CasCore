@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.Tests.Shared
+  commentId: N:DouglasDwyer.CasCore.Tests.Shared
+  id: DouglasDwyer.CasCore.Tests.Shared
+  children:
+  - DouglasDwyer.CasCore.Tests.Shared.ISharedInterface
+  - DouglasDwyer.CasCore.Tests.Shared.SharedClass
+  - DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested
+  langs:
+  - csharp
+  - vb
+  name: DouglasDwyer.CasCore.Tests.Shared
+  nameWithType: DouglasDwyer.CasCore.Tests.Shared
+  fullName: DouglasDwyer.CasCore.Tests.Shared
+  type: Namespace
+  assemblies:
+  - CasCore.Tests.Shared
+references:
+- uid: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface
+  commentId: T:DouglasDwyer.CasCore.Tests.Shared.ISharedInterface
+  parent: DouglasDwyer.CasCore.Tests.Shared
+  href: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface.html
+  name: ISharedInterface
+  nameWithType: ISharedInterface
+  fullName: DouglasDwyer.CasCore.Tests.Shared.ISharedInterface
+- uid: DouglasDwyer.CasCore.Tests.Shared.SharedClass
+  commentId: T:DouglasDwyer.CasCore.Tests.Shared.SharedClass
+  parent: DouglasDwyer.CasCore.Tests.Shared
+  href: DouglasDwyer.CasCore.Tests.Shared.SharedClass.html
+  name: SharedClass
+  nameWithType: SharedClass
+  fullName: DouglasDwyer.CasCore.Tests.Shared.SharedClass
+- uid: DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested
+  commentId: T:DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested
+  href: DouglasDwyer.CasCore.Tests.Shared.SharedClass.html
+  name: SharedClass.SharedNested
+  nameWithType: SharedClass.SharedNested
+  fullName: DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.Tests.Shared.SharedClass
+    name: SharedClass
+    href: DouglasDwyer.CasCore.Tests.Shared.SharedClass.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested
+    name: SharedNested
+    href: DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested.html
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.Tests.Shared.SharedClass
+    name: SharedClass
+    href: DouglasDwyer.CasCore.Tests.Shared.SharedClass.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested
+    name: SharedNested
+    href: DouglasDwyer.CasCore.Tests.Shared.SharedClass.SharedNested.html
+- uid: DouglasDwyer.CasCore.Tests.Shared
+  commentId: N:DouglasDwyer.CasCore.Tests.Shared
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore.Tests.Shared
+  nameWithType: DouglasDwyer.CasCore.Tests.Shared
+  fullName: DouglasDwyer.CasCore.Tests.Shared
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests.Shared
+    name: Shared
+    href: DouglasDwyer.CasCore.Tests.Shared.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests.Shared
+    name: Shared
+    href: DouglasDwyer.CasCore.Tests.Shared.html

@@ -1,0 +1,45 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../CasCore",
+          "files": [
+            "CasCore/CasCore.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "docs/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "docs",
+    "template": [
+      "default",
+      "material/material"
+    ],
+    "globalMetadata": {
+      "_appName": "CasCore",
+      "_appTitle": "CasCore",
+      "_enableSearch": true,
+      "pdf": true
+    }
+  }
+}

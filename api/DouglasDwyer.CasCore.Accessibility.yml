@@ -1,0 +1,176 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.Accessibility
+  commentId: T:DouglasDwyer.CasCore.Accessibility
+  id: Accessibility
+  parent: DouglasDwyer.CasCore
+  children:
+  - DouglasDwyer.CasCore.Accessibility.None
+  - DouglasDwyer.CasCore.Accessibility.Private
+  - DouglasDwyer.CasCore.Accessibility.Protected
+  - DouglasDwyer.CasCore.Accessibility.Public
+  langs:
+  - csharp
+  - vb
+  name: Accessibility
+  nameWithType: Accessibility
+  fullName: DouglasDwyer.CasCore.Accessibility
+  type: Enum
+  source:
+    remote:
+      path: CasCore/Accessibility.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Accessibility
+    path: CasCore/Accessibility.cs
+    startLine: 5
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Identifies a member of subset of members by their external visibility.
+  example: []
+  syntax:
+    content: public enum Accessibility
+    content.vb: Public Enum Accessibility
+- uid: DouglasDwyer.CasCore.Accessibility.None
+  commentId: F:DouglasDwyer.CasCore.Accessibility.None
+  id: None
+  parent: DouglasDwyer.CasCore.Accessibility
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: Accessibility.None
+  fullName: DouglasDwyer.CasCore.Accessibility.None
+  type: Field
+  source:
+    remote:
+      path: CasCore/Accessibility.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: None
+    path: CasCore/Accessibility.cs
+    startLine: 10
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Identifies no members.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: DouglasDwyer.CasCore.Accessibility
+- uid: DouglasDwyer.CasCore.Accessibility.Public
+  commentId: F:DouglasDwyer.CasCore.Accessibility.Public
+  id: Public
+  parent: DouglasDwyer.CasCore.Accessibility
+  langs:
+  - csharp
+  - vb
+  name: Public
+  nameWithType: Accessibility.Public
+  fullName: DouglasDwyer.CasCore.Accessibility.Public
+  type: Field
+  source:
+    remote:
+      path: CasCore/Accessibility.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Public
+    path: CasCore/Accessibility.cs
+    startLine: 15
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Identifies all public members.
+  example: []
+  syntax:
+    content: Public = 1
+    return:
+      type: DouglasDwyer.CasCore.Accessibility
+- uid: DouglasDwyer.CasCore.Accessibility.Protected
+  commentId: F:DouglasDwyer.CasCore.Accessibility.Protected
+  id: Protected
+  parent: DouglasDwyer.CasCore.Accessibility
+  langs:
+  - csharp
+  - vb
+  name: Protected
+  nameWithType: Accessibility.Protected
+  fullName: DouglasDwyer.CasCore.Accessibility.Protected
+  type: Field
+  source:
+    remote:
+      path: CasCore/Accessibility.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Protected
+    path: CasCore/Accessibility.cs
+    startLine: 20
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Identifies all public or family members.
+  example: []
+  syntax:
+    content: Protected = 2
+    return:
+      type: DouglasDwyer.CasCore.Accessibility
+- uid: DouglasDwyer.CasCore.Accessibility.Private
+  commentId: F:DouglasDwyer.CasCore.Accessibility.Private
+  id: Private
+  parent: DouglasDwyer.CasCore.Accessibility
+  langs:
+  - csharp
+  - vb
+  name: Private
+  nameWithType: Accessibility.Private
+  fullName: DouglasDwyer.CasCore.Accessibility.Private
+  type: Field
+  source:
+    remote:
+      path: CasCore/Accessibility.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Private
+    path: CasCore/Accessibility.cs
+    startLine: 25
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Identifies all members.
+  example: []
+  syntax:
+    content: Private = 3
+    return:
+      type: DouglasDwyer.CasCore.Accessibility
+references:
+- uid: DouglasDwyer.CasCore
+  commentId: N:DouglasDwyer.CasCore
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore
+  nameWithType: DouglasDwyer.CasCore
+  fullName: DouglasDwyer.CasCore
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+- uid: DouglasDwyer.CasCore.Accessibility
+  commentId: T:DouglasDwyer.CasCore.Accessibility
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.Accessibility.html
+  name: Accessibility
+  nameWithType: Accessibility
+  fullName: DouglasDwyer.CasCore.Accessibility

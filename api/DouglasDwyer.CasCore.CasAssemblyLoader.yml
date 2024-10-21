@@ -1,0 +1,1114 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader
+  commentId: T:DouglasDwyer.CasCore.CasAssemblyLoader
+  id: CasAssemblyLoader
+  parent: DouglasDwyer.CasCore
+  children:
+  - DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy)
+  - DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.Boolean)
+  - DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.String,System.Boolean)
+  - DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+  - DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)
+  - DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
+  langs:
+  - csharp
+  - vb
+  name: CasAssemblyLoader
+  nameWithType: CasAssemblyLoader
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader
+  type: Class
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: CasAssemblyLoader
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 21
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: >-
+    Provides scoped assembly loading with the same semantics as <xref href="System.Runtime.Loader.AssemblyLoadContext" data-throw-if-not-resolved="false"></xref>.
+
+    Any assemblies loaded with this context will be subject to its <xref href="DouglasDwyer.CasCore.CasPolicy" data-throw-if-not-resolved="false"></xref>,
+
+    and any attempts to access unwhitelisted external fields/methods will throw exceptions.
+  example: []
+  syntax:
+    content: 'public class CasAssemblyLoader : VerifiableAssemblyLoader'
+    content.vb: Public Class CasAssemblyLoader Inherits VerifiableAssemblyLoader
+  inheritance:
+  - System.Object
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  inheritedMembers:
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyName(System.Reflection.AssemblyName)
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream)
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyPath(System.String)
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.SetProfileOptimizationRoot(System.String)
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.StartProfileOptimization(System.String)
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unload
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(System.String)
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.IsCollectible
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Name
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Resolving
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.ResolvingUnmanagedDll
+  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unloading
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy)
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy)
+  id: '#ctor(DouglasDwyer.CasCore.CasPolicy)'
+  parent: DouglasDwyer.CasCore.CasAssemblyLoader
+  langs:
+  - csharp
+  - vb
+  name: CasAssemblyLoader(CasPolicy)
+  nameWithType: CasAssemblyLoader.CasAssemblyLoader(CasPolicy)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.CasAssemblyLoader(DouglasDwyer.CasCore.CasPolicy)
+  type: Constructor
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: .ctor
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 48
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Creates a new loader with the given policy.
+  example: []
+  syntax:
+    content: public CasAssemblyLoader(CasPolicy policy)
+    parameters:
+    - id: policy
+      type: DouglasDwyer.CasCore.CasPolicy
+      description: The policy that will apply to any assemblies created with this loader.
+    content.vb: Public Sub New(policy As CasPolicy)
+  overload: DouglasDwyer.CasCore.CasAssemblyLoader.#ctor*
+  nameWithType.vb: CasAssemblyLoader.New(CasPolicy)
+  fullName.vb: DouglasDwyer.CasCore.CasAssemblyLoader.New(DouglasDwyer.CasCore.CasPolicy)
+  name.vb: New(CasPolicy)
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.Boolean)
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.Boolean)
+  id: '#ctor(DouglasDwyer.CasCore.CasPolicy,System.Boolean)'
+  parent: DouglasDwyer.CasCore.CasAssemblyLoader
+  langs:
+  - csharp
+  - vb
+  name: CasAssemblyLoader(CasPolicy, bool)
+  nameWithType: CasAssemblyLoader.CasAssemblyLoader(CasPolicy, bool)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.CasAssemblyLoader(DouglasDwyer.CasCore.CasPolicy, bool)
+  type: Constructor
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: .ctor
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 57
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Creates a new loader with the given policy.
+  example: []
+  syntax:
+    content: public CasAssemblyLoader(CasPolicy policy, bool isCollectible)
+    parameters:
+    - id: policy
+      type: DouglasDwyer.CasCore.CasPolicy
+      description: The policy that will apply to any assemblies created with this loader.
+    - id: isCollectible
+      type: System.Boolean
+      description: Whether this context should be able to unload.
+    content.vb: Public Sub New(policy As CasPolicy, isCollectible As Boolean)
+  overload: DouglasDwyer.CasCore.CasAssemblyLoader.#ctor*
+  nameWithType.vb: CasAssemblyLoader.New(CasPolicy, Boolean)
+  fullName.vb: DouglasDwyer.CasCore.CasAssemblyLoader.New(DouglasDwyer.CasCore.CasPolicy, Boolean)
+  name.vb: New(CasPolicy, Boolean)
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.String,System.Boolean)
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.String,System.Boolean)
+  id: '#ctor(DouglasDwyer.CasCore.CasPolicy,System.String,System.Boolean)'
+  parent: DouglasDwyer.CasCore.CasAssemblyLoader
+  langs:
+  - csharp
+  - vb
+  name: CasAssemblyLoader(CasPolicy, string, bool)
+  nameWithType: CasAssemblyLoader.CasAssemblyLoader(CasPolicy, string, bool)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.CasAssemblyLoader(DouglasDwyer.CasCore.CasPolicy, string, bool)
+  type: Constructor
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: .ctor
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 68
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Creates a new loader with the given policy.
+  example: []
+  syntax:
+    content: public CasAssemblyLoader(CasPolicy policy, string name, bool isCollectible)
+    parameters:
+    - id: policy
+      type: DouglasDwyer.CasCore.CasPolicy
+      description: The policy that will apply to any assemblies created with this loader.
+    - id: name
+      type: System.String
+      description: The display name of the load context.
+    - id: isCollectible
+      type: System.Boolean
+      description: Whether this context should be able to unload.
+    content.vb: Public Sub New(policy As CasPolicy, name As String, isCollectible As Boolean)
+  overload: DouglasDwyer.CasCore.CasAssemblyLoader.#ctor*
+  nameWithType.vb: CasAssemblyLoader.New(CasPolicy, String, Boolean)
+  fullName.vb: DouglasDwyer.CasCore.CasAssemblyLoader.New(DouglasDwyer.CasCore.CasPolicy, String, Boolean)
+  name.vb: New(CasPolicy, String, Boolean)
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
+  id: LoadFromStream(System.IO.Stream,System.IO.Stream)
+  parent: DouglasDwyer.CasCore.CasAssemblyLoader
+  langs:
+  - csharp
+  - vb
+  name: LoadFromStream(Stream, Stream?)
+  nameWithType: CasAssemblyLoader.LoadFromStream(Stream, Stream?)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream, System.IO.Stream?)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: LoadFromStream
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 74
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Loads the assembly with a common object file format (COFF)-based image containing a managed assembly, optionally including symbols for the assembly.
+  example: []
+  syntax:
+    content: public override Assembly LoadFromStream(Stream assembly, Stream? assemblySymbols)
+    parameters:
+    - id: assembly
+      type: System.IO.Stream
+      description: A byte array that is a COFF-based image containing a managed assembly.
+    - id: assemblySymbols
+      type: System.IO.Stream
+      description: A byte array that contains the raw bytes representing the symbols for the assembly.
+    return:
+      type: System.Reflection.Assembly
+      description: The loaded assembly.
+    content.vb: Public Overrides Function LoadFromStream(assembly As Stream, assemblySymbols As Stream) As Assembly
+  overridden: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
+  overload: DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream*
+  nameWithType.vb: CasAssemblyLoader.LoadFromStream(Stream, Stream)
+  fullName.vb: DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream, System.IO.Stream)
+  name.vb: LoadFromStream(Stream, Stream)
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)
+  id: Load(System.Reflection.AssemblyName)
+  parent: DouglasDwyer.CasCore.CasAssemblyLoader
+  langs:
+  - csharp
+  - vb
+  name: Load(AssemblyName)
+  nameWithType: CasAssemblyLoader.Load(AssemblyName)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Load
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 246
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: When overridden in a derived class, allows an assembly to be resolved based on its <xref href="System.Reflection.AssemblyName?text=AssemblyName" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected override Assembly? Load(AssemblyName assemblyName)
+    parameters:
+    - id: assemblyName
+      type: System.Reflection.AssemblyName
+      description: The object that describes the assembly to be resolved.
+    return:
+      type: System.Reflection.Assembly
+      description: The resolved assembly, or <code>null</code>.
+    content.vb: Protected Overrides Function Load(assemblyName As AssemblyName) As Assembly
+  overridden: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Load(System.Reflection.AssemblyName)
+  overload: DouglasDwyer.CasCore.CasAssemblyLoader.Load*
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+  id: InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+  parent: DouglasDwyer.CasCore.CasAssemblyLoader
+  langs:
+  - csharp
+  - vb
+  name: InstrumentAssembly(AssemblyDefinition)
+  nameWithType: CasAssemblyLoader.InstrumentAssembly(AssemblyDefinition)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: InstrumentAssembly
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 258
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: >-
+    Adds verification guards to all methods in the assembly. The first time that
+
+    any method is invoked, it will call the verifier on itself.
+  example: []
+  syntax:
+    content: protected override void InstrumentAssembly(AssemblyDefinition assembly)
+    parameters:
+    - id: assembly
+      type: Mono.Cecil.AssemblyDefinition
+      description: The assembly to instrument.
+    content.vb: Protected Overrides Sub InstrumentAssembly(assembly As AssemblyDefinition)
+  overridden: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+  overload: DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly*
+references:
+- uid: System.Runtime.Loader.AssemblyLoadContext
+  commentId: T:System.Runtime.Loader.AssemblyLoadContext
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.loader.assemblyloadcontext
+  name: AssemblyLoadContext
+  nameWithType: AssemblyLoadContext
+  fullName: System.Runtime.Loader.AssemblyLoadContext
+- uid: DouglasDwyer.CasCore.CasPolicy
+  commentId: T:DouglasDwyer.CasCore.CasPolicy
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicy.html
+  name: CasPolicy
+  nameWithType: CasPolicy
+  fullName: DouglasDwyer.CasCore.CasPolicy
+- uid: DouglasDwyer.CasCore
+  commentId: N:DouglasDwyer.CasCore
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore
+  nameWithType: DouglasDwyer.CasCore
+  fullName: DouglasDwyer.CasCore
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  commentId: T:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  parent: DouglasDwyer.JitIlVerification
+  isExternal: true
+  name: VerifiableAssemblyLoader
+  nameWithType: VerifiableAssemblyLoader
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyName(System.Reflection.AssemblyName)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyName(System.Reflection.AssemblyName)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname
+  name: LoadFromAssemblyName(AssemblyName)
+  nameWithType: VerifiableAssemblyLoader.LoadFromAssemblyName(AssemblyName)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyName(System.Reflection.AssemblyName)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyName(System.Reflection.AssemblyName)
+    name: LoadFromAssemblyName
+    isExternal: true
+  - name: (
+  - uid: System.Reflection.AssemblyName
+    name: AssemblyName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyName(System.Reflection.AssemblyName)
+    name: LoadFromAssemblyName
+    isExternal: true
+  - name: (
+  - uid: System.Reflection.AssemblyName
+    name: AssemblyName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname
+  - name: )
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: LoadFromStream(Stream)
+  nameWithType: VerifiableAssemblyLoader.LoadFromStream(Stream)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream)
+    name: LoadFromStream
+    isExternal: true
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream)
+    name: LoadFromStream
+    isExternal: true
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyPath(System.String)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyPath(System.String)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: LoadFromAssemblyPath(string)
+  nameWithType: VerifiableAssemblyLoader.LoadFromAssemblyPath(string)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyPath(string)
+  nameWithType.vb: VerifiableAssemblyLoader.LoadFromAssemblyPath(String)
+  fullName.vb: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyPath(String)
+  name.vb: LoadFromAssemblyPath(String)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyPath(System.String)
+    name: LoadFromAssemblyPath
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromAssemblyPath(System.String)
+    name: LoadFromAssemblyPath
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.SetProfileOptimizationRoot(System.String)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.SetProfileOptimizationRoot(System.String)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: SetProfileOptimizationRoot(string)
+  nameWithType: VerifiableAssemblyLoader.SetProfileOptimizationRoot(string)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.SetProfileOptimizationRoot(string)
+  nameWithType.vb: VerifiableAssemblyLoader.SetProfileOptimizationRoot(String)
+  fullName.vb: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.SetProfileOptimizationRoot(String)
+  name.vb: SetProfileOptimizationRoot(String)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.SetProfileOptimizationRoot(System.String)
+    name: SetProfileOptimizationRoot
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.SetProfileOptimizationRoot(System.String)
+    name: SetProfileOptimizationRoot
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.StartProfileOptimization(System.String)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.StartProfileOptimization(System.String)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: StartProfileOptimization(string)
+  nameWithType: VerifiableAssemblyLoader.StartProfileOptimization(string)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.StartProfileOptimization(string)
+  nameWithType.vb: VerifiableAssemblyLoader.StartProfileOptimization(String)
+  fullName.vb: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.StartProfileOptimization(String)
+  name.vb: StartProfileOptimization(String)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.StartProfileOptimization(System.String)
+    name: StartProfileOptimization
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.StartProfileOptimization(System.String)
+    name: StartProfileOptimization
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unload
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unload
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  name: Unload()
+  nameWithType: VerifiableAssemblyLoader.Unload()
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unload()
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unload
+    name: Unload
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unload
+    name: Unload
+    isExternal: true
+  - name: (
+  - name: )
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: LoadUnmanagedDll(string)
+  nameWithType: VerifiableAssemblyLoader.LoadUnmanagedDll(string)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(string)
+  nameWithType.vb: VerifiableAssemblyLoader.LoadUnmanagedDll(String)
+  fullName.vb: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(String)
+  name.vb: LoadUnmanagedDll(String)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+    name: LoadUnmanagedDll
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+    name: LoadUnmanagedDll
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(System.String)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(System.String)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: LoadUnmanagedDllFromPath(string)
+  nameWithType: VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(string)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(string)
+  nameWithType.vb: VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(String)
+  fullName.vb: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(String)
+  name.vb: LoadUnmanagedDllFromPath(String)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(System.String)
+    name: LoadUnmanagedDllFromPath
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(System.String)
+    name: LoadUnmanagedDllFromPath
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.IsCollectible
+  commentId: P:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.IsCollectible
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  name: IsCollectible
+  nameWithType: VerifiableAssemblyLoader.IsCollectible
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.IsCollectible
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Name
+  commentId: P:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Name
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  name: Name
+  nameWithType: VerifiableAssemblyLoader.Name
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Name
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Resolving
+  commentId: E:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Resolving
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  name: Resolving
+  nameWithType: VerifiableAssemblyLoader.Resolving
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Resolving
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.ResolvingUnmanagedDll
+  commentId: E:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.ResolvingUnmanagedDll
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  name: ResolvingUnmanagedDll
+  nameWithType: VerifiableAssemblyLoader.ResolvingUnmanagedDll
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.ResolvingUnmanagedDll
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unloading
+  commentId: E:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unloading
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  name: Unloading
+  nameWithType: VerifiableAssemblyLoader.Unloading
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unloading
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DouglasDwyer.JitIlVerification
+  commentId: N:DouglasDwyer.JitIlVerification
+  isExternal: true
+  name: DouglasDwyer.JitIlVerification
+  nameWithType: DouglasDwyer.JitIlVerification
+  fullName: DouglasDwyer.JitIlVerification
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    isExternal: true
+  - name: .
+  - uid: DouglasDwyer.JitIlVerification
+    name: JitIlVerification
+    isExternal: true
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    isExternal: true
+  - name: .
+  - uid: DouglasDwyer.JitIlVerification
+    name: JitIlVerification
+    isExternal: true
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.#ctor*
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.#ctor
+  href: DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader__ctor_DouglasDwyer_CasCore_CasPolicy_
+  name: CasAssemblyLoader
+  nameWithType: CasAssemblyLoader.CasAssemblyLoader
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.CasAssemblyLoader
+  nameWithType.vb: CasAssemblyLoader.New
+  fullName.vb: DouglasDwyer.CasCore.CasAssemblyLoader.New
+  name.vb: New
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: LoadFromStream(Stream, Stream)
+  nameWithType: VerifiableAssemblyLoader.LoadFromStream(Stream, Stream)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream, System.IO.Stream)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
+    name: LoadFromStream
+    isExternal: true
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
+    name: LoadFromStream
+    isExternal: true
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream*
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream
+  href: DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_LoadFromStream_System_IO_Stream_System_IO_Stream_
+  name: LoadFromStream
+  nameWithType: CasAssemblyLoader.LoadFromStream
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.Reflection.Assembly
+  commentId: T:System.Reflection.Assembly
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  name: Assembly
+  nameWithType: Assembly
+  fullName: System.Reflection.Assembly
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+- uid: System.Reflection.AssemblyName
+  commentId: T:System.Reflection.AssemblyName
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname
+  name: AssemblyName
+  nameWithType: AssemblyName
+  fullName: System.Reflection.AssemblyName
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Load(System.Reflection.AssemblyName)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Load(System.Reflection.AssemblyName)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname
+  name: Load(AssemblyName)
+  nameWithType: VerifiableAssemblyLoader.Load(AssemblyName)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Load(System.Reflection.AssemblyName)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Load(System.Reflection.AssemblyName)
+    name: Load
+    isExternal: true
+  - name: (
+  - uid: System.Reflection.AssemblyName
+    name: AssemblyName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Load(System.Reflection.AssemblyName)
+    name: Load
+    isExternal: true
+  - name: (
+  - uid: System.Reflection.AssemblyName
+    name: AssemblyName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname
+  - name: )
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.Load*
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.Load
+  href: DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_Load_System_Reflection_AssemblyName_
+  name: Load
+  nameWithType: CasAssemblyLoader.Load
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.Load
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://github.com/jbevain/cecil/blob/5de7d8cbc91f6fd98dcc24b26b8c398db497809c/Mono.Cecil/AssemblyDefinition.cs
+  name: InstrumentAssembly(AssemblyDefinition)
+  nameWithType: VerifiableAssemblyLoader.InstrumentAssembly(AssemblyDefinition)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+    name: InstrumentAssembly
+    isExternal: true
+  - name: (
+  - uid: Mono.Cecil.AssemblyDefinition
+    name: AssemblyDefinition
+    isExternal: true
+    href: https://github.com/jbevain/cecil/blob/5de7d8cbc91f6fd98dcc24b26b8c398db497809c/Mono.Cecil/AssemblyDefinition.cs
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
+    name: InstrumentAssembly
+    isExternal: true
+  - name: (
+  - uid: Mono.Cecil.AssemblyDefinition
+    name: AssemblyDefinition
+    isExternal: true
+    href: https://github.com/jbevain/cecil/blob/5de7d8cbc91f6fd98dcc24b26b8c398db497809c/Mono.Cecil/AssemblyDefinition.cs
+  - name: )
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly*
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly
+  href: DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_InstrumentAssembly_Mono_Cecil_AssemblyDefinition_
+  name: InstrumentAssembly
+  nameWithType: CasAssemblyLoader.InstrumentAssembly
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly
+- uid: Mono.Cecil.AssemblyDefinition
+  commentId: T:Mono.Cecil.AssemblyDefinition
+  parent: Mono.Cecil
+  isExternal: true
+  href: https://github.com/jbevain/cecil/blob/5de7d8cbc91f6fd98dcc24b26b8c398db497809c/Mono.Cecil/AssemblyDefinition.cs
+  name: AssemblyDefinition
+  nameWithType: AssemblyDefinition
+  fullName: Mono.Cecil.AssemblyDefinition
+- uid: Mono.Cecil
+  commentId: N:Mono.Cecil
+  isExternal: true
+  name: Mono.Cecil
+  nameWithType: Mono.Cecil
+  fullName: Mono.Cecil
+  spec.csharp:
+  - uid: Mono
+    name: Mono
+    isExternal: true
+  - name: .
+  - uid: Mono.Cecil
+    name: Cecil
+    isExternal: true
+  spec.vb:
+  - uid: Mono
+    name: Mono
+    isExternal: true
+  - name: .
+  - uid: Mono.Cecil
+    name: Cecil
+    isExternal: true

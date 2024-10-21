@@ -1,0 +1,696 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  commentId: T:DouglasDwyer.CasCore.Tests.TestMemberAccess
+  id: TestMemberAccess
+  parent: DouglasDwyer.CasCore.Tests
+  children:
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowed
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedConstructor
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedInterfaceMethod
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedStatic
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedVirtualMethod
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDenied
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedConstructor
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedInterfaceMethod
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedStatic
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedVirtualMethod
+  langs:
+  - csharp
+  - vb
+  name: TestMemberAccess
+  nameWithType: TestMemberAccess
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  type: Class
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestMemberAccess
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 5
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static class TestMemberAccess
+    content.vb: Public Module TestMemberAccess
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedStatic
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedStatic
+  id: TestAccessDeniedStatic
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessDeniedStatic()
+  nameWithType: TestMemberAccess.TestAccessDeniedStatic()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedStatic()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessDeniedStatic
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 7
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static void TestAccessDeniedStatic()
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Sub TestAccessDeniedStatic()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedStatic*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedStatic
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedStatic
+  id: TestAccessAllowedStatic
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessAllowedStatic()
+  nameWithType: TestMemberAccess.TestAccessAllowedStatic()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedStatic()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessAllowedStatic
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 13
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static void TestAccessAllowedStatic()
+    content.vb: Public Shared Sub TestAccessAllowedStatic()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedStatic*
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedConstructor
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedConstructor
+  id: TestAccessDeniedConstructor
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessDeniedConstructor()
+  nameWithType: TestMemberAccess.TestAccessDeniedConstructor()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedConstructor()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessDeniedConstructor
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 19
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static void TestAccessDeniedConstructor()
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Sub TestAccessDeniedConstructor()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedConstructor*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedConstructor
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedConstructor
+  id: TestAccessAllowedConstructor
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessAllowedConstructor()
+  nameWithType: TestMemberAccess.TestAccessAllowedConstructor()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedConstructor()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessAllowedConstructor
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 25
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static void TestAccessAllowedConstructor()
+    content.vb: Public Shared Sub TestAccessAllowedConstructor()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedConstructor*
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDenied
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDenied
+  id: TestAccessDenied
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessDenied()
+  nameWithType: TestMemberAccess.TestAccessDenied()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDenied()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessDenied
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 31
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static void TestAccessDenied()
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Sub TestAccessDenied()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDenied*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowed
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowed
+  id: TestAccessAllowed
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessAllowed()
+  nameWithType: TestMemberAccess.TestAccessAllowed()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowed()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessAllowed
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 38
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static void TestAccessAllowed()
+    content.vb: Public Shared Sub TestAccessAllowed()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowed*
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedVirtualMethod
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedVirtualMethod
+  id: TestAccessDeniedVirtualMethod
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessDeniedVirtualMethod()
+  nameWithType: TestMemberAccess.TestAccessDeniedVirtualMethod()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedVirtualMethod()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessDeniedVirtualMethod
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 45
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static void TestAccessDeniedVirtualMethod()
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Sub TestAccessDeniedVirtualMethod()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedVirtualMethod*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedVirtualMethod
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedVirtualMethod
+  id: TestAccessAllowedVirtualMethod
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessAllowedVirtualMethod()
+  nameWithType: TestMemberAccess.TestAccessAllowedVirtualMethod()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedVirtualMethod()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessAllowedVirtualMethod
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 51
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static void TestAccessAllowedVirtualMethod()
+    content.vb: Public Shared Sub TestAccessAllowedVirtualMethod()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedVirtualMethod*
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedInterfaceMethod
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedInterfaceMethod
+  id: TestAccessAllowedInterfaceMethod
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessAllowedInterfaceMethod()
+  nameWithType: TestMemberAccess.TestAccessAllowedInterfaceMethod()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedInterfaceMethod()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessAllowedInterfaceMethod
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 57
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static void TestAccessAllowedInterfaceMethod()
+    content.vb: Public Shared Sub TestAccessAllowedInterfaceMethod()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedInterfaceMethod*
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedInterfaceMethod
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedInterfaceMethod
+  id: TestAccessDeniedInterfaceMethod
+  parent: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  langs:
+  - csharp
+  - vb
+  name: TestAccessDeniedInterfaceMethod()
+  nameWithType: TestMemberAccess.TestAccessDeniedInterfaceMethod()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedInterfaceMethod()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemberAccess.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestAccessDeniedInterfaceMethod
+    path: CasCore.Tests/TestMemberAccess.cs
+    startLine: 63
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static void TestAccessDeniedInterfaceMethod()
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Sub TestAccessDeniedInterfaceMethod()
+  overload: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedInterfaceMethod*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+references:
+- uid: DouglasDwyer.CasCore.Tests
+  commentId: N:DouglasDwyer.CasCore.Tests
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore.Tests
+  nameWithType: DouglasDwyer.CasCore.Tests
+  fullName: DouglasDwyer.CasCore.Tests
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedStatic*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedStatic
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessDeniedStatic
+  name: TestAccessDeniedStatic
+  nameWithType: TestMemberAccess.TestAccessDeniedStatic
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedStatic
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedStatic*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedStatic
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessAllowedStatic
+  name: TestAccessAllowedStatic
+  nameWithType: TestMemberAccess.TestAccessAllowedStatic
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedStatic
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedConstructor*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedConstructor
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessDeniedConstructor
+  name: TestAccessDeniedConstructor
+  nameWithType: TestMemberAccess.TestAccessDeniedConstructor
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedConstructor
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedConstructor*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedConstructor
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessAllowedConstructor
+  name: TestAccessAllowedConstructor
+  nameWithType: TestMemberAccess.TestAccessAllowedConstructor
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedConstructor
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDenied*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDenied
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessDenied
+  name: TestAccessDenied
+  nameWithType: TestMemberAccess.TestAccessDenied
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDenied
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowed*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowed
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessAllowed
+  name: TestAccessAllowed
+  nameWithType: TestMemberAccess.TestAccessAllowed
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowed
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedVirtualMethod*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedVirtualMethod
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessDeniedVirtualMethod
+  name: TestAccessDeniedVirtualMethod
+  nameWithType: TestMemberAccess.TestAccessDeniedVirtualMethod
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedVirtualMethod
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedVirtualMethod*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedVirtualMethod
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessAllowedVirtualMethod
+  name: TestAccessAllowedVirtualMethod
+  nameWithType: TestMemberAccess.TestAccessAllowedVirtualMethod
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedVirtualMethod
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedInterfaceMethod*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedInterfaceMethod
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessAllowedInterfaceMethod
+  name: TestAccessAllowedInterfaceMethod
+  nameWithType: TestMemberAccess.TestAccessAllowedInterfaceMethod
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessAllowedInterfaceMethod
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedInterfaceMethod*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedInterfaceMethod
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html#DouglasDwyer_CasCore_Tests_TestMemberAccess_TestAccessDeniedInterfaceMethod
+  name: TestAccessDeniedInterfaceMethod
+  nameWithType: TestMemberAccess.TestAccessDeniedInterfaceMethod
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess.TestAccessDeniedInterfaceMethod

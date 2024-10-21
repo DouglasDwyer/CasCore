@@ -1,0 +1,1948 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder
+  commentId: T:DouglasDwyer.CasCore.CasPolicyBuilder
+  id: CasPolicyBuilder
+  parent: DouglasDwyer.CasCore
+  children:
+  - DouglasDwyer.CasCore.CasPolicyBuilder.#ctor
+  - DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})
+  - DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Reflection.MemberInfo)
+  - DouglasDwyer.CasCore.CasPolicyBuilder.Build
+  - DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})
+  - DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Reflection.MemberInfo)
+  langs:
+  - csharp
+  - vb
+  name: CasPolicyBuilder
+  nameWithType: CasPolicyBuilder
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder
+  type: Class
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilder.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: CasPolicyBuilder
+    path: CasCore/CasPolicyBuilder.cs
+    startLine: 8
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Allows for specifying the list of fields and methods that a sandboxed assembly may access.
+  example: []
+  syntax:
+    content: public sealed class CasPolicyBuilder
+    content.vb: Public NotInheritable Class CasPolicyBuilder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow
+  - DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.#ctor
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilder.#ctor
+  id: '#ctor'
+  parent: DouglasDwyer.CasCore.CasPolicyBuilder
+  langs:
+  - csharp
+  - vb
+  name: CasPolicyBuilder()
+  nameWithType: CasPolicyBuilder.CasPolicyBuilder()
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.CasPolicyBuilder()
+  type: Constructor
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilder.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: .ctor
+    path: CasCore/CasPolicyBuilder.cs
+    startLine: 18
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Creates a new policy builder. By default, all access to external APIs is denied.
+  example: []
+  syntax:
+    content: public CasPolicyBuilder()
+    content.vb: Public Sub New()
+  overload: DouglasDwyer.CasCore.CasPolicyBuilder.#ctor*
+  nameWithType.vb: CasPolicyBuilder.New()
+  fullName.vb: DouglasDwyer.CasCore.CasPolicyBuilder.New()
+  name.vb: New()
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.Build
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilder.Build
+  id: Build
+  parent: DouglasDwyer.CasCore.CasPolicyBuilder
+  langs:
+  - csharp
+  - vb
+  name: Build()
+  nameWithType: CasPolicyBuilder.Build()
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.Build()
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilder.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Build
+    path: CasCore/CasPolicyBuilder.cs
+    startLine: 27
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Bakes the list of accessible members into a <xref href="DouglasDwyer.CasCore.CasPolicy" data-throw-if-not-resolved="false"></xref> that may be used to instantiate assemblies.
+  example: []
+  syntax:
+    content: public CasPolicy Build()
+    return:
+      type: DouglasDwyer.CasCore.CasPolicy
+      description: The policy that was generated.
+    content.vb: Public Function Build() As CasPolicy
+  overload: DouglasDwyer.CasCore.CasPolicyBuilder.Build*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Reflection.MemberInfo)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Reflection.MemberInfo)
+  id: Allow(System.Reflection.MemberInfo)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilder
+  langs:
+  - csharp
+  - vb
+  name: Allow(MemberInfo)
+  nameWithType: CasPolicyBuilder.Allow(MemberInfo)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Reflection.MemberInfo)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilder.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Allow
+    path: CasCore/CasPolicyBuilder.cs
+    startLine: 37
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Allows the given member to be accessed by sandboxed assemblies.
+  example: []
+  syntax:
+    content: public CasPolicyBuilder Allow(MemberInfo member)
+    parameters:
+    - id: member
+      type: System.Reflection.MemberInfo
+      description: The member to allow.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: This builder, with the additional member added.
+    content.vb: Public Function Allow(member As MemberInfo) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilder.Allow*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})
+  id: Allow(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})
+  parent: DouglasDwyer.CasCore.CasPolicyBuilder
+  langs:
+  - csharp
+  - vb
+  name: Allow(IEnumerable<MemberInfo>)
+  nameWithType: CasPolicyBuilder.Allow(IEnumerable<MemberInfo>)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Collections.Generic.IEnumerable<System.Reflection.MemberInfo>)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilder.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Allow
+    path: CasCore/CasPolicyBuilder.cs
+    startLine: 48
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Allows the given set of members to be accessed by sandboxed assemblies.
+  example: []
+  syntax:
+    content: public CasPolicyBuilder Allow(IEnumerable<MemberInfo> members)
+    parameters:
+    - id: members
+      type: System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}
+      description: The members to allow.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: This builder, with the additional members added.
+    content.vb: Public Function Allow(members As IEnumerable(Of MemberInfo)) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilder.Allow*
+  nameWithType.vb: CasPolicyBuilder.Allow(IEnumerable(Of MemberInfo))
+  fullName.vb: DouglasDwyer.CasCore.CasPolicyBuilder.Allow(System.Collections.Generic.IEnumerable(Of System.Reflection.MemberInfo))
+  name.vb: Allow(IEnumerable(Of MemberInfo))
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Reflection.MemberInfo)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Reflection.MemberInfo)
+  id: Deny(System.Reflection.MemberInfo)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilder
+  langs:
+  - csharp
+  - vb
+  name: Deny(MemberInfo)
+  nameWithType: CasPolicyBuilder.Deny(MemberInfo)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Reflection.MemberInfo)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilder.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Deny
+    path: CasCore/CasPolicyBuilder.cs
+    startLine: 59
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Prevents the given member from being accessed by sandboxed assemblies.
+  example: []
+  syntax:
+    content: public CasPolicyBuilder Deny(MemberInfo member)
+    parameters:
+    - id: member
+      type: System.Reflection.MemberInfo
+      description: The member to deny.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: This builder, with the member removed if it was present.
+    content.vb: Public Function Deny(member As MemberInfo) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilder.Deny*
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})
+  id: Deny(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})
+  parent: DouglasDwyer.CasCore.CasPolicyBuilder
+  langs:
+  - csharp
+  - vb
+  name: Deny(IEnumerable<MemberInfo>)
+  nameWithType: CasPolicyBuilder.Deny(IEnumerable<MemberInfo>)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Collections.Generic.IEnumerable<System.Reflection.MemberInfo>)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasPolicyBuilder.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: Deny
+    path: CasCore/CasPolicyBuilder.cs
+    startLine: 70
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Prevents the given members from being accessed by sandboxed assemblies.
+  example: []
+  syntax:
+    content: public CasPolicyBuilder Deny(IEnumerable<MemberInfo> members)
+    parameters:
+    - id: members
+      type: System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}
+      description: The members to deny.
+    return:
+      type: DouglasDwyer.CasCore.CasPolicyBuilder
+      description: This builder, with any relevant members removed if they were present.
+    content.vb: Public Function Deny(members As IEnumerable(Of MemberInfo)) As CasPolicyBuilder
+  overload: DouglasDwyer.CasCore.CasPolicyBuilder.Deny*
+  nameWithType.vb: CasPolicyBuilder.Deny(IEnumerable(Of MemberInfo))
+  fullName.vb: DouglasDwyer.CasCore.CasPolicyBuilder.Deny(System.Collections.Generic.IEnumerable(Of System.Reflection.MemberInfo))
+  name.vb: Deny(IEnumerable(Of MemberInfo))
+references:
+- uid: DouglasDwyer.CasCore
+  commentId: N:DouglasDwyer.CasCore
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore
+  nameWithType: DouglasDwyer.CasCore
+  fullName: DouglasDwyer.CasCore
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithDefaultSandbox_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithDefaultSandbox(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithDefaultSandbox(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithDefaultSandbox
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithDefaultSandbox_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithDefaultSandbox
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithDefaultSandbox_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedRuntimeReflection_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedRuntimeReflection(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedRuntimeReflection
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedRuntimeReflection_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedRuntimeReflection
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedRuntimeReflection_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystem_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystem(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystem(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystem
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystem_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystem
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystem_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollections_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollections(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollections(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollections
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollections_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollections
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollections_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsConcurrent_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsConcurrent(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsConcurrent
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsConcurrent_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsConcurrent
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsConcurrent_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsImmutable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsImmutable(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsImmutable
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsImmutable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsImmutable
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsImmutable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsNonGeneric_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsNonGeneric(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsNonGeneric
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsNonGeneric_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsNonGeneric
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsNonGeneric_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsSpecialized_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsSpecialized(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsSpecialized
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsSpecialized_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsSpecialized
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsSpecialized_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemComponentModelTypeConverter_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemComponentModelTypeConverter(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemComponentModelTypeConverter
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemComponentModelTypeConverter_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemComponentModelTypeConverter
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemComponentModelTypeConverter_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemConsole_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemConsole(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemConsole(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemConsole
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemConsole_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemConsole
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemConsole_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemDiagnosticsDiagnosticSource_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemDiagnosticsDiagnosticSource(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemDiagnosticsDiagnosticSource
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemDiagnosticsDiagnosticSource_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemDiagnosticsDiagnosticSource
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemDiagnosticsDiagnosticSource_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinq_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinq(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinq(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinq
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinq_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinq
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinq_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinqExpressions(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqExpressions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqExpressions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinqParallel(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqParallel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqParallel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqQueryable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinqQueryable(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqQueryable
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqQueryable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqQueryable
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqQueryable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemObjectModel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemObjectModel(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemObjectModel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemObjectModel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemObjectModel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemObjectModel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemReflectionTypeExtensions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemReflectionTypeExtensions(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemReflectionTypeExtensions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemReflectionTypeExtensions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemReflectionTypeExtensions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemReflectionTypeExtensions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeNumerics_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemRuntimeNumerics(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemRuntimeNumerics
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeNumerics_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemRuntimeNumerics
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeNumerics_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeSerializationFormatters_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemRuntimeSerializationFormatters(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemRuntimeSerializationFormatters
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeSerializationFormatters_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemRuntimeSerializationFormatters
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeSerializationFormatters_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextJson_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemTextJson(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemTextJson
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextJson_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemTextJson
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextJson_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextRegularExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemTextRegularExpressions(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemTextRegularExpressions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextRegularExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemTextRegularExpressions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextRegularExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreading_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreading(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreading(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreading
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreading_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreading
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreading_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingChannels_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreadingChannels(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingChannels
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingChannels_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingChannels
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingChannels_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksDataflow_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreadingTasksDataflow(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingTasksDataflow
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksDataflow_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingTasksDataflow
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksDataflow_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  parent: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  definition: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreadingTasksParallel(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingTasksParallel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingTasksParallel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithDefaultSandbox_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithDefaultSandbox(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithDefaultSandbox(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithDefaultSandbox
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithDefaultSandbox_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithDefaultSandbox(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithDefaultSandbox
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithDefaultSandbox_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  commentId: T:DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html
+  name: CasPolicyBuilderExtensions
+  nameWithType: CasPolicyBuilderExtensions
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedRuntimeReflection_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedRuntimeReflection(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedRuntimeReflection
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedRuntimeReflection_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedRuntimeReflection(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedRuntimeReflection
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedRuntimeReflection_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystem_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystem(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystem(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystem
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystem_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystem(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystem
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystem_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollections_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollections(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollections(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollections
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollections_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollections(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollections
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollections_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsConcurrent_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsConcurrent(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsConcurrent
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsConcurrent_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsConcurrent(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsConcurrent
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsConcurrent_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsImmutable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsImmutable(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsImmutable
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsImmutable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsImmutable(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsImmutable
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsImmutable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsNonGeneric_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsNonGeneric(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsNonGeneric
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsNonGeneric_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsNonGeneric(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsNonGeneric
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsNonGeneric_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsSpecialized_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemCollectionsSpecialized(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsSpecialized
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsSpecialized_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemCollectionsSpecialized(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemCollectionsSpecialized
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemCollectionsSpecialized_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemComponentModelTypeConverter_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemComponentModelTypeConverter(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemComponentModelTypeConverter
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemComponentModelTypeConverter_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemComponentModelTypeConverter(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemComponentModelTypeConverter
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemComponentModelTypeConverter_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemConsole_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemConsole(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemConsole(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemConsole
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemConsole_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemConsole(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemConsole
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemConsole_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemDiagnosticsDiagnosticSource_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemDiagnosticsDiagnosticSource(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemDiagnosticsDiagnosticSource
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemDiagnosticsDiagnosticSource_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemDiagnosticsDiagnosticSource(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemDiagnosticsDiagnosticSource
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemDiagnosticsDiagnosticSource_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinq_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinq(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinq(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinq
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinq_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinq(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinq
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinq_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinqExpressions(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqExpressions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqExpressions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinqParallel(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqParallel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqParallel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqQueryable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemLinqQueryable(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqQueryable
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqQueryable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemLinqQueryable(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemLinqQueryable
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemLinqQueryable_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemObjectModel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemObjectModel(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemObjectModel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemObjectModel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemObjectModel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemObjectModel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemObjectModel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemReflectionTypeExtensions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemReflectionTypeExtensions(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemReflectionTypeExtensions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemReflectionTypeExtensions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemReflectionTypeExtensions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemReflectionTypeExtensions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemReflectionTypeExtensions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeNumerics_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemRuntimeNumerics(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemRuntimeNumerics
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeNumerics_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeNumerics(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemRuntimeNumerics
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeNumerics_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeSerializationFormatters_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemRuntimeSerializationFormatters(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemRuntimeSerializationFormatters
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeSerializationFormatters_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemRuntimeSerializationFormatters(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemRuntimeSerializationFormatters
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemRuntimeSerializationFormatters_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextJson_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemTextJson(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemTextJson
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextJson_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextJson(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemTextJson
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextJson_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextRegularExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemTextRegularExpressions(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemTextRegularExpressions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextRegularExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemTextRegularExpressions(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemTextRegularExpressions
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemTextRegularExpressions_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreading_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreading(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreading(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreading
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreading_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreading(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreading
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreading_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingChannels_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreadingChannels(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingChannels
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingChannels_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingChannels(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingChannels
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingChannels_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksDataflow_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreadingTasksDataflow(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingTasksDataflow
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksDataflow_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksDataflow(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingTasksDataflow
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksDataflow_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  commentId: M:DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  name: WithSandboxedSystemThreadingTasksParallel(CasPolicyBuilder)
+  nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(CasPolicyBuilder)
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingTasksParallel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel(DouglasDwyer.CasCore.CasPolicyBuilder)
+    name: WithSandboxedSystemThreadingTasksParallel
+    href: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.html#DouglasDwyer_CasCore_CasPolicyBuilderExtensions_WithSandboxedSystemThreadingTasksParallel_DouglasDwyer_CasCore_CasPolicyBuilder_
+  - name: (
+  - uid: DouglasDwyer.CasCore.CasPolicyBuilder
+    name: CasPolicyBuilder
+    href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  - name: )
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.#ctor*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilder.#ctor
+  href: DouglasDwyer.CasCore.CasPolicyBuilder.html#DouglasDwyer_CasCore_CasPolicyBuilder__ctor
+  name: CasPolicyBuilder
+  nameWithType: CasPolicyBuilder.CasPolicyBuilder
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.CasPolicyBuilder
+  nameWithType.vb: CasPolicyBuilder.New
+  fullName.vb: DouglasDwyer.CasCore.CasPolicyBuilder.New
+  name.vb: New
+- uid: DouglasDwyer.CasCore.CasPolicy
+  commentId: T:DouglasDwyer.CasCore.CasPolicy
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicy.html
+  name: CasPolicy
+  nameWithType: CasPolicy
+  fullName: DouglasDwyer.CasCore.CasPolicy
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.Build*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilder.Build
+  href: DouglasDwyer.CasCore.CasPolicyBuilder.html#DouglasDwyer_CasCore_CasPolicyBuilder_Build
+  name: Build
+  nameWithType: CasPolicyBuilder.Build
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.Build
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.Allow*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilder.Allow
+  href: DouglasDwyer.CasCore.CasPolicyBuilder.html#DouglasDwyer_CasCore_CasPolicyBuilder_Allow_System_Reflection_MemberInfo_
+  name: Allow
+  nameWithType: CasPolicyBuilder.Allow
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.Allow
+- uid: System.Reflection.MemberInfo
+  commentId: T:System.Reflection.MemberInfo
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  name: MemberInfo
+  nameWithType: MemberInfo
+  fullName: System.Reflection.MemberInfo
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder
+  commentId: T:DouglasDwyer.CasCore.CasPolicyBuilder
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicyBuilder.html
+  name: CasPolicyBuilder
+  nameWithType: CasPolicyBuilder
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+- uid: System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<MemberInfo>
+  nameWithType: IEnumerable<MemberInfo>
+  fullName: System.Collections.Generic.IEnumerable<System.Reflection.MemberInfo>
+  nameWithType.vb: IEnumerable(Of MemberInfo)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Reflection.MemberInfo)
+  name.vb: IEnumerable(Of MemberInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Reflection.MemberInfo
+    name: MemberInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Reflection.MemberInfo
+    name: MemberInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: DouglasDwyer.CasCore.CasPolicyBuilder.Deny*
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicyBuilder.Deny
+  href: DouglasDwyer.CasCore.CasPolicyBuilder.html#DouglasDwyer_CasCore_CasPolicyBuilder_Deny_System_Reflection_MemberInfo_
+  name: Deny
+  nameWithType: CasPolicyBuilder.Deny
+  fullName: DouglasDwyer.CasCore.CasPolicyBuilder.Deny

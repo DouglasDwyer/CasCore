@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.Tests
+  commentId: N:DouglasDwyer.CasCore.Tests
+  id: DouglasDwyer.CasCore.Tests
+  children:
+  - DouglasDwyer.CasCore.Tests.TestDelegateCreation
+  - DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+  - DouglasDwyer.CasCore.Tests.TestFileAccess
+  - DouglasDwyer.CasCore.Tests.TestMemberAccess
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety
+  - DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+  - DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass
+  - DouglasDwyer.CasCore.Tests.TestRunner
+  - DouglasDwyer.CasCore.Tests.TestSuccessfulAttribute
+  langs:
+  - csharp
+  - vb
+  name: DouglasDwyer.CasCore.Tests
+  nameWithType: DouglasDwyer.CasCore.Tests
+  fullName: DouglasDwyer.CasCore.Tests
+  type: Namespace
+  assemblies:
+  - CasCore.Tests
+references:
+- uid: DouglasDwyer.CasCore.Tests.TestDelegateCreation
+  commentId: T:DouglasDwyer.CasCore.Tests.TestDelegateCreation
+  href: DouglasDwyer.CasCore.Tests.TestDelegateCreation.html
+  name: TestDelegateCreation
+  nameWithType: TestDelegateCreation
+  fullName: DouglasDwyer.CasCore.Tests.TestDelegateCreation
+- uid: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+  commentId: T:DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+  parent: DouglasDwyer.CasCore.Tests
+  href: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.html
+  name: TestExceptionAttribute
+  nameWithType: TestExceptionAttribute
+  fullName: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+- uid: DouglasDwyer.CasCore.Tests.TestFileAccess
+  commentId: T:DouglasDwyer.CasCore.Tests.TestFileAccess
+  href: DouglasDwyer.CasCore.Tests.TestFileAccess.html
+  name: TestFileAccess
+  nameWithType: TestFileAccess
+  fullName: DouglasDwyer.CasCore.Tests.TestFileAccess
+- uid: DouglasDwyer.CasCore.Tests.TestMemberAccess
+  commentId: T:DouglasDwyer.CasCore.Tests.TestMemberAccess
+  href: DouglasDwyer.CasCore.Tests.TestMemberAccess.html
+  name: TestMemberAccess
+  nameWithType: TestMemberAccess
+  fullName: DouglasDwyer.CasCore.Tests.TestMemberAccess
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  commentId: T:DouglasDwyer.CasCore.Tests.TestMemorySafety
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html
+  name: TestMemorySafety
+  nameWithType: TestMemorySafety
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety
+- uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+  commentId: T:DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+  href: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.html
+  name: TestNewtonsoftJson
+  nameWithType: TestNewtonsoftJson
+  fullName: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+- uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass
+  commentId: T:DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass
+  href: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.html
+  name: TestNewtonsoftJson.SerializableClass
+  nameWithType: TestNewtonsoftJson.SerializableClass
+  fullName: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+    name: TestNewtonsoftJson
+    href: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass
+    name: SerializableClass
+    href: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass.html
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+    name: TestNewtonsoftJson
+    href: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass
+    name: SerializableClass
+    href: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializableClass.html
+- uid: DouglasDwyer.CasCore.Tests.TestRunner
+  commentId: T:DouglasDwyer.CasCore.Tests.TestRunner
+  href: DouglasDwyer.CasCore.Tests.TestRunner.html
+  name: TestRunner
+  nameWithType: TestRunner
+  fullName: DouglasDwyer.CasCore.Tests.TestRunner
+- uid: DouglasDwyer.CasCore.Tests.TestSuccessfulAttribute
+  commentId: T:DouglasDwyer.CasCore.Tests.TestSuccessfulAttribute
+  href: DouglasDwyer.CasCore.Tests.TestSuccessfulAttribute.html
+  name: TestSuccessfulAttribute
+  nameWithType: TestSuccessfulAttribute
+  fullName: DouglasDwyer.CasCore.Tests.TestSuccessfulAttribute
+- uid: DouglasDwyer.CasCore.Tests
+  commentId: N:DouglasDwyer.CasCore.Tests
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore.Tests
+  nameWithType: DouglasDwyer.CasCore.Tests
+  fullName: DouglasDwyer.CasCore.Tests
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html

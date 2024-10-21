@@ -1,0 +1,434 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+  commentId: T:DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+  id: TestNewtonsoftJson
+  parent: DouglasDwyer.CasCore.Tests
+  children:
+  - DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeJsonDictionary
+  - DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeObjectWithDeniedProperties
+  - DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeSerializableClass
+  langs:
+  - csharp
+  - vb
+  name: TestNewtonsoftJson
+  nameWithType: TestNewtonsoftJson
+  fullName: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+  type: Class
+  source:
+    remote:
+      path: CasCore.Tests/TestNewtonsoftJson.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestNewtonsoftJson
+    path: CasCore.Tests/TestNewtonsoftJson.cs
+    startLine: 6
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static class TestNewtonsoftJson
+    content.vb: Public Module TestNewtonsoftJson
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeObjectWithDeniedProperties
+  commentId: M:DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeObjectWithDeniedProperties
+  id: SerializeObjectWithDeniedProperties
+  parent: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+  langs:
+  - csharp
+  - vb
+  name: SerializeObjectWithDeniedProperties()
+  nameWithType: TestNewtonsoftJson.SerializeObjectWithDeniedProperties()
+  fullName: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeObjectWithDeniedProperties()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestNewtonsoftJson.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: SerializeObjectWithDeniedProperties
+    path: CasCore.Tests/TestNewtonsoftJson.cs
+    startLine: 8
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static string SerializeObjectWithDeniedProperties()
+    return:
+      type: System.String
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Function SerializeObjectWithDeniedProperties() As String
+  overload: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeObjectWithDeniedProperties*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+- uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeSerializableClass
+  commentId: M:DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeSerializableClass
+  id: SerializeSerializableClass
+  parent: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+  langs:
+  - csharp
+  - vb
+  name: SerializeSerializableClass()
+  nameWithType: TestNewtonsoftJson.SerializeSerializableClass()
+  fullName: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeSerializableClass()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestNewtonsoftJson.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: SerializeSerializableClass
+    path: CasCore.Tests/TestNewtonsoftJson.cs
+    startLine: 23
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static string SerializeSerializableClass()
+    return:
+      type: System.String
+    content.vb: Public Shared Function SerializeSerializableClass() As String
+  overload: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeSerializableClass*
+- uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeJsonDictionary
+  commentId: M:DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeJsonDictionary
+  id: SerializeJsonDictionary
+  parent: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson
+  langs:
+  - csharp
+  - vb
+  name: SerializeJsonDictionary()
+  nameWithType: TestNewtonsoftJson.SerializeJsonDictionary()
+  fullName: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeJsonDictionary()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestNewtonsoftJson.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: SerializeJsonDictionary
+    path: CasCore.Tests/TestNewtonsoftJson.cs
+    startLine: 31
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static string SerializeJsonDictionary()
+    return:
+      type: System.String
+    content.vb: Public Shared Function SerializeJsonDictionary() As String
+  overload: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeJsonDictionary*
+references:
+- uid: DouglasDwyer.CasCore.Tests
+  commentId: N:DouglasDwyer.CasCore.Tests
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore.Tests
+  nameWithType: DouglasDwyer.CasCore.Tests
+  fullName: DouglasDwyer.CasCore.Tests
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeObjectWithDeniedProperties*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeObjectWithDeniedProperties
+  href: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.html#DouglasDwyer_CasCore_Tests_TestNewtonsoftJson_SerializeObjectWithDeniedProperties
+  name: SerializeObjectWithDeniedProperties
+  nameWithType: TestNewtonsoftJson.SerializeObjectWithDeniedProperties
+  fullName: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeObjectWithDeniedProperties
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeSerializableClass*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeSerializableClass
+  href: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.html#DouglasDwyer_CasCore_Tests_TestNewtonsoftJson_SerializeSerializableClass
+  name: SerializeSerializableClass
+  nameWithType: TestNewtonsoftJson.SerializeSerializableClass
+  fullName: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeSerializableClass
+- uid: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeJsonDictionary*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeJsonDictionary
+  href: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.html#DouglasDwyer_CasCore_Tests_TestNewtonsoftJson_SerializeJsonDictionary
+  name: SerializeJsonDictionary
+  nameWithType: TestNewtonsoftJson.SerializeJsonDictionary
+  fullName: DouglasDwyer.CasCore.Tests.TestNewtonsoftJson.SerializeJsonDictionary

@@ -1,0 +1,478 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class CasAssemblyLoader | CasCore </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class CasAssemblyLoader | CasCore ">
+    
+    <meta name="description" content="Provides scoped assembly loading with the same semantics as . Any assemblies loaded with this context will be subject to its , and any attempts to access unwhitelisted external fields/methods will throw exceptions.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="CasCore">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader">
+
+
+
+  <h1 id="DouglasDwyer_CasCore_CasAssemblyLoader" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader" class="text-break">Class CasAssemblyLoader</h1>
+  <div class="markdown level0 summary"><p>Provides scoped assembly loading with the same semantics as <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtime.loader.assemblyloadcontext">AssemblyLoadContext</a>.
+Any assemblies loaded with this context will be subject to its <a class="xref" href="DouglasDwyer.CasCore.CasPolicy.html">CasPolicy</a>,
+and any attempts to access unwhitelisted external fields/methods will throw exceptions.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">VerifiableAssemblyLoader</span></div>
+    <div class="level2"><span class="xref">CasAssemblyLoader</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname">VerifiableAssemblyLoader.LoadFromAssemblyName(AssemblyName)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">VerifiableAssemblyLoader.LoadFromStream(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VerifiableAssemblyLoader.LoadFromAssemblyPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VerifiableAssemblyLoader.SetProfileOptimizationRoot(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VerifiableAssemblyLoader.StartProfileOptimization(string)</a>
+    </div>
+    <div>
+      <span class="xref">VerifiableAssemblyLoader.Unload()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VerifiableAssemblyLoader.LoadUnmanagedDll(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(string)</a>
+    </div>
+    <div>
+      <span class="xref">VerifiableAssemblyLoader.IsCollectible</span>
+    </div>
+    <div>
+      <span class="xref">VerifiableAssemblyLoader.Name</span>
+    </div>
+    <div>
+      <span class="xref">VerifiableAssemblyLoader.Resolving</span>
+    </div>
+    <div>
+      <span class="xref">VerifiableAssemblyLoader.ResolvingUnmanagedDll</span>
+    </div>
+    <div>
+      <span class="xref">VerifiableAssemblyLoader.Unloading</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DouglasDwyer.html">DouglasDwyer</a>.<a class="xref" href="DouglasDwyer.CasCore.html">CasCore</a></h6>
+  <h6><strong>Assembly</strong>: CasCore.dll</h6>
+  <h5 id="DouglasDwyer_CasCore_CasAssemblyLoader_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CasAssemblyLoader : VerifiableAssemblyLoader</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader__ctor_DouglasDwyer_CasCore_CasPolicy_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.%23ctor(DouglasDwyer.CasCore.CasPolicy)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L49">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasAssemblyLoader__ctor_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.#ctor*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader__ctor_DouglasDwyer_CasCore_CasPolicy_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy)">CasAssemblyLoader(CasPolicy)</h4>
+  <div class="markdown level1 summary"><p>Creates a new loader with the given policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CasAssemblyLoader(CasPolicy policy)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DouglasDwyer.CasCore.CasPolicy.html">CasPolicy</a></td>
+        <td><span class="parametername">policy</span></td>
+        <td><p>The policy that will apply to any assemblies created with this loader.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader__ctor_DouglasDwyer_CasCore_CasPolicy_System_Boolean_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.%23ctor(DouglasDwyer.CasCore.CasPolicy%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L58">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasAssemblyLoader__ctor_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.#ctor*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader__ctor_DouglasDwyer_CasCore_CasPolicy_System_Boolean_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.Boolean)">CasAssemblyLoader(CasPolicy, bool)</h4>
+  <div class="markdown level1 summary"><p>Creates a new loader with the given policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CasAssemblyLoader(CasPolicy policy, bool isCollectible)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DouglasDwyer.CasCore.CasPolicy.html">CasPolicy</a></td>
+        <td><span class="parametername">policy</span></td>
+        <td><p>The policy that will apply to any assemblies created with this loader.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">isCollectible</span></td>
+        <td><p>Whether this context should be able to unload.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader__ctor_DouglasDwyer_CasCore_CasPolicy_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.%23ctor(DouglasDwyer.CasCore.CasPolicy%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L69">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasAssemblyLoader__ctor_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.#ctor*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader__ctor_DouglasDwyer_CasCore_CasPolicy_System_String_System_Boolean_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.String,System.Boolean)">CasAssemblyLoader(CasPolicy, string, bool)</h4>
+  <div class="markdown level1 summary"><p>Creates a new loader with the given policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CasAssemblyLoader(CasPolicy policy, string name, bool isCollectible)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DouglasDwyer.CasCore.CasPolicy.html">CasPolicy</a></td>
+        <td><span class="parametername">policy</span></td>
+        <td><p>The policy that will apply to any assemblies created with this loader.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The display name of the load context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">isCollectible</span></td>
+        <td><p>Whether this context should be able to unload.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader_InstrumentAssembly_Mono_Cecil_AssemblyDefinition_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L259">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasAssemblyLoader_InstrumentAssembly_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader_InstrumentAssembly_Mono_Cecil_AssemblyDefinition_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)">InstrumentAssembly(AssemblyDefinition)</h4>
+  <div class="markdown level1 summary"><p>Adds verification guards to all methods in the assembly. The first time that
+any method is invoked, it will call the verifier on itself.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void InstrumentAssembly(AssemblyDefinition assembly)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/jbevain/cecil/blob/5de7d8cbc91f6fd98dcc24b26b8c398db497809c/Mono.Cecil/AssemblyDefinition.cs">AssemblyDefinition</a></td>
+        <td><span class="parametername">assembly</span></td>
+        <td><p>The assembly to instrument.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://github.com/jbevain/cecil/blob/5de7d8cbc91f6fd98dcc24b26b8c398db497809c/Mono.Cecil/AssemblyDefinition.cs">VerifiableAssemblyLoader.InstrumentAssembly(AssemblyDefinition)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader_Load_System_Reflection_AssemblyName_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L247">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasAssemblyLoader_Load_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.Load*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader_Load_System_Reflection_AssemblyName_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)">Load(AssemblyName)</h4>
+  <div class="markdown level1 summary"><p>When overridden in a derived class, allows an assembly to be resolved based on its <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname">AssemblyName</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Assembly? Load(AssemblyName assemblyName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname">AssemblyName</a></td>
+        <td><span class="parametername">assemblyName</span></td>
+        <td><p>The object that describes the assembly to be resolved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></td>
+        <td><p>The resolved assembly, or <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname">VerifiableAssemblyLoader.Load(AssemblyName)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader_LoadFromStream_System_IO_Stream_System_IO_Stream_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream%2CSystem.IO.Stream)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L75">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasAssemblyLoader_LoadFromStream_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader_LoadFromStream_System_IO_Stream_System_IO_Stream_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)">LoadFromStream(Stream, Stream?)</h4>
+  <div class="markdown level1 summary"><p>Loads the assembly with a common object file format (COFF)-based image containing a managed assembly, optionally including symbols for the assembly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Assembly LoadFromStream(Stream assembly, Stream? assemblySymbols)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
+        <td><span class="parametername">assembly</span></td>
+        <td><p>A byte array that is a COFF-based image containing a managed assembly.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
+        <td><span class="parametername">assemblySymbols</span></td>
+        <td><p>A byte array that contains the raw bytes representing the symbols for the assembly.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></td>
+        <td><p>The loaded assembly.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">VerifiableAssemblyLoader.LoadFromStream(Stream, Stream)</a></div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L22" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

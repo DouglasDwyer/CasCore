@@ -1,0 +1,735 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  commentId: T:DouglasDwyer.CasCore.Tests.TestMemorySafety
+  id: TestMemorySafety
+  parent: DouglasDwyer.CasCore.Tests
+  children:
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestEmit
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateArray
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateUninitArray
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerRead
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerWrite
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidStackalloc
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefRead
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefWrite
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRuntimeHelpersGetUninitObject
+  - DouglasDwyer.CasCore.Tests.TestMemorySafety.TestUnsafe
+  langs:
+  - csharp
+  - vb
+  name: TestMemorySafety
+  nameWithType: TestMemorySafety
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  type: Class
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestMemorySafety
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 7
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static class TestMemorySafety
+    content.vb: Public Module TestMemorySafety
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerWrite
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerWrite
+  id: TestInvalidPointerWrite
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestInvalidPointerWrite()
+  nameWithType: TestMemorySafety.TestInvalidPointerWrite()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerWrite()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestInvalidPointerWrite
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 9
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(TypeInitializationException))]
+
+      public static void TestInvalidPointerWrite()
+    content.vb: >-
+      <TestException(GetType(TypeInitializationException))>
+
+      Public Shared Sub TestInvalidPointerWrite()
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerWrite*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.TypeInitializationException
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerRead
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerRead
+  id: TestInvalidPointerRead
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestInvalidPointerRead()
+  nameWithType: TestMemorySafety.TestInvalidPointerRead()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerRead()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestInvalidPointerRead
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 17
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(TypeInitializationException))]
+
+      public static void TestInvalidPointerRead()
+    content.vb: >-
+      <TestException(GetType(TypeInitializationException))>
+
+      Public Shared Sub TestInvalidPointerRead()
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerRead*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.TypeInitializationException
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidStackalloc
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidStackalloc
+  id: TestInvalidStackalloc
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestInvalidStackalloc()
+  nameWithType: TestMemorySafety.TestInvalidStackalloc()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidStackalloc()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestInvalidStackalloc
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 25
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(TypeInitializationException))]
+
+      public static void TestInvalidStackalloc()
+    content.vb: >-
+      <TestException(GetType(TypeInitializationException))>
+
+      Public Shared Sub TestInvalidStackalloc()
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidStackalloc*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.TypeInitializationException
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefRead
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefRead
+  id: TestRefRead
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestRefRead()
+  nameWithType: TestMemorySafety.TestRefRead()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefRead()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestRefRead
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 31
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static int TestRefRead()
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function TestRefRead() As Integer
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefRead*
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefWrite
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefWrite
+  id: TestRefWrite
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestRefWrite()
+  nameWithType: TestMemorySafety.TestRefWrite()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefWrite()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestRefWrite
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 39
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static int TestRefWrite()
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function TestRefWrite() As Integer
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefWrite*
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateUninitArray
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateUninitArray
+  id: TestGcAllocateUninitArray
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestGcAllocateUninitArray()
+  nameWithType: TestMemorySafety.TestGcAllocateUninitArray()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateUninitArray()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestGcAllocateUninitArray
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 48
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static void TestGcAllocateUninitArray()
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Sub TestGcAllocateUninitArray()
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateUninitArray*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateArray
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateArray
+  id: TestGcAllocateArray
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestGcAllocateArray()
+  nameWithType: TestMemorySafety.TestGcAllocateArray()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateArray()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestGcAllocateArray
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 54
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: public static void TestGcAllocateArray()
+    content.vb: Public Shared Sub TestGcAllocateArray()
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateArray*
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestUnsafe
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestUnsafe
+  id: TestUnsafe
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestUnsafe()
+  nameWithType: TestMemorySafety.TestUnsafe()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestUnsafe()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestUnsafe
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 60
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static void TestUnsafe()
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Sub TestUnsafe()
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestUnsafe*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestEmit
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestEmit
+  id: TestEmit
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestEmit()
+  nameWithType: TestMemorySafety.TestEmit()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestEmit()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestEmit
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 67
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static void TestEmit()
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Sub TestEmit()
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestEmit*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRuntimeHelpersGetUninitObject
+  commentId: M:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRuntimeHelpersGetUninitObject
+  id: TestRuntimeHelpersGetUninitObject
+  parent: DouglasDwyer.CasCore.Tests.TestMemorySafety
+  langs:
+  - csharp
+  - vb
+  name: TestRuntimeHelpersGetUninitObject()
+  nameWithType: TestMemorySafety.TestRuntimeHelpersGetUninitObject()
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRuntimeHelpersGetUninitObject()
+  type: Method
+  source:
+    remote:
+      path: CasCore.Tests/TestMemorySafety.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: TestRuntimeHelpersGetUninitObject
+    path: CasCore.Tests/TestMemorySafety.cs
+    startLine: 73
+  assemblies:
+  - CasCore.Tests
+  namespace: DouglasDwyer.CasCore.Tests
+  syntax:
+    content: >-
+      [TestException(typeof(SecurityException))]
+
+      public static void TestRuntimeHelpersGetUninitObject()
+    content.vb: >-
+      <TestException(GetType(SecurityException))>
+
+      Public Shared Sub TestRuntimeHelpersGetUninitObject()
+  overload: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRuntimeHelpersGetUninitObject*
+  attributes:
+  - type: DouglasDwyer.CasCore.Tests.TestExceptionAttribute
+    ctor: DouglasDwyer.CasCore.Tests.TestExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Security.SecurityException
+references:
+- uid: DouglasDwyer.CasCore.Tests
+  commentId: N:DouglasDwyer.CasCore.Tests
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore.Tests
+  nameWithType: DouglasDwyer.CasCore.Tests
+  fullName: DouglasDwyer.CasCore.Tests
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  - name: .
+  - uid: DouglasDwyer.CasCore.Tests
+    name: Tests
+    href: DouglasDwyer.CasCore.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerWrite*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerWrite
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestInvalidPointerWrite
+  name: TestInvalidPointerWrite
+  nameWithType: TestMemorySafety.TestInvalidPointerWrite
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerWrite
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerRead*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerRead
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestInvalidPointerRead
+  name: TestInvalidPointerRead
+  nameWithType: TestMemorySafety.TestInvalidPointerRead
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidPointerRead
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidStackalloc*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidStackalloc
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestInvalidStackalloc
+  name: TestInvalidStackalloc
+  nameWithType: TestMemorySafety.TestInvalidStackalloc
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestInvalidStackalloc
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefRead*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefRead
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestRefRead
+  name: TestRefRead
+  nameWithType: TestMemorySafety.TestRefRead
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefRead
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefWrite*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefWrite
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestRefWrite
+  name: TestRefWrite
+  nameWithType: TestMemorySafety.TestRefWrite
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRefWrite
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateUninitArray*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateUninitArray
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestGcAllocateUninitArray
+  name: TestGcAllocateUninitArray
+  nameWithType: TestMemorySafety.TestGcAllocateUninitArray
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateUninitArray
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateArray*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateArray
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestGcAllocateArray
+  name: TestGcAllocateArray
+  nameWithType: TestMemorySafety.TestGcAllocateArray
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestGcAllocateArray
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestUnsafe*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestUnsafe
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestUnsafe
+  name: TestUnsafe
+  nameWithType: TestMemorySafety.TestUnsafe
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestUnsafe
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestEmit*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestEmit
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestEmit
+  name: TestEmit
+  nameWithType: TestMemorySafety.TestEmit
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestEmit
+- uid: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRuntimeHelpersGetUninitObject*
+  commentId: Overload:DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRuntimeHelpersGetUninitObject
+  href: DouglasDwyer.CasCore.Tests.TestMemorySafety.html#DouglasDwyer_CasCore_Tests_TestMemorySafety_TestRuntimeHelpersGetUninitObject
+  name: TestRuntimeHelpersGetUninitObject
+  nameWithType: TestMemorySafety.TestRuntimeHelpersGetUninitObject
+  fullName: DouglasDwyer.CasCore.Tests.TestMemorySafety.TestRuntimeHelpersGetUninitObject

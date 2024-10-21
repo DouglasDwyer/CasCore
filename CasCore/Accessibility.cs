@@ -21,7 +21,7 @@ public enum Accessibility
     Protected = 2,
 
     /// <summary>
-    /// Identifies all members/
+    /// Identifies all members.
     /// </summary>
     Private = 3
 }

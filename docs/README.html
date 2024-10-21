@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>CasCore | CasCore </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="CasCore | CasCore ">
+    
+    
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="styles/docfx.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="CasCore">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="cascore">CasCore</h1>
+
+<p><a href="https://www.nuget.org/packages/DouglasDwyer.CasCore/"><img src="https://img.shields.io/nuget/v/DouglasDwyer.CasCore.svg?style=flat-square" alt="NuGet version (DouglasDwyer.CasCore)"></a></p>
+<h4 id="assembly-level-sandboxing-and-code-access-security-for-net-core">Assembly-level sandboxing and Code Access Security for .NET Core</h4>
+<p><code>CasCore</code> allows for securely executing untrusted C# code in an application. When loading an assembly, <code>CasCore</code> modifies the assembly's bytecode to add security checks. These checks prevent the assembly from violating memory safety or accessing resources without permission. Any assembly loaded with <code>CasCore</code> is subject to the following restrictions:</p>
+<ul>
+<li>The CIL bytecode of the assembly's methods must be valid and verifiable. Any unverifiable method will throw a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.typeinitializationexception"><code>TypeInitializationException</code></a> when called.</li>
+<li>The assembly may only access a field if it exists within the same assembly, another assembly in the same <a href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.loader.assemblyloadcontext"><code>AssemblyLoadContext</code></a>, or on the assembly's <code>CasPolicy</code> whitelist. Any attempt to read/write an inaccessible field fails with a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.security.securityexception"><code>System.SecurityException</code></a>.</li>
+<li>The assembly may only call a method if it exists within the same assembly, another assembly in the same <a href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.loader.assemblyloadcontext"><code>AssemblyLoadContext</code></a>, or on the assembly's <code>CasPolicy</code> whitelist. Attempts to call inaccessible methods also fail with an exception.</li>
+<li>The assembly may only use reflection APIs to access allowed fields/methods. Attempts with reflection to access invalid fields/methods (according to the same rules as above) also fail with an exception.</li>
+<li>The assembly may only create delegates for allowed methods; attempts to create delegates for invalid methods also fail with an exception.</li>
+<li>The assembly may only use <a href="https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.lambdaexpression.compile"><code>LambdaExpression.Compile</code></a> for expression trees with allowed fields/methods; attempts to create and execute expression trees with invalid methods also fail with an exception.</li>
+</ul>
+<p><code>CasCore</code> is meant as a replacement for <a href="https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/code-access-security">Code Access Security (CAS)</a>, which was deprecated in .NET Core. <code>CasCore</code> was designed primarily for game modding/plugin systems, which may download third-party mods onto a user's computer. <code>CasCore</code> can prevent mods from performing malicious actions like writing to the filesystem or accessing the network.</p>
+<h3 id="installation">Installation</h3>
+<p><code>CasCore</code> can be obtained as a Nuget package. Either run <code>dotnet add package DouglasDwyer.CasCore</code> via the command line, or download the library from the Visual Studio package manager.</p>
+<h3 id="how-to-use">How to use</h3>
+<p>Sandboxing assemblies with <code>CasCore</code> involves two steps: defining a <code>CasPolicy</code>, then loading assemblies under that policy.</p>
+<p>The <code>CasPolicy</code> defines a whitelist of fields and methods that sandboxed assemblies may access. Any external member accesses not explicitly on the policy whitelist will fail with a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.security.securityexception"><code>System.SecurityException</code></a>. Policies are created using the <code>CasPolicyBuilder</code> class:</p>
+<pre><code class="lang-csharp">var policy = new CasPolicyBuilder()   // Create a new, empty whitelist.
+    .WithDefaultSandbox()   // Add all system types that are on the default whitelist
+    .Allow(new TypeBinding(typeof(FullyAccessibleClass), Accessibility.Private))   // This class will be fully accessible
+    .Allow(new TypeBinding(typeof(InheritableAccessibleClass), Accessibility.Protected))   // Public/protected members only
+    .Allow(new TypeBinding(typeof(PublicAccessibleClass), Accessibility.Public))   // Public members only
+    .Allow(new TypeBinding(typeof(PartiallyAccessibleClass), Accessibility.None)   // Only the following members
+        .WithConstructor([], Accessibility.Public)
+        .WithField(&quot;AllowedStaticField&quot;, Accessibility.Public)
+        .WithField(&quot;AllowedField&quot;, Accessibility.Public)
+        .WithMethod(&quot;InterfaceMethod&quot;, Accessibility.Public))
+    .Allow(new AssemblyBinding(Assembly.Load(&quot;SomeAssembly&quot;), Accessibility.Protected))   // All public/protected members of assembly
+    .Build();  // Generate the final policy
+</code></pre>
+<p>After a policy has been defined, it can be used with a <code>CasAssemblyLoader</code>. Any assemblies created using the loader will be subject to the policy:</p>
+<pre><code class="lang-csharp">var loadContext = new CasAssemblyLoader(policy);
+var assembly = loadContext.LoadFromAssemblyPath(&quot;Newtonsoft.Json.dll&quot;);
+// The types in assembly can only access external code if it is whitelisted OR if that code was loaded with the same loader
+</code></pre>
+<h3 id="default-sandbox-policy">Default sandbox policy</h3>
+<p><code>CasPolicyBuilder</code> comes with extension methods (most notably <code>WithDefaultSandbox</code>) that add members from the C# standard library. These methods are meant to whitelist as much of the C# standard library as possible, excluding any methods that:</p>
+<ul>
+<li>Cause undefined behavior (such as the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.unsafe"><code>Unsafe</code></a> class or intrinsics)</li>
+<li>Access the filesystem</li>
+<li>Access the network</li>
+<li>Access other OS-specific resources (such as processes or pipes)</li>
+<li>Allow for loading other code without verification (such as <code>System.Reflection.Emit</code>)</li>
+</ul>
+<p>The <code>WithDefaultSandbox</code> method should provide a sensible default whitelist that ensures any loaded assemblies cannot gain access to the host system. Testing reveals that the <code>netstandard</code> version of <code>Newtonsoft.Json</code> is able to run with the default sandbox policy, so it should be fairly comprehensive.</p>
+<h3 id="how-it-works">How it works</h3>
+<p>This library has three main components:</p>
+<ol>
+<li><strong>CIL verification</strong> - before a sandboxed assembly is loaded, it is modified using <a href="https://github.com/jbevain/cecil">Mono.Cecil</a>. Some &quot;guard&quot; CIL instructions are inserted at the beginning of each method in the assembly. When such a method is called for the first time, the guard instructions cause <a href="https://github.com/DouglasDwyer/JitIlVerification">a fork of Microsoft's ILVerify</a> to run on the method bytecode. The validity of the bytecode is checked and an error is raised if the bytecode does not conform to the CLR ECMA standard.</li>
+<li><strong>Insertion of runtime checks</strong> - next, the bytecode of each method is <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs#L161-L182">scanned with Cecil</a>. A runtime check is inserted before any external field access or method call (this includes virtual method calls and the creation of delegates). The check causes an exception to be thrown if the assembly does not have permission to access the member. The runtime checks are designed so that the JIT will compile them out if the member is both accessible and non-virtual.</li>
+<li><strong>Calls to shims</strong> - finally, calls to reflection-related APIs (such as <code>System.Activator.CreateInstance</code> or <code>System.Reflection.MethodInfo.Invoke</code>) are replaced with <a href="/CasCore/MethodShims.cs">calls to shims</a>. These shims perform a runtime check to ensure that the reflected member is accessible. If not, an exception is thrown.</li>
+</ol>
+<h3 id="testing">Testing</h3>
+<p>Included in this repository are a set of <a href="/CasCore.Tests/">unit tests</a> to demonstrate the system's functionality. The unit tests show that things like causing memory unsafety or accessing the file system are impossible under the default sandbox policy. Contributions and pull requests to test/address any remaining security vulnerabilities are appreciated.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
