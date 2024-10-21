@@ -59,7 +59,7 @@ internal class GuardWriter
     public GuardWriter(TypeDefinition type, int id, ImportedReferences references)
     {
         DeclaringType = type;
-        _type = new TypeDefinition("CasCore.Guard", $"{DeclaringType.Name}_{id}",
+        _type = new TypeDefinition("DouglasDwyer.CasCore.Guard", $"{DeclaringType.Name}_{id}",
             TypeAttributes.Public | TypeAttributes.Class | TypeAttributes.AutoLayout
             | TypeAttributes.Abstract | TypeAttributes.Sealed, references.ObjectType);
 

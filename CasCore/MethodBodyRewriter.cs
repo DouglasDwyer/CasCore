@@ -123,7 +123,9 @@ internal class MethodBodyRewriter
         {
             handler.FilterStart = GetNewBranchTarget(handler.FilterStart);
             handler.HandlerStart = GetNewBranchTarget(handler.HandlerStart);
+            handler.HandlerEnd = GetNewBranchTarget(handler.HandlerEnd);
             handler.TryStart = GetNewBranchTarget(handler.TryStart);
+            handler.TryEnd = GetNewBranchTarget(handler.TryEnd);
         }
     }
 
