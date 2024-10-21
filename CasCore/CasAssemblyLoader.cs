@@ -234,7 +234,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     {
         if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
         {
-            var virtualMethod = method.IsVirtual;
+            var virtualMethod = method.IsVirtual && !method.IsFinal;
             return SameLoadContext(assembly, method) || (!virtualMethod && policy.CanAccess(method));
         }
         else
