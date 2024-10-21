@@ -4,6 +4,7 @@ using Mono.Cecil;
 using Mono.Cecil.Cil;
 using Mono.Cecil.Rocks;
 using System.Collections.Immutable;
+using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Reflection;
@@ -45,34 +46,40 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return result;
     }
 
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public static bool CanAccess(RuntimeFieldHandle handle, RuntimeTypeHandle type)
     {
         return CanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle, type));
     }
 
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public static bool CanCallAlways(RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
         return CanCallAlways(Assembly.GetCallingAssembly(), MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
+    [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
     public static void AssertCanAccess(RuntimeFieldHandle handle, RuntimeTypeHandle type)
     {
         AssertCanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle, type));
     }
 
+    [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
     public static void AssertCanCall(object? obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
         AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
+    [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
     public static void AssertCanCallConstrained<T>(ref T obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
         AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
+    [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
     public static T CreateCheckedDelegate<T>(object? target, RuntimeMethodHandle method, RuntimeTypeHandle type)
         where T : Delegate
