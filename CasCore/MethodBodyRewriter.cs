@@ -4,18 +4,54 @@ using Mono.Cecil.Cil;
 
 namespace CasCore;
 
+/// <summary>
+/// Handles efficiently rewriting the bodies of <see cref="MethodDefinition"/>s to include runtime checks for code access security.
+/// </summary>
 internal class MethodBodyRewriter
 {
+    /// <summary>
+    /// The current instruction being rewritten, if any.
+    /// </summary>
     public Instruction? Instruction { get; private set; }
+
+    /// <summary>
+    /// The current method being rewritten.
+    /// </summary>
     public MethodDefinition Method { get; private set; }
 
+    /// <summary>
+    /// A list of the instructions to replace the method body with.
+    /// </summary>
     private List<Instruction> _newInstructions;
+
+    /// <summary>
+    /// A mapping from old instruction offset to new instruction,
+    /// for replacing branch targets.
+    /// </summary>
     private Instruction?[] _offsetMap;
 
+    /// <summary>
+    /// The position of the current instruction to be replaced.
+    /// </summary>
     private int _advancePosition;
+
+    /// <summary>
+    /// The position at which to start copying instructions when advancing to the next instruction.
+    /// Usually, this is the same as <see cref="_advancePosition"/>. When the current instruction
+    /// has prefixes (such as .constrain), though, this points to the first prefix rather than
+    /// the main instruction.
+    /// </summary>
     private int _copyPosition;
+
+    /// <summary>
+    /// The position at which the first new instruction was inserted.
+    /// </summary>
     private int _newPosition;
 
+    /// <summary>
+    /// Creates a new, uninitialized rewriter.
+    /// </summary>
+    /// <param name="references">The references that the writer should use.</param>
     public MethodBodyRewriter(ImportedReferences references)
     {
         Method = new MethodDefinition("", new MethodAttributes(), references.VoidType);
@@ -23,6 +59,10 @@ internal class MethodBodyRewriter
         _offsetMap = Array.Empty<Instruction?>();
     }
 
+    /// <summary>
+    /// Initiates rewriting the provided method.
+    /// </summary>
+    /// <param name="method">The method to modify.</param>
     public void Start(MethodDefinition method)
     {
         Method = method;
@@ -41,6 +81,10 @@ internal class MethodBodyRewriter
         Advance(false);
     }
 
+    /// <summary>
+    /// Advances to the next instruction in the method.
+    /// </summary>
+    /// <param name="addOriginal">Whether the original current instruction should be copied to the method's new body.</param>
     public void Advance(bool addOriginal)
     {
         ProcessInstructionsToAdvance(addOriginal);
@@ -48,12 +92,19 @@ internal class MethodBodyRewriter
         _newPosition = _newInstructions.Count;
     }
 
+    /// <summary>
+    /// Adds an instruction before the current instruction.
+    /// </summary>
+    /// <param name="instruction">The new instruction to add.</param>
     public void Insert(Instruction instruction)
     {
         instruction.Offset = int.MaxValue;
         _newInstructions.Add(instruction);
     }
 
+    /// <summary>
+    /// Completes rewriting by copying the new instructions into the method body and updating branch targets.
+    /// </summary>
     public void Finish()
     {
         Method.Body.Instructions.Clear();
@@ -76,6 +127,12 @@ internal class MethodBodyRewriter
         }
     }
 
+    /// <summary>
+    /// Determines where any instructions that pointed to the given branch target
+    /// should point after rewriting.
+    /// </summary>
+    /// <param name="instruction">The original branch target.</param>
+    /// <returns>The new branch target.</returns>
     private Instruction? GetNewBranchTarget(Instruction? instruction)
     {
         if (instruction is null)
@@ -92,6 +149,10 @@ internal class MethodBodyRewriter
         }
     }
 
+    /// <summary>
+    /// Advances the cursors and copies any instructions necessary from the original body.
+    /// </summary>
+    /// <param name="addOriginal">Whether to include instructions from the original body.</param>
     private void ProcessInstructionsToAdvance(bool addOriginal)
     {
         var branchTargetInstruction = _newPosition == _newInstructions.Count ? Method.Body.Instructions[_copyPosition] : _newInstructions[_newPosition];
@@ -111,6 +172,9 @@ internal class MethodBodyRewriter
         }
     }
 
+    /// <summary>
+    /// Moves to the next instruction.
+    /// </summary>
     private void SetNextInstruction()
     {
         while (_advancePosition < Method.Body.Instructions.Count
@@ -131,6 +195,10 @@ internal class MethodBodyRewriter
         _advancePosition++;
     }
 
+    /// <summary>
+    /// Expands any macro opcodes that may not be valid for long methods.
+    /// </summary>
+    /// <param name="instruction">The instruction to expand.</param>
     private void SimplifyMacro(Instruction instruction)
     {
         switch (instruction.OpCode.Code)
@@ -222,6 +290,12 @@ internal class MethodBodyRewriter
         }
     }
 
+    /// <summary>
+    /// Updates the opcode and operand for the provided macro instruction.
+    /// </summary>
+    /// <param name="instruction">The instruction being updated.</param>
+    /// <param name="opcode">The new opcode to use.</param>
+    /// <param name="operand">The new operand to use.</param>
     private static void ExpandMacro(Instruction instruction, OpCode opcode, object operand)
     {
         instruction.OpCode = opcode;

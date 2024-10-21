@@ -1,19 +1,29 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using System.Reflection;
 using System.Security;
 
 namespace DouglasDwyer.CasCore;
 
+/// <summary>
+/// Rewrites a LINQ expression tree, adding runtime checks for code access security.
+/// </summary>
 internal class GuardExpressionVisitor : ExpressionVisitor
 {
+    /// <summary>
+    /// The assembly that is compiling the expression tree.
+    /// </summary>
     private readonly Assembly _assembly;
 
+    /// <summary>
+    /// Creates a new visitor for rewriting expression trees.
+    /// </summary>
+    /// <param name="callingAssembly">The assembly that is compiling expression trees.</param>
     public GuardExpressionVisitor(Assembly callingAssembly)
     {
         _assembly = callingAssembly;
     }
 
+    /// <inheritdoc/>
     protected override Expression VisitBinary(BinaryExpression node)
     {
         if (node.Method is not null)
@@ -33,16 +43,19 @@ internal class GuardExpressionVisitor : ExpressionVisitor
         }
     }
 
+    /// <inheritdoc/>
     protected override Expression VisitDynamic(DynamicExpression node)
     {
         throw new SecurityException("Compiling System.Linq.Expressions.DynamicExpression is not supported in CAS contexts.");
     }
 
+    /// <inheritdoc/>
     protected override ElementInit VisitElementInit(ElementInit node)
     {
         return Expression.ElementInit(GuardMethodInfo.Create(_assembly, node.AddMethod), Visit(node.Arguments));
     }
 
+    /// <inheritdoc/>
     protected override Expression VisitIndex(IndexExpression node)
     {
         return Expression.MakeIndex(
@@ -51,26 +64,31 @@ internal class GuardExpressionVisitor : ExpressionVisitor
             Visit(node.Arguments));
     }
 
+    /// <inheritdoc/>
     protected override Expression VisitMember(MemberExpression node)
     {
         return Expression.MakeMemberAccess(Visit(node.Expression), CreateGuardMemberInfo(node.Member));
     }
 
+    /// <inheritdoc/>
     protected override MemberAssignment VisitMemberAssignment(MemberAssignment node)
     {
         return Expression.Bind(CreateGuardMemberInfo(node.Member), Visit(node.Expression));
     }
 
+    /// <inheritdoc/>
     protected override MemberListBinding VisitMemberListBinding(MemberListBinding node)
     {
         return Expression.ListBind(CreateGuardMemberInfo(node.Member), Visit(node.Initializers, VisitElementInit));
     }
 
+    /// <inheritdoc/>
     protected override MemberMemberBinding VisitMemberMemberBinding(MemberMemberBinding node)
     {
         return Expression.MemberBind(CreateGuardMemberInfo(node.Member), Visit(node.Bindings, VisitMemberBinding));
     }
 
+    /// <inheritdoc/>
     protected override Expression VisitMethodCall(MethodCallExpression node)
     {
         if (node.Object is null)
@@ -83,6 +101,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
         }
     }
 
+    /// <inheritdoc/>
     protected override Expression VisitNew(NewExpression node)
     {
         if (node.Constructor is null)
@@ -99,6 +118,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
         }
     }
 
+    /// <inheritdoc/>
     protected override Expression VisitSwitch(SwitchExpression node)
     {
         return Expression.Switch(
@@ -108,6 +128,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
             Visit(node.Cases, VisitSwitchCase));
     }
 
+    /// <inheritdoc/>
     protected override Expression VisitUnary(UnaryExpression node)
     {
         if (node.Method is null)
@@ -120,6 +141,12 @@ internal class GuardExpressionVisitor : ExpressionVisitor
         }
     }
 
+    /// <summary>
+    /// Wraps the provided member in a runtime-checked class if necessary.
+    /// </summary>
+    /// <param name="member">The member to wrap.</param>
+    /// <returns>The safeguarded member.</returns>
+    /// <exception cref="SecurityException">If the provided member was of an unrecognized type.</exception>
     private MemberInfo CreateGuardMemberInfo(MemberInfo member)
     {
         if (member is FieldInfo field)
