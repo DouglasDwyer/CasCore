@@ -41,12 +41,7 @@ internal unsafe static class LateBindingResolver
     {
         unsafe
         {
-            if (obj is null && !method.IsStatic)
-            {
-                throw new NullReferenceException();
-            }
-
-            else if (obj is not null && method is MethodInfo info && method.IsVirtual)
+            if (obj is not null && method is MethodInfo info && method.IsVirtual)
             {
                 var objType = obj.GetType();
                 if (objType.IsSZArray)
