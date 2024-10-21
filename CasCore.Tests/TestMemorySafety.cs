@@ -8,25 +8,28 @@ namespace DouglasDwyer.CasCore.Tests;
 public static class TestMemorySafety
 {
     [TestException(typeof(TypeInitializationException))]
-    public static unsafe void TestInvalidPointerWrite()
+    public static unsafe int TestInvalidPointerWrite()
     {
         var x = 1;
         var y = &x + 1;
         *y = 2;
+        return x;
     }
 
     [TestException(typeof(TypeInitializationException))]
-    public static unsafe void TestInvalidPointerRead()
+    public static unsafe int TestInvalidPointerRead()
     {
         var x = 1;
         var y = &x + 1;
         var z = *y;
+        return z;
     }
 
     [TestException(typeof(TypeInitializationException))]
-    public static unsafe void TestInvalidStackalloc()
+    public static unsafe int* TestInvalidStackalloc()
     {
         var data = stackalloc int[28];
+        return data;
     }
 
     [TestSuccessful]

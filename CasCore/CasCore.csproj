@@ -1,16 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+	  <OutputType>Library</OutputType>
+	  <PlatformTarget>AnyCPU</PlatformTarget>
     <TargetFramework>net8.0</TargetFramework>
+	  <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-	  
+
+	  <PackageId>DouglasDwyer.$(AssemblyName)</PackageId>
+	  <Title>DouglasDwyer.$(AssemblyName)</Title>
+	  <Authors>DouglasDwyer</Authors>
+	  <Company />
+	  <Product>DouglasDwyer.$(AssemblyName)</Product>
+	  <Description>Assembly-level sandboxing for .NET Core.</Description>
+	  <RepositoryUrl>https://github.com/DouglasDwyer/CasCore</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageTags>cas;untrusted;runtime;security;cecil;cil;msil;verification;verify;assembly;sandboxing;loading;reflection</PackageTags>
+	  <Version>0.1.0</Version>
+	  <AssemblyVersion>0.1.0.0</AssemblyVersion>
+	  <FileVersion>0.1.0.0</FileVersion>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DouglasDwyer.JitIlVerification" Version="0.1.3" />
-    <PackageReference Include="Mono.Cecil" Version="0.11.6"/>
+    <PackageReference Include="Mono.Cecil" Version="0.11.6" />
   </ItemGroup>
 </Project>
