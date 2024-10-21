@@ -70,4 +70,10 @@ public static class TestMemorySafety
     {
         AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(), AssemblyBuilderAccess.RunAndCollect);
     }
+
+    [TestException(typeof(SecurityException))]
+    public static void TestRuntimeHelpersGetUninitObject()
+    {
+        RuntimeHelpers.GetUninitializedObject(typeof(MethodBuilder));
+    }
 }
