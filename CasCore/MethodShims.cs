@@ -36,7 +36,7 @@ public static class MethodShims
     /// </summary>
     private const BindingFlags ConstructorDefault = BindingFlags.Instance | BindingFlags.Public | BindingFlags.CreateInstance;
 
-    /** System.Linq.Expressions.Expression<T> shims **/
+    /** System.Linq.Expressions.Expression shims **/
 
     public static T Compile<T>(Expression<T> target)
         => CompileExpression(Assembly.GetCallingAssembly(), target);
