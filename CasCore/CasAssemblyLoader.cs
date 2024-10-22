@@ -256,6 +256,12 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <inheritdoc/>
+    protected override nint LoadUnmanagedDll(string unmanagedDllName)
+    {
+        throw new SecurityException("CAS assemblies may not load unmanaged libraries.");
+    }
+
+    /// <inheritdoc/>
     protected override void InstrumentAssembly(AssemblyDefinition assembly)
     {
         base.InstrumentAssembly(assembly);
