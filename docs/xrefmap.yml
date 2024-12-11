@@ -160,6 +160,35 @@ references:
   isSpec: "True"
   fullName: DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream
   nameWithType: CasAssemblyLoader.LoadFromStream
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(System.String)
+  name: LoadUnmanagedDll(string)
+  href: api/DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_LoadUnmanagedDll_System_String_
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(System.String)
+  name.vb: LoadUnmanagedDll(String)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(string)
+  fullName.vb: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(String)
+  nameWithType: CasAssemblyLoader.LoadUnmanagedDll(string)
+  nameWithType.vb: CasAssemblyLoader.LoadUnmanagedDll(String)
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll*
+  name: LoadUnmanagedDll
+  href: api/DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_LoadUnmanagedDll_
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll
+  isSpec: "True"
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll
+  nameWithType: CasAssemblyLoader.LoadUnmanagedDll
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+  name: ViolationHandler
+  href: api/DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_ViolationHandler
+  commentId: P:DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+  nameWithType: CasAssemblyLoader.ViolationHandler
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler*
+  name: ViolationHandler
+  href: api/DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_ViolationHandler_
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+  isSpec: "True"
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+  nameWithType: CasAssemblyLoader.ViolationHandler
 - uid: DouglasDwyer.CasCore.CasPolicy
   name: CasPolicy
   href: api/DouglasDwyer.CasCore.CasPolicy.html
@@ -579,6 +608,44 @@ references:
   isSpec: "True"
   fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel
   nameWithType: CasPolicyBuilderExtensions.WithSandboxedSystemThreadingTasksParallel
+- uid: DouglasDwyer.CasCore.ExceptionViolationHandler
+  name: ExceptionViolationHandler
+  href: api/DouglasDwyer.CasCore.ExceptionViolationHandler.html
+  commentId: T:DouglasDwyer.CasCore.ExceptionViolationHandler
+  fullName: DouglasDwyer.CasCore.ExceptionViolationHandler
+  nameWithType: ExceptionViolationHandler
+- uid: DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  name: OnViolation(Assembly, MemberInfo)
+  href: api/DouglasDwyer.CasCore.ExceptionViolationHandler.html#DouglasDwyer_CasCore_ExceptionViolationHandler_OnViolation_System_Reflection_Assembly_System_Reflection_MemberInfo_
+  commentId: M:DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  fullName: DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation(System.Reflection.Assembly, System.Reflection.MemberInfo)
+  nameWithType: ExceptionViolationHandler.OnViolation(Assembly, MemberInfo)
+- uid: DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation*
+  name: OnViolation
+  href: api/DouglasDwyer.CasCore.ExceptionViolationHandler.html#DouglasDwyer_CasCore_ExceptionViolationHandler_OnViolation_
+  commentId: Overload:DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation
+  isSpec: "True"
+  fullName: DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation
+  nameWithType: ExceptionViolationHandler.OnViolation
+- uid: DouglasDwyer.CasCore.ICasViolationHandler
+  name: ICasViolationHandler
+  href: api/DouglasDwyer.CasCore.ICasViolationHandler.html
+  commentId: T:DouglasDwyer.CasCore.ICasViolationHandler
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler
+  nameWithType: ICasViolationHandler
+- uid: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  name: OnViolation(Assembly, MemberInfo)
+  href: api/DouglasDwyer.CasCore.ICasViolationHandler.html#DouglasDwyer_CasCore_ICasViolationHandler_OnViolation_System_Reflection_Assembly_System_Reflection_MemberInfo_
+  commentId: M:DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly, System.Reflection.MemberInfo)
+  nameWithType: ICasViolationHandler.OnViolation(Assembly, MemberInfo)
+- uid: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation*
+  name: OnViolation
+  href: api/DouglasDwyer.CasCore.ICasViolationHandler.html#DouglasDwyer_CasCore_ICasViolationHandler_OnViolation_
+  commentId: Overload:DouglasDwyer.CasCore.ICasViolationHandler.OnViolation
+  isSpec: "True"
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation
+  nameWithType: ICasViolationHandler.OnViolation
 - uid: DouglasDwyer.CasCore.Tests
   name: DouglasDwyer.CasCore.Tests
   href: api/DouglasDwyer.CasCore.Tests.html

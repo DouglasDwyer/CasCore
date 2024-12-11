@@ -550,7 +550,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemReflectionTypeExtensions
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 2716
+    startLine: 2674
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -586,7 +586,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemRuntimeNumerics
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 2727
+    startLine: 2685
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -622,7 +622,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemRuntimeSerializationFormatters
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 2739
+    startLine: 2697
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -658,7 +658,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemTextJson
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 2750
+    startLine: 2708
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -694,7 +694,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemTextRegularExpressions
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 2897
+    startLine: 2855
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -730,7 +730,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemThreadingChannels
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 3000
+    startLine: 2958
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -766,7 +766,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemThreading
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 3011
+    startLine: 2969
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -802,7 +802,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemThreadingTasksDataflow
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 3022
+    startLine: 2980
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -838,7 +838,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemThreadingTasksParallel
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 3033
+    startLine: 2991
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -874,7 +874,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedSystemLinqExpressions
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 3044
+    startLine: 3002
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -910,7 +910,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithSandboxedRuntimeReflection
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 3098
+    startLine: 3056
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -946,7 +946,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: WithDefaultSandbox
     path: CasCore/CasPolicyBuilderExtensions.cs
-    startLine: 3136
+    startLine: 3094
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore

@@ -1,0 +1,152 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.ICasViolationHandler
+  commentId: T:DouglasDwyer.CasCore.ICasViolationHandler
+  id: ICasViolationHandler
+  parent: DouglasDwyer.CasCore
+  children:
+  - DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  langs:
+  - csharp
+  - vb
+  name: ICasViolationHandler
+  nameWithType: ICasViolationHandler
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler
+  type: Interface
+  source:
+    remote:
+      path: CasCore/ICasViolationHandler.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: ICasViolationHandler
+    path: CasCore/ICasViolationHandler.cs
+    startLine: 7
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Event handler that is invoked when an assembly attempts to access a field or method without permission.
+  example: []
+  syntax:
+    content: public interface ICasViolationHandler
+    content.vb: Public Interface ICasViolationHandler
+- uid: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  commentId: M:DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  id: OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  parent: DouglasDwyer.CasCore.ICasViolationHandler
+  langs:
+  - csharp
+  - vb
+  name: OnViolation(Assembly, MemberInfo)
+  nameWithType: ICasViolationHandler.OnViolation(Assembly, MemberInfo)
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly, System.Reflection.MemberInfo)
+  type: Method
+  source:
+    remote:
+      path: CasCore/ICasViolationHandler.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: OnViolation
+    path: CasCore/ICasViolationHandler.cs
+    startLine: 17
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: >-
+    Called when a sandboxed assembly accesses a field or method that is not
+
+    on the <xref href="DouglasDwyer.CasCore.CasPolicy" data-throw-if-not-resolved="false"></xref> whitelist. If this method does not throw an
+
+    exception, then control flow will return to the sandboxed assembly and the
+
+    invalid access will complete successfully.
+  example: []
+  syntax:
+    content: void OnViolation(Assembly caller, MemberInfo member)
+    parameters:
+    - id: caller
+      type: System.Reflection.Assembly
+      description: The offending assembly.
+    - id: member
+      type: System.Reflection.MemberInfo
+      description: The member that it attempted to read, write, or call.
+    content.vb: Sub OnViolation(caller As Assembly, member As MemberInfo)
+  overload: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation*
+references:
+- uid: DouglasDwyer.CasCore
+  commentId: N:DouglasDwyer.CasCore
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore
+  nameWithType: DouglasDwyer.CasCore
+  fullName: DouglasDwyer.CasCore
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+- uid: DouglasDwyer.CasCore.CasPolicy
+  commentId: T:DouglasDwyer.CasCore.CasPolicy
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicy.html
+  name: CasPolicy
+  nameWithType: CasPolicy
+  fullName: DouglasDwyer.CasCore.CasPolicy
+- uid: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation*
+  commentId: Overload:DouglasDwyer.CasCore.ICasViolationHandler.OnViolation
+  href: DouglasDwyer.CasCore.ICasViolationHandler.html#DouglasDwyer_CasCore_ICasViolationHandler_OnViolation_System_Reflection_Assembly_System_Reflection_MemberInfo_
+  name: OnViolation
+  nameWithType: ICasViolationHandler.OnViolation
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation
+- uid: System.Reflection.Assembly
+  commentId: T:System.Reflection.Assembly
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  name: Assembly
+  nameWithType: Assembly
+  fullName: System.Reflection.Assembly
+- uid: System.Reflection.MemberInfo
+  commentId: T:System.Reflection.MemberInfo
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  name: MemberInfo
+  nameWithType: MemberInfo
+  fullName: System.Reflection.MemberInfo
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection

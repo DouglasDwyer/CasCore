@@ -72,7 +72,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="cascore">CasCore</h1>
 
-<p><a href="https://www.nuget.org/packages/DouglasDwyer.CasCore/"><img src="https://img.shields.io/nuget/v/DouglasDwyer.CasCore.svg?style=flat-square" alt="NuGet version (DouglasDwyer.CasCore)"></a></p>
+<p><a href="https://www.nuget.org/packages/DouglasDwyer.CasCore/"><img src="https://img.shields.io/nuget/v/DouglasDwyer.CasCore.svg?style=flat-square" alt="NuGet version (DouglasDwyer.CasCore)"></a> <a href="https://douglasdwyer.github.io/CasCore/"><img src="https://img.shields.io/badge/view-Documentation-blue?style=flat-square" alt="view - Documentation"></a></p>
 <h4 id="assembly-level-sandboxing-and-code-access-security-for-net-core">Assembly-level sandboxing and Code Access Security for .NET Core</h4>
 <p><code>CasCore</code> allows for securely executing untrusted C# code in an application. When loading an assembly, <code>CasCore</code> modifies the assembly's bytecode to add security checks. These checks prevent the assembly from violating memory safety or accessing resources without permission. Any assembly loaded with <code>CasCore</code> is subject to the following restrictions:</p>
 <ul>
@@ -87,6 +87,7 @@
 <h3 id="installation">Installation</h3>
 <p><code>CasCore</code> can be obtained as a Nuget package. Either run <code>dotnet add package DouglasDwyer.CasCore</code> via the command line, or download the library from the Visual Studio package manager.</p>
 <h3 id="how-to-use">How to use</h3>
+<p>The full documentation is available <a href="https://douglasdwyer.github.io/CasCore/">here</a>.</p>
 <p>Sandboxing assemblies with <code>CasCore</code> involves two steps: defining a <code>CasPolicy</code>, then loading assemblies under that policy.</p>
 <p>The <code>CasPolicy</code> defines a whitelist of fields and methods that sandboxed assemblies may access. Any external member accesses not explicitly on the policy whitelist will fail with a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.security.securityexception"><code>System.SecurityException</code></a>. Policies are created using the <code>CasPolicyBuilder</code> class:</p>
 <pre><code class="lang-csharp">var policy = new CasPolicyBuilder()   // Create a new, empty whitelist.

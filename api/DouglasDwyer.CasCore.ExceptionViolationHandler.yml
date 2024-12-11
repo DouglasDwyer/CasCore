@@ -1,0 +1,425 @@
+### YamlMime:ManagedReference
+items:
+- uid: DouglasDwyer.CasCore.ExceptionViolationHandler
+  commentId: T:DouglasDwyer.CasCore.ExceptionViolationHandler
+  id: ExceptionViolationHandler
+  parent: DouglasDwyer.CasCore
+  children:
+  - DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  langs:
+  - csharp
+  - vb
+  name: ExceptionViolationHandler
+  nameWithType: ExceptionViolationHandler
+  fullName: DouglasDwyer.CasCore.ExceptionViolationHandler
+  type: Class
+  source:
+    remote:
+      path: CasCore/ExceptionViolationHandler.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: ExceptionViolationHandler
+    path: CasCore/ExceptionViolationHandler.cs
+    startLine: 9
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Raises a security exception whenever a CAS violation occurs.
+  example: []
+  syntax:
+    content: 'public sealed class ExceptionViolationHandler : ICasViolationHandler'
+    content.vb: Public NotInheritable Class ExceptionViolationHandler Implements ICasViolationHandler
+  inheritance:
+  - System.Object
+  implements:
+  - DouglasDwyer.CasCore.ICasViolationHandler
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  commentId: M:DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  id: OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  parent: DouglasDwyer.CasCore.ExceptionViolationHandler
+  langs:
+  - csharp
+  - vb
+  name: OnViolation(Assembly, MemberInfo)
+  nameWithType: ExceptionViolationHandler.OnViolation(Assembly, MemberInfo)
+  fullName: DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation(System.Reflection.Assembly, System.Reflection.MemberInfo)
+  type: Method
+  source:
+    remote:
+      path: CasCore/ExceptionViolationHandler.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: OnViolation
+    path: CasCore/ExceptionViolationHandler.cs
+    startLine: 12
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: >-
+    Called when a sandboxed assembly accesses a field or method that is not
+
+    on the <xref href="DouglasDwyer.CasCore.CasPolicy" data-throw-if-not-resolved="false"></xref> whitelist. If this method does not throw an
+
+    exception, then control flow will return to the sandboxed assembly and the
+
+    invalid access will complete successfully.
+  example: []
+  syntax:
+    content: public void OnViolation(Assembly caller, MemberInfo member)
+    parameters:
+    - id: caller
+      type: System.Reflection.Assembly
+      description: The offending assembly.
+    - id: member
+      type: System.Reflection.MemberInfo
+      description: The member that it attempted to read, write, or call.
+    content.vb: Public Sub OnViolation(caller As Assembly, member As MemberInfo)
+  overload: DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation*
+  implements:
+  - DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+references:
+- uid: DouglasDwyer.CasCore
+  commentId: N:DouglasDwyer.CasCore
+  href: DouglasDwyer.html
+  name: DouglasDwyer.CasCore
+  nameWithType: DouglasDwyer.CasCore
+  fullName: DouglasDwyer.CasCore
+  spec.csharp:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+  spec.vb:
+  - uid: DouglasDwyer
+    name: DouglasDwyer
+    href: DouglasDwyer.html
+  - name: .
+  - uid: DouglasDwyer.CasCore
+    name: CasCore
+    href: DouglasDwyer.CasCore.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DouglasDwyer.CasCore.ICasViolationHandler
+  commentId: T:DouglasDwyer.CasCore.ICasViolationHandler
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.ICasViolationHandler.html
+  name: ICasViolationHandler
+  nameWithType: ICasViolationHandler
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DouglasDwyer.CasCore.CasPolicy
+  commentId: T:DouglasDwyer.CasCore.CasPolicy
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.CasPolicy.html
+  name: CasPolicy
+  nameWithType: CasPolicy
+  fullName: DouglasDwyer.CasCore.CasPolicy
+- uid: DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation*
+  commentId: Overload:DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation
+  href: DouglasDwyer.CasCore.ExceptionViolationHandler.html#DouglasDwyer_CasCore_ExceptionViolationHandler_OnViolation_System_Reflection_Assembly_System_Reflection_MemberInfo_
+  name: OnViolation
+  nameWithType: ExceptionViolationHandler.OnViolation
+  fullName: DouglasDwyer.CasCore.ExceptionViolationHandler.OnViolation
+- uid: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  commentId: M:DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+  parent: DouglasDwyer.CasCore.ICasViolationHandler
+  isExternal: true
+  href: DouglasDwyer.CasCore.ICasViolationHandler.html#DouglasDwyer_CasCore_ICasViolationHandler_OnViolation_System_Reflection_Assembly_System_Reflection_MemberInfo_
+  name: OnViolation(Assembly, MemberInfo)
+  nameWithType: ICasViolationHandler.OnViolation(Assembly, MemberInfo)
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly, System.Reflection.MemberInfo)
+  spec.csharp:
+  - uid: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+    name: OnViolation
+    href: DouglasDwyer.CasCore.ICasViolationHandler.html#DouglasDwyer_CasCore_ICasViolationHandler_OnViolation_System_Reflection_Assembly_System_Reflection_MemberInfo_
+  - name: (
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: ','
+  - name: " "
+  - uid: System.Reflection.MemberInfo
+    name: MemberInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.CasCore.ICasViolationHandler.OnViolation(System.Reflection.Assembly,System.Reflection.MemberInfo)
+    name: OnViolation
+    href: DouglasDwyer.CasCore.ICasViolationHandler.html#DouglasDwyer_CasCore_ICasViolationHandler_OnViolation_System_Reflection_Assembly_System_Reflection_MemberInfo_
+  - name: (
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: ','
+  - name: " "
+  - uid: System.Reflection.MemberInfo
+    name: MemberInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  - name: )
+- uid: System.Reflection.Assembly
+  commentId: T:System.Reflection.Assembly
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  name: Assembly
+  nameWithType: Assembly
+  fullName: System.Reflection.Assembly
+- uid: System.Reflection.MemberInfo
+  commentId: T:System.Reflection.MemberInfo
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo
+  name: MemberInfo
+  nameWithType: MemberInfo
+  fullName: System.Reflection.MemberInfo
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection

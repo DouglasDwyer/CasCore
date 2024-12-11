@@ -15,6 +15,10 @@ items:
     name: CasPolicyBuilder
   - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
     name: CasPolicyBuilderExtensions
+  - uid: DouglasDwyer.CasCore.ExceptionViolationHandler
+    name: ExceptionViolationHandler
+  - uid: DouglasDwyer.CasCore.ICasViolationHandler
+    name: ICasViolationHandler
   - uid: DouglasDwyer.CasCore.TypeBinding
     name: TypeBinding
 memberLayout: SamePage

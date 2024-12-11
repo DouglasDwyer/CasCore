@@ -10,6 +10,8 @@ items:
   - DouglasDwyer.CasCore.CasPolicy
   - DouglasDwyer.CasCore.CasPolicyBuilder
   - DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+  - DouglasDwyer.CasCore.ExceptionViolationHandler
+  - DouglasDwyer.CasCore.ICasViolationHandler
   - DouglasDwyer.CasCore.TypeBinding
   langs:
   - csharp
@@ -61,6 +63,19 @@ references:
   name: CasPolicyBuilderExtensions
   nameWithType: CasPolicyBuilderExtensions
   fullName: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
+- uid: DouglasDwyer.CasCore.ExceptionViolationHandler
+  commentId: T:DouglasDwyer.CasCore.ExceptionViolationHandler
+  href: DouglasDwyer.CasCore.ExceptionViolationHandler.html
+  name: ExceptionViolationHandler
+  nameWithType: ExceptionViolationHandler
+  fullName: DouglasDwyer.CasCore.ExceptionViolationHandler
+- uid: DouglasDwyer.CasCore.ICasViolationHandler
+  commentId: T:DouglasDwyer.CasCore.ICasViolationHandler
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.ICasViolationHandler.html
+  name: ICasViolationHandler
+  nameWithType: ICasViolationHandler
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler
 - uid: DouglasDwyer.CasCore.TypeBinding
   commentId: T:DouglasDwyer.CasCore.TypeBinding
   parent: DouglasDwyer.CasCore

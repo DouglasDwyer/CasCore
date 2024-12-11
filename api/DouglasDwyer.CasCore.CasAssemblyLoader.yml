@@ -11,6 +11,8 @@ items:
   - DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
   - DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)
   - DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
+  - DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(System.String)
+  - DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
   langs:
   - csharp
   - vb
@@ -49,7 +51,6 @@ items:
   - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.SetProfileOptimizationRoot(System.String)
   - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.StartProfileOptimization(System.String)
   - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Unload
-  - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
   - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(System.String)
   - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.IsCollectible
   - DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Name
@@ -63,6 +64,40 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+  commentId: P:DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+  id: ViolationHandler
+  parent: DouglasDwyer.CasCore.CasAssemblyLoader
+  langs:
+  - csharp
+  - vb
+  name: ViolationHandler
+  nameWithType: CasAssemblyLoader.ViolationHandler
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+  type: Property
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: ViolationHandler
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 43
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: >-
+    The handler that will be invoked whenever a sandboxed assembly accesses a field/method without permission.
+
+    By default, this is a <xref href="DouglasDwyer.CasCore.ExceptionViolationHandler" data-throw-if-not-resolved="false"></xref> that will throw an exception.
+  example: []
+  syntax:
+    content: public ICasViolationHandler ViolationHandler { get; set; }
+    parameters: []
+    return:
+      type: DouglasDwyer.CasCore.ICasViolationHandler
+    content.vb: Public Property ViolationHandler As ICasViolationHandler
+  overload: DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler*
 - uid: DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy)
   commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy)
   id: '#ctor(DouglasDwyer.CasCore.CasPolicy)'
@@ -81,7 +116,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: .ctor
     path: CasCore/CasAssemblyLoader.cs
-    startLine: 48
+    startLine: 54
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -116,7 +151,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: .ctor
     path: CasCore/CasAssemblyLoader.cs
-    startLine: 57
+    startLine: 63
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -154,7 +189,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: .ctor
     path: CasCore/CasAssemblyLoader.cs
-    startLine: 68
+    startLine: 74
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -195,7 +230,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: LoadFromStream
     path: CasCore/CasAssemblyLoader.cs
-    startLine: 74
+    startLine: 80
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -237,7 +272,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: Load
     path: CasCore/CasAssemblyLoader.cs
-    startLine: 246
+    startLine: 274
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -255,6 +290,45 @@ items:
     content.vb: Protected Overrides Function Load(assemblyName As AssemblyName) As Assembly
   overridden: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.Load(System.Reflection.AssemblyName)
   overload: DouglasDwyer.CasCore.CasAssemblyLoader.Load*
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(System.String)
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(System.String)
+  id: LoadUnmanagedDll(System.String)
+  parent: DouglasDwyer.CasCore.CasAssemblyLoader
+  langs:
+  - csharp
+  - vb
+  name: LoadUnmanagedDll(string)
+  nameWithType: CasAssemblyLoader.LoadUnmanagedDll(string)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(string)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: LoadUnmanagedDll
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 286
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Allows derived class to load an unmanaged library by name.
+  example: []
+  syntax:
+    content: protected override nint LoadUnmanagedDll(string unmanagedDllName)
+    parameters:
+    - id: unmanagedDllName
+      type: System.String
+      description: Name of the unmanaged library. Typically this is the filename without its path or extensions.
+    return:
+      type: System.IntPtr
+      description: A handle to the loaded library, or <xref href="System.IntPtr.Zero" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function LoadUnmanagedDll(unmanagedDllName As String) As IntPtr
+  overridden: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+  overload: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll*
+  nameWithType.vb: CasAssemblyLoader.LoadUnmanagedDll(String)
+  fullName.vb: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(String)
+  name.vb: LoadUnmanagedDll(String)
 - uid: DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
   commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
   id: InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
@@ -273,7 +347,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: InstrumentAssembly
     path: CasCore/CasAssemblyLoader.cs
-    startLine: 258
+    startLine: 292
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -513,37 +587,6 @@ references:
     name: Unload
     isExternal: true
   - name: (
-  - name: )
-- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
-  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
-  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: LoadUnmanagedDll(string)
-  nameWithType: VerifiableAssemblyLoader.LoadUnmanagedDll(string)
-  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(string)
-  nameWithType.vb: VerifiableAssemblyLoader.LoadUnmanagedDll(String)
-  fullName.vb: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(String)
-  name.vb: LoadUnmanagedDll(String)
-  spec.csharp:
-  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
-    name: LoadUnmanagedDll
-    isExternal: true
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
-    name: LoadUnmanagedDll
-    isExternal: true
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(System.String)
   commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDllFromPath(System.String)
@@ -859,6 +902,25 @@ references:
   - uid: DouglasDwyer.JitIlVerification
     name: JitIlVerification
     isExternal: true
+- uid: DouglasDwyer.CasCore.ExceptionViolationHandler
+  commentId: T:DouglasDwyer.CasCore.ExceptionViolationHandler
+  href: DouglasDwyer.CasCore.ExceptionViolationHandler.html
+  name: ExceptionViolationHandler
+  nameWithType: ExceptionViolationHandler
+  fullName: DouglasDwyer.CasCore.ExceptionViolationHandler
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler*
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+  href: DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_ViolationHandler
+  name: ViolationHandler
+  nameWithType: CasAssemblyLoader.ViolationHandler
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.ViolationHandler
+- uid: DouglasDwyer.CasCore.ICasViolationHandler
+  commentId: T:DouglasDwyer.CasCore.ICasViolationHandler
+  parent: DouglasDwyer.CasCore
+  href: DouglasDwyer.CasCore.ICasViolationHandler.html
+  name: ICasViolationHandler
+  nameWithType: ICasViolationHandler
+  fullName: DouglasDwyer.CasCore.ICasViolationHandler
 - uid: DouglasDwyer.CasCore.CasAssemblyLoader.#ctor*
   commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.#ctor
   href: DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader__ctor_DouglasDwyer_CasCore_CasPolicy_
@@ -1048,6 +1110,63 @@ references:
   name: Load
   nameWithType: CasAssemblyLoader.Load
   fullName: DouglasDwyer.CasCore.CasAssemblyLoader.Load
+- uid: System.IntPtr.Zero
+  commentId: F:System.IntPtr.Zero
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr.zero
+  name: Zero
+  nameWithType: nint.Zero
+  fullName: nint.Zero
+  nameWithType.vb: IntPtr.Zero
+  fullName.vb: System.IntPtr.Zero
+- uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+  commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+  parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: LoadUnmanagedDll(string)
+  nameWithType: VerifiableAssemblyLoader.LoadUnmanagedDll(string)
+  fullName: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(string)
+  nameWithType.vb: VerifiableAssemblyLoader.LoadUnmanagedDll(String)
+  fullName.vb: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(String)
+  name.vb: LoadUnmanagedDll(String)
+  spec.csharp:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+    name: LoadUnmanagedDll
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.LoadUnmanagedDll(System.String)
+    name: LoadUnmanagedDll
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll*
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll
+  href: DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_LoadUnmanagedDll_System_String_
+  name: LoadUnmanagedDll
+  nameWithType: CasAssemblyLoader.LoadUnmanagedDll
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
 - uid: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
   commentId: M:DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
   parent: DouglasDwyer.JitIlVerification.VerifiableAssemblyLoader
