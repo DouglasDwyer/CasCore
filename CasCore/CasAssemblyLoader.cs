@@ -164,7 +164,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <summary>
-    /// Creates a delegate, but throws an exception when the calling assembly does not have the requisite permissions.
+    /// Creates a delegate, but reports a violation when the calling assembly does not have the requisite permissions.
     /// </summary>
     /// <typeparam name="T">The type of delegate to create.</typeparam>
     /// <param name="target">The object to which the delegate method should be bound.</param>
@@ -203,7 +203,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <summary>
-    /// Throws a security exception that specifies the assembly does not have permission to access the member.
+    /// Reports a security that specifies the assembly does not have permission to access the member.
     /// </summary>
     /// <param name="assembly">The assembly that tried to access the member.</param>
     /// <param name="info">The member being accessed.</param>
@@ -224,7 +224,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <summary>
-    /// Throws an exception if the given assembly may not access the specified field.
+    /// Invokes the CAS violation handler if the given assembly may not access the specified field.
     /// </summary>
     /// <param name="assembly">The assembly attempting the access.</param>
     /// <param name="field">The field being accessed.</param>
@@ -238,7 +238,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <summary>
-    /// Throws an exception if the calling assembly may not call the specified method.
+    /// Invokes the CAS violation handler if the calling assembly may not call the specified method.
     /// </summary>
     /// <param name="assembly">The assembly attempting the access.</param>
     /// <param name="obj">The object on which the method is being invoked, if any.</param>
