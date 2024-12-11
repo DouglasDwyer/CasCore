@@ -91,6 +91,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     /// <param name="handle">The field handle.</param>
     /// <param name="type">The type handle on which the field is declared.</param>
     [EditorBrowsable(EditorBrowsableState.Never)]
+    [StackTraceHidden]
     public static void InvokeViolationHandler(RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
         HandleCasViolation(Assembly.GetCallingAssembly(), MethodBase.GetMethodFromHandle(handle, type)!);
