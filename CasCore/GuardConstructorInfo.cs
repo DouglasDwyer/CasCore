@@ -92,7 +92,7 @@ internal class GuardConstructorInfo : ConstructorInfo
     /// <inheritdoc/>
     public override object? Invoke(object? obj, BindingFlags invokeAttr, Binder? binder, object?[]? parameters, CultureInfo? culture)
     {
-        CasAssemblyLoader.AssertCanCall(_assembly, obj, _inner);
+        CasAssemblyLoader.CheckVirtualCall(_assembly, obj, _inner);
         return _inner.Invoke(obj, invokeAttr, binder, parameters, culture);
     }
 
@@ -105,7 +105,7 @@ internal class GuardConstructorInfo : ConstructorInfo
     /// <inheritdoc/>
     public override object Invoke(BindingFlags invokeAttr, Binder? binder, object?[]? parameters, CultureInfo? culture)
     {
-        CasAssemblyLoader.AssertCanCall(_assembly, null, _inner);
+        CasAssemblyLoader.CheckVirtualCall(_assembly, null, _inner);
         return _inner.Invoke(invokeAttr, binder, parameters, culture);
     }
 }

@@ -132,7 +132,7 @@ internal class GuardPropertyInfo : PropertyInfo
     {
         if (CanRead)
         {
-            CasAssemblyLoader.AssertCanCall(_assembly, obj, _inner.GetMethod!);
+            CasAssemblyLoader.CheckVirtualCall(_assembly, obj, _inner.GetMethod!);
         }
 
         return _inner.GetValue(obj, invokeAttr, binder, index, culture);
@@ -149,7 +149,7 @@ internal class GuardPropertyInfo : PropertyInfo
     {
         if (CanWrite)
         {
-            CasAssemblyLoader.AssertCanCall(_assembly, obj, _inner.SetMethod!);
+            CasAssemblyLoader.CheckVirtualCall(_assembly, obj, _inner.SetMethod!);
         }
 
         _inner.SetValue(obj, value, invokeAttr, binder, index, culture);

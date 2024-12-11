@@ -106,7 +106,7 @@ public static class MethodShims
     {
         if (uncheckedDelegate is not null)
         {
-            CasAssemblyLoader.AssertCanCall(assembly, uncheckedDelegate.Target, uncheckedDelegate.Method);
+            CasAssemblyLoader.CheckVirtualCall(assembly, uncheckedDelegate.Target, uncheckedDelegate.Method);
         }
 
         return uncheckedDelegate;
@@ -158,7 +158,7 @@ public static class MethodShims
                 throw new MissingMethodException($"Cannot find default constructor for {typeof(T)}.");
             }
 
-            CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), null, constructor);
+            CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), null, constructor);
         }
 
         return Activator.CreateInstance<T>();
@@ -174,7 +174,7 @@ public static class MethodShims
 
             foreach (var constructor in constructors)
             {
-                CasAssemblyLoader.AssertCanCall(assembly, null, constructor);
+                CasAssemblyLoader.CheckVirtualCall(assembly, null, constructor);
             }
         }
 
@@ -193,7 +193,7 @@ public static class MethodShims
                 throw new MissingMethodException($"Cannot find default constructor for {type}.");
             }
 
-            CasAssemblyLoader.AssertCanCall(assembly, null, constructor);
+            CasAssemblyLoader.CheckVirtualCall(assembly, null, constructor);
         }
 
         return Activator.CreateInstance(type, nonPublic);
@@ -244,7 +244,7 @@ public static class MethodShims
     public static void InitializeArray(Array array, RuntimeFieldHandle fldHandle)
     {
         var field = FieldInfo.GetFieldFromHandle(fldHandle);
-        CasAssemblyLoader.AssertCanAccess(Assembly.GetCallingAssembly(), field);
+        CasAssemblyLoader.CheckAccess(Assembly.GetCallingAssembly(), field);
         RuntimeHelpers.InitializeArray(array, fldHandle);
     }
 
@@ -252,7 +252,7 @@ public static class MethodShims
 
     public static object? GetValue(FieldInfo target, object? obj)
     {
-        CasAssemblyLoader.AssertCanAccess(Assembly.GetCallingAssembly(), target);
+        CasAssemblyLoader.CheckAccess(Assembly.GetCallingAssembly(), target);
         return target.GetValue(obj);
     }
 
@@ -260,7 +260,7 @@ public static class MethodShims
     {
         var getMethod = target.GetGetMethod();
         ArgumentNullException.ThrowIfNull(getMethod);
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, getMethod);
+        CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, getMethod);
         return target.GetValue(obj);
     }
 
@@ -268,7 +268,7 @@ public static class MethodShims
     {
         var getMethod = target.GetGetMethod();
         ArgumentNullException.ThrowIfNull(getMethod);
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, getMethod);
+        CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, getMethod);
         return target.GetValue(obj, index);
     }
 
@@ -276,17 +276,17 @@ public static class MethodShims
     {
         var getMethod = target.GetGetMethod();
         ArgumentNullException.ThrowIfNull(getMethod);
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, getMethod);
+        CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, getMethod);
         return target.GetValue(obj, invokeAttr, binder, index, culture);
     }
 
     public static void SetValue(FieldInfo target, object? obj, object? value)
     {
-        CasAssemblyLoader.AssertCanAccess(Assembly.GetCallingAssembly(), target);
+        CasAssemblyLoader.CheckAccess(Assembly.GetCallingAssembly(), target);
 
         if (target.DeclaringType!.Namespace == "DouglasDwyer.CasCore.Guard")
         {
-            CasAssemblyLoader.ThrowAccessException(Assembly.GetCallingAssembly(), target);
+            CasAssemblyLoader.HandleCasViolation(Assembly.GetCallingAssembly(), target);
         }
 
         target.SetValue(obj, value);
@@ -294,11 +294,11 @@ public static class MethodShims
 
     public static void SetValue(FieldInfo target, object? obj, object? value, BindingFlags invokeAttr, Binder? binder, CultureInfo? culture)
     {
-        CasAssemblyLoader.AssertCanAccess(Assembly.GetCallingAssembly(), target);
+        CasAssemblyLoader.CheckAccess(Assembly.GetCallingAssembly(), target);
 
         if (target.DeclaringType!.Namespace == "DouglasDwyer.CasCore.Guard")
         {
-            CasAssemblyLoader.ThrowAccessException(Assembly.GetCallingAssembly(), target);
+            CasAssemblyLoader.HandleCasViolation(Assembly.GetCallingAssembly(), target);
         }
 
         target.SetValue(obj, value, invokeAttr, binder, culture);
@@ -308,7 +308,7 @@ public static class MethodShims
     {
         var setMethod = target.GetSetMethod();
         ArgumentNullException.ThrowIfNull(setMethod);
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, setMethod);
+        CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, setMethod);
         target.SetValue(obj, value);
     }
 
@@ -316,7 +316,7 @@ public static class MethodShims
     {
         var setMethod = target.GetSetMethod();
         ArgumentNullException.ThrowIfNull(setMethod);
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, setMethod);
+        CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, setMethod);
         target.SetValue(obj, value, index);
     }
 
@@ -324,7 +324,7 @@ public static class MethodShims
     {
         var setMethod = target.GetGetMethod();
         ArgumentNullException.ThrowIfNull(setMethod);
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, setMethod);
+        CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, setMethod);
         target.SetValue(obj, value, invokeAttr, binder, index, culture);
     }
 
@@ -347,7 +347,7 @@ public static class MethodShims
         }
         else
         {
-            CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, target);
+            CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, target);
             return target.Invoke(obj, parameters);
         }
     }
@@ -371,20 +371,20 @@ public static class MethodShims
         }
         else
         {
-            CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), obj, target);
+            CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, target);
             return target.Invoke(obj, invokeAttr, binder, parameters, culture);
         }
     }
 
     public static object Invoke(ConstructorInfo target, object?[]? parameters)
     {
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), null, target);
+        CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), null, target);
         return target.Invoke(parameters);
     }
 
     public static object Invoke(ConstructorInfo target, BindingFlags invokeAttr, Binder? binder, object?[]? parameters, CultureInfo? culture)
     {
-        CasAssemblyLoader.AssertCanCall(Assembly.GetCallingAssembly(), null, target);
+        CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), null, target);
         return target.Invoke(invokeAttr, binder, parameters, culture);
     }
 

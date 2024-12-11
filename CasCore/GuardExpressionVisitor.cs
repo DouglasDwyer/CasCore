@@ -151,7 +151,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
     {
         if (member is FieldInfo field)
         {
-            CasAssemblyLoader.AssertCanAccess(_assembly, field);
+            CasAssemblyLoader.CheckAccess(_assembly, field);
             return field;
         }
         else if (member is PropertyInfo property)

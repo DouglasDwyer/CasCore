@@ -22,9 +22,9 @@ namespace DouglasDwyer.CasCore;
 public class CasAssemblyLoader : VerifiableAssemblyLoader
 {
     /// <summary>
-    /// A mapping from assembly to its associated policy.
+    /// A mapping from assembly to its associated loader.
     /// </summary>
-    private static readonly ConditionalWeakTable<Assembly, CasPolicy> _assemblyPolicies = new ConditionalWeakTable<Assembly, CasPolicy>();
+    private static readonly ConditionalWeakTable<Assembly, CasAssemblyLoader> _assemblyLoaders = new ConditionalWeakTable<Assembly, CasAssemblyLoader>();
 
     /// <summary>
     /// A function for shallow-cloning objects.
@@ -38,9 +38,15 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     private static FieldInfo GenericInstanceTypeArguments { get; } = typeof(GenericInstanceType).GetField("arguments", BindingFlags.NonPublic | BindingFlags.Instance)!;
 
     /// <summary>
+    /// The handler that will be invoked whenever a sandboxed assembly accesses a field/method without permission.
+    /// By default, this is a <see cref="ExceptionViolationHandler"/> that will throw an exception.
+    /// </summary>
+    public ICasViolationHandler ViolationHandler { get; set; } = new ExceptionViolationHandler();
+
+    /// <summary>
     /// The policy that will apply to any assemblies created with this loader.
     /// </summary>
-    private CasPolicy _policy;
+    private readonly CasPolicy _policy;
 
     /// <summary>
     /// Creates a new loader with the given policy.
@@ -75,8 +81,19 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     public override Assembly LoadFromStream(Stream assembly, Stream? assemblySymbols)
     {
         var result = base.LoadFromStream(assembly, assemblySymbols);
-        _assemblyPolicies.Add(result, _policy);
+        _assemblyLoaders.Add(result, this);
         return result;
+    }
+
+    /// <summary>
+    /// Invokes the calling assembly's CAS violation handler for the provided method.
+    /// </summary>
+    /// <param name="handle">The field handle.</param>
+    /// <param name="type">The type handle on which the field is declared.</param>
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public static void InvokeViolationHandler(RuntimeMethodHandle handle, RuntimeTypeHandle type)
+    {
+        HandleCasViolation(Assembly.GetCallingAssembly(), MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
     /// <summary>
@@ -104,32 +121,35 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <summary>
-    /// Throws an exception if the calling assembly may not access the specified field.
+    /// Checks if the calling assembly may access the specified field.
+    /// If not, invokes the CAS violation handler.
     /// </summary>
     /// <param name="handle">The field handle.</param>
     /// <param name="type">The type handle on which the field is declared.</param>
     [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
-    public static void AssertCanAccess(RuntimeFieldHandle handle, RuntimeTypeHandle type)
+    public static void CheckAccess(RuntimeFieldHandle handle, RuntimeTypeHandle type)
     {
-        AssertCanAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle, type));
+        CheckAccess(Assembly.GetCallingAssembly(), FieldInfo.GetFieldFromHandle(handle, type));
     }
 
     /// <summary>
-    /// Throws an exception if the calling assembly may not call the specified method.
+    /// Checks if the calling assembly may call the specified method with a <c>callvirt</c> instruction.
+    /// If not, invokes the CAS violation handler.
     /// </summary>
     /// <param name="obj">The object on which the method is being invoked, if any.</param>
     /// <param name="handle">The method handle.</param>
     /// <param name="type">The type handle on which the method is declared.</param>
     [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
-    public static void AssertCanCall(object? obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
+    public static void CheckVirtualCall(object? obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
-        AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
+        CheckVirtualCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
     /// <summary>
-    /// Throws an exception if the calling assembly may not call the specified method.
+    /// Checks if the calling assembly may call the specified method with a constrained <c>callvirt</c> instruction.
+    /// If not, invokes the CAS violation handler.
     /// </summary>
     /// <typeparam name="T">The type on which the method is being invoked.</typeparam>
     /// <param name="obj">The object on which the method is being invoked, if any.</param>
@@ -137,9 +157,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     /// <param name="type">The type handle on which the method is declared.</param>
     [EditorBrowsable(EditorBrowsableState.Never)]
     [StackTraceHidden]
-    public static void AssertCanCallConstrained<T>(ref T obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
+    public static void CheckVirtualCallConstrained<T>(ref T obj, RuntimeMethodHandle handle, RuntimeTypeHandle type)
     {
-        AssertCanCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
+        CheckVirtualCall(Assembly.GetCallingAssembly(), obj, MethodBase.GetMethodFromHandle(handle, type)!);
     }
 
     /// <summary>
@@ -175,7 +195,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
         if (originalMethod == targetMethod)
         {
-            AssertCanCall(Assembly.GetCallingAssembly(), result.Target, result.Method);
+            CheckVirtualCall(Assembly.GetCallingAssembly(), result.Target, result.Method);
         }
 
         return (T)result;
@@ -186,13 +206,20 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     /// </summary>
     /// <param name="assembly">The assembly that tried to access the member.</param>
     /// <param name="info">The member being accessed.</param>
-    /// <exception cref="SecurityException">
-    /// Always raised by this method.
+    /// <exception cref="InvalidOperationException">
+    /// If the assembly did not have an associated CAS loader.
     /// </exception>
     [StackTraceHidden]
-    internal static void ThrowAccessException(Assembly assembly, MemberInfo info)
+    internal static void HandleCasViolation(Assembly assembly, MemberInfo info)
     {
-        throw new SecurityException(FormatSecurityException(assembly, info));
+        if (_assemblyLoaders.TryGetValue(assembly, out CasAssemblyLoader? loader))
+        {
+            loader.ViolationHandler.OnViolation(assembly, info);
+        }
+        else
+        {
+            throw new InvalidOperationException($"Sandboxed loader for {assembly} did not exist");
+        }
     }
 
     /// <summary>
@@ -201,11 +228,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     /// <param name="assembly">The assembly attempting the access.</param>
     /// <param name="field">The field being accessed.</param>
     [StackTraceHidden]
-    internal static void AssertCanAccess(Assembly assembly, FieldInfo field)
+    internal static void CheckAccess(Assembly assembly, FieldInfo field)
     {
         if (!CanAccess(assembly, field))
         {
-            ThrowAccessException(assembly, field);
+            HandleCasViolation(assembly, field);
         }
     }
 
@@ -216,11 +243,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     /// <param name="obj">The object on which the method is being invoked, if any.</param>
     /// <param name="method">The method being called.</param>
     [StackTraceHidden]
-    internal static void AssertCanCall(Assembly assembly, object? obj, MethodBase method)
+    internal static void CheckVirtualCall(Assembly assembly, object? obj, MethodBase method)
     {
         if (!CanCall(assembly, obj, ref method))
         {
-            ThrowAccessException(assembly, method);
+            HandleCasViolation(assembly, method);
         }
     }
 
@@ -232,10 +259,10 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     /// <returns>Whether the method is always callable.</returns>
     internal static bool CanCallAlways(Assembly assembly, MethodBase method)
     {
-        if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
+        if (_assemblyLoaders.TryGetValue(assembly, out CasAssemblyLoader? loader))
         {
             var virtualMethod = method.IsVirtual && !method.IsFinal;
-            return SameLoadContext(assembly, method) || (!virtualMethod && policy.CanAccess(method));
+            return SameAssemblyLoader(loader, method) || (!virtualMethod && loader._policy.CanAccess(method));
         }
         else
         {
@@ -298,9 +325,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     /// </exception>
     private static bool CanAccess(Assembly assembly, FieldInfo field)
     {
-        if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
+        if (_assemblyLoaders.TryGetValue(assembly, out CasAssemblyLoader? loader))
         {
-            return SameLoadContext(assembly, field) || policy.CanAccess(field);
+            return SameAssemblyLoader(loader, field) || loader._policy.CanAccess(field);
         }
         else
         {
@@ -320,10 +347,10 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     /// </exception>
     private static bool CanCall(Assembly assembly, object? obj, ref MethodBase method)
     {
-        if (_assemblyPolicies.TryGetValue(assembly, out CasPolicy? policy))
+        if (_assemblyLoaders.TryGetValue(assembly, out CasAssemblyLoader? loader))
         {
             method = LateBindingResolver.GetTargetMethod(obj, method);
-            return SameLoadContext(assembly, method) || policy.CanAccess(method);
+            return SameAssemblyLoader(loader, method) || loader._policy.CanAccess(method);
         }
         else
         {
@@ -332,14 +359,21 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <summary>
-    /// Determines if the provided member exists within the same <see cref="AssemblyLoadContext"/>.
+    /// Determines if the provided member exists within the same <see cref="CasAssemblyLoader"/>.
     /// </summary>
-    /// <param name="assembly">The assembly.</param>
+    /// <param name="loader">The loader against which to compare.</param>
     /// <param name="member">The member.</param>
     /// <returns>Whether the member and assembly share a load context.</returns>
-    private static bool SameLoadContext(Assembly assembly, MemberInfo member)
+    private static bool SameAssemblyLoader(CasAssemblyLoader loader, MemberInfo member)
     {
-        return AssemblyLoadContext.GetLoadContext(assembly) == AssemblyLoadContext.GetLoadContext(member.Module.Assembly);
+        if (_assemblyLoaders.TryGetValue(member.Module.Assembly, out CasAssemblyLoader? memberLoader))
+        {
+            return loader == memberLoader;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /// <summary>
@@ -437,7 +471,7 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Insert(Instruction.Create(OpCodes.Brtrue, branchTarget));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, target));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, target.DeclaringType));
-        rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanAccess));
+        rewriter.Insert(Instruction.Create(OpCodes.Call, references.CheckAccess));
         rewriter.Insert(branchTarget);
         rewriter.Advance(true);
     }
@@ -565,13 +599,13 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
 
         if (isConstrained)
         {
-            var genericAssert = new GenericInstanceMethod(references.AssertCanCallConstrained);
+            var genericAssert = new GenericInstanceMethod(references.CheckVirtualCallConstrained);
             genericAssert.GenericArguments.Add((TypeReference)rewriter.Instruction.Previous!.Operand);
             rewriter.Insert(Instruction.Create(OpCodes.Call, genericAssert));
         }
         else
         {
-            rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanCall));
+            rewriter.Insert(Instruction.Create(OpCodes.Call, references.CheckVirtualCall));
         }
 
         foreach (var local in locals)
@@ -595,10 +629,9 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         rewriter.Insert(Instruction.Create(OpCodes.Ldsfld, accessConstant));
         var branchTarget = Instruction.Create(OpCodes.Nop);
         rewriter.Insert(Instruction.Create(OpCodes.Brtrue, branchTarget));
-        rewriter.Insert(Instruction.Create(OpCodes.Ldnull));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, target));
         rewriter.Insert(Instruction.Create(OpCodes.Ldtoken, target.DeclaringType));
-        rewriter.Insert(Instruction.Create(OpCodes.Call, references.AssertCanCall));
+        rewriter.Insert(Instruction.Create(OpCodes.Call, references.InvokeViolationHandler));
         rewriter.Insert(branchTarget);
     }
 
@@ -688,10 +721,11 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return new ImportedReferences
         {
             ShimmedMethods = ImportShims(module),
-            AssertCanAccess = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(AssertCanAccess))),
-            AssertCanCall = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(AssertCanCall))),
-            AssertCanCallConstrained = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(AssertCanCallConstrained))),
+            CheckAccess = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CheckAccess))),
+            CheckVirtualCall = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CheckVirtualCall))),
+            CheckVirtualCallConstrained = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CheckVirtualCallConstrained))),
             CreateCheckedDelegate = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CreateCheckedDelegate))),
+            InvokeViolationHandler = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(InvokeViolationHandler))),
             BoolType = module.ImportReference(typeof(bool)),
             CanAccess = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CanAccess))),
             CanCallAlways = module.ImportReference(typeof(CasAssemblyLoader).GetMethod(nameof(CanCallAlways))),
@@ -711,17 +745,6 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <summary>
-    /// Produces the text description for a security access exception.
-    /// </summary>
-    /// <param name="assembly">The assembly that attempted the illegal access.</param>
-    /// <param name="member">The member that was accessed.</param>
-    /// <returns>A string describing the problem.</returns>
-    private static string FormatSecurityException(Assembly assembly, MemberInfo member)
-    {
-        return FormatSecurityException(assembly.GetName().Name, member);
-    }
-
-    /// <summary>
     /// Determines whether the given method was a part of the original assembly
     /// (as opposed to being an added method for JIT IL verification).
     /// </summary>
@@ -735,23 +758,5 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         return 2 <= method.Body.Instructions.Count
             && method.Body.Instructions[0].OpCode.Code == Code.Ldsfld
             && method.Body.Instructions[1].OpCode.Code == Code.Pop;
-    }
-
-    /// <summary>
-    /// Creates a string describing a member access security violation.
-    /// </summary>
-    /// <param name="assemblyName">The assembly that attempted to access a member.</param>
-    /// <param name="member">The member which the assembly is not allowed to access.</param>
-    /// <returns>The string describing the error.</returns>
-    private static string FormatSecurityException(string? assemblyName, MemberInfo member)
-    {
-        if (assemblyName is null)
-        {
-            return $"Assembly does not have permission to access {member} of {member.DeclaringType}.";
-        }
-        else
-        {
-            return $"Assembly {assemblyName} does not have permission to access {member} of {member.DeclaringType}.";
-        }
     }
 }

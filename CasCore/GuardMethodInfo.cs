@@ -107,7 +107,7 @@ internal class GuardMethodInfo : MethodInfo
     /// <inheritdoc/>
     public override object? Invoke(object? obj, BindingFlags invokeAttr, Binder? binder, object?[]? parameters, CultureInfo? culture)
     {
-        CasAssemblyLoader.AssertCanCall(_assembly, obj, _inner);
+        CasAssemblyLoader.CheckVirtualCall(_assembly, obj, _inner);
         return _inner.Invoke(obj, invokeAttr, binder, parameters, culture);
     }
 
