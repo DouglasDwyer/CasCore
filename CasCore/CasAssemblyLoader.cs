@@ -263,7 +263,8 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
         if (_assemblyLoaders.TryGetValue(assembly, out CasAssemblyLoader? loader))
         {
             var virtualMethod = method.IsVirtual && !method.IsFinal;
-            return SameAssemblyLoader(loader, method) || (!virtualMethod && loader._policy.CanAccess(method));
+            var overridePossible = virtualMethod && !method.DeclaringType!.IsSealed;
+            return SameAssemblyLoader(loader, method) || (!overridePossible && loader._policy.CanAccess(method));
         }
         else
         {
