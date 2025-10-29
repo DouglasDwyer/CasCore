@@ -289,6 +289,11 @@ public static class MethodShims
             CasAssemblyLoader.HandleCasViolation(Assembly.GetCallingAssembly(), target);
         }
 
+        if (target.IsInitOnly)
+        {
+            CasAssemblyLoader.HandleCasViolation(Assembly.GetCallingAssembly(), target);
+        }
+
         target.SetValue(obj, value);
     }
 
@@ -297,6 +302,11 @@ public static class MethodShims
         CasAssemblyLoader.CheckAccess(Assembly.GetCallingAssembly(), target);
 
         if (target.DeclaringType!.Namespace == "DouglasDwyer.CasCore.Guard")
+        {
+            CasAssemblyLoader.HandleCasViolation(Assembly.GetCallingAssembly(), target);
+        }
+
+        if (target.IsInitOnly)
         {
             CasAssemblyLoader.HandleCasViolation(Assembly.GetCallingAssembly(), target);
         }
@@ -347,6 +357,11 @@ public static class MethodShims
         }
         else
         {
+            if (target.IsConstructor)
+            {
+                CasAssemblyLoader.HandleCasViolation(Assembly.GetCallingAssembly(), target);
+            }
+
             CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, target);
             return target.Invoke(obj, parameters);
         }
@@ -371,6 +386,11 @@ public static class MethodShims
         }
         else
         {
+            if (target.IsConstructor)
+            {
+                CasAssemblyLoader.HandleCasViolation(Assembly.GetCallingAssembly(), target);
+            }
+
             CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, target);
             return target.Invoke(obj, invokeAttr, binder, parameters, culture);
         }

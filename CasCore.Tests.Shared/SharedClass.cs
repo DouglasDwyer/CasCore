@@ -3,9 +3,11 @@
 public class SharedClass : ISharedInterface
 {
     public static int AllowedStaticField = 29;
+    public static readonly int AllowedReadonlyStaticField = 31;
     public static int DeniedStaticField = 30;
 
     public int AllowedField = 1;
+    public readonly int AllowedReadonlyField = 1;
     public int DeniedField = 4;
 
     public int DeniedProperty { get; } = 20;

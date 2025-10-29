@@ -10,6 +10,8 @@
 - The assembly may only access a field if it exists within the same assembly, another assembly in the same [`AssemblyLoadContext`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.loader.assemblyloadcontext), or on the assembly's `CasPolicy` whitelist. Any attempt to read/write an inaccessible field fails with a [`System.SecurityException`](https://learn.microsoft.com/en-us/dotnet/api/system.security.securityexception).
 - The assembly may only call a method if it exists within the same assembly, another assembly in the same [`AssemblyLoadContext`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.loader.assemblyloadcontext), or on the assembly's `CasPolicy` whitelist. Attempts to call inaccessible methods also fail with an exception.
 - The assembly may only use reflection APIs to access allowed fields/methods. Attempts with reflection to access invalid fields/methods (according to the same rules as above) also fail with an exception.
+  - The assembly may not call constructors on existing objects, even allowed constructors.
+  - The assembly may not set `readonly` fields via reflection, even allowed fields.
 - The assembly may only create delegates for allowed methods; attempts to create delegates for invalid methods also fail with an exception.
 - The assembly may only use [`LambdaExpression.Compile`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.lambdaexpression.compile) for expression trees with allowed fields/methods; attempts to create and execute expression trees with invalid methods also fail with an exception.
 
