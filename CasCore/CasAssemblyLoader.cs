@@ -98,6 +98,27 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
     }
 
     /// <summary>
+    /// Determines whether the given assembly may access the specified field.
+    /// </summary>
+    /// <param name="assembly">The assembly attempting the access.</param>
+    /// <param name="field">The field being accessed.</param>
+    /// <returns>Whether the assembly has permission to access the field.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// If no policy was associated with the given assembly.
+    /// </exception>
+    public static bool CanAccess(Assembly assembly, FieldInfo field)
+    {
+        if (_assemblyLoaders.TryGetValue(assembly, out CasAssemblyLoader? loader))
+        {
+            return SameAssemblyLoader(loader, field) || loader._policy.CanAccess(field);
+        }
+        else
+        {
+            throw new InvalidOperationException($"No policy set for assembly {assembly}.");
+        }
+    }
+
+    /// <summary>
     /// Determines whether the calling assembly may access the specified field.
     /// </summary>
     /// <param name="handle">The field handle.</param>
@@ -313,27 +334,6 @@ public class CasAssemblyLoader : VerifiableAssemblyLoader
                 guardWriter.Finish();
                 id++;
             }
-        }
-    }
-
-    /// <summary>
-    /// Determines whether the given assembly may access the specified field.
-    /// </summary>
-    /// <param name="assembly">The assembly attempting the access.</param>
-    /// <param name="field">The field being accessed.</param>
-    /// <returns>Whether the assembly has permission to access the field.</returns>
-    /// <exception cref="InvalidOperationException">
-    /// If no policy was associated with the given assembly.
-    /// </exception>
-    private static bool CanAccess(Assembly assembly, FieldInfo field)
-    {
-        if (_assemblyLoaders.TryGetValue(assembly, out CasAssemblyLoader? loader))
-        {
-            return SameAssemblyLoader(loader, field) || loader._policy.CanAccess(field);
-        }
-        else
-        {
-            throw new InvalidOperationException($"No policy set for assembly {assembly}.");
         }
     }
 
