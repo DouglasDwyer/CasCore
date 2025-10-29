@@ -39,7 +39,7 @@
       "_appName": "CasCore",
       "_appTitle": "CasCore",
       "_enableSearch": true,
-      "pdf": true
+      "pdf": false
     }
   }
 }

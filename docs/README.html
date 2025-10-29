@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -63,7 +63,7 @@
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -79,7 +79,12 @@
 <li>The CIL bytecode of the assembly's methods must be valid and verifiable. Any unverifiable method will throw a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.typeinitializationexception"><code>TypeInitializationException</code></a> when called.</li>
 <li>The assembly may only access a field if it exists within the same assembly, another assembly in the same <a href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.loader.assemblyloadcontext"><code>AssemblyLoadContext</code></a>, or on the assembly's <code>CasPolicy</code> whitelist. Any attempt to read/write an inaccessible field fails with a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.security.securityexception"><code>System.SecurityException</code></a>.</li>
 <li>The assembly may only call a method if it exists within the same assembly, another assembly in the same <a href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.loader.assemblyloadcontext"><code>AssemblyLoadContext</code></a>, or on the assembly's <code>CasPolicy</code> whitelist. Attempts to call inaccessible methods also fail with an exception.</li>
-<li>The assembly may only use reflection APIs to access allowed fields/methods. Attempts with reflection to access invalid fields/methods (according to the same rules as above) also fail with an exception.</li>
+<li>The assembly may only use reflection APIs to access allowed fields/methods. Attempts with reflection to access invalid fields/methods (according to the same rules as above) also fail with an exception.
+<ul>
+<li>The assembly may not call constructors on existing objects, even allowed constructors.</li>
+<li>The assembly may not set <code>readonly</code> fields via reflection, even allowed fields.</li>
+</ul>
+</li>
 <li>The assembly may only create delegates for allowed methods; attempts to create delegates for invalid methods also fail with an exception.</li>
 <li>The assembly may only use <a href="https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.lambdaexpression.compile"><code>LambdaExpression.Compile</code></a> for expression trees with allowed fields/methods; attempts to create and execute expression trees with invalid methods also fail with an exception.</li>
 </ul>

@@ -2,23 +2,33 @@
 items:
 - uid: DouglasDwyer.CasCore
   name: DouglasDwyer.CasCore
+  type: Namespace
   items:
   - uid: DouglasDwyer.CasCore.Accessibility
     name: Accessibility
+    type: Enum
   - uid: DouglasDwyer.CasCore.AssemblyBinding
     name: AssemblyBinding
+    type: Class
   - uid: DouglasDwyer.CasCore.CasAssemblyLoader
     name: CasAssemblyLoader
+    type: Class
   - uid: DouglasDwyer.CasCore.CasPolicy
     name: CasPolicy
+    type: Class
   - uid: DouglasDwyer.CasCore.CasPolicyBuilder
     name: CasPolicyBuilder
+    type: Class
   - uid: DouglasDwyer.CasCore.CasPolicyBuilderExtensions
     name: CasPolicyBuilderExtensions
+    type: Class
   - uid: DouglasDwyer.CasCore.ExceptionViolationHandler
     name: ExceptionViolationHandler
+    type: Class
   - uid: DouglasDwyer.CasCore.ICasViolationHandler
     name: ICasViolationHandler
+    type: Interface
   - uid: DouglasDwyer.CasCore.TypeBinding
     name: TypeBinding
+    type: Class
 memberLayout: SamePage

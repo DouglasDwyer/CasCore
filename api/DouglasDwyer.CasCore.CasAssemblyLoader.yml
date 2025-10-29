@@ -8,6 +8,7 @@ items:
   - DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy)
   - DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.Boolean)
   - DouglasDwyer.CasCore.CasAssemblyLoader.#ctor(DouglasDwyer.CasCore.CasPolicy,System.String,System.Boolean)
+  - DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess(System.Reflection.Assembly,System.Reflection.FieldInfo)
   - DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
   - DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)
   - DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream,System.IO.Stream)
@@ -254,6 +255,48 @@ items:
   nameWithType.vb: CasAssemblyLoader.LoadFromStream(Stream, Stream)
   fullName.vb: DouglasDwyer.CasCore.CasAssemblyLoader.LoadFromStream(System.IO.Stream, System.IO.Stream)
   name.vb: LoadFromStream(Stream, Stream)
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess(System.Reflection.Assembly,System.Reflection.FieldInfo)
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess(System.Reflection.Assembly,System.Reflection.FieldInfo)
+  id: CanAccess(System.Reflection.Assembly,System.Reflection.FieldInfo)
+  parent: DouglasDwyer.CasCore.CasAssemblyLoader
+  langs:
+  - csharp
+  - vb
+  name: CanAccess(Assembly, FieldInfo)
+  nameWithType: CasAssemblyLoader.CanAccess(Assembly, FieldInfo)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess(System.Reflection.Assembly, System.Reflection.FieldInfo)
+  type: Method
+  source:
+    remote:
+      path: CasCore/CasAssemblyLoader.cs
+      branch: main
+      repo: https://github.com/DouglasDwyer/CasCore.git
+    id: CanAccess
+    path: CasCore/CasAssemblyLoader.cs
+    startLine: 108
+  assemblies:
+  - CasCore
+  namespace: DouglasDwyer.CasCore
+  summary: Determines whether the given assembly may access the specified field.
+  example: []
+  syntax:
+    content: public static bool CanAccess(Assembly assembly, FieldInfo field)
+    parameters:
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: The assembly attempting the access.
+    - id: field
+      type: System.Reflection.FieldInfo
+      description: The field being accessed.
+    return:
+      type: System.Boolean
+      description: Whether the assembly has permission to access the field.
+    content.vb: Public Shared Function CanAccess(assembly As Assembly, field As FieldInfo) As Boolean
+  overload: DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: If no policy was associated with the given assembly.
 - uid: DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)
   commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)
   id: Load(System.Reflection.AssemblyName)
@@ -272,7 +315,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: Load
     path: CasCore/CasAssemblyLoader.cs
-    startLine: 274
+    startLine: 296
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -308,7 +351,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: LoadUnmanagedDll
     path: CasCore/CasAssemblyLoader.cs
-    startLine: 286
+    startLine: 308
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -347,7 +390,7 @@ items:
       repo: https://github.com/DouglasDwyer/CasCore.git
     id: InstrumentAssembly
     path: CasCore/CasAssemblyLoader.cs
-    startLine: 292
+    startLine: 314
   assemblies:
   - CasCore
   namespace: DouglasDwyer.CasCore
@@ -1068,6 +1111,27 @@ references:
     name: Reflection
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.reflection
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess*
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess
+  href: DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_CanAccess_System_Reflection_Assembly_System_Reflection_FieldInfo_
+  name: CanAccess
+  nameWithType: CasAssemblyLoader.CanAccess
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess
+- uid: System.Reflection.FieldInfo
+  commentId: T:System.Reflection.FieldInfo
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.fieldinfo
+  name: FieldInfo
+  nameWithType: FieldInfo
+  fullName: System.Reflection.FieldInfo
 - uid: System.Reflection.AssemblyName
   commentId: T:System.Reflection.AssemblyName
   parent: System.Reflection

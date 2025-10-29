@@ -118,6 +118,19 @@ references:
   fullName.vb: DouglasDwyer.CasCore.CasAssemblyLoader.New
   nameWithType: CasAssemblyLoader.CasAssemblyLoader
   nameWithType.vb: CasAssemblyLoader.New
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess(System.Reflection.Assembly,System.Reflection.FieldInfo)
+  name: CanAccess(Assembly, FieldInfo)
+  href: api/DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_CanAccess_System_Reflection_Assembly_System_Reflection_FieldInfo_
+  commentId: M:DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess(System.Reflection.Assembly,System.Reflection.FieldInfo)
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess(System.Reflection.Assembly, System.Reflection.FieldInfo)
+  nameWithType: CasAssemblyLoader.CanAccess(Assembly, FieldInfo)
+- uid: DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess*
+  name: CanAccess
+  href: api/DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_CanAccess_
+  commentId: Overload:DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess
+  isSpec: "True"
+  fullName: DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess
+  nameWithType: CasAssemblyLoader.CanAccess
 - uid: DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)
   name: InstrumentAssembly(AssemblyDefinition)
   href: api/DouglasDwyer.CasCore.CasAssemblyLoader.html#DouglasDwyer_CasCore_CasAssemblyLoader_InstrumentAssembly_Mono_Cecil_AssemblyDefinition_
@@ -195,6 +208,25 @@ references:
   commentId: T:DouglasDwyer.CasCore.CasPolicy
   fullName: DouglasDwyer.CasCore.CasPolicy
   nameWithType: CasPolicy
+- uid: DouglasDwyer.CasCore.CasPolicy.CanAccess(System.Reflection.FieldInfo)
+  name: CanAccess(FieldInfo)
+  href: api/DouglasDwyer.CasCore.CasPolicy.html#DouglasDwyer_CasCore_CasPolicy_CanAccess_System_Reflection_FieldInfo_
+  commentId: M:DouglasDwyer.CasCore.CasPolicy.CanAccess(System.Reflection.FieldInfo)
+  fullName: DouglasDwyer.CasCore.CasPolicy.CanAccess(System.Reflection.FieldInfo)
+  nameWithType: CasPolicy.CanAccess(FieldInfo)
+- uid: DouglasDwyer.CasCore.CasPolicy.CanAccess(System.Reflection.MethodBase)
+  name: CanAccess(MethodBase)
+  href: api/DouglasDwyer.CasCore.CasPolicy.html#DouglasDwyer_CasCore_CasPolicy_CanAccess_System_Reflection_MethodBase_
+  commentId: M:DouglasDwyer.CasCore.CasPolicy.CanAccess(System.Reflection.MethodBase)
+  fullName: DouglasDwyer.CasCore.CasPolicy.CanAccess(System.Reflection.MethodBase)
+  nameWithType: CasPolicy.CanAccess(MethodBase)
+- uid: DouglasDwyer.CasCore.CasPolicy.CanAccess*
+  name: CanAccess
+  href: api/DouglasDwyer.CasCore.CasPolicy.html#DouglasDwyer_CasCore_CasPolicy_CanAccess_
+  commentId: Overload:DouglasDwyer.CasCore.CasPolicy.CanAccess
+  isSpec: "True"
+  fullName: DouglasDwyer.CasCore.CasPolicy.CanAccess
+  nameWithType: CasPolicy.CanAccess
 - uid: DouglasDwyer.CasCore.CasPolicyBuilder
   name: CasPolicyBuilder
   href: api/DouglasDwyer.CasCore.CasPolicyBuilder.html

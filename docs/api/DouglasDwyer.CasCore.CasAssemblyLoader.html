@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -63,7 +63,7 @@
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -318,10 +318,82 @@ By default, this is a <a class="xref" href="DouglasDwyer.CasCore.ExceptionViolat
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader_CanAccess_System_Reflection_Assembly_System_Reflection_FieldInfo_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess(System.Reflection.Assembly%2CSystem.Reflection.FieldInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L109">View Source</a>
+  </span>
+  <a id="DouglasDwyer_CasCore_CasAssemblyLoader_CanAccess_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess*"></a>
+  <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader_CanAccess_System_Reflection_Assembly_System_Reflection_FieldInfo_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.CanAccess(System.Reflection.Assembly,System.Reflection.FieldInfo)">CanAccess(Assembly, FieldInfo)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the given assembly may access the specified field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool CanAccess(Assembly assembly, FieldInfo field)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></td>
+        <td><span class="parametername">assembly</span></td>
+        <td><p>The assembly attempting the access.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.fieldinfo">FieldInfo</a></td>
+        <td><span class="parametername">field</span></td>
+        <td><p>The field being accessed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>Whether the assembly has permission to access the field.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>If no policy was associated with the given assembly.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader_InstrumentAssembly_Mono_Cecil_AssemblyDefinition_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L293">View Source</a>
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L315">View Source</a>
   </span>
   <a id="DouglasDwyer_CasCore_CasAssemblyLoader_InstrumentAssembly_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly*"></a>
   <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader_InstrumentAssembly_Mono_Cecil_AssemblyDefinition_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.InstrumentAssembly(Mono.Cecil.AssemblyDefinition)">InstrumentAssembly(AssemblyDefinition)</h4>
@@ -358,7 +430,7 @@ any method is invoked, it will call the verifier on itself.</p>
     <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader_Load_System_Reflection_AssemblyName_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L275">View Source</a>
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L297">View Source</a>
   </span>
   <a id="DouglasDwyer_CasCore_CasAssemblyLoader_Load_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.Load*"></a>
   <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader_Load_System_Reflection_AssemblyName_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.Load(System.Reflection.AssemblyName)">Load(AssemblyName)</h4>
@@ -468,7 +540,7 @@ any method is invoked, it will call the verifier on itself.</p>
     <a href="https://github.com/DouglasDwyer/CasCore/new/main/apiSpec/new?filename=DouglasDwyer_CasCore_CasAssemblyLoader_LoadUnmanagedDll_System_String_.md&amp;value=---%0Auid%3A%20DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L287">View Source</a>
+    <a href="https://github.com/DouglasDwyer/CasCore/blob/main/CasCore/CasAssemblyLoader.cs/#L309">View Source</a>
   </span>
   <a id="DouglasDwyer_CasCore_CasAssemblyLoader_LoadUnmanagedDll_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll*"></a>
   <h4 id="DouglasDwyer_CasCore_CasAssemblyLoader_LoadUnmanagedDll_System_String_" data-uid="DouglasDwyer.CasCore.CasAssemblyLoader.LoadUnmanagedDll(System.String)">LoadUnmanagedDll(string)</h4>
