@@ -97,7 +97,7 @@ public static class TestReflection
         var instanceValue = instanceField.GetValue(new SharedClass());
     }
 
-    [TestException(typeof(FieldAccessException))]
+    [TestException(typeof(SecurityException))]
     public static void TestAccessDeniedSetStaticReadonly()
     {
         var staticField = typeof(SharedClass).GetField(nameof(SharedClass.AllowedReadonlyStaticField))!;
@@ -107,7 +107,7 @@ public static class TestReflection
     [TestException(typeof(SecurityException))]
     public static void TestAccessDeniedSetInstanceReadonly()
     {
-        var instanceField = typeof(SharedClass).GetField(nameof(SharedClass.AllowedField))!;
+        var instanceField = typeof(SharedClass).GetField(nameof(SharedClass.AllowedReadonlyField))!;
         instanceField.SetValue(new SharedClass(), 91);
     }
 
