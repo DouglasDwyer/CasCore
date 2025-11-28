@@ -232,7 +232,7 @@ public static class CasPolicyBuilderExtensions
     /// <returns>The modified builder.</returns>
     public static CasPolicyBuilder WithSandboxedSystemConsole(this CasPolicyBuilder builder)
     {
-        return builder
+        var result = builder
             .Allow(new TypeBinding(typeof(System.Console), Accessibility.None)
                 .WithMethod("get_In", Accessibility.Protected)
                 .WithMethod("get_InputEncoding", Accessibility.Protected)
@@ -381,36 +381,51 @@ public static class CasPolicyBuilderExtensions
                 .WithMethod("GetMaxCharCount", Accessibility.Public)
                 .WithMethod("GetString", [typeof(System.Byte[] /*bytes*/),], Accessibility.Public)
                 .WithMethod("GetString", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/),], Accessibility.Public))
-            .Allow(new TypeBinding(Type.GetType("System.Text.OSEncoding, System.Console")!, Accessibility.None)
-                .WithMethod("GetByteCount", [typeof(System.Char[] /*chars*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/),], Accessibility.Public)
-                .WithMethod("GetByteCount", [typeof(System.String /*s*/),], Accessibility.Public)
-                .WithMethod("GetBytes", [typeof(System.String /*s*/), typeof(System.Int32 /*charIndex*/), typeof(System.Int32 /*charCount*/), typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/),], Accessibility.Public)
-                .WithMethod("GetBytes", [typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/), typeof(System.Int32 /*charCount*/), typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/),], Accessibility.Public)
-                .WithMethod("GetCharCount", [typeof(System.Byte[] /*bytes*/),], Accessibility.Protected)
-                .WithMethod("GetCharCount", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/),], Accessibility.Protected)
-                .WithMethod("GetCharCount", [typeof(System.ReadOnlySpan<System.Byte> /*bytes*/),], Accessibility.Protected)
-                .WithMethod("GetChars", [typeof(System.Byte[] /*bytes*/),], Accessibility.Protected)
-                .WithMethod("GetChars", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/),], Accessibility.Protected)
-                .WithMethod("GetChars", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/), typeof(System.Int32 /*byteCount*/), typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/),], Accessibility.Protected)
-                .WithMethod("GetMaxByteCount", Accessibility.Public)
-                .WithMethod("GetMaxCharCount", Accessibility.Public)
-                .WithMethod("get_EncodingName", Accessibility.Public)
-                .WithMethod("GetEncoder", Accessibility.Public)
-                .WithMethod("GetDecoder", Accessibility.Public))
-            .Allow(new TypeBinding(Type.GetType("System.Text.OSEncoder, System.Console")!, Accessibility.None)
+            .Allow(new TypeBinding(Type.GetType("System.IO.ConsoleStream, System.Console")!, Accessibility.Public))
+            .Allow(new TypeBinding(Type.GetType("System.IO.SyncTextReader, System.Console")!, Accessibility.Public));
+
+        if (Type.GetType("System.Text.OSEncoding, System.Console") is Type osEncoding)
+        {
+            result = result.Allow(new TypeBinding(osEncoding, Accessibility.None)
+                    .WithMethod("GetByteCount", [typeof(System.Char[] /*chars*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/),], Accessibility.Public)
+                    .WithMethod("GetByteCount", [typeof(System.String /*s*/),], Accessibility.Public)
+                    .WithMethod("GetBytes", [typeof(System.String /*s*/), typeof(System.Int32 /*charIndex*/), typeof(System.Int32 /*charCount*/), typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/),], Accessibility.Public)
+                    .WithMethod("GetBytes", [typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/), typeof(System.Int32 /*charCount*/), typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/),], Accessibility.Public)
+                    .WithMethod("GetCharCount", [typeof(System.Byte[] /*bytes*/),], Accessibility.Protected)
+                    .WithMethod("GetCharCount", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/),], Accessibility.Protected)
+                    .WithMethod("GetCharCount", [typeof(System.ReadOnlySpan<System.Byte> /*bytes*/),], Accessibility.Protected)
+                    .WithMethod("GetChars", [typeof(System.Byte[] /*bytes*/),], Accessibility.Protected)
+                    .WithMethod("GetChars", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/),], Accessibility.Protected)
+                    .WithMethod("GetChars", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/), typeof(System.Int32 /*byteCount*/), typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/),], Accessibility.Protected)
+                    .WithMethod("GetMaxByteCount", Accessibility.Public)
+                    .WithMethod("GetMaxCharCount", Accessibility.Public)
+                    .WithMethod("get_EncodingName", Accessibility.Public)
+                    .WithMethod("GetEncoder", Accessibility.Public)
+                    .WithMethod("GetDecoder", Accessibility.Public));
+        }
+
+        if (Type.GetType("System.Text.OSEncoder, System.Console") is Type osEncoder)
+        {
+            result = result.Allow(new TypeBinding(osEncoder, Accessibility.None)
                 .WithMethod("Reset", Accessibility.Public)
                 .WithMethod("GetByteCount", [typeof(System.Char[] /*chars*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/), typeof(System.Boolean /*flush*/),], Accessibility.Public)
                 .WithMethod("GetBytes", [typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/), typeof(System.Int32 /*charCount*/), typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/), typeof(System.Boolean /*flush*/),], Accessibility.Public)
-                .WithMethod("Convert", [typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/), typeof(System.Int32 /*charCount*/), typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/), typeof(System.Int32 /*byteCount*/), typeof(System.Boolean /*flush*/), typeof(System.Int32 /*charsUsed*/).MakeByRefType(), typeof(System.Int32 /*bytesUsed*/).MakeByRefType(), typeof(System.Boolean /*completed*/).MakeByRefType(),], Accessibility.Public))
-            .Allow(new TypeBinding(Type.GetType("System.Text.DecoderDBCS, System.Console")!, Accessibility.None)
+                .WithMethod("Convert", [typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/), typeof(System.Int32 /*charCount*/), typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/), typeof(System.Int32 /*byteCount*/), typeof(System.Boolean /*flush*/), typeof(System.Int32 /*charsUsed*/).MakeByRefType(), typeof(System.Int32 /*bytesUsed*/).MakeByRefType(), typeof(System.Boolean /*completed*/).MakeByRefType(),], Accessibility.Public));
+        }
+
+        if (Type.GetType("System.Text.DecoderDBCS, System.Console") is Type decoderDbcs)
+        {
+            result = result
+            .Allow(new TypeBinding(decoderDbcs, Accessibility.None)
                 .WithMethod("Reset", Accessibility.Public)
                 .WithMethod("GetCharCount", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/),], Accessibility.Public)
                 .WithMethod("GetCharCount", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*index*/), typeof(System.Int32 /*count*/), typeof(System.Boolean /*flush*/),], Accessibility.Public)
                 .WithMethod("GetChars", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/), typeof(System.Int32 /*byteCount*/), typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/),], Accessibility.Public)
                 .WithMethod("GetChars", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/), typeof(System.Int32 /*byteCount*/), typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/), typeof(System.Boolean /*flush*/),], Accessibility.Public)
-                .WithMethod("Convert", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/), typeof(System.Int32 /*byteCount*/), typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/), typeof(System.Int32 /*charCount*/), typeof(System.Boolean /*flush*/), typeof(System.Int32 /*bytesUsed*/).MakeByRefType(), typeof(System.Int32 /*charsUsed*/).MakeByRefType(), typeof(System.Boolean /*completed*/).MakeByRefType(),], Accessibility.Public))
-            .Allow(new TypeBinding(Type.GetType("System.IO.ConsoleStream, System.Console")!, Accessibility.Public))
-            .Allow(new TypeBinding(Type.GetType("System.IO.SyncTextReader, System.Console")!, Accessibility.Public));
+                .WithMethod("Convert", [typeof(System.Byte[] /*bytes*/), typeof(System.Int32 /*byteIndex*/), typeof(System.Int32 /*byteCount*/), typeof(System.Char[] /*chars*/), typeof(System.Int32 /*charIndex*/), typeof(System.Int32 /*charCount*/), typeof(System.Boolean /*flush*/), typeof(System.Int32 /*bytesUsed*/).MakeByRefType(), typeof(System.Int32 /*charsUsed*/).MakeByRefType(), typeof(System.Boolean /*completed*/).MakeByRefType(),], Accessibility.Public));
+        }
+
+        return result;
     }
 
     /// <summary>
