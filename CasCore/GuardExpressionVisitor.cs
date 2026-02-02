@@ -39,7 +39,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
         }
         else
         {
-            return VisitBinary(node);
+            return node;
         }
     }
 
