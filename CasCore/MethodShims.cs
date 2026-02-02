@@ -149,7 +149,7 @@ public static class MethodShims
     [StaticShim(typeof(Activator))]
     public static T CreateInstance<T>()
     {
-        if (!typeof(T).IsPrimitive)
+        if (!typeof(T).IsPrimitive && typeof(T).GetConstructors().Length > 0)
         {
             var constructor = typeof(T).GetConstructor([]);
 
@@ -183,7 +183,7 @@ public static class MethodShims
 
     private static object? CreateInstance(Assembly assembly, Type type, bool nonPublic)
     {
-        if (!type.IsPrimitive)
+        if (!type.IsPrimitive && type.GetConstructors().Length > 0)
         {
             ArgumentNullException.ThrowIfNull(type);
             var constructor = type.GetConstructor([]);

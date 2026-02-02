@@ -106,7 +106,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
     {
         if (node.Constructor is null)
         {
-            throw new SecurityException("Compiling System.Linq.Expressions.NewExpression with null constructor not supported in CAS contexts.");
+            return node;
         }
         else if (node.Members is null)
         {
