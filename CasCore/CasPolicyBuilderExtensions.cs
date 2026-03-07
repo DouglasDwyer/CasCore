@@ -1062,7 +1062,9 @@ public static class CasPolicyBuilderExtensions
                 .WithMethod("EqualsAny", Accessibility.Protected)
                 .WithMethod("Floor", [typeof(System.Numerics.Vector<System.Double> /*value*/),], Accessibility.Protected)
                 .WithMethod("Floor", [typeof(System.Numerics.Vector<System.Single> /*value*/),], Accessibility.Protected)
+#if !NET10_0_OR_GREATER
                 .WithMethod("GetElement", Accessibility.Protected)
+#endif
                 .WithMethod("GreaterThan", [typeof(System.Numerics.Vector<> /*left*/), typeof(System.Numerics.Vector<> /*right*/),], Accessibility.Protected)
                 .WithMethod("GreaterThan", [typeof(System.Numerics.Vector<System.Double> /*left*/), typeof(System.Numerics.Vector<System.Double> /*right*/),], Accessibility.Protected)
                 .WithMethod("GreaterThan", [typeof(System.Numerics.Vector<System.Int32> /*left*/), typeof(System.Numerics.Vector<System.Int32> /*right*/),], Accessibility.Protected)
@@ -1133,7 +1135,9 @@ public static class CasPolicyBuilderExtensions
                 .WithMethod("SquareRoot", Accessibility.Protected)
                 .WithMethod("Subtract", Accessibility.Protected)
                 .WithMethod("Sum", Accessibility.Protected)
+#if !NET10_0_OR_GREATER
                 .WithMethod("ToScalar", Accessibility.Protected)
+#endif
                 .WithMethod("Widen", [typeof(System.Numerics.Vector<System.Byte> /*source*/), typeof(System.Numerics.Vector<System.UInt16> /*low*/).MakeByRefType(), typeof(System.Numerics.Vector<System.UInt16> /*high*/).MakeByRefType(),], Accessibility.Protected)
                 .WithMethod("Widen", [typeof(System.Numerics.Vector<System.Int16> /*source*/), typeof(System.Numerics.Vector<System.Int32> /*low*/).MakeByRefType(), typeof(System.Numerics.Vector<System.Int32> /*high*/).MakeByRefType(),], Accessibility.Protected)
                 .WithMethod("Widen", [typeof(System.Numerics.Vector<System.Int32> /*source*/), typeof(System.Numerics.Vector<System.Int64> /*low*/).MakeByRefType(), typeof(System.Numerics.Vector<System.Int64> /*high*/).MakeByRefType(),], Accessibility.Protected)
@@ -1155,7 +1159,9 @@ public static class CasPolicyBuilderExtensions
                 .WithMethod("WidenUpper", [typeof(System.Numerics.Vector<System.Single> /*source*/),], Accessibility.Protected)
                 .WithMethod("WidenUpper", [typeof(System.Numerics.Vector<System.UInt16> /*source*/),], Accessibility.Protected)
                 .WithMethod("WidenUpper", [typeof(System.Numerics.Vector<System.UInt32> /*source*/),], Accessibility.Protected)
+#if !NET10_0_OR_GREATER
                 .WithMethod("WithElement", Accessibility.Protected)
+#endif
                 .WithMethod("Xor", Accessibility.Protected))
             .Allow(new TypeBinding(typeof(System.Numerics.TotalOrderIeee754Comparer<>), Accessibility.Protected))
             .Allow(new TypeBinding(typeof(System.Numerics.Vector<>), Accessibility.Protected))

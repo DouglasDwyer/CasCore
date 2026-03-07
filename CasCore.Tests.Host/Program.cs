@@ -22,8 +22,8 @@ internal class Program
             .Build();
 
         var loadContext = new CasAssemblyLoader(policy);
-        loadContext.LoadFromStream(new FileStream("Newtonsoft.Json.dll", FileMode.Open));
-        var testAssy = loadContext.LoadFromStream(new FileStream("CasCore.Tests.dll", FileMode.Open), new FileStream("CasCore.Tests.pdb", FileMode.Open));
+        loadContext.LoadFromStream(new FileStream(Path.Combine(AppContext.BaseDirectory, "Newtonsoft.Json.dll"), FileMode.Open));
+        var testAssy = loadContext.LoadFromStream(new FileStream(Path.Combine(AppContext.BaseDirectory, "CasCore.Tests.dll"), FileMode.Open), new FileStream(Path.Combine(AppContext.BaseDirectory, "CasCore.Tests.pdb"), FileMode.Open));
         testAssy.GetType("DouglasDwyer.CasCore.Tests.TestRunner")!.GetMethod("Run")!.Invoke(null, []);
     }
 }

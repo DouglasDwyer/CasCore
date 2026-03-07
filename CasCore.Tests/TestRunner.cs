@@ -53,6 +53,9 @@ public class TestRunner
         }
 
         Console.WriteLine($"Test results: {passedTests} passed, {totalTests - passedTests} failed, {totalTests} total");
-        Console.ReadKey();
+        if (!Console.IsInputRedirected)
+        {
+            Console.ReadKey();
+        }
     }
 }
