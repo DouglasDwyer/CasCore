@@ -151,14 +151,14 @@ public static class MethodShims
     {
         if (!typeof(T).IsPrimitive)
         {
-            var constructor = typeof(T).GetConstructor([]);
-
-            if (constructor is null)
+            if (typeof(T).GetConstructor([]) is ConstructorInfo constructor)
+            {
+                CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), null, constructor);
+            }
+            else if (!typeof(T).IsValueType)
             {
                 throw new MissingMethodException($"Cannot find default constructor for {typeof(T)}.");
             }
-
-            CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), null, constructor);
         }
 
         return Activator.CreateInstance<T>();
@@ -186,14 +186,14 @@ public static class MethodShims
         if (!type.IsPrimitive)
         {
             ArgumentNullException.ThrowIfNull(type);
-            var constructor = type.GetConstructor([]);
-
-            if (constructor is null)
+            if (type.GetConstructor([]) is ConstructorInfo constructor)
+            {
+                CasAssemblyLoader.CheckVirtualCall(assembly, null, constructor);
+            }
+            else if (!type.IsValueType)
             {
                 throw new MissingMethodException($"Cannot find default constructor for {type}.");
             }
-
-            CasAssemblyLoader.CheckVirtualCall(assembly, null, constructor);
         }
 
         return Activator.CreateInstance(type, nonPublic);

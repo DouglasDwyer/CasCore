@@ -39,7 +39,7 @@ internal class GuardExpressionVisitor : ExpressionVisitor
         }
         else
         {
-            return VisitBinary(node);
+            return base.VisitBinary(node);
         }
     }
 
@@ -93,11 +93,11 @@ internal class GuardExpressionVisitor : ExpressionVisitor
     {
         if (node.Object is null)
         {
-            return Expression.Call(Visit(node.Object), GuardMethodInfo.Create(_assembly, node.Method), Visit(node.Arguments));
+            return Expression.Call(GuardMethodInfo.Create(_assembly, node.Method), Visit(node.Arguments));
         }
         else
         {
-            return Expression.Call(GuardMethodInfo.Create(_assembly, node.Method), Visit(node.Arguments));
+            return Expression.Call(Visit(node.Object), GuardMethodInfo.Create(_assembly, node.Method), Visit(node.Arguments));
         }
     }
 

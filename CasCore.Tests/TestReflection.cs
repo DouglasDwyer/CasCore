@@ -131,4 +131,21 @@ public static class TestReflection
     {
         RuntimeHelpers.GetUninitializedObject(typeof(SharedClass));
     }
+
+    [TestSuccessful]
+    public static void TestCreateStructWithGenericActivator()
+    {
+        // Structs have an implicit parameterless constructor that does not appear in reflection.
+        // Activator.CreateInstance should succeed for structs even though GetConstructor([]) returns null.
+        Activator.CreateInstance<SimpleStruct>();
+    }
+
+    [TestSuccessful]
+    public static void TestCreateStructWithNonGenericActivator()
+    {
+        Activator.CreateInstance(typeof(SimpleStruct));
+    }
+
+    private struct SimpleStruct;
+
 }
