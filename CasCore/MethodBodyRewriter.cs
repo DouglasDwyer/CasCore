@@ -78,7 +78,7 @@ internal class MethodBodyRewriter
         _copyPosition = 0;
         _newPosition = 0;
 
-        Advance(false);
+        MoveNextInstruction(false);
     }
 
     /// <summary>
@@ -87,9 +87,18 @@ internal class MethodBodyRewriter
     /// <param name="addOriginal">Whether the original current instruction should be copied to the method's new body.</param>
     public void Advance(bool addOriginal)
     {
-        ProcessInstructionsToAdvance(addOriginal);
-        SetNextInstruction();
-        _newPosition = _newInstructions.Count;
+        if (addOriginal || !Method.DebugInformation.HasSequencePoints)
+        {
+            MoveNextInstruction(addOriginal);
+        }
+        else
+        {
+            // Preserve original instruction so that debug information remains
+            var branchTarget = Instruction.Create(OpCodes.Nop);
+            Insert(Instruction.Create(OpCodes.Br, branchTarget));
+            MoveNextInstruction(true);
+            Insert(branchTarget);
+        }
     }
 
     /// <summary>
@@ -149,6 +158,17 @@ internal class MethodBodyRewriter
         {
             return _offsetMap[instruction.Offset];
         }
+    }
+
+    /// <summary>
+    /// Copies instructions from the original method body to the new one, advancing the instruction cursor.
+    /// </summary>
+    /// <param name="addOriginal">Whether the original current instruction should be copied to the method's new body.</param>
+    private void MoveNextInstruction(bool addOriginal)
+    {
+        ProcessInstructionsToAdvance(addOriginal);
+        SetNextInstruction();
+        _newPosition = _newInstructions.Count;
     }
 
     /// <summary>
