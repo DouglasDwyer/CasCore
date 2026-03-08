@@ -7,6 +7,8 @@ public static class TestDelegateCreation
     delegate bool Harmless(object? lhs, object? rhs);
     delegate void FileWriteAllBytes(string name, byte[] contents);
 
+    static event Action? MyEvent;
+
     [TestException(typeof(SecurityException))]
     public static void TestWriteFile()
     {
@@ -19,6 +21,12 @@ public static class TestDelegateCreation
     {
         var deleg = (FileWriteAllBytes)Delegate.CreateDelegate(typeof(FileWriteAllBytes), typeof(File), "WriteAllBytes");
         deleg("hello.txt", [1, 2, 3]);
+    }
+
+    [TestSuccessful]
+    public static void TestEventSubscription()
+    {
+        MyEvent += () => { };
     }
 
     [TestSuccessful]
