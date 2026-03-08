@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Diagnostics;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Security;
 
@@ -106,7 +107,11 @@ internal class GuardExpressionVisitor : ExpressionVisitor
     {
         if (node.Constructor is null)
         {
-            throw new SecurityException("Compiling System.Linq.Expressions.NewExpression with null constructor not supported in CAS contexts.");
+            if (!node.Type.IsValueType)
+            {
+                throw new UnreachableException("NewExpression.Constructor is null for a non-value type.");
+            }
+            return node;
         }
         else if (node.Members is null)
         {

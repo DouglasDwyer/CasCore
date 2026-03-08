@@ -30,6 +30,34 @@ public static class TestExpressionVisitor
         lambda.Compile()();
     }
 
+    [TestSuccessful]
+    public static void TestNewExpressionNullConstructorValueType()
+    {
+        // Value types have no ConstructorInfo for their implicit parameterless initializer,
+        // so Expression.New(valueType).Constructor is null. This should be allowed.
+        var newExpr = Expression.New(typeof(int));
+        var lambda = Expression.Lambda<Func<int>>(newExpr);
+        lambda.Compile()();
+    }
+
+    [TestSuccessful]
+    public static void TestNewExpressionAllowedConstructor()
+    {
+        var ctor = typeof(SharedClass).GetConstructor([])!;
+        var newExpr = Expression.New(ctor);
+        var lambda = Expression.Lambda<Func<SharedClass>>(newExpr);
+        lambda.Compile()();
+    }
+
+    [TestException(typeof(SecurityException))]
+    public static void TestNewExpressionDeniedConstructor()
+    {
+        var ctor = typeof(SharedClass).GetConstructor([typeof(string)])!;
+        var newExpr = Expression.New(ctor, Expression.Constant("denied"));
+        var lambda = Expression.Lambda<Func<SharedClass>>(newExpr);
+        lambda.Compile()();
+    }
+
     [TestException(typeof(SecurityException))]
     public static void TestBinaryExpressionDeniedOperand()
     {
