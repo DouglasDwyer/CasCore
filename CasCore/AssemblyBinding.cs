@@ -25,7 +25,7 @@ public sealed class AssemblyBinding : IEnumerable<MemberInfo>
 
         if (Accessibility.None < accessibility)
         {
-            foreach (var type in assembly.DefinedTypes
+            foreach (var type in GetLoadableDefinedTypes(assembly)
                 .Where(x => !x.IsNested))
             {
                 members.UnionWith(new TypeBinding(type, AccessibilityForType(type, accessibility)));
@@ -74,6 +74,24 @@ public sealed class AssemblyBinding : IEnumerable<MemberInfo>
         else
         {
             return parentAccessibility;
+        }
+    }
+
+    /// <summary>
+    /// Gets an iterator over all items in the <see cref="Assembly.DefinedTypes"/>
+    /// list, ignoring any that cannot be loaded. 
+    /// </summary>
+    /// <param name="assembly">The assembly to query.</param>
+    /// <returns>An iterator over the types.</returns>
+    private static IEnumerable<Type> GetLoadableDefinedTypes(Assembly assembly)
+    {
+        try
+        {
+            return assembly.DefinedTypes;
+        }
+        catch (ReflectionTypeLoadException e)
+        {
+            return e.Types.Where(t => t != null).Cast<Type>();
         }
     }
 }
