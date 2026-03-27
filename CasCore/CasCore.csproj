@@ -10,8 +10,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
 
-	  <PackageId>DouglasDwyer.$(AssemblyName)</PackageId>
-	  <Title>DouglasDwyer.$(AssemblyName)</Title>
+    <AssemblyName>DouglasDwyer.CasCore</AssemblyName>
+	  <PackageId>$(AssemblyName)</PackageId>
+	  <Title>$(AssemblyName)</Title>
 	  <Authors>DouglasDwyer</Authors>
 	  <Company />
 	  <Product>DouglasDwyer.$(AssemblyName)</Product>
@@ -19,9 +20,9 @@
 	  <RepositoryUrl>https://github.com/DouglasDwyer/CasCore</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageTags>cas;untrusted;runtime;security;cecil;cil;msil;verification;verify;assembly;sandboxing;loading;reflection</PackageTags>
-	  <Version>0.2.2</Version>
-	  <AssemblyVersion>0.2.2</AssemblyVersion>
-	  <FileVersion>0.2.2</FileVersion>
+	  <AssemblyVersion>0.3.0</AssemblyVersion>
+    <Version>$(AssemblyVersion)</Version>
+	  <FileVersion>$(AssemblyVersion)</FileVersion>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
