@@ -332,7 +332,7 @@ public static class MethodShims
 
     public static void SetValue(PropertyInfo target, object? obj, object? value, BindingFlags invokeAttr, Binder? binder, object?[]? index, CultureInfo? culture)
     {
-        var setMethod = target.GetGetMethod();
+        var setMethod = target.GetSetMethod();
         ArgumentNullException.ThrowIfNull(setMethod);
         CasAssemblyLoader.CheckVirtualCall(Assembly.GetCallingAssembly(), obj, setMethod);
         target.SetValue(obj, value, invokeAttr, binder, index, culture);

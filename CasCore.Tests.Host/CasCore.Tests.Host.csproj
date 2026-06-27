@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net10.0;net9.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net10.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -10,7 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CasCore.Tests.Shared\CasCore.Tests.Shared.csproj" />
-    <ProjectReference Include="..\CasCore.Tests\CasCore.Tests.csproj" />
+    <ProjectReference Include="..\CasCore.Tests.Cil\CasCore.Tests.Cil.ilproj" />
+    <ProjectReference Include="..\CasCore.Tests.Csharp\CasCore.Tests.Csharp.csproj" />
     <ProjectReference Include="..\CasCore\CasCore.csproj" />
   </ItemGroup>
 

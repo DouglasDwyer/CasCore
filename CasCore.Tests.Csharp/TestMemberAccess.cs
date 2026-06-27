@@ -1,7 +1,7 @@
 ﻿using DouglasDwyer.CasCore.Tests.Shared;
 using System.Security;
 
-namespace DouglasDwyer.CasCore.Tests;
+namespace DouglasDwyer.CasCore.Tests.Csharp;
 
 public static class TestMemberAccess
 {

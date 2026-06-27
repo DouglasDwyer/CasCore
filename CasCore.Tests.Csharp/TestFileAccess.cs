@@ -2,7 +2,7 @@
 using System.Security;
 using System.Text;
 
-namespace DouglasDwyer.CasCore.Tests;
+namespace DouglasDwyer.CasCore.Tests.Csharp;
 
 public static class TestFileAccess
 {

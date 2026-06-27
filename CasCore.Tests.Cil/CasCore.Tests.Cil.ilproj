@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk.IL/10.0.9">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0</TargetFrameworks>
+  </PropertyGroup>
+</Project>

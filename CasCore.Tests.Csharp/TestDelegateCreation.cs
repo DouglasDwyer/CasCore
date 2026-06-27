@@ -1,6 +1,7 @@
 ﻿using System.Security;
+using DouglasDwyer.CasCore.Tests.Shared;
 
-namespace DouglasDwyer.CasCore.Tests;
+namespace DouglasDwyer.CasCore.Tests.Csharp;
 
 public static class TestDelegateCreation
 {
@@ -27,6 +28,15 @@ public static class TestDelegateCreation
     public static void TestEventSubscription()
     {
         MyEvent += () => { };
+        MyEvent();
+    }
+
+    [TestException(typeof(SecurityException))]
+    public static void TestDeniedVirtualMethodDelegate()
+    {
+        var obj = new SharedClass();
+        var del = new Action(obj.VirtualMethod);
+        del();
     }
 
     [TestSuccessful]

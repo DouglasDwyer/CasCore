@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Security;
 
-namespace DouglasDwyer.CasCore.Tests;
+namespace DouglasDwyer.CasCore.Tests.Csharp;
 
 public static class TestUnsafeAccessors
 {

@@ -18,6 +18,8 @@ public class SharedClass : ISharedInterface
 
     public virtual void VirtualMethod() { }
 
+    public static void DeniedStaticMethod() { }
+
     public T InterfaceMethod<T>(T input)
     {
         return input;

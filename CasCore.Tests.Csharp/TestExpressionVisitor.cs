@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 using System.Security;
 using DouglasDwyer.CasCore.Tests.Shared;
 
-namespace DouglasDwyer.CasCore.Tests;
+namespace DouglasDwyer.CasCore.Tests.Csharp;
 
 public static class TestExpressionVisitor
 {

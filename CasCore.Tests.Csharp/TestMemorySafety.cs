@@ -3,11 +3,11 @@ using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Security;
 
-namespace DouglasDwyer.CasCore.Tests;
+namespace DouglasDwyer.CasCore.Tests.Csharp;
 
 public static class TestMemorySafety
 {
-    [TestException(typeof(TypeInitializationException))]
+    [TestException(typeof(BadImageFormatException))]
     public static unsafe int TestInvalidPointerWrite()
     {
         var x = 1;
@@ -16,7 +16,7 @@ public static class TestMemorySafety
         return x;
     }
 
-    [TestException(typeof(TypeInitializationException))]
+    [TestException(typeof(BadImageFormatException))]
     public static unsafe int TestInvalidPointerRead()
     {
         var x = 1;
@@ -25,7 +25,7 @@ public static class TestMemorySafety
         return z;
     }
 
-    [TestException(typeof(TypeInitializationException))]
+    [TestException(typeof(BadImageFormatException))]
     public static unsafe int* TestInvalidStackalloc()
     {
         var data = stackalloc int[28];
