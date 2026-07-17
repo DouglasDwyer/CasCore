@@ -2,3 +2,6 @@ bin/
 obj/
 .claude
 .vs
+docs/_site/
+docs/api/
+docs/.cache/
