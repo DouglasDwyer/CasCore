@@ -5,7 +5,7 @@
         {
           "src": "../CasCore",
           "files": [
-            "CasCore/CasCore.csproj"
+            "CasCore.csproj"
           ]
         }
       ],
@@ -19,7 +19,7 @@
           "**/*.{md,yml}"
         ],
         "exclude": [
-          "docs/**"
+          "_site/**"
         ]
       }
     ],
@@ -30,7 +30,7 @@
         ]
       }
     ],
-    "output": "docs",
+    "output": "_site",
     "template": [
       "default",
       "material/material"
