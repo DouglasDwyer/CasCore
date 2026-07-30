@@ -15,17 +15,7 @@
     <ProjectReference Include="..\CasCore\CasCore.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <!-- The net6.0 build of Newtonsoft.Json, which (unlike the netstandard2.0 build referenced above)
-         uses System.Reflection.Emit for dynamic code generation unless RuntimeFeature.IsDynamicCodeSupported
-         reports false. Loaded by file path at runtime to verify this build is also sandboxable. -->
-    <None Include="Newtonsoft.Json.Modern.dll" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
+  <!-- Newtonsoft.Json.dll is pulled in transitively via the PackageReference on CasCore.Tests.Csharp
+       and copied to this project's output directory, so it can be loaded by file path at runtime. -->
 
 </Project>
