@@ -1,4 +1,4 @@
-﻿namespace DouglasDwyer.CasCore.Tests.Host;
+namespace DouglasDwyer.CasCore.Tests.Host;
 
 using DouglasDwyer.CasCore;
 using DouglasDwyer.CasCore.Tests.Shared;

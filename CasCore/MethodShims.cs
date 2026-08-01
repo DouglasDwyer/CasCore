@@ -69,6 +69,22 @@ public static class MethodShims
             .Compile(true);
     }
 
+    /** System.Runtime.CompilerServices.RuntimeFeature shims **/
+
+    [StaticShim(typeof(RuntimeFeature))]
+    public static bool get_IsDynamicCodeSupported() => false;
+
+    [StaticShim(typeof(RuntimeFeature))]
+    public static bool get_IsDynamicCodeCompiled() => false;
+
+    [StaticShim(typeof(RuntimeFeature))]
+    public static bool IsSupported(string feature) => feature switch
+    {
+        nameof(RuntimeFeature.IsDynamicCodeSupported) => false,
+        nameof(RuntimeFeature.IsDynamicCodeCompiled) => false,
+        _ => RuntimeFeature.IsSupported(feature)
+    };
+
     /** System.Delegate shims **/
 
     [StaticShim(typeof(Delegate))]
