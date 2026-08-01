@@ -62,7 +62,7 @@ var assembly = loadContext.LoadFromAssemblyPath("Newtonsoft.Json.dll");
 - Access other OS-specific resources (such as processes or pipes)
 - Allow for loading other code without verification (such as `System.Reflection.Emit`)
 
-The `WithDefaultSandbox` method should provide a sensible default whitelist that ensures any loaded assemblies cannot gain access to the host system. Testing reveals that `Newtonsoft.Json` is able to run with the default sandbox policy, so it should be fairly comprehensive. (On modern target frameworks, `Newtonsoft.Json` checks [`RuntimeFeature.IsDynamicCodeSupported`](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.runtimefeature.isdynamiccodesupported) to decide whether to generate accessors with `System.Reflection.Emit`; `CasCore` shims this property to report `false` for sandboxed assemblies, so `Newtonsoft.Json` falls back to plain reflection instead.)
+The `WithDefaultSandbox` method should provide a sensible default whitelist that ensures any loaded assemblies cannot gain access to the host system. Testing reveals that `Newtonsoft.Json` is able to run with the default sandbox policy, so it should be fairly comprehensive.
 
 ### How it works
 

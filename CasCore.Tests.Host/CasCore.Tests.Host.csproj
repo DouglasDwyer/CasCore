@@ -15,7 +15,4 @@
     <ProjectReference Include="..\CasCore\CasCore.csproj" />
   </ItemGroup>
 
-  <!-- Newtonsoft.Json.dll is pulled in transitively via the PackageReference on CasCore.Tests.Csharp
-       and copied to this project's output directory, so it can be loaded by file path at runtime. -->
-
 </Project>
