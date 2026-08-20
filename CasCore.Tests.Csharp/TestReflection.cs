@@ -148,4 +148,24 @@ public static class TestReflection
 
     private struct SimpleStruct;
 
+    // Activator.CreateInstance(Type, object?[]?) itself has a MethodShims replacement.
+    // Reflectively invoking a MethodInfo for it routes through MethodShims.Invoke's
+    // shim-of-a-shim path (MethodShims.cs ~line 358), which re-dispatches via
+    // MethodInfo.Invoke instead of a direct call. The nested Assembly.GetCallingAssembly()
+    // call inside the target shim then resolves to CasCore itself rather than the
+    // sandboxed caller, so CasAssemblyLoader.CanCall finds no policy for CasCore and
+    // throws InvalidOperationException instead of enforcing (or granting) the real policy.
+    [TestException(typeof(SecurityException))]
+    public static void TestAccessDeniedCreateInstanceViaInvoke()
+    {
+        var createInstanceMethod = typeof(Activator).GetMethod(nameof(Activator.CreateInstance), [typeof(Type), typeof(object[])])!;
+        createInstanceMethod.Invoke(null, [typeof(SharedClass), new object[] { "test" }]);
+    }
+
+    [TestSuccessful]
+    public static void TestAccessAllowedCreateInstanceViaInvoke()
+    {
+        var createInstanceMethod = typeof(Activator).GetMethod(nameof(Activator.CreateInstance), [typeof(Type), typeof(object[])])!;
+        createInstanceMethod.Invoke(null, [typeof(SharedClass), Array.Empty<object>()]);
+    }
 }
