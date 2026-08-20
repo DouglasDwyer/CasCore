@@ -27,7 +27,7 @@ public sealed class CasPolicyBuilder
     /// <returns>The policy that was generated.</returns>
     public CasPolicy Build()
     {
-        return new CasPolicy(_accessibleMembers.ToImmutableHashSet());
+        return new CasPolicy(_accessibleMembers.ToImmutableHashSet(), []);
     }
 
     /// <summary>
